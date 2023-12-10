@@ -1,25 +1,48 @@
-import { Input } from "./Input";
+import { Link } from "react-router-dom";
+import { FullButton } from "./FullButton";
+import Input from "./Input";
 
 function Login() {
   return (
-    <div className="flex h-full flex-col items-center justify-center">
-      <div className="flex w-full flex-col gap-8 p-40">
-        <h1 className=" text-6xl font-medium">Sign in</h1>
-        <Input text="Email" type="email" placeholder="Email" />
-        <div className="relative">
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        className="pl-10 pr-4 py-2 w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500"
-                    />
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                        
-                    </div>
-                </div>
-      </div>
-    </div>
+    <container className="no-scrollbar md:px-18 flex h-screen w-full flex-col gap-3 overflow-y-auto px-20 pt-20 sm:pl-12 lg:px-28">
+      <Link
+        to={"/"}
+        className="mb-6 w-full text-left text-5xl font-extrabold text-primary"
+      >
+        SiteLogo
+      </Link>
+      <h1 className="text-center text-6xl font-medium">Sign in</h1>
+      <Input text="Email" type="email" />
+      <Input text="Password" type="password" />
+      <Link
+        to={"/auth/forgot-password"}
+        className="mb-[-14px] ml-1 mt-[-8px] cursor-pointer text-left font-bold text-primary"
+      >
+        Forgot Password?
+      </Link>
+      <FullButton text="Sign in" />
+      <h2 className="text-center text-lg">
+        Don't have an account? &nbsp;
+        <Link
+          to={"/auth/register"}
+          className=" cursor-pointer font-bold text-primary"
+        >
+          Sign up
+        </Link>
+      </h2>
+      <Separator />
+    </container>
   );
 }
 
 export default Login;
-//<h1 class="text-5xl p-4 text-center font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">A Guide to Adding Gradients with Tailwind CSS</h1>
+
+function Separator() {
+  return (
+    <div className="flex flex-row items-center">
+      <hr className="h-[2px] w-1/2 bg-gray-300" />
+      <span className=" mx-1 text-lg font-semibold">OR</span>
+      <hr className="h-[2px] w-1/2 bg-gray-300" />
+    </div>
+  );
+}

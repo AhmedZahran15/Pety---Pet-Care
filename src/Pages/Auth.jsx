@@ -2,16 +2,15 @@ import { Outlet } from "react-router-dom";
 
 function Auth() {
   return (
-    <div className="flex flex-row overflow-hidden">
-      <div className="w-full md:w-7/12">
+    <div className="flex h-screen flex-row overflow-hidden">
+      <container className="w-full md:w-6/12">
         <Outlet />
-      </div>
-      <div className="w-5/12 h-screen hidden sm:block"
-      style={{ background: 'linear-gradient(280deg, #007175, #007175 82%, white 83%, white)' }}>
+      </container>
+      <div className="hidden h-screen w-6/12 bg-primary clip-path-auth sm:block ">
         <img
           src="/images/1.png"
           alt="cat"
-          className=" h-full min-w-fit  relative left-[-180px]"
+          className=" relative hidden h-full min-w-fit md:left-[100px] md:block "
         />
       </div>
     </div>

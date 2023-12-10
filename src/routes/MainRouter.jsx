@@ -10,13 +10,13 @@ import Auth from "../Pages/Auth";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Navbar from "../components/Navbar";
-
+import ForgotPassword from "../components/ForgotPassword";
 
 const NavLayout = () => {
   return (
-    <div className="h-screen w-full max-w-screen-2xl mx-auto">
+    <div className="mx-auto h-screen w-full max-w-screen-2xl">
       {/* <AuthChecker />*/}
-      <Navbar /> 
+      <Navbar />
       <Outlet />
     </div>
   );
@@ -28,11 +28,13 @@ function MainRouter() {
         <Route path="/" element={<NavLayout />}>
           <Route index element={<HomePage />} />
         </Route>
-          <Route path="auth" element={<Auth />}>
+        <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+        </Route>
+        <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>
     </Router>
   );

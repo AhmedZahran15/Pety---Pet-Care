@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-400 flex items-center justify-between flex-wrap bg-blue p-6">
+    <nav className="bg-slate-700 flex items-center justify-between flex-wrap bg-blue p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <span className="font-semibold text-xl tracking-tight">My App</span>
       </div>

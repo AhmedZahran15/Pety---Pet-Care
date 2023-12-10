@@ -4,9 +4,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#007175',
+        'primary': '#00777B',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.clip-path-auth': {
+          clipPath: 'polygon(34% 0, 100% 0, 100% 100%, 0% 100%)',
+        },
+        '.no-scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '.no-scrollbar': {
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
+        },
+      }
+
+      addUtilities(newUtilities, ['responsive'])
+    }
+  ],
 };
