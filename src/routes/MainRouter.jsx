@@ -11,13 +11,18 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Navbar from "../components/Navbar";
 import ForgotPassword from "../components/ForgotPassword";
-
+import Test from "../components/Test";
+import Navbartest from "../components/navbartest";
 const NavLayout = () => {
   return (
     <div className="mx-auto h-screen w-full max-w-screen-2xl">
       {/* <AuthChecker />*/}
-      <Navbar />
+    
+
+<Navbar />  
+     <Navbartest />
       <Outlet />
+
     </div>
   );
 };
