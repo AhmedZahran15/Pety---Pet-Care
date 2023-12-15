@@ -4,28 +4,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#00777B'      },
-      backgroundImage: {
-        
-      }
+        primary: "#00777B",
+        secondary: "#FFA500",
+      },
+      height: {
+        screen: '100dvh',
+      },
     },
   },
   plugins: [
-    function({ addUtilities }) {
+    function ({ addUtilities }) {
       const newUtilities = {
-        '.clip-path-auth': {
-          clipPath: 'polygon(34% 0, 100% 0, 100% 100%, 0% 100%)',
+        ".clip-path-auth": {
+          clipPath: "polygon(34% 0, 100% 0, 100% 100%, 0% 100%)",
         },
-        '.no-scrollbar::-webkit-scrollbar': {
-          display: 'none',
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
         },
-        '.no-scrollbar': {
-          msOverflowStyle: 'none',
-          scrollbarWidth: 'none',
+        ".no-scrollbar": {
+          msOverflowStyle: "none",
+          scrollbarWidth: "none",
         },
-      }
+      };
 
-      addUtilities(newUtilities, ['responsive'])
-    }
+      addUtilities(newUtilities, ["responsive"]);
+    },
   ],
 };

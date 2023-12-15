@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SignupSection = () => {
   return (
     <div className="flex  justify-around  mx-20 my-8 ">

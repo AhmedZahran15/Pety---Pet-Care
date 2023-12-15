@@ -9,20 +9,15 @@ import HomePage from "../Pages/HomePage";
 import Auth from "../Pages/Auth";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import Navbar from "../components/Navbar";
 import ForgotPassword from "../components/ForgotPassword";
-import Test from "../components/Test";
-import Navbartest from "../components/navbartest";
+import Navbar from "../components/Navbar";
 const NavLayout = () => {
   return (
     <div className="mx-auto h-screen w-full max-w-screen-2xl">
       {/* <AuthChecker />*/}
-    
 
-<Navbar />  
-     <Navbartest />
+      <Navbar />
       <Outlet />
-
     </div>
   );
 };
