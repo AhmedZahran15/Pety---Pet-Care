@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
-    <div className="bg-hero-bg mt-[75px] flex h-[105dvh] items-center justify-center overflow-hidden bg-[url('images/homepage/herobackground.png')] bg-cover bg-bottom bg-no-repeat md:justify-between  ">
+    <div className="bg-hero-bg pt-[75px] flex h-[116dvh] items-center justify-center overflow-hidden bg-[url('images/homepage/herobackground.png')] bg-cover bg-bottom bg-no-repeat md:justify-between  ">
       <img
         className="hidden w-[37dvw] md:mt-[-35px] md:block "
         src="images/homepage/cat in blob 1 1.png"
@@ -12,7 +12,7 @@ const HeroSection = () => {
         <div className="font-product-sans text-6xl font-bold text-[#18191A] ">
           HEALTH <span className="text-secondary">CARE</span> FOR YOUR PET
         </div>
-        <div className=" font-product-sans text-2xl font-normal text-gray-700">
+        <div className=" font-product-sans text-2xl font-normal text-gray-600">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit porro
           nostrum commodi quidem esse et facere doloribus corrupti veritatis
           repellat, labore consequuntur sapiente, sunt perspiciatis iure
