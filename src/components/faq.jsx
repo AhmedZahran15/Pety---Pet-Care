@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect }  from 'react'
+import { useState, useRef, useEffect } from "react";
 
-
-export default function faq({ qs, answ,answcolor,href }) {
+export default function Faq({ qs, answ, answcolor, href }) {
   const [active, setActive] = useState(false);
 
   const contentRef = useRef(null);
@@ -18,33 +17,37 @@ export default function faq({ qs, answ,answcolor,href }) {
   return (
     <>
       <div className="App">
-        <div className=' mb-10 mx-10'>
+        <div className=" mx-10 mb-10">
           <button
-            className={` flex w-full bg-transparent border-t-4 border-{#6E6E6E} } ${active}`}
+            className={` border-{#6E6E6E} } flex w-full border-t-4 bg-transparent ${active}`}
             onClick={toggleAccordion}
           >
             <div>
               <div className=" flex text-left  ">
-                <h4 className=" text-primary text-2xl font-bold font-['Product
-Sans'] ">
-                {qs}
+                <h4 className=" font-['Product Sans'] text-2xl font-bold text-primary ">
+                  {qs}
                 </h4>
-                <div >
-             {active ? <img src="/images/homepage/openfaq.svg"/>: <img src="/images/homepage/closedfaq.svg"/>}
-  
-     </div>
+                <div>
+                  {active ? (
+                    <img src="/images/homepage/openfaq.svg" />
+                  ) : (
+                    <img src="/images/homepage/closedfaq.svg" />
+                  )}
+                </div>
               </div>
-  
             </div>
           </button>
           <div
-                ref={contentRef}
-                className=' transition-all duration-400  overflow-hidden flex text-left'
-              >
-                <p className='text-[#18191A] text-xl font-light font-["Product
-Sans
-Light"]'>{answ} <a className='text-primary text-xl font-normal' href={href}  >{answcolor}</a></p>
-              </div>
+            ref={contentRef}
+            className=" duration-400 flex  overflow-hidden text-left transition-all"
+          >
+            <p className='font-["Product Sans Light"] text-xl font-light text-[#18191A]'>
+              {answ}
+              <a className="text-xl font-normal text-primary" href={href}>
+                {answcolor}
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </>
