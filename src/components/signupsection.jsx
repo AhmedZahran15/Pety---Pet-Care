@@ -1,28 +1,25 @@
-const SignupSection = () => {
+const SignUpSection = () => {
   return (
-    <div className="flex  justify-around  mx-20 my-8 ">
+    <div className="mx-12 mb-10 flex items-center justify-around gap-10 px-8 lg:gap-0">
+      <div className="flex w-full flex-col gap-4 md:w-5/12 ">
+        <span className="text-4xl font-bold md:text-6xl">
+          WHO SHOULD USE PETY?
+        </span>
+        <span className="text-3xl font-normal text-gray-600 md:text-4xl">
+          Lorem ipsum dolor sit amet
+        </span>
+        <button className="my-6 max-w-fit  rounded-full bg-primary px-10 py-3 text-center  text-3xl font-bold tracking-wide text-white transition-all duration-300 hover:bg-[#015d61]">
+          SIGN UP
+        </button>
+      </div>
 
-
-
-   <div className='flex-col gap-4  flex w-5/12  mr-[-150px] '>
-   <span className="text-black text-6xl font-bold font-['Product Sans']">
-   WHO SHOULD USE PETY?
-   </span>
-   <span className="text-black text-6xl font-normal font-['Product Sans']">
-   Lorem ipsum dolor sit amet 
-   </span>
-<div>
-<button className=" hover:bg-teal-800 transition-all duration-300 bg-[#00777B]  rounded-xl py-3 px-4  tracking-wide text-center text-white text-3xl font-bold font-['Roboto Flex']">
-SIGN UP
-</button>
-</div>
-   </div>
-
-
-   <img className="hidden sm:flex w-4/12 " src="public/images/homepage/Vector 3.png" alt="cat" />
-
+      <img
+        className="hidden max-w-sm md:block xl:max-w-fit"
+        src="/images/homepage/Vector 3.png"
+        alt="dog"
+      />
     </div>
   );
 };
 
-export default SignupSection;
+export default SignUpSection;

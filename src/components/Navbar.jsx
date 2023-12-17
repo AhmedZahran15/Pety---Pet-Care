@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav
-      className="fixed flex w-full flex-row items-center bg-[#E3F0F1] py-2 sm:justify-around 
+      className="fixed flex w-full flex-row items-center bg-[#7ad1d7] py-2 sm:justify-around 
     "
     >
       <Link
