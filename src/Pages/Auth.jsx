@@ -6,7 +6,7 @@ function Auth() {
       <container className="w-full md:w-6/12">
         <Outlet />
       </container>
-      <div className="hidden h-screen w-6/12 bg-[primary] clip-path-auth sm:block ">
+      <div className="hidden h-screen w-6/12 bg-primary clip-path-auth sm:block ">
         <img
           src="/images/1.png"
           alt="cat"

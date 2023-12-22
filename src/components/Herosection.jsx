@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
-    <div className="flex h-[116dvh] items-center justify-center overflow-hidden bg-[#7ad1d7]  bg-cover bg-bottom bg-no-repeat pt-[75px] md:justify-between  ">
+    <div className="flex h-[105dvh] items-center justify-center overflow-hidden bg-[url('/images/homepage/herobackground.png')]  bg-cover bg-center md:bg-bottom bg-no-repeat  md:justify-between  ">
       <img
         className="hidden w-[37dvw] md:mt-[-35px] md:block "
         src="images/homepage/cat in blob 1 1.png"
