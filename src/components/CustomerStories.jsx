@@ -22,7 +22,7 @@ const CustomerStories = () => {
         />
       </div>
 
-      <button className="w-80 self-center rounded-xl bg-primary px-10 py-5 text-center text-3xl font-bold text-white transition-all hover:bg-[#015d61]">
+      <button className="self-center rounded-full bg-primary px-20 py-3 text-center text-3xl font-bold text-white transition-all hover:bg-[#015d61]">
         Read More
       </button>
     </div>

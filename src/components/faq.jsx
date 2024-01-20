@@ -1,55 +1,50 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import ArrowSvg from "../../public/images/homepage/ArrowSvg";
+const faqs = [
+  {
+    title: "Where are these chairs assembled?",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, quaerat temporibus quas dolore provident nisi ut aliquid ratione beatae sequi aspernatur veniam repellendus.",
+  },
+  {
+    title: "How long do I have to return my chair?",
+    text: "Pariatur recusandae dignissimos fuga voluptas unde optio nesciunt commodi beatae, explicabo natus.",
+  },
+  {
+    title: "Do you ship to countries outside the EU?",
+    text: "Excepturi velit laborum, perspiciatis nemo perferendis reiciendis aliquam possimus dolor sed! Dolore laborum ducimus veritatis facere molestias!",
+  },
+];
 
-export default function Faq({ qs, answ, answcolor, href }) {
-  const [active, setActive] = useState(false);
-
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    contentRef.current.style.maxHeight = active
-      ? `${contentRef.current.scrollHeight}px`
-      : "0px";
-  }, [contentRef, active]);
-
-  const toggleAccordion = () => {
-    setActive(!active);
-  };
+export default function FAQ() {
+  const [isOpen, setIsOpen] = useState(null);
+  function toggle(index) {
+    setIsOpen((prev) => (index === prev ? null : index));
+  }
   return (
-    <>
-      <div className="App">
-        <div className=" mx-10 mb-10">
-          <button
-            className={` border-{#6E6E6E} } flex w-full border-t-4 bg-transparent ${active}`}
-            onClick={toggleAccordion}
-          >
-            <div>
-              <div className=" flex text-left  ">
-                <h4 className=" font-['Product Sans'] text-2xl font-bold text-primary ">
-                  {qs}
-                </h4>
-                <div>
-                  {active ? (
-                    <img src="/images/homepage/openfaq.svg" />
-                  ) : (
-                    <img src="/images/homepage/closedfaq.svg" />
-                  )}
-                </div>
-              </div>
+    <div className="mx-24 mt-12 space-y-2">
+      {faqs.map((item, index) => (
+        <AccordionItem key={index} item={item} index={index} toggle={toggle}>
+          {isOpen === index ? (
+            <div className="">
+              <p>{item.text}</p>
             </div>
-          </button>
-          <div
-            ref={contentRef}
-            className=" duration-400 flex  overflow-hidden text-left transition-all"
-          >
-            <p className='font-["Product Sans Light"] text-xl font-light text-[#18191A]'>
-              {answ}
-              <a className="text-xl font-normal text-primary" href={href}>
-                {answcolor}
-              </a>
-            </p>
-          </div>
-        </div>
+          ) : null}
+        </AccordionItem>
+      ))}
+    </div>
+  );
+}
+function AccordionItem({ item, index, toggle, children }) {
+  return (
+    <div
+      className={`${children ? "open" : ""} cursor-pointer`}
+      onClick={() => toggle(index)}
+    >
+      <div className="flex items-center justify-between">
+        <span className="text-xl">{item.title}</span>
+        {children ? <ArrowSvg direction="up" color="#00777B" /> : <ArrowSvg />}
       </div>
-    </>
+      {children}
+    </div>
   );
 }
