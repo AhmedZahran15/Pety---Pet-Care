@@ -21,28 +21,39 @@ export default function FAQ() {
     setIsOpen((prev) => (index === prev ? null : index));
   }
   return (
-    <div className="mx-24 mt-12 space-y-2">
+    <div className="mx-32 mt-12">
+      <h1 className="mb-6 text-center text-5xl font-bold uppercase">
+        Frequently Asked Questions
+      </h1>
       {faqs.map((item, index) => (
-        <AccordionItem key={index} item={item} index={index} toggle={toggle}>
-          {isOpen === index ? (
-            <div className="">
-              <p>{item.text}</p>
-            </div>
-          ) : null}
+        <AccordionItem
+          key={index}
+          isOpen={isOpen}
+          item={item}
+          index={index}
+          toggle={toggle}
+        >
+          <div
+            className={`overflow-hidden transition-all duration-200 ${
+              isOpen === index ? "max-h-48 ease-in-out" : "max-h-0"
+            }`}
+          >
+            <p>{item.text}</p>
+          </div>
         </AccordionItem>
       ))}
     </div>
   );
 }
-function AccordionItem({ item, index, toggle, children }) {
+function AccordionItem({ item, index, isOpen, toggle, children }) {
   return (
     <div
-      className={`${children ? "open" : ""} cursor-pointer`}
+      className={`cursor-pointer border-b-[3px] px-2 py-4 text-xl`}
       onClick={() => toggle(index)}
     >
       <div className="flex items-center justify-between">
-        <span className="text-xl">{item.title}</span>
-        {children ? <ArrowSvg direction="up" color="#00777B" /> : <ArrowSvg />}
+        <span className="text-xl font-bold text-primary">{item.title}</span>
+        {isOpen === index ? <ArrowSvg direction="up" /> : <ArrowSvg />}
       </div>
       {children}
     </div>

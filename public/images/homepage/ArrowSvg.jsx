@@ -1,9 +1,9 @@
-function ArrowSvg({ color = "#000000", direction }) {
+function ArrowSvg({ color = "#00777B", direction }) {
   return (
     <div
       className={`${
         direction === "up" ? "rotate-180" : ""
-      } transition-all duration-1000`}
+      } duration-800 transition-all`}
     >
       <svg
         fill={`${color}`}
