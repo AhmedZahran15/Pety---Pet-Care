@@ -21,7 +21,7 @@ export default function FAQ() {
     setIsOpen((prev) => (index === prev ? null : index));
   }
   return (
-    <div className="lg:mx-32 md:mx-16 mt-12 mx-10">
+    <div className="mx-10 mt-12 md:mx-16 lg:mx-32">
       <h1 className="mb-6 text-center text-5xl font-bold uppercase">
         Frequently Asked Questions
       </h1>
