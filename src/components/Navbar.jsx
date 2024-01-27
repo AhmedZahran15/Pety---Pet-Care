@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <SideMenuProvider>
       <nav
-        className="flex w-full flex-row items-center justify-between bg-[#E3F0F1] py-2 lg:justify-around
+        className="flex w-full flex-row items-center justify-between bg-[#E3F0F1] lg:justify-around
     "
       >
         <Link

@@ -39,7 +39,7 @@ export const SideMenu = () => {
         </li>
       </ul>
       <Link
-        className="font-['Roboto Flex']  rounded-3xl px-6 py-1.5 text-xl font-bold text-black outline outline-primary transition-all duration-300 hover:bg-teal-700"
+        className="w-32 rounded-3xl bg-[#E3F0F1] px-2 py-1.5 text-center text-xl font-bold text-secondary transition-all duration-100  hover:bg-gray-300"
         to="auth/login"
       >
         Login
