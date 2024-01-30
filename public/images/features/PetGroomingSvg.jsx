@@ -7,9 +7,9 @@ function PetGroomingSvg({ color = "#000000" }) {
     <svg
       enableBackground="new 0 0 64 64"
       fill={color}
-      height="128"
+      height="75"
       viewBox="0 0 64 64"
-      width="128"
+      width="75"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>

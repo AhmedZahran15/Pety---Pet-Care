@@ -22,7 +22,8 @@ export default function FAQ() {
   }
   return (
     <div className="mx-10 mt-12 md:mx-16 lg:mx-32">
-      <h1 className="mb-6 text-center text-5xl font-bold uppercase">
+      <h1 className="mb-6 text-center text-5xl  font-['Fredoka']
+ font-bold uppercase">
         Frequently Asked Questions
       </h1>
       {faqs.map((item, index) => (
@@ -48,11 +49,13 @@ export default function FAQ() {
 function AccordionItem({ item, index, isOpen, toggle, children }) {
   return (
     <div
-      className={`cursor-pointer border-b-[3px] px-2 py-4 text-xl`}
+      className={`cursor-pointer border-b-[3px] px-2 py-4 font-['Montserrat']
+       text-xl`}
       onClick={() => toggle(index)}
     >
-      <div className="flex items-center justify-between">
-        <span className="text-xl font-bold text-primary">{item.title}</span>
+      <div className="flex items-center justify-between ">
+        <span className="text-xl font-['Montserrat']
+ font-bold text-primary">{item.title}</span>
         {isOpen === index ? <ArrowSvg direction="up" /> : <ArrowSvg />}
       </div>
       {children}

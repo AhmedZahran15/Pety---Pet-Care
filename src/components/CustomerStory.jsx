@@ -1,7 +1,7 @@
 function CustomerStory({ text, name, title, image }) {
   return (
     <section>
-      <div className="md:text-2xl text-lg">
+      <div className="md:text-2xl font-['Montserrat'] text-lg">
         {text
           ? text
           : "      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum sequi, distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!"}

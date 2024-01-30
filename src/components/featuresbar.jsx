@@ -3,32 +3,32 @@ import PetSittingSvg from "../../public/images/features/PetSittingSvg.jsx";
 import VetSvg from "../../public/images/features/VetSvg.jsx";
 import PetGroomingSvg from "../../public/images/features/PetGroomingSvg.jsx";
 const FeatureBar = () => {
-  return (
-    <div className="grid grid-cols-2 px-5 pt-12 md:grid-cols-4">
+  return ( 
+    <div className="grid grid-cols-2 px-5  -mt-16  md:grid-cols-4 bg-white  rounded-3xl   mx-20">
       <Link
         to="/"
-        className="flex flex-col items-center justify-center gap-y-3"
+        className=" h-32 flex flex-col items-center justify-center  "
       >
         <VetSvg />
-        <p className='font-["Product  Sans Light"] text-center text-2xl font-semibold   text-teal-700 transition-all duration-300 hover:text-teal-900 sm:text-center '>
+        <p className='font-["Product  Sans Light"]  text-center text-2xl   text-black transition-all duration-300 hover:text-teal-900 sm:text-center '>
           Vet
         </p>
       </Link>
 
-      <Link to="/" className="flex flex-col items-center justify-center">
+      <Link to="/" className=" h-32 flex flex-col items-center justify-center">
         <PetSittingSvg />
-        <p className="font-['Product Sans Light'] text-center text-2xl font-semibold text-black transition-all duration-300 hover:text-slate-700 sm:text-center">
+        <p className="font-['Product Sans Light'] text-center text-2xl text-black transition-all duration-300 hover:text-slate-700 sm:text-center">
           Pet Sitting
         </p>
       </Link>
-      <Link to="/" className="flex flex-col items-center justify-center">
+      <Link to="/" className=" h-32 flex flex-col items-center justify-center">
         <PetGroomingSvg />
-        <p className="font-['Product Sans Light'] text-center text-2xl font-semibold text-amber-500 transition-all duration-300 hover:text-amber-600 sm:text-center">
+        <p className="font-['Product Sans Light'] text-center text-2xl  text-black transition-all duration-300 hover:text-amber-600 sm:text-center">
           Pet Grooming
         </p>
       </Link>
-      <div className="flex cursor-pointer flex-col items-center justify-center gap-y-[52px]">
-        <a href="#" className="mt-16">
+      <div className="h-32 flex cursor-pointer flex-col items-center justify-center gap-y-6  ">
+        <a href="#" className="mt-10">
           <svg
             className=""
             width="60"
@@ -44,11 +44,12 @@ const FeatureBar = () => {
             </g>
           </svg>
         </a>
-        <p className="font-['Product Sans Light'] text-center text-2xl font-semibold text-teal-700 transition-all  duration-300 hover:text-teal-800 sm:text-center">
+        <p className="font-['Product Sans Light'] text-center text-2xl  text-black transition-all  duration-300 hover:text-teal-800 sm:text-center">
           More
         </p>
       </div>
     </div>
+
   );
 };
 
