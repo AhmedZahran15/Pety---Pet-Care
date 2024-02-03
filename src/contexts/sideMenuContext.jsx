@@ -2,6 +2,8 @@ import { createContext, useState } from "react";
 
 export const SideMenuContext = createContext();
 
+import PropTypes from "prop-types";
+
 export const SideMenuProvider = ({ children }) => {
   const [showSideMenu, setShowSideMenu] = useState(false);
 
@@ -12,4 +14,8 @@ export const SideMenuProvider = ({ children }) => {
       {children}
     </SideMenuContext.Provider>
   );
+};
+
+SideMenuProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

@@ -1,9 +1,8 @@
-function headerpic({headimg}) {
+function HeaderPic() {
   return (
     <div>
-  <img src={headimg} alt="Header" className="bg-contain  w-full" />
-</div>
-  )
+      <img src="images/homepage/homepageHead.png" alt="Header" className="w-full  bg-contain" />
+    </div>
+  );
 }
-
-export default headerpic
+export default HeaderPic;

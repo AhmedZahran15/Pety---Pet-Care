@@ -8,8 +8,8 @@ function PetSittingSvg({ color = "#000000" }) {
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="75"
-      height="75"
+      width="60"
+      height="60"
       x="0"
       y="0"
       viewBox="0 0 682.667 682.667"
@@ -19,7 +19,7 @@ function PetSittingSvg({ color = "#000000" }) {
     >
       <g>
         <defs>
-          <clipPath id="a" clipPathUnits="userSpaceOnUse">
+          <clipPath clipPathUnits="userSpaceOnUse">
             <path
               d="M0 512h512V0H0Z"
               fill={color}

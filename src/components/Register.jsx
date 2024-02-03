@@ -4,8 +4,10 @@ import { FullButton } from "./FullButton";
 
 function Register() {
   return (
-    <container className="md:px-18 flex h-screen w-full flex-col 
-    gap-1 overflow-y-auto px-20 pt-4  no-scrollbar sm:pl-12 lg:px-28 xl:px-36">
+    <container
+      className="md:px-18 flex h-screen w-full flex-col 
+    gap-1 overflow-y-auto px-20 pt-4  no-scrollbar sm:pl-12 lg:px-28 xl:px-36"
+    >
       <Link
         to={"/"}
         className="mb-6 w-full text-left text-5xl font-extrabold text-primary"
@@ -20,7 +22,7 @@ function Register() {
       <Input text="Email" type="email" />
       <Input text="Password" type="password" />
       <Input type="password" text="Confirm password" />
-      <Input type="text" text="Phone number" />
+      <Input type="tel" text="Phone number" />
       <FullButton text="Sign Up" />
       <h2 className="text-center text-lg">
         Already have an account? &nbsp;

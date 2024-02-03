@@ -22,8 +22,10 @@ export default function FAQ() {
   }
   return (
     <div className="mx-10 mt-12 md:mx-16 lg:mx-32">
-      <h1 className="mb-6 text-center text-5xl  font-['Fredoka']
- font-bold uppercase">
+      <h1
+        className="mb-6 text-center font-['Fredoka']  text-5xl
+ font-bold uppercase"
+      >
         Frequently Asked Questions
       </h1>
       {faqs.map((item, index) => (
@@ -54,8 +56,12 @@ function AccordionItem({ item, index, isOpen, toggle, children }) {
       onClick={() => toggle(index)}
     >
       <div className="flex items-center justify-between ">
-        <span className="text-xl font-['Montserrat']
- font-bold text-primary">{item.title}</span>
+        <span
+          className="font-['Montserrat'] text-xl
+ font-bold text-primary"
+        >
+          {item.title}
+        </span>
         {isOpen === index ? <ArrowSvg direction="up" /> : <ArrowSvg />}
       </div>
       {children}
