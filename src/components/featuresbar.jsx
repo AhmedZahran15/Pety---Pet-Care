@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import PetSittingSvg from "../../public/images/features/PetSittingSvg.jsx";
-import VetSvg from "../../public/images/features/VetSvg.jsx";
-import PetGroomingSvg from "../../public/images/features/PetGroomingSvg.jsx";
+import PetSittingSvg from "../assets/PetSittingSvg.jsx";
+import VetSvg from "../assets/VetSvg.jsx";
+import PetGroomingSvg from "../assets/PetGroomingSvg.jsx";
 const FeatureBar = () => {
   return ( 
     <div className="grid grid-cols-2 px-5  -mt-16  md:grid-cols-4 bg-white  rounded-3xl   mx-20">

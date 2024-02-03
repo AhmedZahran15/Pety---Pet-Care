@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ArrowSvg from "../../public/images/homepage/ArrowSvg";
+import ArrowSvg from "../assets/ArrowSvg";
 const faqs = [
   {
     title: "Where are these chairs assembled?",
