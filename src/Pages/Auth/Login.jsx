@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { FullButton } from "./FullButton";
-import Input from "./Input";
+import { FullButton } from "../../components/FullButton";
+import Input from "../../components/Input";
 
 function Login() {
   return (

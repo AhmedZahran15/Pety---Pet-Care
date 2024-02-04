@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Input from "./Input.jsx";
-import { FullButton } from "./FullButton";
+import Input from "../../components/Input.jsx";
+import { FullButton } from "../../components/FullButton.jsx";
 
 function Register() {
   return (
