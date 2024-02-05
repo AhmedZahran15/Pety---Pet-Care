@@ -18,7 +18,6 @@ const initialState = {
   confirmPassword: "",
   email: "",
   phoneNumber: "",
-  isLoading: false,
   btnEnable: false,
   errors: {
     firstName: "",
@@ -105,11 +104,6 @@ const reducer = (state, action) => {
         ...state,
         btnEnable: enableRegister(state),
       };
-    case "SET_IS_LOADING":
-      return {
-        ...state,
-        isLoading: action.payload,
-      };
     default:
       return state;
   }
@@ -144,7 +138,6 @@ function Register() {
   }
   function handleRegister(e) {
     e.preventDefault();
-    dispatch({ type: "SET_IS_LOADING", payload: true });
     registerUser({
       firstname: state.firstName,
       lastname: state.lastName,
@@ -153,15 +146,14 @@ function Register() {
       passwordConfirm: state.confirmPassword,
       phoneNumber: state.phoneNumber,
     });
-    dispatch({ type: "SET_IS_LOADING", payload: false });
   }
   return (
-    <form className="flex flex-col gap-4 overflow-y-auto rounded-3xl border-2  border-[#FFFFFF] bg-[#FFFFFF] px-16 pr-64 shadow-md shadow-gray-400 no-scrollbar md:w-8/12">
+    <form className="flex w-full flex-col gap-4 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF]  bg-[#FFFFFF] px-12 py-2 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar lg:w-8/12 lg:pr-36 xl:px-16 xl:pr-64">
       <Link to="/">
         <img src="/Logo Placeholder.png" alt="Logo" />
       </Link>
       <div>
-        <p className="px-2 text-left font-fredoka text-6xl font-semibold">
+        <p className="px-2 text-left font-fredoka text-5xl font-semibold lg:text-6xl">
           Welcome
         </p>
       </div>
@@ -210,7 +202,6 @@ function Register() {
         text="Phone number"
       />
       <FullButton
-        isLoading={state.isLoading}
         text="Sign Up"
         enabled={state.btnEnable}
         onClick={handleRegister}

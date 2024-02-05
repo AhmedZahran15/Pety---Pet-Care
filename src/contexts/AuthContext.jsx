@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
-
+import PropTypes from "prop-types";
 const API_URL = "https://petcare-znql.onrender.com";
 const AuthContext = createContext();
 
@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(
     localStorage.getItem("userData") || null,
   );
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("token");
     const data = localStorage.getItem("userData");
@@ -21,6 +22,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const loginUser = async (userData) => {
+    setIsLoading(true);
     const res = await fetch(`${API_URL}/api/users/signin`, {
       method: "POST",
       headers: {
@@ -40,15 +42,16 @@ export const AuthProvider = ({ children }) => {
         id: "login-success-toast",
       });
     }
-
     if (!data.success) {
       toast.error(data.error, {
         id: "login-error-toast",
       });
     }
+    setIsLoading(false);
   };
 
   const registerUser = async (userData) => {
+    setIsLoading(true);
     const res = await fetch(`${API_URL}/api/users/signup`, {
       method: "POST",
       headers: {
@@ -74,6 +77,7 @@ export const AuthProvider = ({ children }) => {
         id: "register-error-toast",
       });
     }
+    setIsLoading(false);
   };
 
   const logoutUser = async () => {
@@ -85,6 +89,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const contextData = {
+    isLoading,
     user,
     userData,
     loginUser,
@@ -96,5 +101,7 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
   );
 };
-
+AuthProvider.propTypes = {
+  children: PropTypes.node,
+};
 export default AuthContext;

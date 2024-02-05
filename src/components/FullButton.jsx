@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Loader } from "./Loader";
+import PropTypes from "prop-types";
+import AuthContext from "../contexts/AuthContext";
 
-export const FullButton = ({ text, enabled, onClick, isLoading }) => {
+export const FullButton = ({ text, enabled, onClick }) => {
+  const { isLoading } = useContext(AuthContext);
   return (
     <button
       disabled={!enabled}
@@ -14,4 +18,10 @@ export const FullButton = ({ text, enabled, onClick, isLoading }) => {
       {isLoading ? <Loader /> : <span>{text}</span>}
     </button>
   );
+};
+
+FullButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  enabled: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
