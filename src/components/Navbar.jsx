@@ -31,13 +31,26 @@ const Navbar = () => {
               <Link to="#">About</Link>
             </li>
           </ul>
-
-          <Link
-            className="hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
-            to="auth/login"
-          >
-            Login
-          </Link>
+          {user ? (
+            <div className="flex flex-row items-center justify-center gap-8">
+              <span className="text-xl font-normal text-gray-500">
+                {userData?.firstName}
+              </span>
+              <button
+                onClick={logoutUser}
+                className="rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              className="hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
+              to="auth/login"
+            >
+              Login
+            </Link>
+          )}
         </div>
         <BurgerMenu />
         <BlurPage />

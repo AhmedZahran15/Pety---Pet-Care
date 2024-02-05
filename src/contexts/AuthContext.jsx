@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
       setUser(token);
     }
     if (data) {
-      setUserData(data);
+      setUserData(JSON.parse(data));
     }
   }, []);
 
@@ -32,52 +32,51 @@ export const AuthProvider = ({ children }) => {
     });
 
     const data = await res.json();
-
-    if (data.success) {
+    console.log(data);
+    if (data.status === "success") {
       setUser(data.token);
-      //  setUserData(data.user);
+      setUserData(data.data);
       localStorage.setItem("token", data.token);
-      //   localStorage.setItem("userData", JSON.stringify(data.user));
+      localStorage.setItem("userData", JSON.stringify(data.data));
       toast.success("Login successful", {
         id: "login-success-toast",
       });
     }
-    if (!data.success) {
-      toast.error(data.error, {
+    if (data.status === "fail") {
+      toast.error(data.message, {
         id: "login-error-toast",
       });
     }
     setIsLoading(false);
+    return data.status === "success";
   };
 
-  const registerUser = async (userData) => {
+  const registerUser = async (newUser) => {
     setIsLoading(true);
     const res = await fetch(`${API_URL}/api/users/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(newUser),
     });
-
     const data = await res.json();
-
-    if (data.success) {
+    if (data.status === "success") {
       setUser(data.token);
-      //   setUserData(data.user);
-      // save to local storage
+      setUserData(data.data);
       localStorage.setItem("token", data.token);
-      //localStorage.setItem("userData", JSON.stringify(data.user));
+      localStorage.setItem("userData", JSON.stringify(data.data));
       toast.success("Registration successful", {
         id: "register-success-toast",
       });
     }
-    if (!data.success) {
-      toast.error(data.error, {
+    if (data.status === "error") {
+      toast.error(data.message, {
         id: "register-error-toast",
       });
     }
     setIsLoading(false);
+    return data.status === "success";
   };
 
   const logoutUser = async () => {

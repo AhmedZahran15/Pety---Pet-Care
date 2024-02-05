@@ -6,12 +6,8 @@ import PropTypes from "prop-types";
 const FeaturesBar = ({ imgSrc }) => {
   return (
     <>
-      <img
-        src={imgSrc}
-        alt="Header"
-        className="w-full  bg-contain"
-      />
-      <div className="mx-20 -mt-16 grid grid-cols-2 items-center  rounded-3xl bg-white  px-5   md:grid-cols-4">
+      <img src={imgSrc} alt="Header" className="w-full  bg-contain" />
+      <div className="mx-20 -mt-16 grid grid-cols-2 items-center rounded-3xl  bg-white px-5  shadow-xl   md:grid-cols-4">
         <Link
           to="/"
           className=" flex h-32 flex-col items-center justify-center  "

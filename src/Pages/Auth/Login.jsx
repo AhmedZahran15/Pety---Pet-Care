@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FullButton } from "../../components/FullButton";
 import Input from "../../components/Input";
 import { validateEmail } from "../../utils/validationFunctions";
@@ -61,6 +61,7 @@ function Login() {
     initialState,
   );
   const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleEmailChange = (e) => {
     dispatch({ type: "SET_EMAIL", payload: e.target.value });
     dispatch({ type: "SET_LOGIN" });
@@ -69,9 +70,10 @@ function Login() {
     dispatch({ type: "SET_PASSWORD", payload: e.target.value });
     dispatch({ type: "SET_LOGIN" });
   };
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    loginUser({ email, password });
+    const res = await loginUser({ email, password });
+    if (res) navigate("/");
   };
   return (
     <form className="flex w-full flex-col gap-3 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF] bg-[#FFFFFF]  px-12 py-6 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar lg:w-8/12 lg:p-16 lg:pr-36 xl:pr-64">

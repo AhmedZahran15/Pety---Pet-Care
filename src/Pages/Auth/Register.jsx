@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input.jsx";
 import { FullButton } from "../../components/FullButton.jsx";
 import {
@@ -112,6 +112,7 @@ const reducer = (state, action) => {
 function Register() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { registerUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   function handleFirstNameChange(e) {
     dispatch({ type: "SET_FIRST_NAME", payload: e.target.value });
     dispatch({ type: "SET_REGISTER" });
@@ -136,16 +137,17 @@ function Register() {
     dispatch({ type: "SET_CONFIRM_PASSWORD", payload: e.target.value });
     dispatch({ type: "SET_REGISTER" });
   }
-  function handleRegister(e) {
+  async function handleRegister(e) {
     e.preventDefault();
-    registerUser({
-      firstname: state.firstName,
-      lastname: state.lastName,
+    const res = await registerUser({
+      firstName: state.firstName,
+      lastName: state.lastName,
       email: state.email,
       password: state.password,
       passwordConfirm: state.confirmPassword,
-      phoneNumber: state.phoneNumber,
+      phone: state.phoneNumber,
     });
+    if (res) navigate("/");
   }
   return (
     <form className="flex w-full flex-col gap-4 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF]  bg-[#FFFFFF] px-12 py-2 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar lg:w-8/12 lg:pr-36 xl:px-16 xl:pr-64">
@@ -210,7 +212,7 @@ function Register() {
         Already have an account? &nbsp;
         <Link
           to={"/auth/login"}
-          className=" cursor-pointer font-bold text-primary"
+          className=" cursor-pointer font-bold text-primary hover:text-[#1a8588]"
         >
           Sign in
         </Link>
