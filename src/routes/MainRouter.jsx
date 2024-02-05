@@ -16,7 +16,6 @@ const NavLayout = () => {
   return (
     <div className="mx-auto h-screen w-full max-w-screen-2xl">
       {/* <AuthChecker />*/}
-
       <Navbar />
       <Outlet />
     </div>

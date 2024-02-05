@@ -1,29 +1,220 @@
 import { Link } from "react-router-dom";
 import Input from "../../components/Input.jsx";
 import { FullButton } from "../../components/FullButton.jsx";
+import {
+  validateName,
+  validateEmail,
+  validatePhone,
+  validatePassword,
+  validateConfirmPassword,
+} from "../../utils/validationFunctions.js";
+import { useContext, useReducer } from "react";
+import AuthContext from "../../contexts/AuthContext.jsx";
+
+const initialState = {
+  firstName: "",
+  lastName: "",
+  password: "",
+  confirmPassword: "",
+  email: "",
+  phoneNumber: "",
+  isLoading: false,
+  btnEnable: false,
+  errors: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
+    confirmPassword: "",
+  },
+};
+
+const enableRegister = (state) => {
+  return (
+    validateName(state.firstName, "First name ") === "" &&
+    validateName(state.lastName, "Last name ") === "" &&
+    validateEmail(state.email) === "" &&
+    validatePhone(state.phoneNumber) === "" &&
+    validatePassword(state.password) === "" &&
+    validateConfirmPassword(state.password, state.confirmPassword) === ""
+  );
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SET_FIRST_NAME":
+      return {
+        ...state,
+        firstName: action.payload,
+        errors: {
+          ...state.errors,
+          firstName: validateName(action.payload, "First name "),
+        },
+      };
+    case "SET_LAST_NAME":
+      return {
+        ...state,
+        lastName: action.payload,
+        errors: {
+          ...state.errors,
+          lastName: validateName(action.payload, "Last name "),
+        },
+      };
+    case "SET_EMAIL":
+      return {
+        ...state,
+        email: action.payload,
+        errors: {
+          ...state.errors,
+          email: validateEmail(action.payload),
+        },
+      };
+    case "SET_PHONE":
+      return {
+        ...state,
+        phoneNumber: action.payload,
+        errors: {
+          ...state.errors,
+          phoneNumber: validatePhone(action.payload),
+        },
+      };
+    case "SET_PASSWORD":
+      return {
+        ...state,
+        password: action.payload,
+        errors: {
+          ...state.errors,
+          password: validatePassword(action.payload),
+        },
+      };
+    case "SET_CONFIRM_PASSWORD":
+      return {
+        ...state,
+        confirmPassword: action.payload,
+        errors: {
+          ...state.errors,
+          confirmPassword: validateConfirmPassword(
+            state.password,
+            action.payload,
+          ),
+        },
+      };
+    case "SET_REGISTER":
+      return {
+        ...state,
+        btnEnable: enableRegister(state),
+      };
+    case "SET_IS_LOADING":
+      return {
+        ...state,
+        isLoading: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 function Register() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { registerUser } = useContext(AuthContext);
+  function handleFirstNameChange(e) {
+    dispatch({ type: "SET_FIRST_NAME", payload: e.target.value });
+    dispatch({ type: "SET_REGISTER" });
+  }
+  function handleLastNameChange(e) {
+    dispatch({ type: "SET_LAST_NAME", payload: e.target.value });
+    dispatch({ type: "SET_REGISTER" });
+  }
+  function handleEmailChange(e) {
+    dispatch({ type: "SET_EMAIL", payload: e.target.value });
+    dispatch({ type: "SET_REGISTER" });
+  }
+  function handlePhoneChange(e) {
+    dispatch({ type: "SET_PHONE", payload: e.target.value });
+    dispatch({ type: "SET_REGISTER" });
+  }
+  function handlePasswordChange(e) {
+    dispatch({ type: "SET_PASSWORD", payload: e.target.value });
+    dispatch({ type: "SET_REGISTER" });
+  }
+  function handleConfirmPasswordChange(e) {
+    dispatch({ type: "SET_CONFIRM_PASSWORD", payload: e.target.value });
+    dispatch({ type: "SET_REGISTER" });
+  }
+  function handleRegister(e) {
+    e.preventDefault();
+    dispatch({ type: "SET_IS_LOADING", payload: true });
+    registerUser({
+      firstname: state.firstName,
+      lastname: state.lastName,
+      email: state.email,
+      password: state.password,
+      passwordConfirm: state.confirmPassword,
+      phoneNumber: state.phoneNumber,
+    });
+    dispatch({ type: "SET_IS_LOADING", payload: false });
+  }
   return (
-    <container
-      className="md:px-18 flex h-screen w-full flex-col 
-    gap-1 overflow-y-auto px-20 pt-4  no-scrollbar sm:pl-12 lg:px-28 xl:px-36"
-    >
-      <Link
-        to={"/"}
-        className="mb-6 w-full text-left text-5xl font-extrabold text-primary"
-      >
-        SiteLogo
+    <form className="flex flex-col gap-4 overflow-y-auto rounded-3xl border-2  border-[#FFFFFF] bg-[#FFFFFF] px-16 pr-64 shadow-md shadow-gray-400 no-scrollbar md:w-8/12">
+      <Link to="/">
+        <img src="/Logo Placeholder.png" alt="Logo" />
       </Link>
-      <h1 className=" mb-2 text-center text-6xl font-medium">Sign Up</h1>
-      <div className="flex w-full flex-row gap-4">
-        <Input text="First name" type="text" />
-        <Input text="Last name" type="text" />
+      <div>
+        <p className="px-2 text-left font-fredoka text-6xl font-semibold">
+          Welcome
+        </p>
       </div>
-      <Input text="Email" type="email" />
-      <Input text="Password" type="password" />
-      <Input type="password" text="Confirm password" />
-      <Input type="tel" text="Phone number" />
-      <FullButton text="Sign Up" />
+      <div className="flex w-full flex-row gap-4">
+        <Input
+          value={state.firstName}
+          onChange={handleFirstNameChange}
+          error={state.errors.firstName}
+          text="First name"
+          type="text"
+        />
+        <Input
+          value={state.lastName}
+          onChange={handleLastNameChange}
+          error={state.errors.lastName}
+          text="Last name"
+          type="text"
+        />
+      </div>
+      <Input
+        value={state.email}
+        onChange={handleEmailChange}
+        error={state.errors.email}
+        text="Email"
+        type="email"
+      />
+      <Input
+        value={state.password}
+        onChange={handlePasswordChange}
+        error={state.errors.password}
+        text="Password"
+        type="password"
+      />
+      <Input
+        value={state.confirmPassword}
+        onChange={handleConfirmPasswordChange}
+        error={state.errors.confirmPassword}
+        type="password"
+        text="Confirm password"
+      />
+      <Input
+        value={state.phoneNumber}
+        onChange={handlePhoneChange}
+        error={state.errors.phoneNumber}
+        type="tel"
+        text="Phone number"
+      />
+      <FullButton
+        isLoading={state.isLoading}
+        text="Sign Up"
+        enabled={state.btnEnable}
+        onClick={handleRegister}
+      />
       <h2 className="text-center text-lg">
         Already have an account? &nbsp;
         <Link
@@ -33,7 +224,7 @@ function Register() {
           Sign in
         </Link>
       </h2>
-    </container>
+    </form>
   );
 }
 

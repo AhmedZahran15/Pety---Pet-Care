@@ -18,7 +18,7 @@ export const Input = ({
           id={text}
           value={value}
           placeholder={placeholder}
-          className="bg-secondary w-full rounded-xl border-2 border-black px-3 py-2 focus:border-primary focus:outline-none"
+          className="w-full rounded-xl border-2 border-black bg-secondary px-3 py-2 focus:border-primary focus:outline-none"
           onChange={change}
         />
         <div className={"px-3 text-sm text-primary"}>{error}</div>
