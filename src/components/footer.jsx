@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const FooterLink = ({ href, text }) => {
   return (
     <a
@@ -9,16 +11,25 @@ const FooterLink = ({ href, text }) => {
     </a>
   );
 };
+FooterLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 const SocialLink = ({ href, src, alt }) => {
   return (
-    <a className="hover:scale-150 transition-all duration-200" href={href}>
+    <a className="transition-all duration-200 hover:scale-150" href={href}>
       <img src={src} alt={alt} />
     </a>
   );
 };
+SocialLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};
 const Footer = () => {
   return (
-    <footer className="mx-10 my-8 flex flex-wrap items-start justify-start gap-y-4 pt-10 sm:justify-around">
+    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-10 py-16 sm:justify-around">
       <div className="w-48">
         <div className="mb-2 text-3xl font-bold">PETY</div>
         <FooterLink href="#" text="Terms of Service" />

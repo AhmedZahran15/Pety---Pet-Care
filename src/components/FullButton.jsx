@@ -15,7 +15,7 @@ export const FullButton = ({ text, enabled, onClick }) => {
       }
       onClick={onClick}
     >
-      {isLoading ? <Loader /> : <span>{text}</span>}
+      {isLoading && <Loader />} <span>{isLoading ? "Loading..." : text}</span>
     </button>
   );
 };

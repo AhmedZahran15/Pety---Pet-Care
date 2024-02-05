@@ -3,44 +3,46 @@ import BurgerMenu from "./BurgerMenu";
 import { SideMenuProvider } from "../contexts/sideMenuContext";
 import { SideMenu } from "./SideMenu";
 import BlurPage from "./BlurPage";
+import { useContext } from "react";
+import AuthContext from "../contexts/AuthContext";
 const Navbar = () => {
+  const { user, userData, logoutUser } = useContext(AuthContext);
   return (
     <SideMenuProvider>
-      <nav
-        className="flex w-full flex-row items-center justify-between bg-[#E3F0F1] lg:justify-around
+      <header
+        className=" flex w-full flex-row items-center justify-between bg-white transition-all duration-300 lg:justify-around
     "
       >
-        <Link
-          to="/"
-          className="font-['Product Sans'] ml-6 cursor-pointer text-6xl font-bold text-black lg:ml-0"
-        >
-          PETY
+        <Link to="/">
+          <img src="/Logo Placeholder.png" alt="Logo" />
         </Link>
-        <ul className="  hidden items-center justify-center gap-8 lg:flex">
-          <li className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700">
-            <Link to="#">Services</Link>
-          </li>
-          <li className="Medium gap-2.5 text-3xl font-medium text-black  transition-all  duration-300  hover:text-teal-700">
-            <Link to="#">Community</Link>
-          </li>
-          <li className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700">
-            <Link to="#">Contact</Link>
-          </li>
-          <li className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700 ">
-            <Link to="#">About</Link>
-          </li>
-        </ul>
+        <div className="flex flex-row justify-between gap-8">
+          <ul className="hidden items-center justify-center gap-8 lg:flex">
+            <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
+              <Link to="services">Services</Link>
+            </li>
+            <li className="Medium gap-2.5 text-xl font-normal text-gray-500  transition-all  duration-300  hover:text-black">
+              <Link to="#">Community</Link>
+            </li>
+            <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
+              <Link to="#">Contact</Link>
+            </li>
+            <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black ">
+              <Link to="#">About</Link>
+            </li>
+          </ul>
 
-        <Link
-          className="font-['Roboto Flex'] hidden rounded-3xl bg-secondary px-6 py-1.5 text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
-          to="auth/login"
-        >
-          Login
-        </Link>
+          <Link
+            className="hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
+            to="auth/login"
+          >
+            Login
+          </Link>
+        </div>
         <BurgerMenu />
         <BlurPage />
         <SideMenu />
-      </nav>
+      </header>
     </SideMenuProvider>
   );
 };

@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import PetSittingSvg from "../assets/PetSittingSvg.jsx";
 import VetSvg from "../assets/VetSvg.jsx";
 import PetGroomingSvg from "../assets/PetGroomingSvg.jsx";
-const FeaturesBar = () => {
+import PropTypes from "prop-types";
+const FeaturesBar = ({ imgSrc }) => {
   return (
     <>
       <img
-        src="images/homepage/homepageHead.png"
+        src={imgSrc}
         alt="Header"
         className="w-full  bg-contain"
       />
@@ -60,5 +61,7 @@ const FeaturesBar = () => {
     </>
   );
 };
-
+FeaturesBar.propTypes = {
+  imgSrc: PropTypes.string.isRequired,
+};
 export default FeaturesBar;
