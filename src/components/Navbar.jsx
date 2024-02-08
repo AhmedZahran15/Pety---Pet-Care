@@ -17,7 +17,7 @@ const Navbar = () => {
           <img src="/Logo Placeholder.png" alt="Logo" />
         </Link>
         <div className="flex flex-row justify-between gap-8">
-          <ul className="hidden items-center justify-center gap-8 lg:flex">
+          <ul className="hidden items-center justify-center gap-8 md:flex">
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
               <Link to="services">Services</Link>
             </li>
@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link
-              className="hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
+              className="mr-4 hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 md:block "
               to="auth/login"
             >
               Login
