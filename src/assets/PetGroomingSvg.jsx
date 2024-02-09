@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 PetGroomingSvg.propTypes = {
   color: PropTypes.string,
 };
-function PetGroomingSvg({ color = "#000000" }) {
+function PetGroomingSvg({ hover }) {
   return (
     <svg
+      className={`${hover ? "fill-secondary" : ""}`}
       enableBackground="new 0 0 64 64"
-      fill={color}
       height="60"
       viewBox="0 0 64 64"
       width="60"

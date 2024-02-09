@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 PetSittingSvg.propTypes = {
   color: PropTypes.string,
 };
-function PetSittingSvg({ color = "#000000" }) {
+function PetSittingSvg({ hover }) {
+  const color = hover ? "#FFA500" : "#000000";
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +16,6 @@ function PetSittingSvg({ color = "#000000" }) {
       viewBox="0 0 682.667 682.667"
       style={{ enableBackground: "new 0 0 512 512" }}
       xmlSpace="preserve"
-      className=""
     >
       <g>
         <defs>

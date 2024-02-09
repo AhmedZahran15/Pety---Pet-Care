@@ -1,8 +1,8 @@
 const Search = () => {
   return (
-    <div className="flex flex-col lg:px-32 sm:px-30 px-20 ">
-      <div className="mt-5 mb-16 flex w-full flex-col items-center gap-8  lg:flex-row">
-        <select className="focus:border-secondary cursor-pointer rounded-xl border-2 border-neutral-400 w-full  py-3 basis-1/3 text-left text-2xl ">
+    <div className="sm:px-30 mt-6 flex flex-col px-20 lg:px-32">
+      <div className="mb-16 mt-5 flex w-full flex-col items-center gap-8  lg:flex-row">
+        <select className="w-full basis-1/3 cursor-pointer rounded-xl border-2 border-neutral-400  py-3 text-left text-2xl focus:border-secondary ">
           <option className="hidden text-xl font-normal text-neutral-500">
             What are you looking for?
           </option>
@@ -14,12 +14,12 @@ const Search = () => {
             Pet Grooming
           </option>
         </select>
-        <select className="w-full  focus:border-secondary cursor-pointer rounded-xl border-2 border-neutral-400 basis-1/3 py-3  text-left text-2xl ">
+        <select className="w-full  basis-1/3 cursor-pointer rounded-xl border-2 border-neutral-400 py-3 text-left  text-2xl focus:border-secondary ">
           <option className="text-xl font-normal text-neutral-500">
             Select your location
           </option>
         </select>
-        <button className="w-full rounded-xl  bg-secondary hover:bg-amber-500 basis-1/3 py-3 text-center text-3xl font-bold text-white ">
+        <button className="w-full basis-1/3  rounded-xl bg-secondary py-3 text-center text-3xl font-bold text-white hover:bg-amber-500 ">
           Search
         </button>
       </div>

@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="flex flex-row justify-between gap-8">
           <ul className="hidden items-center justify-center gap-8 md:flex">
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
-              <Link to="services">Services</Link>
+              <Link to="services/vet">Services</Link>
             </li>
             <li className="Medium gap-2.5 text-xl font-normal text-gray-500  transition-all  duration-300  hover:text-black">
               <Link to="#">Community</Link>

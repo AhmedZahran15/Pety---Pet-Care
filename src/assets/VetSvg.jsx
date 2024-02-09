@@ -1,7 +1,7 @@
-function VetSvg({ color = "#000000" }) {
+function VetSvg({ hover }) {
   return (
     <svg
-      fill={color}
+      className={` ${hover ? "fill-secondary" : ""}`}
       enableBackground="new 0 0 56 56"
       height="60"
       viewBox="0 0 56 56"
