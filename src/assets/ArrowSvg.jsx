@@ -1,11 +1,20 @@
+import PropTypes from "prop-types";
 function ArrowSvg({ direction = "down" }) {
   return (
     <div
       className={`duration-800 transform transition-all`}
-      style={direction === "up" ? { transform: "rotate(180deg)" } : null}
+      style={
+        direction === "up"
+          ? { transform: "rotate(180deg)" }
+          : direction === "left"
+            ? { transform: "rotate(90deg)" }
+            : direction === "right"
+              ? { transform: "rotate(-90deg)" }
+              : { transform: "rotate(0deg)" }
+      }
     >
       <svg
-        fill="#00777B"
+        className="fill-primary transition-all duration-200 hover:fill-white"
         width="40px"
         height="40px"
         viewBox="0 0 24 24"
@@ -22,5 +31,7 @@ function ArrowSvg({ direction = "down" }) {
     </div>
   );
 }
-
+ArrowSvg.propTypes = {
+  direction: PropTypes.string,
+};
 export default ArrowSvg;

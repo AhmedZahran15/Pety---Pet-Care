@@ -17,7 +17,7 @@ const FeaturesBar = ({ imgSrc }) => {
       <img src={imgSrc} alt="Header image" className="w-full  bg-contain" />
       <div className="mx-20 -mt-16 grid grid-cols-2 items-center rounded-3xl bg-white px-5 py-4  shadow-xl  md:grid-cols-4">
         <Link
-          to="/services/vet"
+          to="/services?role=vet"
           onMouseEnter={() => setVetHover(true)}
           onMouseLeave={() => (role != "vet" ? setVetHover(false) : null)}
           className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg px-12 ${vetHover ? "bg-gray-100" : ""}  `}
@@ -30,7 +30,7 @@ const FeaturesBar = ({ imgSrc }) => {
           </p>
         </Link>
         <Link
-          to="/services/petSitter"
+          to="/services?role=petSitter"
           onMouseEnter={() => setPetSittingHover(true)}
           onMouseLeave={() => setPetSittingHover(false)}
           className="mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-gray-100"
@@ -43,7 +43,7 @@ const FeaturesBar = ({ imgSrc }) => {
           </p>
         </Link>
         <Link
-          to="/services/petGroomer"
+          to="/services?role=groomer"
           onMouseEnter={() => setPetGroomingHover(true)}
           onMouseLeave={() => setPetGroomingHover(false)}
           className="mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-gray-100"
