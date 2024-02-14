@@ -1,11 +1,26 @@
-function SearchBar() {
+import PropTypes from "prop-types";
+
+function SearchBar({ filterParams, setFilterParams }) {
+  function handleSearchChange(e) {
+    const search = e.target.value.trim();
+    setFilterParams(
+      (prev) => {
+        prev.set("petyName", search);
+        if (search === "") prev.delete("petyName");
+        return prev;
+      },
+      { replace: true },
+    );
+  }
   return (
-    <div className="relative w-full pb-6 ">
+    <div className="relative w-full shadow-lg shadow-neutral-300">
       <input
         className="h-12 w-full rounded-[4px] border-[0.1rem] border-[#999999]  bg-white px-2 pr-16 font-fredoka text-base font-normal focus:outline-none"
         type="search"
         name="search"
+        value={filterParams.get("petyName") || ""}
         placeholder="Search"
+        onChange={handleSearchChange}
       />
       <button
         type="submit"
@@ -30,5 +45,8 @@ function SearchBar() {
     </div>
   );
 }
-
+SearchBar.propTypes = {
+  filterParams: PropTypes.object.isRequired,
+  setFilterParams: PropTypes.func.isRequired,
+};
 export default SearchBar;

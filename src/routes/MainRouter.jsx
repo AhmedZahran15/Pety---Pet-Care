@@ -29,7 +29,7 @@ function MainRouter() {
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="services/:role" element={<Services />} />
+          <Route path="services" element={<Services />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />

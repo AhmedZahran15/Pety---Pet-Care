@@ -1,98 +1,67 @@
-import { useEffect, useState } from "react";
 import RadioButton from "../../components/RadioButton";
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 import CheckBox from "../../components/CheckBox";
-import { useParams } from "react-router-dom";
-import toast from "react-hot-toast";
-
-function Filters() {
-  const [services, setServices] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [filters, setFilters] = useState({
-    role: useParams(),
-    price: "0",
-    animals: {
-      cat: false,
-      dog: false,
-    },
-    availability: {
-      today: false,
-      tomorrow: false,
-      anyDay: false,
-    },
-    hasOffers: false,
-  });
-
-  useEffect(() => {
-    const controller = new AbortController();
-    async function fetchServices() {
-      try {
-        setIsLoading(true);
-        const animals = Object.keys(filters.animals)
-          .filter((animal) => filters.animals[animal])
-          .join(",");
-        const url = new URL("https://petcare-znql.onrender.com/api/pety");
-        url.searchParams.append("role", filters.role.role);
-        url.searchParams.append("price", filters.price);
-        url.searchParams.append("limit", 50);
-        if (animals.length) url.searchParams.append("type", animals);
-        url.searchParams.append("offer", filters.hasOffers);
-        console.log(url.href);
-        const res = await fetch(url, {
-          method: "GET",
-          signal: controller.signal,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        if (!res.ok) toast.error("Something went wrong");
-        const data = await res.json();
-        setServices(data.data);
-        console.log(data);
-      } catch (err) {
-        if (err.name === "AbortError") return;
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchServices();
-    return () => {
-      controller.abort();
-    };
-  }, [filters.role, filters.price, filters.animals, filters.hasOffers]);
-
+import PropTypes from "prop-types";
+function Filters({ filterParams, setFilterParams }) {
   function handlePriceChange(e) {
-    setFilters({
-      ...filters,
-      price: e.target.value,
-    });
-  }
-  function handleAnimalChange(e) {
-    setFilters({
-      ...filters,
-      animals: {
-        ...filters.animals,
-        [e.target.value]: !filters.animals[e.target.value],
+    setFilterParams(
+      (prev) => {
+        prev.set("price", e.target.value);
+        prev.set("page","1");
+        return prev;
       },
-    });
+      { replace: true },
+    );
   }
 
-  function handleAvailabilityChange(e) {
-    setFilters({
-      ...filters,
-      availability: {
-        ...filters.availability,
-        [e.target.value]: !filters.availability[e.target.value],
+  function handleHasOffersChange(e) {
+    const hasOffers = e.target.checked;
+    setFilterParams(
+      (prev) => {
+        prev.set("offer", hasOffers);
+        if (prev.get("offer") === "false") prev.delete("offer");
+        prev.set("page","1");
+        return prev;
       },
-    });
+      { replace: true },
+    );
   }
+  function handleArrayChange(e) {
+    const filterName = e.target.title;
+    const value = e.target.value;
+    setFilterParams(
+      (prev) => {
+        if (prev.get(filterName)?.includes(value)) {
+          if (prev.get(filterName)?.indexOf(value) === 0) {
+            if (prev.get(filterName).length > value.length)
+              prev.set(
+                filterName,
+                prev.get(filterName).replace(`${value},`, ""),
+              );
+            else prev.delete(filterName);
+          } else
+            prev.set(filterName, prev.get(filterName).replace(`,${value}`, ""));
+        } else {
+          if (prev.get(filterName) === null) prev.set(filterName, value);
+          else prev.set(filterName, `${prev.get(filterName)},${value}`);
+        }
+        prev.set("page","1");
+        return prev;
+      },
+      { replace: true },
+    );
+  }
+
   return (
-    <div className="my-20 box-border h-auto min-w-[247px] divide-y-[3px] divide-solid divide-[#D9D9D9]   ">
-      <SearchBar />
+    <div className="box-border h-full min-w-[247px] max-w-[247px] space-y-6 divide-y-[3px] divide-solid divide-[#D9D9D9] self-center lg:sticky lg:top-8 lg:self-start">
+      <SearchBar
+        filterParams={filterParams}
+        setFilterParams={setFilterParams}
+      />
       <div className="flex flex-col gap-0 space-y-2">
-        <h2 className="mt-6 text-2xl font-normal">Filter By</h2>
-        <div className="divide-y-2  divide-[#D9D9D9] rounded-[4px] border-[0.1rem] border-[#999999] bg-white">
+        <h2 className="mt-4 text-2xl font-normal">Filter By</h2>
+        <div className="divide-y-2 divide-[#D9D9D9] rounded-[4px]  border-[0.1rem] border-[#999999] bg-white shadow-lg shadow-neutral-300">
           <Filter
             imgSrc="/images/filters/dollarIcon.png"
             imgAlt="Dollar Icon"
@@ -100,43 +69,43 @@ function Filters() {
           >
             <RadioButton
               value="0"
-              checked={filters.price}
-              onClick={handlePriceChange}
+              checked={filterParams.get("price") === "0"}
+              onChange={handlePriceChange}
               name="price"
               id="choice0"
               label="All"
             />
             <RadioButton
               value="1"
-              checked={filters.price}
+              checked={filterParams.get("price") === "1"}
               name="price"
               id="choice1"
-              onClick={handlePriceChange}
+              onChange={handlePriceChange}
               label="Less than 50 EGP"
             />
             <RadioButton
               value="2"
-              checked={filters.price}
+              checked={filterParams.get("price") === "2"}
               name="price"
               id="choice2"
-              onClick={handlePriceChange}
+              onChange={handlePriceChange}
               label="From 50 EGP to 150 EGP"
             />
             <RadioButton
               value="3"
-              checked={filters.price}
+              checked={filterParams.get("price") === "3"}
               name="price"
               id="choice3"
-              onClick={handlePriceChange}
+              onChange={handlePriceChange}
               label="From 150 EGP to 300 EGP"
             />
             <RadioButton
               value="4"
-              checked={filters.price}
+              checked={filterParams.get("price") === "4"}
               name="price"
               id="choice4"
-              onClick={handlePriceChange}
-              label="More than 150 EGP"
+              onChange={handlePriceChange}
+              label="More than 300 EGP"
             />
           </Filter>
           <Filter
@@ -145,18 +114,20 @@ function Filters() {
             title="Animals"
           >
             <CheckBox
+              title="animals"
               label="Cat"
               id="cat"
               value="cat"
-              checked={filters.animals.cat}
-              onChange={handleAnimalChange}
+              checked={filterParams.get("animals")?.includes("cat")}
+              onChange={handleArrayChange}
             />
             <CheckBox
+              title="animals"
               label="Dog"
               value="dog"
               id="dog"
-              checked={filters.animals.dog}
-              onChange={handleAnimalChange}
+              checked={filterParams.get("animals")?.includes("dog")}
+              onChange={handleArrayChange}
             />
           </Filter>
           <Filter
@@ -165,25 +136,28 @@ function Filters() {
             title="Availability"
           >
             <CheckBox
+              title="availability"
               label="Any Day"
               id="anyDay"
               value="anyDay"
-              checked={filters.availability.anyDay}
-              onChange={handleAvailabilityChange}
+              checked={filterParams.get("availability")?.includes("anyDay")}
+              onChange={handleArrayChange}
             />
             <CheckBox
+              title="availability"
               label="Today"
               id="today"
               value="today"
-              checked={filters.availability.today}
-              onChange={handleAvailabilityChange}
+              checked={filterParams.get("availability")?.includes("today")}
+              onChange={handleArrayChange}
             />
             <CheckBox
+              title="availability"
               label="Tomorrow"
               id="tomorrow"
               value="tomorrow"
-              checked={filters.availability.tomorrow}
-              onChange={handleAvailabilityChange}
+              checked={filterParams.get("availability")?.includes("tomorrow")}
+              onChange={handleArrayChange}
             />
           </Filter>
           <Filter
@@ -200,13 +174,8 @@ function Filters() {
               label="Has Offers"
               id="hasOffers"
               value="hasOffers"
-              checked={filters.hasOffers}
-              onChange={() =>
-                setFilters({
-                  ...filters,
-                  hasOffers: !filters.hasOffers,
-                })
-              }
+              checked={filterParams.get("offer") === "true"}
+              onChange={handleHasOffersChange}
             />
           </Filter>
         </div>
@@ -215,4 +184,8 @@ function Filters() {
   );
 }
 
+Filters.propTypes = {
+  filterParams: PropTypes.object.isRequired,
+  setFilterParams: PropTypes.func.isRequired,
+};
 export default Filters;

@@ -18,11 +18,11 @@ function Filter({ title, onChange, imgSrc, imgAlt, children }) {
           className={`h-3 w-3 transform transition-all duration-150 ${isOpen ? "rotate-90" : ""}`}
         />
       </div>
-      {isOpen ? (
-        <div className="flex w-full flex-col items-start justify-center gap-y-2 px-8 pt-2">
-          {children}
-        </div>
-      ) : null}
+      <div
+        className={`${isOpen ? "max-h-60 pt-2" : ""} box-border flex max-h-0 w-full flex-col items-start justify-center gap-y-2 overflow-hidden px-8 pt-0 transition-all duration-150 ease-in`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

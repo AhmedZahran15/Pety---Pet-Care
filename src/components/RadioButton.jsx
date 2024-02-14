@@ -1,13 +1,13 @@
-function RadioButton({ value, checked, name, id, label, onClick }) {
+function RadioButton({ value, checked, name, id, label, onChange }) {
   return (
     <div>
       <input
         type="radio"
         id={id}
-        checked={checked === value}
+        checked={checked}
         value={value}
         name={name}
-        onClick={onClick}
+        onChange={onChange}
       />
       <label className="ml-1 text-gray-600" htmlFor={id}>
         {label}

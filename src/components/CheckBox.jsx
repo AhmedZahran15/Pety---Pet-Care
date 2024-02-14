@@ -1,7 +1,8 @@
-function CheckBox({ label, value, onChange, checked, id }) {
+function CheckBox({ title, label, value, onChange, checked, id }) {
   return (
     <div>
       <input
+        title={title}
         checked={checked}
         type="checkbox"
         id={id}
