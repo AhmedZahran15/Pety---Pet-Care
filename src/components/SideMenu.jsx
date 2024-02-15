@@ -29,6 +29,13 @@ export const SideMenu = () => {
           onClick={handleShowSideMenu}
           className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700"
         >
+          <Link to="becomeAPety/stepOne">Become A Pety</Link>
+        </li>
+
+        <li
+          onClick={handleShowSideMenu}
+          className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700"
+        >
           <Link to="#">Contact</Link>
         </li>
         <li
