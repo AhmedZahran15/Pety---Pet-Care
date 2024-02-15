@@ -15,7 +15,6 @@ function Pagination({ filterParams, setFilterParams , setNumberOfPages, numberOf
         },
       );
       const returnData = await res.json();
-      console.log(returnData);
       setNumberOfPages(() => returnData.data);
     }
     fetchNumberOfPages();

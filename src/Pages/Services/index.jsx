@@ -7,6 +7,9 @@ import toast from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "./Pagination";
 import ScrollToTop from "../../components/ScrollToTop";
+import PetWorkersHeader from "./PetWorkersHeader";
+import SortDropDown from "./SortDropDown";
+import WorkersName from "./WorkersName";
 function Services() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,8 +23,7 @@ function Services() {
     const controller = new AbortController();
     async function fetchServices() {
       try {
-        setIsLoading(true);
-        console.log(filterParams.toString());
+        setIsLoading((prev) => !prev);
         const res = await fetch(
           `https://petcare-znql.onrender.com/api/pety?${filterParams.toString()}`,
           {
@@ -38,11 +40,10 @@ function Services() {
         }
         const returnData = await res.json();
         setData(() => returnData.data);
-        console.log(returnData.data);
       } catch (err) {
         if (err.name === "AbortError") return;
       } finally {
-        setIsLoading(false);
+        setIsLoading((prev) => !prev);
       }
     }
     fetchServices();
@@ -74,7 +75,7 @@ function Services() {
                 numberOfPages={numberOfPages}
               />
             </>
-          ) : data.length === 0 ? (
+          ) : data.length === 0 && !isLoading ? (
             <h1 className="mt-40 text-2xl font-semibold">
               No&nbsp;
               <span className=" first-letter:capitalize">
@@ -84,6 +85,13 @@ function Services() {
             </h1>
           ) : (
             <>
+              <PetWorkersHeader>
+                <WorkersName filterParams={filterParams} />
+                <SortDropDown
+                  setFilterParams={setFilterParams}
+                  filterParams={filterParams}
+                />
+              </PetWorkersHeader>
               <PetWorkers isLoading={isLoading}>
                 {data.map((petWorker) => (
                   <PetWorkerCard key={petWorker._id} data={petWorker} />
