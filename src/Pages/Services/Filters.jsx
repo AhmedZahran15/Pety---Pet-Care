@@ -8,7 +8,7 @@ function Filters({ filterParams, setFilterParams }) {
     setFilterParams(
       (prev) => {
         prev.set("price", e.target.value);
-        prev.set("page","1");
+        prev.set("page", "1");
         return prev;
       },
       { replace: true },
@@ -21,7 +21,7 @@ function Filters({ filterParams, setFilterParams }) {
       (prev) => {
         prev.set("offer", hasOffers);
         if (prev.get("offer") === "false") prev.delete("offer");
-        prev.set("page","1");
+        prev.set("page", "1");
         return prev;
       },
       { replace: true },
@@ -46,7 +46,7 @@ function Filters({ filterParams, setFilterParams }) {
           if (prev.get(filterName) === null) prev.set(filterName, value);
           else prev.set(filterName, `${prev.get(filterName)},${value}`);
         }
-        prev.set("page","1");
+        prev.set("page", "1");
         return prev;
       },
       { replace: true },
@@ -54,7 +54,7 @@ function Filters({ filterParams, setFilterParams }) {
   }
 
   return (
-    <div className="box-border h-full min-w-[247px] max-w-[247px] space-y-6 divide-y-[3px] divide-solid divide-[#D9D9D9] self-center lg:sticky lg:top-8 lg:self-start">
+    <div className="box-border min-w-[247px] max-w-[247px] space-y-6 divide-y-[3px] divide-solid divide-[#D9D9D9] self-center lg:sticky lg:top-8 lg:self-start">
       <SearchBar
         filterParams={filterParams}
         setFilterParams={setFilterParams}

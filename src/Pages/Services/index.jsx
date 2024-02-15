@@ -10,6 +10,7 @@ import ScrollToTop from "../../components/ScrollToTop";
 function Services() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [numberOfPages, setNumberOfPages] = useState(1);
   const [filterParams, setFilterParams] = useSearchParams({
     role: "vet",
     limit: "6",
@@ -51,21 +52,34 @@ function Services() {
   }, [filterParams, setData]);
 
   return (
-    <div className="m-auto flex flex-col overflow-hidden bg-neutral-100">
+    <div className=" flex flex-col bg-neutral-100">
       <FeaturesBar imgSrc="/images/services.png" />
-      <div className="my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start">
+      <div className="relative my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start">
         <Filters
           setData={setData}
           filterParams={filterParams}
           setFilterParams={setFilterParams}
         />
         <div className="flex w-9/12 max-w-[900px] flex-col items-center justify-start gap-16 lg:w-7/12">
-          {data.length === 0 ? (
+          {filterParams.get("page") > numberOfPages &&
+          filterParams.get("page") !== "1" ? (
+            <>
+              <h1 className="mt-40 text-2xl font-semibold">
+                This page does not exist.😢
+              </h1>
+              <Pagination
+                filterParams={filterParams}
+                setFilterParams={setFilterParams}
+                setNumberOfPages={setNumberOfPages}
+                numberOfPages={numberOfPages}
+              />
+            </>
+          ) : data.length === 0 ? (
             <h1 className="mt-40 text-2xl font-semibold">
-              No{" "}
+              No&nbsp;
               <span className=" first-letter:capitalize">
-                {filterParams.get("role")}s
-              </span>{" "}
+                {filterParams.get("role")}s&nbsp;
+              </span>
               are available with current filters 😢
             </h1>
           ) : (
@@ -78,6 +92,8 @@ function Services() {
               <Pagination
                 filterParams={filterParams}
                 setFilterParams={setFilterParams}
+                setNumberOfPages={setNumberOfPages}
+                numberOfPages={numberOfPages}
               />
             </>
           )}

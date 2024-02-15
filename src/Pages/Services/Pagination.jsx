@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ArrowSvg from "../../assets/ArrowSvg";
 import PropTypes from "prop-types";
-function Pagination({ filterParams, setFilterParams }) {
-  const [numberOfPages, setNumberOfPages] = useState(1);
+function Pagination({ filterParams, setFilterParams , setNumberOfPages, numberOfPages}) {
+  
   useEffect(() => {
     async function fetchNumberOfPages() {
       const res = await fetch(
@@ -72,5 +72,7 @@ function Pagination({ filterParams, setFilterParams }) {
 Pagination.propTypes = {
   filterParams: PropTypes.object.isRequired,
   setFilterParams: PropTypes.func.isRequired,
+  setNumberOfPages: PropTypes.func.isRequired,
+  numberOfPages: PropTypes.number.isRequired,
 };
 export default Pagination;
