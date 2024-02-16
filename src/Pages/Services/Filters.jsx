@@ -3,8 +3,7 @@ import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 import CheckBox from "../../components/CheckBox";
 import PropTypes from "prop-types";
-import { scrollToTopOfElement } from "../../utils/helpers";
-function Filters({ filterParams, setFilterParams, petWorkersRef }) {
+function Filters({ filterParams, setFilterParams, scrollToTopOfPetWorkers }) {
   function handlePriceChange(e) {
     setFilterParams(
       (prev) => {
@@ -14,7 +13,7 @@ function Filters({ filterParams, setFilterParams, petWorkersRef }) {
       },
       { replace: true },
     );
-    scrollToTopOfElement(petWorkersRef);
+    scrollToTopOfPetWorkers();
   }
 
   function handleHasOffersChange(e) {
@@ -28,7 +27,7 @@ function Filters({ filterParams, setFilterParams, petWorkersRef }) {
       },
       { replace: true },
     );
-    scrollToTopOfElement(petWorkersRef);
+    scrollToTopOfPetWorkers();
   }
   function handleArrayChange(e) {
     const filterName = e.target.title;
@@ -54,7 +53,7 @@ function Filters({ filterParams, setFilterParams, petWorkersRef }) {
       },
       { replace: true },
     );
-    scrollToTopOfElement(petWorkersRef);
+    scrollToTopOfPetWorkers();
   }
 
   return (
@@ -195,6 +194,6 @@ function Filters({ filterParams, setFilterParams, petWorkersRef }) {
 Filters.propTypes = {
   filterParams: PropTypes.object.isRequired,
   setFilterParams: PropTypes.func.isRequired,
-  petWorkersRef: PropTypes.object.isRequired,
+  scrollToTopOfPetWorkers: PropTypes.func.isRequired,
 };
 export default Filters;

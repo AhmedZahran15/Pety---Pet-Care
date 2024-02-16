@@ -1,8 +1,13 @@
 import { useEffect } from "react";
 import ArrowSvg from "../../assets/ArrowSvg";
 import PropTypes from "prop-types";
-function Pagination({ filterParams, setFilterParams , setNumberOfPages, numberOfPages}) {
-  
+function Pagination({
+  filterParams,
+  setFilterParams,
+  setNumberOfPages,
+  numberOfPages,
+  scrollToTopOfPetWorkers,
+}) {
   useEffect(() => {
     async function fetchNumberOfPages() {
       const res = await fetch(
@@ -18,18 +23,37 @@ function Pagination({ filterParams, setFilterParams , setNumberOfPages, numberOf
       setNumberOfPages(() => returnData.data);
     }
     fetchNumberOfPages();
-  }, [filterParams, setNumberOfPages]);
+  }, [filterParams, setNumberOfPages, setFilterParams]);
+
+  function handlePrevious() {
+    setFilterParams((prev) => {
+      prev.set("page", +prev.get("page") - 1);
+      if (prev.get("page") === "1") prev.delete("page");
+      return prev;
+    });
+    scrollToTopOfPetWorkers();
+  }
+
+  function handleNext() {
+    setFilterParams((prev) => {
+      prev.set("page", +prev.get("page") + 1);
+      return prev;
+    });
+    scrollToTopOfPetWorkers();
+  }
+
+  function handlePageChange(page) {
+    setFilterParams((prev) => {
+      prev.set("page", page);
+      return prev;
+    });
+    scrollToTopOfPetWorkers();
+  }
   return (
     <div className="flex items-center justify-center space-x-1">
       <button
         className="rounded-md bg-white text-black  transition-all duration-200 hover:bg-primary hover:text-white disabled:hidden"
-        onClick={() =>
-          setFilterParams((prev) => {
-            prev.set("page", +prev.get("page") - 1);
-            if (prev.get("page") === "1") prev.delete("page");
-            return prev;
-          })
-        }
+        onClick={handlePrevious}
         disabled={+filterParams.get("page") === 1 || !filterParams.get("page")}
       >
         <ArrowSvg direction="left" />
@@ -38,16 +62,12 @@ function Pagination({ filterParams, setFilterParams , setNumberOfPages, numberOf
         <button
           key={page}
           className={`h-10 w-10 rounded-md  text-center font-fredoka text-2xl font-medium text-primary transition-all duration-200 hover:bg-primary hover:text-white ${
-            +filterParams.get("page") === page
+            +filterParams.get("page") === page ||
+            (!filterParams.get("page") && page === 1)
               ? " bg-primary text-white"
               : "bg-white"
           }`}
-          onClick={() =>
-            setFilterParams((prev) => {
-              prev.set("page", page);
-              return prev;
-            })
-          }
+          onClick={() => handlePageChange(page)}
           disabled={+filterParams.get("page") === page}
         >
           {page}
@@ -55,13 +75,11 @@ function Pagination({ filterParams, setFilterParams , setNumberOfPages, numberOf
       ))}
       <button
         className="rounded-md bg-white text-black transition-all duration-200 hover:bg-primary hover:text-white disabled:hidden"
-        onClick={() =>
-          setFilterParams((prev) => {
-            prev.set("page", +prev.get("page") + 1);
-            return prev;
-          })
+        onClick={handleNext}
+        disabled={
+          +filterParams.get("page") === numberOfPages ||
+          !filterParams.get("page")
         }
-        disabled={+filterParams.get("page") === numberOfPages}
       >
         <ArrowSvg direction="right" />
       </button>
@@ -73,5 +91,6 @@ Pagination.propTypes = {
   setFilterParams: PropTypes.func.isRequired,
   setNumberOfPages: PropTypes.func.isRequired,
   numberOfPages: PropTypes.number.isRequired,
+  scrollToTopOfPetWorkers: PropTypes.func.isRequired,
 };
 export default Pagination;
