@@ -8,7 +8,7 @@ const FeaturesBar = ({ imgSrc, filterParams }) => {
   return (
     <>
       <img src={imgSrc} alt="Header image" className="w-full  bg-contain" />
-      <div className="mx-20 -mt-16 grid grid-cols-2 items-center rounded-3xl bg-white px-5 py-4 shadow-xl   md:grid-cols-4">
+      <div className="mx-8 -mt-16 grid grid-cols-2 items-center rounded-3xl bg-white px-5 py-4 shadow-xl md:grid-cols-4   lg:mx-20">
         <Link
           to="/services?role=vet"
           className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg px-12 hover:bg-neutral-100 ${role === "vet" ? "bg-neutral-100" : ""}`}
