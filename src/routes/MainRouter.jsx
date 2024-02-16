@@ -14,7 +14,7 @@ import ForgotPassword from "../Pages/Auth/ForgotPassword";
 import Footer from "../components/Footer";
 import Services from "../Pages/Services";
 import BecomeAPety from "../Pages/BecomeAPety";
-import StepOne from "../Pages/BecomeAPety/stepOne";
+import StepOne from "../Pages/BecomeAPety/StepOne";
 import StepTwo from "../Pages/BecomeAPety/StepTwo";
 import StepThree from "../Pages/BecomeAPety/StepThree";
 
