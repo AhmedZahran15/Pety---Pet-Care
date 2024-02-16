@@ -1,6 +1,6 @@
 import { useState } from "react";
-
-function Filter({ title, onChange, imgSrc, imgAlt, children }) {
+import PropTypes from "prop-types";
+function Filter({ title, imgSrc, imgAlt, children }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex w-full cursor-pointer flex-col items-center justify-between py-2">
@@ -26,5 +26,10 @@ function Filter({ title, onChange, imgSrc, imgAlt, children }) {
     </div>
   );
 }
-
+Filter.propTypes = {
+  title: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  imgAlt: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 export default Filter;

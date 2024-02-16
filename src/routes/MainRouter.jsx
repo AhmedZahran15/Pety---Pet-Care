@@ -6,11 +6,11 @@ import {
   Navigate,
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import HomePage from "../pages/HomePage";
-import Auth from "../pages/Auth";
-import Login from "../pages/Auth/Login";
-import Register from "../pages/Auth/Register";
-import ForgotPassword from "../pages/Auth/ForgotPassword";
+import HomePage from "../Pages/HomePage";
+import Auth from "../Pages/Auth";
+import Login from "../Pages/Auth/Login";
+import Register from "../Pages/Auth/Register";
+import ForgotPassword from "../Pages/Auth/ForgotPassword";
 import Footer from "../components/Footer";
 import Services from "../Pages/Services";
 import BecomeAPety from "../Pages/BecomeAPety";
