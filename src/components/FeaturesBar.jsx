@@ -1,65 +1,36 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PetSittingSvg from "../assets/PetSittingSvg.jsx";
 import VetSvg from "../assets/VetSvg.jsx";
 import PetGroomingSvg from "../assets/PetGroomingSvg.jsx";
 import PropTypes from "prop-types";
-import { useState } from "react";
-const FeaturesBar = ({ imgSrc }) => {
-  const { role } = useParams();
-  const [petSittingHover, setPetSittingHover] = useState(role === "petSitter");
-  const [petGroomingHover, setPetGroomingHover] = useState(
-    role === "petGroomer",
-  );
-  const [vetHover, setVetHover] = useState(role === "vet");
-  const [moreHover, setMoreHover] = useState(false);
+const FeaturesBar = ({ imgSrc, filterParams }) => {
+  const role = filterParams ? filterParams.get("role") : "";
   return (
     <>
       <img src={imgSrc} alt="Header image" className="w-full  bg-contain" />
-      <div className="mx-20 -mt-16 grid grid-cols-2 items-center rounded-3xl bg-white px-5 py-4  shadow-xl  md:grid-cols-4">
+      <div className="mx-20 -mt-16 grid grid-cols-2 items-center rounded-3xl bg-white px-5 py-4 shadow-xl   md:grid-cols-4">
         <Link
           to="/services?role=vet"
-          onMouseEnter={() => setVetHover(true)}
-          onMouseLeave={() => (role != "vet" ? setVetHover(false) : null)}
-          className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg px-12 ${vetHover ? "bg-gray-100" : ""}  `}
+          className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg px-12 hover:bg-neutral-100 ${role === "vet" ? "bg-neutral-100" : ""}`}
         >
-          <VetSvg hover={vetHover} />
-          <p
-            className={`text-center text-xl ${vetHover ? "text-secondary" : ""} `}
-          >
-            Vet
-          </p>
+          <VetSvg />
+          <p className={`text-center text-xl text-primary`}>Vet</p>
         </Link>
         <Link
           to="/services?role=petSitter"
-          onMouseEnter={() => setPetSittingHover(true)}
-          onMouseLeave={() => setPetSittingHover(false)}
-          className="mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-gray-100"
+          className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-neutral-100 ${role === "petSitter" ? "bg-neutral-100" : ""}`}
         >
-          <PetSittingSvg hover={petSittingHover} />
-          <p
-            className={`text-center text-xl text-black ${petSittingHover ? "text-secondary" : ""}`}
-          >
-            Pet Sitting
-          </p>
+          <PetSittingSvg />
+          <p className={`text-center text-xl text-black`}>Pet Sitting</p>
         </Link>
         <Link
           to="/services?role=groomer"
-          onMouseEnter={() => setPetGroomingHover(true)}
-          onMouseLeave={() => setPetGroomingHover(false)}
-          className="mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-gray-100"
+          className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-neutral-100 ${role === "groomer" ? "bg-neutral-100" : ""}`}
         >
-          <PetGroomingSvg hover={petGroomingHover} />
-          <p
-            className={`text-center text-xl ${petGroomingHover ? "text-secondary" : ""}`}
-          >
-            Pet Grooming
-          </p>
+          <PetGroomingSvg />
+          <p className={`text-center text-xl text-secondary`}>Pet Grooming</p>
         </Link>
-        <div
-          className="mx-auto flex h-24 w-36 cursor-pointer flex-col items-center justify-between rounded-lg  hover:bg-gray-100"
-          onMouseEnter={() => setMoreHover(true)}
-          onMouseLeave={() => setMoreHover(false)}
-        >
+        <div className="mx-auto flex h-24 w-36 cursor-pointer flex-col items-center justify-between rounded-lg  hover:bg-neutral-100">
           <svg
             width="60"
             height="60"
@@ -68,32 +39,12 @@ const FeaturesBar = ({ imgSrc }) => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <g id="more">
-              <circle
-                id="Ellipse 11"
-                cx="6"
-                cy="6"
-                r="6"
-                fill={moreHover ? "#FFA500" : "black"}
-              />
-              <circle
-                id="Ellipse 12"
-                cx="27"
-                cy="6"
-                r="6"
-                fill={moreHover ? "#FFA500" : "black"}
-              />
-              <circle
-                id="Ellipse 13"
-                cx="48"
-                cy="6"
-                r="6"
-                fill={moreHover ? "#FFA500" : "black"}
-              />
+              <circle id="Ellipse 11" cx="6" cy="6" r="6" fill="black" />
+              <circle id="Ellipse 12" cx="27" cy="6" r="6" fill="black" />
+              <circle id="Ellipse 13" cx="48" cy="6" r="6" fill="black" />
             </g>
           </svg>
-          <p
-            className={`text-center text-2xl  text-black sm:text-center ${moreHover ? "text-secondary" : ""}`}
-          >
+          <p className={`text-center text-2xl  text-black sm:text-center`}>
             More
           </p>
         </div>
@@ -103,5 +54,6 @@ const FeaturesBar = ({ imgSrc }) => {
 };
 FeaturesBar.propTypes = {
   imgSrc: PropTypes.string.isRequired,
+  filterParams: PropTypes.object,
 };
 export default FeaturesBar;

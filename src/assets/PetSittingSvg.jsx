@@ -1,9 +1,5 @@
-import PropTypes from "prop-types";
-PetSittingSvg.propTypes = {
-  color: PropTypes.string,
-};
-function PetSittingSvg({ hover }) {
-  const color = hover ? "#FFA500" : "#000000";
+function PetSittingSvg() {
+  const color = "#000000";
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

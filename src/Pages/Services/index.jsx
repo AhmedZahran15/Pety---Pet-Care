@@ -54,7 +54,7 @@ function Services() {
 
   return (
     <div className=" flex flex-col bg-neutral-100">
-      <FeaturesBar imgSrc="/images/services.png" />
+      <FeaturesBar imgSrc="/images/services.png" filterParams={filterParams} />
       <div className="relative my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start">
         <Filters
           setData={setData}

@@ -1,11 +1,7 @@
-import PropTypes from "prop-types";
-PetGroomingSvg.propTypes = {
-  color: PropTypes.string,
-};
-function PetGroomingSvg({ hover }) {
+function PetGroomingSvg() {
   return (
     <svg
-      className={`${hover ? "fill-secondary" : ""}`}
+      className="fill-secondary"
       enableBackground="new 0 0 64 64"
       height="60"
       viewBox="0 0 64 64"
