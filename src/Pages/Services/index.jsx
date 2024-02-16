@@ -20,7 +20,7 @@ function Services() {
     page: "1",
   });
   useEffect(() => {
-    window.scrollTo({ top: 200, behavior: "smooth" })
+    window.scrollTo({ top: 500, behavior: "smooth" })
     const controller = new AbortController();
     async function fetchServices() {
       try {
