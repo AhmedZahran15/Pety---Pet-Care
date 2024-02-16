@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 function RadioButton({ value, checked, name, id, label, onChange }) {
   return (
     <div>
@@ -15,5 +16,12 @@ function RadioButton({ value, checked, name, id, label, onChange }) {
     </div>
   );
 }
-
+RadioButton.propTypes = {
+  value: PropTypes.string,
+  checked: PropTypes.bool,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+};
 export default RadioButton;

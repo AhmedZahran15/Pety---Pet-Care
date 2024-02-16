@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FeaturesBar from "../../components/FeaturesBar";
 import Filters from "./Filters";
 import PetWorkers from "./PetWorkers";
@@ -19,8 +19,8 @@ function Services() {
     limit: "6",
     page: "1",
   });
+  const ElementRef = useRef(null);
   useEffect(() => {
-    window.scrollTo({ top: 600, behavior: "smooth" });
     const controller = new AbortController();
     async function fetchServices() {
       try {
@@ -56,8 +56,12 @@ function Services() {
   return (
     <div className=" flex flex-col bg-neutral-100">
       <FeaturesBar imgSrc="/images/services.png" filterParams={filterParams} />
-      <div className="relative my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start">
+      <div
+        ref={ElementRef}
+        className="relative my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start"
+      >
         <Filters
+          petWorkersRef={ElementRef}
           setData={setData}
           filterParams={filterParams}
           setFilterParams={setFilterParams}

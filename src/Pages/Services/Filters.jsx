@@ -3,7 +3,8 @@ import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 import CheckBox from "../../components/CheckBox";
 import PropTypes from "prop-types";
-function Filters({ filterParams, setFilterParams }) {
+import { scrollToTopOfElement } from "../../utils/helpers";
+function Filters({ filterParams, setFilterParams, petWorkersRef }) {
   function handlePriceChange(e) {
     setFilterParams(
       (prev) => {
@@ -13,6 +14,7 @@ function Filters({ filterParams, setFilterParams }) {
       },
       { replace: true },
     );
+    scrollToTopOfElement(petWorkersRef);
   }
 
   function handleHasOffersChange(e) {
@@ -26,6 +28,7 @@ function Filters({ filterParams, setFilterParams }) {
       },
       { replace: true },
     );
+    scrollToTopOfElement(petWorkersRef);
   }
   function handleArrayChange(e) {
     const filterName = e.target.title;
@@ -51,6 +54,7 @@ function Filters({ filterParams, setFilterParams }) {
       },
       { replace: true },
     );
+    scrollToTopOfElement(petWorkersRef);
   }
 
   return (
@@ -120,7 +124,7 @@ function Filters({ filterParams, setFilterParams }) {
               label="Cat"
               id="cat"
               value="cat"
-              checked={filterParams.get("animals")?.includes("cat")}
+              checked={filterParams?.get("animals")?.includes("cat")}
               onChange={handleArrayChange}
             />
             <CheckBox
@@ -128,7 +132,7 @@ function Filters({ filterParams, setFilterParams }) {
               label="Dog"
               value="dog"
               id="dog"
-              checked={filterParams.get("animals")?.includes("dog")}
+              checked={filterParams?.get("animals")?.includes("dog")}
               onChange={handleArrayChange}
             />
           </Filter>
@@ -143,7 +147,7 @@ function Filters({ filterParams, setFilterParams }) {
               label="Any Day"
               id="anyDay"
               value="anyDay"
-              checked={filterParams.get("availability")?.includes("anyDay")}
+              checked={filterParams?.get("availability")?.includes("anyDay")}
               onChange={handleArrayChange}
             />
             <CheckBox
@@ -151,7 +155,7 @@ function Filters({ filterParams, setFilterParams }) {
               label="Today"
               id="today"
               value="today"
-              checked={filterParams.get("availability")?.includes("today")}
+              checked={filterParams?.get("availability")?.includes("today")}
               onChange={handleArrayChange}
             />
             <CheckBox
@@ -159,7 +163,7 @@ function Filters({ filterParams, setFilterParams }) {
               label="Tomorrow"
               id="tomorrow"
               value="tomorrow"
-              checked={filterParams.get("availability")?.includes("tomorrow")}
+              checked={filterParams?.get("availability")?.includes("tomorrow")}
               onChange={handleArrayChange}
             />
           </Filter>
@@ -178,7 +182,7 @@ function Filters({ filterParams, setFilterParams }) {
               label="Has Offers"
               id="hasOffers"
               value="hasOffers"
-              checked={filterParams.get("offer") === "true"}
+              checked={filterParams?.get("offer") === "true"}
               onChange={handleHasOffersChange}
             />
           </Filter>
@@ -191,5 +195,6 @@ function Filters({ filterParams, setFilterParams }) {
 Filters.propTypes = {
   filterParams: PropTypes.object.isRequired,
   setFilterParams: PropTypes.func.isRequired,
+  petWorkersRef: PropTypes.object.isRequired,
 };
 export default Filters;
