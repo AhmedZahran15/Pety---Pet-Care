@@ -1,7 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-function Filter({ title, imgSrc, imgAlt, children }) {
-  const [isOpen, setIsOpen] = useState(false);
+function Filter({ title, imgSrc, imgAlt, children, filterParams }) {
+  const [isOpen, setIsOpen] = useState(
+    filterParams?.get(title.toLowerCase()) ? true : false,
+  );
   return (
     <div className="flex w-full cursor-pointer flex-col items-center justify-between py-2">
       <div
@@ -30,6 +32,7 @@ Filter.propTypes = {
   title: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
   imgAlt: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  filterParams: PropTypes.object,
 };
 export default Filter;

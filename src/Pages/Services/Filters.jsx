@@ -66,6 +66,7 @@ function Filters({ filterParams, setFilterParams }) {
             imgSrc="/images/filters/dollarIcon.png"
             imgAlt="Dollar Icon"
             title="Price"
+            filterParams={filterParams}
           >
             <RadioButton
               value="0"
@@ -112,6 +113,7 @@ function Filters({ filterParams, setFilterParams }) {
             imgSrc="/images/filters/animalsIcon.png"
             imgAlt="Animals Icon"
             title="Animals"
+            filterParams={filterParams}
           >
             <CheckBox
               title="animals"
@@ -134,6 +136,7 @@ function Filters({ filterParams, setFilterParams }) {
             imgSrc="/images/filters/calendarIcon.png"
             imgAlt="Calendar Icon"
             title="Availability"
+            filterParams={filterParams}
           >
             <CheckBox
               title="availability"
@@ -164,6 +167,7 @@ function Filters({ filterParams, setFilterParams }) {
             imgSrc="/images/filters/markerIcon.png"
             imgAlt="Marker Icon"
             title="Location"
+            filterParams={filterParams}
           ></Filter>
           <Filter
             imgSrc="/images/filters/offerIcon.png"
