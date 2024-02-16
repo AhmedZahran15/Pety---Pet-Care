@@ -56,17 +56,17 @@ function Services() {
   return (
     <div className=" flex flex-col bg-neutral-100">
       <FeaturesBar imgSrc="/images/services.png" filterParams={filterParams} />
-      <div
-        ref={ElementRef}
-        className="relative my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start"
-      >
+      <div className="relative my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start">
         <Filters
           petWorkersRef={ElementRef}
           setData={setData}
           filterParams={filterParams}
           setFilterParams={setFilterParams}
         />
-        <div className="flex w-11/12 max-w-[900px] flex-col items-center justify-start gap-16 lg:w-7/12">
+        <div
+          ref={ElementRef}
+          className="flex w-11/12 max-w-[900px] flex-col items-center justify-start gap-16 lg:w-7/12"
+        >
           {filterParams.get("page") > numberOfPages &&
           filterParams.get("page") !== "1" ? (
             <>

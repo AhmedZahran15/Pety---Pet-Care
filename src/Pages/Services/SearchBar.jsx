@@ -23,8 +23,8 @@ function SearchBar({ filterParams, setFilterParams }) {
         onChange={handleSearchChange}
       />
       <button
-        type="submit"
-        className=" absolute right-1 top-2 flex items-center justify-center border-l-2"
+        type="button"
+        className=" absolute right-1 top-2 flex cursor-default items-center justify-center border-l-2"
       >
         <svg
           className="mx-2 h-8 w-8 py-1"
