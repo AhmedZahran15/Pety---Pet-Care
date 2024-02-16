@@ -61,7 +61,7 @@ function Services() {
           filterParams={filterParams}
           setFilterParams={setFilterParams}
         />
-        <div className="flex w-10/12 max-w-[900px] flex-col items-center justify-start gap-16 lg:w-7/12">
+        <div className="flex w-11/12 max-w-[900px] flex-col items-center justify-start gap-16 lg:w-7/12">
           {filterParams.get("page") > numberOfPages &&
           filterParams.get("page") !== "1" ? (
             <>
