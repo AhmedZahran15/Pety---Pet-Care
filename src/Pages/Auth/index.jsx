@@ -9,8 +9,11 @@ function Auth() {
     navigate("/");
   }
   return (
-    <div className="box-border flex h-screen w-screen overflow-hidden bg-[#F4F4F4] bg-cover p-10 lg:bg-[url('/231.jpg')]">
+    <div className="relative box-border flex h-screen w-screen overflow-hidden bg-gradient-to-t from-[#eaeaea] to-[#f3f3f3] bg-contain bg-right bg-no-repeat p-10">
       <Outlet />
+      <div className="absolute right-0 z-[0] -mt-10 hidden h-screen md:block">
+        <img className="h-screen" src="/bg.png" alt="Auth Image" />
+      </div>
     </div>
   );
 }
