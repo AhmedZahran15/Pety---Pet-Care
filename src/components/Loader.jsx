@@ -23,3 +23,19 @@ Loader.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
 };
+
+export const LoaderQuote = () => {
+  return (
+    <div className="flex w-full flex-col items-center justify-center text-xl font-semibold text-primary">
+      <div className="w-full text-center">
+        &quot;The climb may be long, but the view is worth it&quot;.
+      </div>
+      <div className="m-auto text-center">
+        Just kidding, that shouldn&apos;t take longer
+      </div>
+      <div className="m-auto text-center">
+        than a few seconds. <span className="text-secondary">Now loading.</span>
+      </div>
+    </div>
+  );
+};
