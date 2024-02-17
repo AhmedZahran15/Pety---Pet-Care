@@ -14,11 +14,7 @@ function Services() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [numberOfPages, setNumberOfPages] = useState(1);
-  const [filterParams, setFilterParams] = useSearchParams({
-    role: "vet",
-    limit: "6",
-    page: "1",
-  });
+  const [filterParams, setFilterParams] = useSearchParams();
   const elementRef = useRef(null);
   useEffect(() => {
     const controller = new AbortController();
