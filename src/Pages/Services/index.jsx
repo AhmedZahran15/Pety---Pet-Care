@@ -21,6 +21,10 @@ function Services() {
     async function fetchServices() {
       try {
         setIsLoading((prev) => !prev);
+        elementRef.current.scrollIntoView({
+          top: 0,
+          behavior: "smooth",
+        });
         const res = await fetch(
           `https://petcare-znql.onrender.com/api/pety?${filterParams.toString()}`,
           {
@@ -37,10 +41,6 @@ function Services() {
         }
         const returnData = await res.json();
         setData(() => returnData.data);
-        elementRef.current.scrollIntoView({
-          top: 0,
-          behavior: "smooth",
-        });
       } catch (err) {
         if (err.name === "AbortError") return;
       } finally {
