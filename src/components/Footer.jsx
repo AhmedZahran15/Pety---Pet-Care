@@ -36,9 +36,18 @@ const Footer = () => {
       </div>
       <div className="flex w-40 flex-col gap-3">
         <div className="font-['Product Sans'] text-3xl font-bold">Features</div>
-        <FooterLink href="#" text="Vet Booking" />
-        <FooterLink href="#" text="Pet Sitting" />
-        <FooterLink href="#" text="Pet Grooming" />
+        <FooterLink
+          href="/services?role=vet&limit=6&page=1"
+          text="Vet Booking"
+        />
+        <FooterLink
+          href="/services?role=petSitter&limit=6&page=1"
+          text="Pet Sitting"
+        />
+        <FooterLink
+          href="/services?role=groomer&limit=6&page=1"
+          text="Pet Grooming"
+        />
       </div>
       <div className="flex flex-row items-start justify-start gap-6 sm:flex-col ">
         <div>
