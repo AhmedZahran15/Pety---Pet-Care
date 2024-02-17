@@ -26,7 +26,7 @@ Loader.propTypes = {
 
 export const LoaderQuote = () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center text-xl font-semibold text-primary">
+    <div className="flex w-full flex-col items-center justify-center text-lg font-semibold text-primary sm:text-xl">
       <div className="w-full text-center">
         &quot;The climb may be long, but the view is worth it&quot;.
       </div>
