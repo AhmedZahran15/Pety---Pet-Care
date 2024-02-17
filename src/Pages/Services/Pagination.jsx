@@ -6,7 +6,6 @@ function Pagination({
   setFilterParams,
   setNumberOfPages,
   numberOfPages,
-  scrollToTopOfPetWorkers,
 }) {
   useEffect(() => {
     async function fetchNumberOfPages() {
@@ -31,7 +30,6 @@ function Pagination({
       if (prev.get("page") === "1") prev.delete("page");
       return prev;
     });
-    scrollToTopOfPetWorkers();
   }
 
   function handleNext() {
@@ -39,7 +37,6 @@ function Pagination({
       prev.set("page", +prev.get("page") + 1);
       return prev;
     });
-    scrollToTopOfPetWorkers();
   }
 
   function handlePageChange(page) {
@@ -47,7 +44,6 @@ function Pagination({
       prev.set("page", page);
       return prev;
     });
-    scrollToTopOfPetWorkers();
   }
   return (
     <div className="flex items-center justify-center space-x-1">
@@ -91,6 +87,5 @@ Pagination.propTypes = {
   setFilterParams: PropTypes.func.isRequired,
   setNumberOfPages: PropTypes.func.isRequired,
   numberOfPages: PropTypes.number.isRequired,
-  scrollToTopOfPetWorkers: PropTypes.func.isRequired,
 };
 export default Pagination;

@@ -48,20 +48,16 @@ function Services() {
       }
     }
     fetchServices();
+    elementRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     return () => {
       controller.abort();
     };
   }, [filterParams, setData]);
-
-  function scrollToTopOfPetWorkers() {
-    elementRef.current.scrollIntoView({ behavior: "smooth" });
-  }
   return (
     <div className=" flex flex-col bg-neutral-100">
       <FeaturesBar imgSrc="/images/services.png" filterParams={filterParams} />
       <div className="relative my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start">
         <Filters
-          scrollToTopOfPetWorkers={scrollToTopOfPetWorkers}
           setData={setData}
           filterParams={filterParams}
           setFilterParams={setFilterParams}
@@ -77,7 +73,6 @@ function Services() {
                 This page does not exist.😢
               </h1>
               <Pagination
-                scrollToTopOfPetWorkers={scrollToTopOfPetWorkers}
                 filterParams={filterParams}
                 setFilterParams={setFilterParams}
                 setNumberOfPages={setNumberOfPages}
@@ -107,7 +102,6 @@ function Services() {
                 ))}
               </PetWorkers>
               <Pagination
-                scrollToTopOfPetWorkers={scrollToTopOfPetWorkers}
                 filterParams={filterParams}
                 setFilterParams={setFilterParams}
                 setNumberOfPages={setNumberOfPages}
