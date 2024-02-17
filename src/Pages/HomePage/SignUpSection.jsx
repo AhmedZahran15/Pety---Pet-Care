@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SignUpSection = () => {
   return (
     <div className="mx-12 mb-10 flex items-center justify-around gap-10 px-8 lg:gap-0">
@@ -15,9 +17,12 @@ const SignUpSection = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget
           placerat dui. Sed condimentum tincidunt diam,
         </span>
-        <button className="my-6 max-w-fit  rounded-full bg-primary px-10 py-3 text-center  font-['Montserrat'] text-3xl font-bold tracking-wide text-white transition-all duration-300 hover:bg-[#015d61] ">
+        <Link
+          to="/auth/register"
+          className="my-6 max-w-fit  rounded-full bg-primary px-10 py-3 text-center  font-['Montserrat'] text-3xl font-bold tracking-wide text-white transition-all duration-300 hover:bg-[#015d61] "
+        >
           SIGN UP
-        </button>
+        </Link>
       </div>
       <div className=" hidden md:block">
         <img src="/images/homepage/Vector 3.png" alt="dog" />
