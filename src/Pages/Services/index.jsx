@@ -41,6 +41,10 @@ function Services() {
         }
         const returnData = await res.json();
         setData(() => returnData.data);
+        elementRef.current.scrollIntoView({
+          top: 0,
+          behavior: "smooth",
+        });
       } catch (err) {
         if (err.name === "AbortError") return;
       } finally {
@@ -48,7 +52,6 @@ function Services() {
       }
     }
     fetchServices();
-    elementRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     return () => {
       controller.abort();
     };
