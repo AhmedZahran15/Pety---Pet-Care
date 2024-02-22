@@ -77,7 +77,7 @@ function SortDropDown() {
             <li
               onClick={() => {
                 setFilterParams((prev) => {
-                  prev.set("sort", "rating");
+                  prev.set("sort", "-averageRate");
                   return prev;
                 });
                 setIsOpen(false);
