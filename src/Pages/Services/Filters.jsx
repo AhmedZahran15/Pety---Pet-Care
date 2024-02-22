@@ -2,13 +2,14 @@ import RadioButton from "../../components/RadioButton";
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 import CheckBox from "../../components/CheckBox";
-import PropTypes from "prop-types";
-function Filters({ filterParams, setFilterParams }) {
+import { useSearchParams } from "react-router-dom";
+function Filters() {
+  const [filterParams, setFilterParams] = useSearchParams();
   function handlePriceChange(e) {
     setFilterParams(
       (prev) => {
         prev.set("price", e.target.value);
-        prev.set("page", "1");
+        prev.delete("page");
         return prev;
       },
       { replace: true },
@@ -19,34 +20,29 @@ function Filters({ filterParams, setFilterParams }) {
     const hasOffers = e.target.checked;
     setFilterParams(
       (prev) => {
-        prev.set("offer", hasOffers);
-        if (prev.get("offer") === "false") prev.delete("offer");
-        prev.set("page", "1");
+        hasOffers ? prev.set("offer", "true") : prev.delete("offer");
+        prev.delete("page");
         return prev;
       },
       { replace: true },
     );
   }
   function handleArrayChange(e) {
-    const filterName = e.target.title;
+    const filterName = e.target.name;
     const value = e.target.value;
+    const checked = e.target.checked;
+    const filterArray = filterParams.get(filterName)?.split(",") || [];
     setFilterParams(
       (prev) => {
-        if (prev.get(filterName)?.includes(value)) {
-          if (prev.get(filterName)?.indexOf(value) === 0) {
-            if (prev.get(filterName).length > value.length)
-              prev.set(
-                filterName,
-                prev.get(filterName).replace(`${value},`, ""),
-              );
-            else prev.delete(filterName);
-          } else
-            prev.set(filterName, prev.get(filterName).replace(`,${value}`, ""));
-        } else {
-          if (prev.get(filterName) === null) prev.set(filterName, value);
-          else prev.set(filterName, `${prev.get(filterName)},${value}`);
-        }
-        prev.set("page", "1");
+        if (checked) {
+          prev.set(filterName, [...filterArray, value].join(","));
+        } else
+          prev.set(
+            filterName,
+            filterArray.filter((item) => item !== value).join(","),
+          );
+        if (!prev.get(filterName)) prev.delete(filterName);
+        prev.delete("page");
         return prev;
       },
       { replace: true },
@@ -70,7 +66,7 @@ function Filters({ filterParams, setFilterParams }) {
           >
             <RadioButton
               value="0"
-              checked={filterParams.get("price") === "0"}
+              checked={filterParams?.get("price") === "0"}
               onChange={handlePriceChange}
               name="price"
               id="choice0"
@@ -78,7 +74,7 @@ function Filters({ filterParams, setFilterParams }) {
             />
             <RadioButton
               value="1"
-              checked={filterParams.get("price") === "1"}
+              checked={filterParams?.get("price") === "1"}
               name="price"
               id="choice1"
               onChange={handlePriceChange}
@@ -86,7 +82,7 @@ function Filters({ filterParams, setFilterParams }) {
             />
             <RadioButton
               value="2"
-              checked={filterParams.get("price") === "2"}
+              checked={filterParams?.get("price") === "2"}
               name="price"
               id="choice2"
               onChange={handlePriceChange}
@@ -94,7 +90,7 @@ function Filters({ filterParams, setFilterParams }) {
             />
             <RadioButton
               value="3"
-              checked={filterParams.get("price") === "3"}
+              checked={filterParams?.get("price") === "3"}
               name="price"
               id="choice3"
               onChange={handlePriceChange}
@@ -102,7 +98,7 @@ function Filters({ filterParams, setFilterParams }) {
             />
             <RadioButton
               value="4"
-              checked={filterParams.get("price") === "4"}
+              checked={filterParams?.get("price") === "4"}
               name="price"
               id="choice4"
               onChange={handlePriceChange}
@@ -116,20 +112,24 @@ function Filters({ filterParams, setFilterParams }) {
             filterParams={filterParams}
           >
             <CheckBox
-              title="animals"
+              name="animals"
               label="Cat"
               id="cat"
               value="cat"
-              checked={filterParams?.get("animals")?.includes("cat")}
-              onChange={handleArrayChange}
+              defaultChecked={
+                filterParams?.get("animals")?.includes("cat") === "true"
+              }
+              onClick={handleArrayChange}
             />
             <CheckBox
-              title="animals"
+              name="animals"
               label="Dog"
               value="dog"
               id="dog"
-              checked={filterParams?.get("animals")?.includes("dog")}
-              onChange={handleArrayChange}
+              defaultChecked={
+                filterParams?.get("animals")?.includes("dog") === "true"
+              }
+              onClick={handleArrayChange}
             />
           </Filter>
           <Filter
@@ -139,28 +139,35 @@ function Filters({ filterParams, setFilterParams }) {
             filterParams={filterParams}
           >
             <CheckBox
-              title="availability"
+              name="availability"
               label="Any Day"
               id="anyDay"
               value="anyDay"
-              checked={filterParams?.get("availability")?.includes("anyDay")}
-              onChange={handleArrayChange}
+              defaultChecked={
+                filterParams?.get("availability")?.includes("anyDay") === "true"
+              }
+              onClick={handleArrayChange}
             />
             <CheckBox
-              title="availability"
+              name="availability"
               label="Today"
               id="today"
               value="today"
-              checked={filterParams?.get("availability")?.includes("today")}
-              onChange={handleArrayChange}
+              defaultChecked={
+                filterParams?.get("availability")?.includes("today") === "true"
+              }
+              onClick={handleArrayChange}
             />
             <CheckBox
-              title="availability"
+              name="availability"
               label="Tomorrow"
               id="tomorrow"
               value="tomorrow"
-              checked={filterParams?.get("availability")?.includes("tomorrow")}
-              onChange={handleArrayChange}
+              defaultChecked={
+                filterParams?.get("availability")?.includes("tomorrow") ===
+                "true"
+              }
+              onClick={handleArrayChange}
             />
           </Filter>
           <Filter
@@ -178,8 +185,8 @@ function Filters({ filterParams, setFilterParams }) {
               label="Has Offers"
               id="hasOffers"
               value="hasOffers"
-              checked={filterParams?.get("offer") === "true"}
-              onChange={handleHasOffersChange}
+              defaultChecked={filterParams?.get("offer") === "true"}
+              onClick={handleHasOffersChange}
             />
           </Filter>
         </div>
@@ -187,9 +194,4 @@ function Filters({ filterParams, setFilterParams }) {
     </div>
   );
 }
-
-Filters.propTypes = {
-  filterParams: PropTypes.object.isRequired,
-  setFilterParams: PropTypes.func.isRequired,
-};
 export default Filters;

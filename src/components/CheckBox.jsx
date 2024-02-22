@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
-function CheckBox({ title, label, value, onChange, checked, id }) {
+function CheckBox({ name, label, value, onClick, defaultChecked, id }) {
   return (
     <div>
       <input
-        title={title}
-        checked={typeof checked === "undefined" ? false : checked}
+        name={name}
+        defaultChecked={defaultChecked}
         type="checkbox"
         id={id}
-        onChange={onChange}
+        onClick={onClick}
         value={value}
       />
       <label htmlFor={id} className="ml-1">
@@ -17,11 +17,11 @@ function CheckBox({ title, label, value, onChange, checked, id }) {
   );
 }
 CheckBox.propTypes = {
-  title: PropTypes.string,
+  name: PropTypes.string,
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  checked: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+  defaultChecked: PropTypes.bool,
   id: PropTypes.string.isRequired,
 };
 export default CheckBox;
