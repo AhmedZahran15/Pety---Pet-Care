@@ -10,21 +10,21 @@ const FeaturesBar = ({ imgSrc, filterParams }) => {
       <img src={imgSrc} alt="Header image" className="w-full  bg-contain" />
       <div className="mx-8 -mt-16 grid grid-cols-2 items-center rounded-3xl bg-white px-5 py-4 shadow-xl md:grid-cols-4   lg:mx-20">
         <Link
-          to="/services?role=vet&limit=6&page=1"
+          to="/services?role=vet"
           className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg px-12 hover:bg-neutral-100 ${role === "vet" ? "bg-neutral-100" : ""}`}
         >
           <VetSvg />
           <p className={`text-center text-xl text-primary`}>Vet</p>
         </Link>
         <Link
-          to="/services?role=petSitter&limit=6&page=1"
+          to="/services?role=petSitter"
           className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-neutral-100 ${role === "petSitter" ? "bg-neutral-100" : ""}`}
         >
           <PetSittingSvg />
           <p className={`text-center text-xl text-black`}>Pet Sitting</p>
         </Link>
         <Link
-          to="/services?role=groomer&limit=6&page=1"
+          to="/services?role=groomer"
           className={`mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg hover:bg-neutral-100 ${role === "groomer" ? "bg-neutral-100" : ""}`}
         >
           <PetGroomingSvg />
