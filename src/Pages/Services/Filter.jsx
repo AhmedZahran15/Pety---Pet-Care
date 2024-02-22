@@ -1,6 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-function Filter({ title, imgSrc, imgAlt, children, filterParams }) {
+import { useSearchParams } from "react-router-dom";
+function Filter({ title, imgSrc, imgAlt, children }) {
+  const [filterParams] = useSearchParams();
   const [isOpen, setIsOpen] = useState(
     filterParams?.get(title.toLowerCase()) ? true : false,
   );
@@ -33,6 +35,5 @@ Filter.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   imgAlt: PropTypes.string.isRequired,
   children: PropTypes.node,
-  filterParams: PropTypes.object,
 };
 export default Filter;

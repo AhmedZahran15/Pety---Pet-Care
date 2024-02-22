@@ -1,7 +1,8 @@
-import PropTypes from "prop-types";
-
-function SearchBar({ filterParams, setFilterParams }) {
-  function handleSearchChange(e) {
+import { useSearchParams } from "react-router-dom";
+import { debounce } from "lodash";
+function SearchBar() {
+  const [filterParams, setFilterParams] = useSearchParams();
+  const handleSearchChange = debounce((e) => {
     const search = e.target.value.trim();
     setFilterParams(
       (prev) => {
@@ -11,16 +12,16 @@ function SearchBar({ filterParams, setFilterParams }) {
       },
       { replace: true },
     );
-  }
+  }, 300);
   return (
     <div className="relative w-full shadow-lg shadow-neutral-300">
       <input
         className="h-12 w-full rounded-[4px] border-[0.1rem] border-[#999999]  bg-white px-2 pr-16 font-fredoka text-base font-normal focus:outline-none"
         type="search"
         name="search"
-        value={filterParams.get("petyName") || ""}
         placeholder="Search"
-        onChange={handleSearchChange}
+        defaultValue={filterParams.get("petyName") || ""}
+        onChange={(e) => handleSearchChange(e)}
       />
       <button
         type="button"
@@ -45,8 +46,4 @@ function SearchBar({ filterParams, setFilterParams }) {
     </div>
   );
 }
-SearchBar.propTypes = {
-  filterParams: PropTypes.object.isRequired,
-  setFilterParams: PropTypes.func.isRequired,
-};
 export default SearchBar;

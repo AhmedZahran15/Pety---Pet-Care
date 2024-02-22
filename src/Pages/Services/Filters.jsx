@@ -51,10 +51,7 @@ function Filters() {
 
   return (
     <div className="box-border min-w-[247px] max-w-[247px] space-y-6 divide-y-[3px] divide-solid divide-[#D9D9D9] self-center lg:sticky lg:top-8 lg:self-start">
-      <SearchBar
-        filterParams={filterParams}
-        setFilterParams={setFilterParams}
-      />
+      <SearchBar />
       <div className="flex flex-col gap-0 space-y-2">
         <h2 className="mt-4 text-2xl font-normal">Filter By</h2>
         <div className="divide-y-2 divide-[#D9D9D9] rounded-[4px]  border-[0.1rem] border-[#999999] bg-white shadow-lg shadow-neutral-300">
@@ -62,7 +59,6 @@ function Filters() {
             imgSrc="/images/filters/dollarIcon.png"
             imgAlt="Dollar Icon"
             title="Price"
-            filterParams={filterParams}
           >
             <RadioButton
               value="0"
@@ -109,7 +105,6 @@ function Filters() {
             imgSrc="/images/filters/animalsIcon.png"
             imgAlt="Animals Icon"
             title="Animals"
-            filterParams={filterParams}
           >
             <CheckBox
               name="animals"
@@ -136,7 +131,6 @@ function Filters() {
             imgSrc="/images/filters/calendarIcon.png"
             imgAlt="Calendar Icon"
             title="Availability"
-            filterParams={filterParams}
           >
             <CheckBox
               name="availability"
@@ -174,7 +168,6 @@ function Filters() {
             imgSrc="/images/filters/markerIcon.png"
             imgAlt="Marker Icon"
             title="Location"
-            filterParams={filterParams}
           ></Filter>
           <Filter
             imgSrc="/images/filters/offerIcon.png"

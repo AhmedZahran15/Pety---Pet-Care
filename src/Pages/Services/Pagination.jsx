@@ -1,16 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ArrowSvg from "../../assets/ArrowSvg";
-import PropTypes from "prop-types";
-function Pagination({
-  filterParams,
-  setFilterParams,
-  setNumberOfPages,
-  numberOfPages,
-}) {
+import { useSearchParams } from "react-router-dom";
+function Pagination() {
+  const [numberOfPages, setNumberOfPages] = useState(1);
+  const [filterParams, setFilterParams] = useSearchParams();
   useEffect(() => {
     async function fetchNumberOfPages() {
       const res = await fetch(
-        `https://petcare-znql.onrender.com/api/pety/pages?${filterParams.toString()}`,
+        `https://petcare-znql.onrender.com/api/pety/pages?limit=6&${filterParams.toString()}`,
         {
           method: "GET",
           headers: {
@@ -22,7 +19,7 @@ function Pagination({
       setNumberOfPages(() => returnData.data);
     }
     fetchNumberOfPages();
-  }, [filterParams, setNumberOfPages, setFilterParams]);
+  }, [filterParams]);
 
   function handlePrevious() {
     setFilterParams((prev) => {
@@ -42,6 +39,7 @@ function Pagination({
   function handlePageChange(page) {
     setFilterParams((prev) => {
       prev.set("page", page);
+      if (page === 1) prev.delete("page");
       return prev;
     });
   }
@@ -64,7 +62,10 @@ function Pagination({
               : "bg-white"
           }`}
           onClick={() => handlePageChange(page)}
-          disabled={+filterParams.get("page") === page}
+          disabled={
+            +filterParams.get("page") === page ||
+            (!filterParams.get("page") && page === 1)
+          }
         >
           {page}
         </button>
@@ -74,7 +75,7 @@ function Pagination({
         onClick={handleNext}
         disabled={
           +filterParams.get("page") === numberOfPages ||
-          !filterParams.get("page")
+          (!filterParams.get("page"), numberOfPages === 1)
         }
       >
         <ArrowSvg direction="right" />
@@ -82,10 +83,4 @@ function Pagination({
     </div>
   );
 }
-Pagination.propTypes = {
-  filterParams: PropTypes.object.isRequired,
-  setFilterParams: PropTypes.func.isRequired,
-  setNumberOfPages: PropTypes.func.isRequired,
-  numberOfPages: PropTypes.number.isRequired,
-};
 export default Pagination;

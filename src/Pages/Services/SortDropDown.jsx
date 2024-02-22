@@ -1,7 +1,8 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
-function SortDropDown({ filterParams, setFilterParams }) {
+function SortDropDown() {
+  const [filterParams, setFilterParams] = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative flex w-auto items-center gap-2">
@@ -91,8 +92,4 @@ function SortDropDown({ filterParams, setFilterParams }) {
     </div>
   );
 }
-SortDropDown.propTypes = {
-  filterParams: PropTypes.object.isRequired,
-  setFilterParams: PropTypes.func.isRequired,
-};
 export default SortDropDown;

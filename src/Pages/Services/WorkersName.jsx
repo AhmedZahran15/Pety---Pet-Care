@@ -1,5 +1,7 @@
-import PropTypes from "prop-types";
-function WorkersName({ filterParams }) {
+import { useSearchParams } from "react-router-dom";
+
+function WorkersName() {
+  const [filterParams] = useSearchParams();
   return (
     <h1 className="flex items-center font-fredoka text-2xl font-semibold sm:text-3xl md:text-5xl">
       {filterParams.get("role") === "vet"
@@ -12,7 +14,5 @@ function WorkersName({ filterParams }) {
     </h1>
   );
 }
-WorkersName.propTypes = {
-  filterParams: PropTypes.object.isRequired,
-};
+
 export default WorkersName;
