@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import PetSittingSvg from "../assets/PetSittingSvg.jsx";
 import VetSvg from "../assets/VetSvg.jsx";
 import PetGroomingSvg from "../assets/PetGroomingSvg.jsx";
 import PropTypes from "prop-types";
-const FeaturesBar = ({ imgSrc, filterParams }) => {
+const FeaturesBar = ({ imgSrc }) => {
+  const [filterParams] = useSearchParams();
   const role = filterParams ? filterParams.get("role") : "";
   return (
     <>
@@ -54,6 +55,5 @@ const FeaturesBar = ({ imgSrc, filterParams }) => {
 };
 FeaturesBar.propTypes = {
   imgSrc: PropTypes.string.isRequired,
-  filterParams: PropTypes.object,
 };
 export default FeaturesBar;
