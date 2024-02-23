@@ -8,6 +8,7 @@ function SearchBar() {
       (prev) => {
         prev.set("petyName", search);
         if (search === "") prev.delete("petyName");
+        prev.delete("page");
         return prev;
       },
       { replace: true },
