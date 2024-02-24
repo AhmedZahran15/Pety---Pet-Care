@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input.jsx";
 import { FullButton } from "../../components/FullButton.jsx";
 import {
-  validateName,
+  validateString,
   validateEmail,
   validatePhone,
   validatePassword,
@@ -31,8 +31,8 @@ const initialState = {
 
 const enableRegister = (state) => {
   return (
-    validateName(state.firstName, "First name ") === "" &&
-    validateName(state.lastName, "Last name ") === "" &&
+    validateString(state.firstName, "First name ") === "" &&
+    validateString(state.lastName, "Last name ") === "" &&
     validateEmail(state.email) === "" &&
     validatePhone(state.phoneNumber) === "" &&
     validatePassword(state.password) === "" &&
@@ -48,7 +48,7 @@ const reducer = (state, action) => {
         firstName: action.payload,
         errors: {
           ...state.errors,
-          firstName: validateName(action.payload, "First name "),
+          firstName: validateString(action.payload, "First name "),
         },
       };
     case "SET_LAST_NAME":
@@ -57,7 +57,7 @@ const reducer = (state, action) => {
         lastName: action.payload,
         errors: {
           ...state.errors,
-          lastName: validateName(action.payload, "Last name "),
+          lastName: validateString(action.payload, "Last name "),
         },
       };
     case "SET_EMAIL":

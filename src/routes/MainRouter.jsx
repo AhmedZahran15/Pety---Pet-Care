@@ -14,9 +14,6 @@ import ForgotPassword from "../Pages/Auth/ForgotPassword";
 import Footer from "../components/Footer";
 import Services from "../Pages/Services";
 import BecomeAPety from "../Pages/BecomeAPety";
-import StepOne from "../Pages/BecomeAPety/StepOne";
-import StepTwo from "../Pages/BecomeAPety/StepTwo";
-import StepThree from "../Pages/BecomeAPety/StepThree";
 
 const AppLayout = () => {
   return (
@@ -34,12 +31,7 @@ function MainRouter() {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<HomePage />} />
           <Route path="services" element={<Services />} />
-          <Route path="becomeAPety" element={<BecomeAPety />}>
-            <Route index element={<Navigate replace to="stepOne" />} />
-            <Route path="stepOne" element={<StepOne />} />
-            <Route path="stepTwo" element={<StepTwo />} />
-            <Route path="stepThree" element={<StepThree />} />
-          </Route>
+          <Route path="becomeAPety" element={<BecomeAPety />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />

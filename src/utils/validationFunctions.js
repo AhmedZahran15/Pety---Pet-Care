@@ -2,7 +2,7 @@ const PASSWORD_REGEX =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 const PHONE_REGEX = /^01[0-2,5]{1}[0-9]{8}$/;
 
-export const validateName = (name, type) => {
+export const validateString = (name, type = "") => {
   if (name.trim() === "") {
     return `${type} is required`;
   }
