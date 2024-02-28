@@ -7,9 +7,9 @@ function ScrollToTop() {
       document.body.scrollTop > 500 ||
       document.documentElement.scrollTop > 500
     ) {
-      buttonRef.current.style.display = "block";
+      buttonRef?.current ? (buttonRef.current.style.display = "block") : null;
     } else {
-      buttonRef.current.style.display = "none";
+      buttonRef?.current ? (buttonRef.current.style.display = "none") : null;
     }
   };
   return (
