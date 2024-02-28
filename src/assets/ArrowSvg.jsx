@@ -14,9 +14,7 @@ function ArrowSvg({ direction = "down" }) {
       }
     >
       <svg
-        className="fill-primary transition-all duration-200 hover:fill-white"
-        width="40px"
-        height="40px"
+        className="m-0 fill-primary p-0 transition-all duration-200 hover:fill-white"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
