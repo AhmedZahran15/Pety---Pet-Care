@@ -36,8 +36,7 @@ function StepTwo() {
       dispatch({ type: "REMOVE_ANIMAL", payload: e.target.value });
     }
   }
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleStepTwo() {
     dispatch({ type: "validateStepTwo" });
     if (
       descriptionError === "" &&
@@ -53,10 +52,7 @@ function StepTwo() {
     }
   }
   return (
-    <form
-      className="mt-8 w-full space-y-4  rounded-lg border-0 bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 lg:w-3/6"
-      onSubmit={handleSubmit}
-    >
+    <div className="mt-8 w-full space-y-4  rounded-lg border-0 bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 lg:w-3/6">
       <div className="pl-2 text-base font-medium">
         <div className="-ml-2 mb-1">What is your service ?</div>
         <div className="font-fredoka text-lg font-normal">
@@ -130,19 +126,19 @@ function StepTwo() {
       </div>
       <div className="flex items-center justify-start gap-x-6">
         <button
-          type="submit"
-          className="rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white "
+          onClick={handleStepTwo}
+          className="rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 "
         >
           Next
         </button>
         <button
           onClick={() => dispatch({ type: "SET_STEP", payload: 1 })}
-          className="rounded-md bg-[#CECECE] px-14 py-3 text-lg font-semibold text-white"
+          className="rounded-md bg-[#CECECE] px-14 py-3 text-lg font-semibold text-white hover:bg-neutral-400"
         >
           Back
         </button>
       </div>
-    </form>
+    </div>
   );
 }
 

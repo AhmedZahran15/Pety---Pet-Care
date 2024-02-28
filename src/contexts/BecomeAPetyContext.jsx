@@ -168,6 +168,8 @@ function reducer(state, action) {
           ),
         },
       };
+    case "RESET":
+      return initialState;
     default:
       return state;
   }
@@ -175,7 +177,31 @@ function reducer(state, action) {
 const BecomeAPetyContext = createContext();
 export const BecomeAPetyProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const registerPety = async () => {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_URL}/api/pety`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        petyName: state.petyName,
+        clinicalName: state.clinicalName,
+        address: state.address,
+        price: state.price,
+        phoneNumber: state.phoneNumber,
+        animals: state.animals,
+        description: state.description,
+        email: state.email,
+        role: state.role,
+      }),
+    });
+    const data = await response.json();
+    return data;
+  };
   const contextData = {
+    registerPety,
     state,
     dispatch,
   };

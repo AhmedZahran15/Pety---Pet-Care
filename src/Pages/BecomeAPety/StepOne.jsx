@@ -17,8 +17,7 @@ function StepOne() {
   function handleClinicalNameChange(e) {
     dispatch({ type: "SET_CLINICAL_NAME", payload: e.target.value });
   }
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleStepOne() {
     dispatch({ type: "validateStepOne" });
     if (
       petyNameError === "" &&
@@ -30,10 +29,7 @@ function StepOne() {
     }
   }
   return (
-    <form
-      className="mt-8 w-full space-y-8  rounded-lg border-0 bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 lg:w-3/6"
-      onSubmit={handleSubmit}
-    >
+    <div className="mt-8 w-full space-y-8  rounded-lg border-0 bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 lg:w-3/6">
       <NormalInput
         label="Enter Your Name."
         value={petyName}
@@ -47,11 +43,14 @@ function StepOne() {
         error={clinicalNameError ? clinicalNameError : ""}
       />
       <div className="flex items-center justify-start gap-x-6">
-        <button className="rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white">
+        <button
+          onClick={handleStepOne}
+          className="rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400"
+        >
           Next
         </button>
       </div>
-    </form>
+    </div>
   );
 }
 
