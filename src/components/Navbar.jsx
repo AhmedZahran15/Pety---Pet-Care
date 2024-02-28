@@ -5,8 +5,9 @@ import { SideMenu } from "./SideMenu";
 import BlurPage from "./BlurPage";
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
+import UserDropDown from "./UserDropDown";
 const Navbar = () => {
-  const { user, userData, logoutUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <SideMenuProvider>
       <header
@@ -16,8 +17,8 @@ const Navbar = () => {
         <Link to="/">
           <img src="/Logo Placeholder.png" alt="Logo" />
         </Link>
-        <div className="flex flex-row justify-between gap-8">
-          <ul className="hidden items-center justify-center gap-8 md:flex">
+        <div className="hidden flex-row justify-between gap-8 lg:flex">
+          <ul className="flex items-center justify-center gap-8">
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
               <Link to="becomeAPety">Become A Pety</Link>
             </li>
@@ -35,27 +36,20 @@ const Navbar = () => {
             </li>
           </ul>
           {user ? (
-            <div className="flex flex-row items-center justify-center gap-8">
-              <span className="text-xl font-normal text-gray-500">
-                {userData?.firstName}
-              </span>
-              <button
-                onClick={logoutUser}
-                className="rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400"
-              >
-                Logout
-              </button>
-            </div>
+            <UserDropDown />
           ) : (
             <Link
-              className="mr-4 hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 md:block "
+              className="mr-4 hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
               to="auth/login"
             >
               Login
             </Link>
           )}
         </div>
-        <BurgerMenu />
+        <div className="flex items-center gap-4 lg:hidden">
+          <UserDropDown />
+          <BurgerMenu />
+        </div>
         <BlurPage />
         <SideMenu />
       </header>
