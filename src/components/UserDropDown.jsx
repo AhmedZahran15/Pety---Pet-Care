@@ -1,10 +1,23 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
 function UserDropDown() {
   const { userData, logoutUser } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const closeEvent = (e) => {
+      if (e.target.closest(".relative") !== null) return;
+      setIsOpen(false);
+    };
+    if (isOpen) {
+      document.addEventListener("click", closeEvent);
+    }
+    return () => {
+      document.removeEventListener("click", closeEvent);
+    };
+  }, [isOpen]);
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -36,10 +49,9 @@ function UserDropDown() {
         </button>
       </div>
       <div
-        onMouseLeave={() => setIsOpen(false)}
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute right-[-1] z-10 mt-2 w-36 origin-top-right overflow-clip rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition duration-150 ease-in-out focus:outline-none`}
+        } absolute right-[-1] z-10 mt-2 w-36 origin-top-right overflow-clip rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
       >
         <Link
           to="/dashboard"
