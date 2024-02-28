@@ -9,7 +9,7 @@ function SortDropDown() {
       <h1 className=" text-xl font-normal text-black">Sort by :</h1>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center  rounded-lg border-[0.5px] border-[#b8b8b8] bg-white px-5 py-2.5 text-center text-sm font-medium text-black shadow-lg shadow-neutral-300 hover:bg-neutral-50"
+        className="flex items-center gap-4 rounded-lg border-[0.5px] border-[#b8b8b8] bg-white px-3 py-2.5 text-center text-sm font-medium text-black shadow-lg shadow-neutral-300 hover:bg-neutral-50"
         type="button"
       >
         {filterParams.get("sort")
