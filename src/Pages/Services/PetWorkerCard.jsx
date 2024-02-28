@@ -25,8 +25,8 @@ function PetWorkerCard({ data }) {
     })
     .join("");
   return (
-    <div className="flex w-full min-w-[370px] cursor-pointer flex-col items-center justify-center gap-x-8 gap-y-6 rounded-xl border-[0.5px] border-black border-opacity-20 bg-white py-4 pl-2 pr-10 shadow-lg shadow-neutral-300 hover:bg-neutral-50 xl:flex-row xl:py-12">
-      <div className=" flex w-full items-center justify-center gap-16 lg:gap-6">
+    <div className="flex w-full min-w-[370px] cursor-pointer flex-col items-center justify-center gap-x-8 gap-y-6 rounded-xl border-[0.5px] border-black border-opacity-20 bg-white py-4 pl-2 shadow-lg shadow-neutral-300 hover:bg-neutral-50 md:flex-row xl:py-8">
+      <div className="my-10 flex w-full items-center justify-center gap-6 px-6 md:w-4/12 ">
         <img
           src="images/vetImg.jpg"
           alt="pet worker"
