@@ -31,7 +31,9 @@ function Pagination() {
 
   function handleNext() {
     setFilterParams((prev) => {
-      prev.set("page", +prev.get("page") + 1);
+      prev.get("page")
+        ? prev.set("page", +prev.get("page") + 1)
+        : prev.set("page", 2);
       return prev;
     });
   }
@@ -46,7 +48,7 @@ function Pagination() {
   return (
     <div className="flex items-center justify-center space-x-1">
       <button
-        className="rounded-md bg-white text-black  transition-all duration-200 hover:bg-primary hover:text-white disabled:hidden"
+        className="w-10 rounded-md bg-white text-black transition-all duration-200 hover:bg-primary hover:text-white disabled:hidden"
         onClick={handlePrevious}
         disabled={+filterParams.get("page") === 1 || !filterParams.get("page")}
       >
@@ -71,7 +73,7 @@ function Pagination() {
         </button>
       ))}
       <button
-        className="rounded-md bg-white text-black transition-all duration-200 hover:bg-primary hover:text-white disabled:hidden"
+        className="w-10 rounded-md bg-white text-black transition-all duration-200 hover:bg-primary hover:text-white disabled:hidden"
         onClick={handleNext}
         disabled={
           +filterParams.get("page") === numberOfPages ||
