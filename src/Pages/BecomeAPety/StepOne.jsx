@@ -45,7 +45,7 @@ function StepOne() {
       <div className="flex items-center justify-start gap-x-6">
         <button
           onClick={handleStepOne}
-          className="rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400"
+          className="min-w-[180px] rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400"
         >
           Next
         </button>

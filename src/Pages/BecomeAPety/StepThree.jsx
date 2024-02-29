@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import NormalInput from "./NormalInput";
 import BecomeAPetyContext from "../../contexts/BecomeAPetyContext";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { set } from "lodash";
+import { Loader } from "../../components/Loader";
 
 function StepThree() {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const {
     state: {
       address,
@@ -39,7 +42,9 @@ function StepThree() {
       phoneNumber !== "" &&
       email !== ""
     ) {
+      setIsLoading(true);
       const data = await registerPety();
+      setIsLoading(false);
       if (data.status === "success") {
         toast.success("You have registered successfully.");
         navigate("/");
@@ -69,16 +74,17 @@ function StepThree() {
         onChange={handleEmailChange}
         error={emailError ? emailError : ""}
       />
-      <div className="flex items-center justify-start gap-x-6">
+      <div className=" flex flex-col items-center justify-start gap-x-6 gap-y-4 sm:flex-row">
         <button
           onClick={handleStepThree}
-          className="rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400"
+          disabled={isLoading}
+          className="min-w-[180px] rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:cursor-not-allowed"
         >
-          Submit
+          {isLoading ? <Loader /> : "Submit"}
         </button>
         <button
           onClick={() => dispatch({ type: "SET_STEP", payload: 2 })}
-          className="rounded-md bg-[#CECECE] px-14 py-3 text-lg font-semibold text-white hover:bg-neutral-400"
+          className="min-w-[180px] rounded-md bg-[#CECECE] px-14 py-3 text-lg font-semibold text-white hover:bg-neutral-400"
         >
           Back
         </button>
