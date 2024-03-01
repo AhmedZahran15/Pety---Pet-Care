@@ -68,7 +68,6 @@ function Carousel({ children }) {
       </button>
       <div
         ref={carousel}
-        onScroll={handleScroll}
         className="relative z-0 mx-auto box-border flex min-h-[270px] max-w-[201px] touch-pan-x snap-x  snap-mandatory gap-2 overflow-scroll scroll-smooth  sm:max-w-[305px]"
       >
         {children}
