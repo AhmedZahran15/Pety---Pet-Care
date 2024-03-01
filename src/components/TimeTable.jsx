@@ -2,8 +2,9 @@ import { useState } from "react";
 import DayWorkTimes from "./DayWorkTimes";
 import PropTypes from "prop-types";
 import Carousel from "./Carousel";
+import moment from "moment";
 
-function TimeTable({ availability , id }) {
+function TimeTable({ availability, id }) {
   const [showAll, setShowAll] = useState(false);
 
   function handleShowAll() {
@@ -16,17 +17,28 @@ function TimeTable({ availability , id }) {
 
   return (
     <Carousel>
-      {availability.map((day) => (
+      {Array.from({ length: 7 }, (_, i) => (
         <DayWorkTimes
-          key={id + day.date}
+          key={id + i}
           id={id}
-          date={day.date}
+          date={moment().add(i, "days").format("DD-MM-YYYY")}
           currentTimes={
             showAll
-              ? day.appointments.map((item) => [item.time, item.isAvailable])
-              : day.appointments
+              ? availability
+                  .filter(
+                    (item) =>
+                      item.date ===
+                      moment().add(i, "days").format("DD-MM-YYYY"),
+                  )[0]
+                  ?.appointments.map((item) => [item.time, item.isAvailable])
+              : availability
+                  .filter(
+                    (item) =>
+                      item.date ===
+                      moment().add(i, "days").format("DD-MM-YYYY"),
+                  )[0]
+                  ?.appointments.map((item) => [item.time, item.isAvailable])
                   .slice(0, 6)
-                  .map((item) => [item.time, item.isAvailable])
           }
           handleShowAll={handleShowAll}
           showAll={showAll}

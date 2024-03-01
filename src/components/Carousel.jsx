@@ -50,10 +50,10 @@ function Carousel({ children }) {
   }, []);
 
   return (
-    <div className="flex min-h-full w-full items-center justify-center gap-x-2 px-2 py-4 transition-all duration-200 md:w-1/2 xl:w-7/12">
+    <div className="flex min-h-[300px] w-full items-center justify-center gap-x-2 px-2 py-4 transition-all duration-200 md:w-1/2 xl:w-7/12">
       <button
         onClick={movePrev}
-        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
+        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
         disabled={isDisabled("prev")}
       >
         <svg
@@ -69,12 +69,12 @@ function Carousel({ children }) {
       </button>
       <div
         ref={carousel}
-        className="carousel-container relative z-0 flex  max-w-[306px] touch-pan-x snap-x snap-mandatory gap-2 overflow-hidden scroll-smooth"
+        className="relative z-0 flex min-h-[270px] max-w-[306px]  touch-pan-x snap-x snap-mandatory gap-2 overflow-hidden scroll-smooth"
       >
         {children}
       </div>
       <button
-        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
+        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
         onClick={moveNext}
         disabled={isDisabled("next")}
       >
