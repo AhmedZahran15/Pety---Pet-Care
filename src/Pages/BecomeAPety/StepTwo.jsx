@@ -124,16 +124,16 @@ function StepTwo() {
           LE
         </div>
       </div>
-      <div className="flex items-center justify-start gap-x-6">
+      <div className="flex flex-col sm:flex-row gap-y-4 items-center justify-start gap-x-6">
         <button
           onClick={handleStepTwo}
-          className="rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 "
+          className="min-w-[180px] rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 "
         >
           Next
         </button>
         <button
           onClick={() => dispatch({ type: "SET_STEP", payload: 1 })}
-          className="rounded-md bg-[#CECECE] px-14 py-3 text-lg font-semibold text-white hover:bg-neutral-400"
+          className="min-w-[180px] rounded-md bg-[#CECECE] px-14 py-3 text-lg font-semibold text-white hover:bg-neutral-400"
         >
           Back
         </button>
