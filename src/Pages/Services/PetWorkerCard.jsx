@@ -22,17 +22,18 @@ function PetWorkerCard({ data }) {
     description,
     price,
     availabilityFormatted: availability,
+    animals,
   } = data;
-  const animals = data.animals
+  const animalsString = animals
     .map((item, i) => {
-      if (i === data.animals.length - 1)
+      if (i === animals.length - 1)
         return item[0].toUpperCase() + item.substring(1) + "s";
       return item[0].toUpperCase() + item.substring(1) + "s / ";
     })
     .join("");
   return (
-    <div className="flex w-full min-w-[370px] cursor-pointer flex-col items-start justify-center gap-x-8 gap-y-6 rounded-xl border-[0.5px] border-black border-opacity-20 bg-white py-4 pl-2 shadow-lg shadow-neutral-300 hover:bg-neutral-50 md:flex-row">
-      <div className="my-10 flex w-full items-center justify-center gap-6 px-6 md:w-4/12 ">
+    <div className="flex w-full min-w-[370px] cursor-pointer flex-col items-start justify-center gap-x-8 gap-y-6 rounded-xl border-[0.5px] border-black border-opacity-20 bg-white py-4 shadow-lg shadow-neutral-300 hover:bg-neutral-50 md:flex-row lg:flex-col xl:flex-row">
+      <div className="flex w-full items-center justify-center gap-6 self-center px-6">
         <img
           src="images/vetImg.jpg"
           alt="pet worker"
@@ -70,7 +71,7 @@ function PetWorkerCard({ data }) {
           <UserInfo
             src="images/filters/animalsIcon.png"
             alt="Animals Icon"
-            text={animals}
+            text={animalsString}
           />
         </div>
       </div>

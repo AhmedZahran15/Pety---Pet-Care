@@ -28,8 +28,7 @@ function Carousel({ children }) {
 
     if (direction === "next" && carousel.current !== null) {
       return (
-        carousel.current.offsetWidth * currentIndex + currentIndex * 6 >
-        maxScrollWidth.current
+        carousel.current.offsetWidth * currentIndex > maxScrollWidth.current
       );
     }
 
@@ -39,7 +38,7 @@ function Carousel({ children }) {
   useEffect(() => {
     if (carousel !== null && carousel.current !== null) {
       carousel.current.scrollLeft =
-        carousel.current.offsetWidth * currentIndex + currentIndex * 6;
+        carousel.current.offsetWidth * currentIndex + currentIndex * 7;
     }
   }, [currentIndex]);
 
@@ -50,10 +49,10 @@ function Carousel({ children }) {
   }, []);
 
   return (
-    <div className="flex min-h-[300px] w-full items-center justify-center gap-x-2 px-2 py-4 transition-all duration-200 md:w-1/2 xl:w-7/12">
+    <div className="flex min-h-[300px] items-center justify-center gap-x-2 self-center px-2 py-4 transition-all duration-200">
       <button
         onClick={movePrev}
-        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
+        className="my-auto box-border min-w-[40px] rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
         disabled={isDisabled("prev")}
       >
         <svg
@@ -69,12 +68,12 @@ function Carousel({ children }) {
       </button>
       <div
         ref={carousel}
-        className="relative z-0 flex min-h-[270px] max-w-[306px]  touch-pan-x snap-x snap-mandatory gap-2 overflow-hidden scroll-smooth"
+        className="relative z-0 mx-auto box-border flex min-h-[270px] max-w-[201px] touch-pan-x snap-x  snap-mandatory gap-2 overflow-scroll scroll-smooth no-scrollbar sm:max-w-[305px]"
       >
         {children}
       </div>
       <button
-        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
+        className="my-auto box-border min-w-[40px] rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
         onClick={moveNext}
         disabled={isDisabled("next")}
       >
