@@ -1,50 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import DayWorkTimes from "./DayWorkTimes";
+import PropTypes from "prop-types";
 
-const times = [
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "9:00 PM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "10:00 AM",
-  "11:00 PM",
-];
-
-function TImeTableCarousel() {
-  const [currentTimes, setCurrentTimes] = useState(times.slice(0, 6));
-  const [showAll, setShowAll] = useState(false);
+function Carousel({ children }) {
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef(null);
-
-  function handleShowAll() {
-    if (showAll) {
-      setCurrentTimes(times.slice(0, 6));
-      setShowAll(false);
-    } else {
-      setShowAll(true);
-      setCurrentTimes(times);
-    }
-  }
 
   const movePrev = () => {
     if (currentIndex > 0) {
@@ -90,10 +50,10 @@ function TImeTableCarousel() {
   }, []);
 
   return (
-    <div className="flex min-h-[200px] w-full items-center  justify-center gap-x-2 px-2 md:w-1/2 xl:w-7/12">
+    <div className="flex min-h-full w-full items-center justify-center gap-x-2 px-2 py-4 transition-all duration-200 md:w-1/2 xl:w-7/12">
       <button
         onClick={movePrev}
-        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
+        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
         disabled={isDisabled("prev")}
       >
         <svg
@@ -111,17 +71,10 @@ function TImeTableCarousel() {
         ref={carousel}
         className="carousel-container relative z-0 flex  max-w-[306px] touch-pan-x snap-x snap-mandatory gap-2 overflow-hidden scroll-smooth"
       >
-        {Array.from({ length: 30 }, (_, i) => (
-          <DayWorkTimes
-            key={i}
-            currentTimes={currentTimes}
-            handleShowAll={handleShowAll}
-            showAll={showAll}
-          />
-        ))}
+        {children}
       </div>
       <button
-        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
+        className="my-auto box-border min-w-[10%] rounded-md border-[1px] border-neutral-200 p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce] xl:min-w-[7%]"
         onClick={moveNext}
         disabled={isDisabled("next")}
       >
@@ -139,5 +92,7 @@ function TImeTableCarousel() {
     </div>
   );
 }
-
-export default TImeTableCarousel;
+Carousel.propTypes = {
+  children: PropTypes.node,
+};
+export default Carousel;

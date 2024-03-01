@@ -1,6 +1,5 @@
 import Star from "../../components/Star";
-import TImeTableCarousel from "../../components/TImeTableCarousel";
-
+import TimeTable from "../../components/TimeTable";
 import PropTypes from "prop-types";
 function UserInfo({ src, alt, text }) {
   return (
@@ -16,7 +15,14 @@ UserInfo.propTypes = {
   text: PropTypes.string.isRequired,
 };
 function PetWorkerCard({ data }) {
-  const { petyName, averageRate, description, price } = data;
+  const {
+    _id,
+    petyName,
+    averageRate,
+    description,
+    price,
+    availabilityFormatted: availability,
+  } = data;
   const animals = data.animals
     .map((item, i) => {
       if (i === data.animals.length - 1)
@@ -25,7 +31,7 @@ function PetWorkerCard({ data }) {
     })
     .join("");
   return (
-    <div className="flex w-full min-w-[370px] cursor-pointer flex-col items-center justify-center gap-x-8 gap-y-6 rounded-xl border-[0.5px] border-black border-opacity-20 bg-white py-4 pl-2 shadow-lg shadow-neutral-300 hover:bg-neutral-50 md:flex-row xl:py-8">
+    <div className="flex w-full min-w-[370px] cursor-pointer flex-col items-start justify-center gap-x-8 gap-y-6 rounded-xl border-[0.5px] border-black border-opacity-20 bg-white py-4 pl-2 shadow-lg shadow-neutral-300 hover:bg-neutral-50 md:flex-row">
       <div className="my-10 flex w-full items-center justify-center gap-6 px-6 md:w-4/12 ">
         <img
           src="images/vetImg.jpg"
@@ -68,7 +74,7 @@ function PetWorkerCard({ data }) {
           />
         </div>
       </div>
-      <TImeTableCarousel />
+      <TimeTable availability={availability} id={_id} />
     </div>
   );
 }
