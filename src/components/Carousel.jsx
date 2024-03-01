@@ -34,7 +34,7 @@ function Carousel({ children }) {
 
     return false;
   };
-  useEffect(() => {
+  carousel.onscroll = () => {
     if (carousel !== null && carousel.current !== null) {
       setCurrentIndex(
         Math.min(
@@ -45,7 +45,7 @@ function Carousel({ children }) {
         ),
       );
     }
-  }, [carousel, children]);
+  };
   useEffect(() => {
     if (carousel !== null && carousel.current !== null) {
       carousel.current.scrollLeft =
