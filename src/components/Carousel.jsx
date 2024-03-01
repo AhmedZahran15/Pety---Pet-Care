@@ -34,7 +34,18 @@ function Carousel({ children }) {
 
     return false;
   };
-
+  useEffect(() => {
+    if (carousel !== null && carousel.current !== null) {
+      setCurrentIndex(
+        Math.min(
+          Math.floor(
+            carousel.current.scrollLeft / carousel.current.offsetWidth,
+          ),
+          children.length - 1,
+        ),
+      );
+    }
+  }, [carousel, children]);
   useEffect(() => {
     if (carousel !== null && carousel.current !== null) {
       carousel.current.scrollLeft =
