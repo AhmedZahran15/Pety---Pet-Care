@@ -34,7 +34,7 @@ function Carousel({ children }) {
 
     return false;
   };
-  
+
   useEffect(() => {
     if (carousel !== null && carousel.current !== null) {
       carousel.current.scrollLeft =
