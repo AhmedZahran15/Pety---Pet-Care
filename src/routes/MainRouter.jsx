@@ -14,6 +14,7 @@ import ForgotPassword from "../Pages/Auth/ForgotPassword";
 import Footer from "../components/Footer";
 import Services from "../Pages/Services";
 import BecomeAPety from "../Pages/BecomeAPety";
+import ContactUs from "../Pages/ContactUs";
 
 const AppLayout = () => {
   return (
@@ -32,6 +33,8 @@ function MainRouter() {
           <Route index element={<HomePage />} />
           <Route path="services" element={<Services />} />
           <Route path="becomeAPety" element={<BecomeAPety />} />
+          
+          <Route path="contact" element={<ContactUs/>} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />

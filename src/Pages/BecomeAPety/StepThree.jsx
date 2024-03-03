@@ -78,7 +78,7 @@ function StepThree() {
         <button
           onClick={handleStepThree}
           disabled={isLoading}
-          className="min-w-[180px] rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:cursor-not-allowed"
+          className="min-w-[180px] rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:cursor-not-allowed "
         >
           {isLoading ? <Loader /> : "Submit"}
         </button>
