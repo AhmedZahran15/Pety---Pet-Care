@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ReservationContext } from "../contexts/ReservationContext";
-function DayWorkTimes({ date, currentTimes, handleShowAll, showAll, id }) {
+function DayWorkTimes({ date, currentTimes, handleShowAll, showAll, data }) {
+  const { id } = data;
   const { setAppointment } = useContext(ReservationContext);
   const todayDate = moment().format("DD-MM-YYYY");
   const tomorrowDate = moment().add(1, "days").format("DD-MM-YYYY");
   const navigate = useNavigate();
   function handleAppointment(time) {
-    setAppointment({ date, time, id });
+    setAppointment({ date, time, data });
     navigate(`/Reservation`);
   }
   return (
@@ -64,6 +65,6 @@ DayWorkTimes.propTypes = {
   currentTimes: PropTypes.array,
   handleShowAll: PropTypes.func,
   showAll: PropTypes.bool,
-  id: PropTypes.string,
+  data: PropTypes.object,
 };
 export default DayWorkTimes;
