@@ -5,7 +5,7 @@ function UserInfo({ src, alt, text }) {
   return (
     <div className="flex items-center gap-1 text-sm font-normal text-gray-500 md:text-base">
       <img src={src} alt={alt} className="h-4 w-4 md:h-[20px] md:w-[20px]" />
-      <span>{text}</span>
+      <span className="truncate">{text}</span>
     </div>
   );
 }
