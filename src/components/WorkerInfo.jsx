@@ -3,7 +3,7 @@ import Star from "./Star";
 import { animalsToString } from "../utils/helpers";
 function UserInfo({ src, alt, text }) {
   return (
-    <div className="flex items-center gap-1 text-base font-normal text-gray-500">
+    <div className="flex items-center gap-1 text-sm font-normal text-gray-500 md:text-base">
       <img src={src} alt={alt} className="h-[20px] w-[20px]" />
       <span>{text}</span>
     </div>
@@ -24,7 +24,7 @@ function WorkerInfo({ data }) {
         className="h-32 w-32 rounded-full shadow-md shadow-gray-400"
       />
       <div className="flex w-full flex-col gap-1">
-        <div className="flex w-full items-center justify-between gap-x-8">
+        <div className="flex w-full items-center justify-between gap-x-4">
           <h2 className=" text-2xl font-bold first-letter:capitalize">
             {petyName}
           </h2>
