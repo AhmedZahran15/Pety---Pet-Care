@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import Carousel from "./Carousel";
 import moment from "moment";
 
-function TimeTable({ availability, id }) {
+function TimeTable({ data }) {
+  const { _id: id, availabilityFormatted: availability } = data;
   const [showAll, setShowAll] = useState(false);
 
   function handleShowAll() {
@@ -16,12 +17,12 @@ function TimeTable({ availability, id }) {
   }
 
   return (
-    <div>
+    <div className="self-center">
       <Carousel>
         {Array.from({ length: 7 }, (_, i) => (
           <DayWorkTimes
             key={id + i}
-            id={id}
+            data={data}
             date={moment().add(i, "days").format("DD-MM-YYYY")}
             currentTimes={
               showAll
@@ -55,7 +56,6 @@ function TimeTable({ availability, id }) {
   );
 }
 TimeTable.propTypes = {
-  availability: PropTypes.array,
-  id: PropTypes.string,
+  data: PropTypes.object.isRequired,
 };
 export default TimeTable;
