@@ -6,7 +6,7 @@ function ReservationTime({ appointment }) {
   return (
     <div className="bg-neutral-50">
       <p className="m-2 p-4 text-center text-lg font-semibold text-neutral-500">
-        Your reservation is confirmed for&nbsp;: &nbsp;
+        Your reservation is for&nbsp;
         <span className="text-neutral-800">
           {appointment.date === todayDate
             ? "Today"
@@ -14,6 +14,7 @@ function ReservationTime({ appointment }) {
               ? "Tomorrow"
               : moment(appointment.date, "DD-MM-YYYY").format("ddd DD-MM")}
         </span>
+        &nbsp;at
         <span className="text-neutral-800">&nbsp;{appointment.time}</span>
       </p>
     </div>
