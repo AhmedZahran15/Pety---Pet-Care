@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Input from "../../components/Input.jsx";
 import { FullButton } from "../../components/FullButton.jsx";
 import {
@@ -113,6 +113,8 @@ function Register() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { registerUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   function handleFirstNameChange(e) {
     dispatch({ type: "SET_FIRST_NAME", payload: e.target.value });
     dispatch({ type: "SET_REGISTER" });
@@ -147,7 +149,7 @@ function Register() {
       passwordConfirm: state.confirmPassword,
       phone: state.phoneNumber,
     });
-    if (res) navigate("/");
+    if (res) navigate(from);
   }
   return (
     <form className="z-10 flex w-full flex-col gap-4 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF]  bg-[#FFFFFF] px-12 py-2 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar md:w-8/12 lg:pr-36 xl:px-16 xl:pr-64">
@@ -213,6 +215,7 @@ function Register() {
         <Link
           to={"/auth/login"}
           className=" cursor-pointer font-bold text-primary hover:text-[#1a8588]"
+          state={{ from: location?.state?.from }}
         >
           Sign in
         </Link>
