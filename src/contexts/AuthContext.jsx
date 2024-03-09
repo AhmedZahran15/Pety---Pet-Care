@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
     });
 
     const data = await res.json();
-    console.log(data);
     if (data.status === "success") {
       setUser(data.token);
       setUserData(data.data);
@@ -79,7 +78,7 @@ export const AuthProvider = ({ children }) => {
     return data.status === "success";
   };
 
-  const logoutUser = async () => {
+  const logoutUser = () => {
     setUser(null);
     localStorage.removeItem("token");
     toast.success("Logout successful", {
