@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FullButton } from "../../components/FullButton";
 import Input from "../../components/Input";
 import { validateEmail } from "../../utils/validationFunctions";
@@ -62,6 +62,8 @@ function Login() {
   );
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleEmailChange = (e) => {
     dispatch({ type: "SET_EMAIL", payload: e.target.value });
     dispatch({ type: "SET_LOGIN" });
@@ -73,7 +75,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     const res = await loginUser({ email, password });
-    if (res) navigate("/");
+    if (res) navigate(from);
   };
   return (
     <form className="z-10 flex w-full flex-col gap-3 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF] bg-[#FFFFFF]  px-12 py-6 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar md:w-8/12 lg:p-16 lg:pr-36 xl:pr-64">
@@ -116,6 +118,7 @@ function Login() {
         <Link
           to={"/auth/register"}
           className=" cursor-pointer font-bold text-primary"
+          state={{ from: location?.state?.from }}
         >
           Sign up
         </Link>
@@ -125,13 +128,3 @@ function Login() {
 }
 
 export default Login;
-
-function Separator() {
-  return (
-    <div className="flex flex-row items-center">
-      <hr className="h-[2px] w-1/2 bg-gray-300" />
-      <span className=" mx-1 text-lg font-semibold">OR</span>
-      <hr className="h-[2px] w-1/2 bg-gray-300" />
-    </div>
-  );
-}
