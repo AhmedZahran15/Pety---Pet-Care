@@ -75,7 +75,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     const res = await loginUser({ email, password });
-    if (res) navigate(from);
+    if (res) navigate(from, { replace: true });
   };
   return (
     <form className="z-10 flex w-full flex-col gap-3 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF] bg-[#FFFFFF]  px-12 py-6 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar md:w-8/12 lg:p-16 lg:pr-36 xl:pr-64">

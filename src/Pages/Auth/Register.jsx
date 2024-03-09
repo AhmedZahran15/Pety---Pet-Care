@@ -149,7 +149,7 @@ function Register() {
       passwordConfirm: state.confirmPassword,
       phone: state.phoneNumber,
     });
-    if (res) navigate(from);
+    if (res) navigate(from, { replace: true });
   }
   return (
     <form className="z-10 flex w-full flex-col gap-4 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF]  bg-[#FFFFFF] px-12 py-2 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar md:w-8/12 lg:pr-36 xl:px-16 xl:pr-64">
