@@ -18,6 +18,7 @@ function UserDropDown() {
       document.removeEventListener("click", closeEvent);
     };
   }, [isOpen]);
+  if (!userData) return null;
   return (
     <div className="userDropDown relative inline-block text-left">
       <div>
