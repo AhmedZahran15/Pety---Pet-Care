@@ -29,7 +29,7 @@ const Navbar = () => {
               <Link to="#">Community</Link>
             </li>
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
-              <Link to="#">Contact</Link>
+              <Link to="contact">Contact</Link>
             </li>
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black ">
               <Link to="#">About</Link>

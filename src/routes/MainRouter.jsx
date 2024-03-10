@@ -16,6 +16,7 @@ import Services from "../Pages/Services";
 import BecomeAPety from "../Pages/BecomeAPety";
 import Reservation from "../Pages/Reservation";
 import ProtectedRoute from "../components/ProtectedRoute";
+import ContactUs from "../Pages/ContactUs";
 
 const AppLayout = () => {
   return (
