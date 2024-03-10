@@ -38,7 +38,7 @@ function MainRouter() {
             <Route path="becomeAPety" element={<BecomeAPety />} />
             <Route path="Reservation" element={<Reservation />} />
           </Route>
-          <Route path="contactUs" element={<ContactUs />} />
+          <Route path="contact" element={<ContactUs />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
