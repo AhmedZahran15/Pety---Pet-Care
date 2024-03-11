@@ -19,7 +19,7 @@ function TimeTable({ data }) {
   return (
     <div className="self-center">
       <Carousel>
-        {Array.from({ length: 7 }, (_, i) => (
+        {/* {Array.from({ length: 7 }, (_, i) => (
           <DayWorkTimes
             key={id + i}
             data={data}
@@ -40,6 +40,22 @@ function TimeTable({ data }) {
                         moment().add(i, "days").format("DD-MM-YYYY"),
                     )[0]
                     ?.appointments.map((item) => [item.time, item.isAvailable])
+                    .slice(0, 6)
+            }
+            handleShowAll={handleShowAll}
+            showAll={showAll}
+          />
+        ))} */}
+        {availability.map((item, i) => (
+          <DayWorkTimes
+            key={id + i}
+            data={data}
+            date={item.date}
+            currentTimes={
+              showAll
+                ? item.appointments.map((item) => [item.time, item.isAvailable])
+                : item.appointments
+                    .map((item) => [item.time, item.isAvailable])
                     .slice(0, 6)
             }
             handleShowAll={handleShowAll}

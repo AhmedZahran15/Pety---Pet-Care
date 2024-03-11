@@ -3,6 +3,7 @@ import { ReservationContext } from "../../contexts/ReservationContext";
 import WorkerInfo from "../../components/WorkerInfo";
 import ReservationTime from "./ReservationTime";
 import { Navigate } from "react-router-dom";
+import TimeTable from "../../components/TimeTable";
 
 function Reservation() {
   const { appointment } = useContext(ReservationContext);
@@ -17,10 +18,11 @@ function Reservation() {
         <WorkerInfo data={appointment.data} />
         <ReservationTime appointment={appointment} />
       </div>
-      <div className="w-full overflow-hidden rounded-xl bg-white md:w-7/12 lg:w-6/12">
+      <div className="flex w-full flex-col gap-2 overflow-hidden rounded-xl bg-white md:w-7/12 lg:w-6/12">
         <div className="bg-primary py-1 text-center font-sans text-lg font-semibold text-white ">
           Appointment details
         </div>
+        <TimeTable data={appointment.data} />
       </div>
     </div>
   );
