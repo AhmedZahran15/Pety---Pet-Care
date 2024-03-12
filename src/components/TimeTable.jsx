@@ -17,7 +17,7 @@ function TimeTable({ data }) {
   }
 
   return (
-    <div className="self-center">
+    <div className="flex flex-col self-center">
       <Carousel>
         {/* {Array.from({ length: 7 }, (_, i) => (
           <DayWorkTimes
