@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 function CheckBox({ name, label, value, onClick, defaultChecked, id }) {
   return (
-    <div>
+    <div className="flex items-center gap-x-2">
       <input
+        className="h-4 w-4"
         name={name}
         defaultChecked={defaultChecked}
         type="checkbox"
@@ -10,9 +11,7 @@ function CheckBox({ name, label, value, onClick, defaultChecked, id }) {
         onClick={onClick}
         value={value}
       />
-      <label htmlFor={id} className="ml-1">
-        {label}
-      </label>
+      <label htmlFor={id}>{label}</label>
     </div>
   );
 }
