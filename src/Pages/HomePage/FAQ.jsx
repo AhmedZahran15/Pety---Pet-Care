@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ArrowSvg from "../../assets/ArrowSvg";
+import PropTypes from "prop-types";
 const faqs = [
   {
     title: "Where are these chairs assembled?",
@@ -22,10 +23,7 @@ export default function FAQ() {
   }
   return (
     <div className="mx-10 mt-12 md:mx-16 lg:mx-32">
-      <h1
-        className="mb-6 text-center font-['Fredoka']  text-5xl
- font-bold uppercase"
-      >
+      <h1 className="mb-6 text-center font-['Fredoka']  text-5xl font-bold uppercase">
         Frequently Asked Questions
       </h1>
       {faqs.map((item, index) => (
@@ -51,20 +49,25 @@ export default function FAQ() {
 function AccordionItem({ item, index, isOpen, toggle, children }) {
   return (
     <div
-      className={`cursor-pointer border-b-[3px] px-2 py-4 font-['Montserrat']
-       text-xl`}
+      className={`cursor-pointer border-b-[3px] px-2 py-4 font-['Montserrat'] text-xl`}
       onClick={() => toggle(index)}
     >
       <div className="flex items-center justify-between ">
-        <span
-          className="font-['Montserrat'] text-xl
- font-bold text-primary"
-        >
+        <span className="font-['Montserrat'] text-xl font-bold text-primary">
           {item.title}
         </span>
-        {isOpen === index ? <ArrowSvg direction="up" /> : <ArrowSvg />}
+        <span className="w-8">
+          {isOpen === index ? <ArrowSvg direction="up" /> : <ArrowSvg />}
+        </span>
       </div>
       {children}
     </div>
   );
 }
+AccordionItem.propTypes = {
+  item: PropTypes.object,
+  index: PropTypes.number,
+  isOpen: PropTypes.number,
+  toggle: PropTypes.func,
+  children: PropTypes.node,
+};
