@@ -4,6 +4,7 @@ import WorkerInfo from "../../components/WorkerInfo";
 import ReservationTime from "./ReservationTime";
 import { Navigate } from "react-router-dom";
 import TimeTable from "../../components/TimeTable";
+import AnimalsDetails from "./AnimalsDetails";
 
 function Reservation() {
   const { appointment } = useContext(ReservationContext);
@@ -14,15 +15,21 @@ function Reservation() {
 
   return (
     <div className="flex flex-col gap-8 bg-neutral-100 px-8 py-10 lg:flex-row lg:px-32">
-      <div className="w-full rounded-xl bg-white py-2 md:w-7/12 lg:w-6/12">
+      <div className="h-fit w-full rounded-xl bg-white py-2 md:w-7/12 lg:w-6/12">
         <WorkerInfo data={appointment.data} />
         <ReservationTime appointment={appointment} />
       </div>
-      <div className="flex w-full flex-col gap-2 overflow-hidden rounded-xl bg-white md:w-7/12 lg:w-6/12">
-        <div className="bg-primary py-1 text-center font-sans text-lg font-semibold text-white ">
-          Appointment details
+      <div className="flex w-full flex-col overflow-hidden rounded-xl bg-white md:w-7/12 lg:w-6/12">
+        <div className="border-b-[3px] border-neutral-200">
+          <div className="bg-primary py-1 text-center font-sans text-lg font-bold text-white ">
+            Appointment details
+          </div>
+          <p className="-mb-2 pt-2 text-center text-lg font-semibold text-neutral-800">
+            Choose your appointment
+          </p>
+          <TimeTable data={appointment.data} />
         </div>
-        <TimeTable data={appointment.data} />
+        <AnimalsDetails />
       </div>
     </div>
   );
