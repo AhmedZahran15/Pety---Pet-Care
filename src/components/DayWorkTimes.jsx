@@ -1,16 +1,19 @@
 import moment from "moment";
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ReservationContext } from "../contexts/ReservationContext";
 function DayWorkTimes({ date, currentTimes, handleShowAll, showAll, data }) {
   const { id } = data;
-  const { setAppointment } = useContext(ReservationContext);
+  const { appointment, setAppointment } = useContext(ReservationContext);
+  const location = useLocation();
   const todayDate = moment().format("DD-MM-YYYY");
   const tomorrowDate = moment().add(1, "days").format("DD-MM-YYYY");
   const navigate = useNavigate();
+
   function handleAppointment(time) {
     setAppointment({ date, time, data });
+    if (location.pathname === "/Reservation") return;
     navigate(`/Reservation`);
   }
   return (
@@ -33,7 +36,7 @@ function DayWorkTimes({ date, currentTimes, handleShowAll, showAll, data }) {
               key={id + time}
               disabled={!time[1]}
               onClick={() => handleAppointment(time[0])}
-              className={`w-[70%] cursor-pointer rounded-[4px] py-1 text-center text-xs font-medium text-neutral-700 transition-all duration-150 ease-in-out hover:bg-primary hover:text-white disabled:cursor-default disabled:bg-transparent disabled:text-gray-300 disabled:line-through disabled:decoration-primary disabled:decoration-[1.5px]`}
+              className={`${time[0] === appointment?.time && location.pathname === "/Reservation" ? "bg-primary text-white" : "text-neutral-700"} w-[70%] cursor-pointer rounded-[4px] py-1 text-center text-xs font-medium  transition-all duration-150 ease-in-out hover:bg-primary hover:text-white disabled:cursor-default disabled:bg-transparent disabled:text-gray-300 disabled:line-through disabled:decoration-primary disabled:decoration-[1.5px]`}
             >
               {time[0]}
             </button>
