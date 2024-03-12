@@ -64,7 +64,7 @@ function TimeTable({ data }) {
         ))}
       </Carousel>
       {showAll && (
-        <div className="-mt-2 text-center text-xs font-medium text-secondary">
+        <div className="-mt-2 pb-1 text-center text-xs font-medium text-secondary">
           Please choose a time for your appointment.
         </div>
       )}
