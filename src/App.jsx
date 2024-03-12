@@ -9,7 +9,11 @@ function App() {
     <AuthProvider>
       <BecomeAPetyProvider>
         <ReservationProvider>
-          <Toaster position="top-right" reverseOrder={false} />
+          <Toaster
+            position="top-right"
+            reverseOrder={false}
+            toastOptions={{ duration: 5000 }}
+          />
           <MainRouter />
         </ReservationProvider>
       </BecomeAPetyProvider>
