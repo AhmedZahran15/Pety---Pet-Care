@@ -82,7 +82,7 @@ function Filters() {
               name="price"
               id="choice2"
               onChange={handlePriceChange}
-              label="From 50 EGP to 150 EGP"
+              label="From 50 to 150"
             />
             <RadioButton
               value="3"
@@ -90,7 +90,7 @@ function Filters() {
               name="price"
               id="choice3"
               onChange={handlePriceChange}
-              label="From 150 EGP to 300 EGP"
+              label="From 150 to 300"
             />
             <RadioButton
               value="4"
@@ -98,7 +98,7 @@ function Filters() {
               name="price"
               id="choice4"
               onChange={handlePriceChange}
-              label="More than 300 EGP"
+              label="More than 300"
             />
           </Filter>
           <Filter
