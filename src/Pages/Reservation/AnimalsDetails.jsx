@@ -3,14 +3,15 @@ import Animal from "./Animal";
 import { ReservationContext } from "../../contexts/ReservationContext";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
+import { Loader } from "../../components/Loader";
 function AnimalsDetails() {
   const [animals, setAnimals] = useState({
     dogs: 0,
     cats: 0,
     other: 0,
   });
-  const { handleReservation, appointment } = useContext(ReservationContext);
+  const { handleReservation, appointment, isLoading } =
+    useContext(ReservationContext);
   const navigate = useNavigate();
   async function handleSubmit() {
     const animalsString = `dogs ${animals.dogs}, cats ${animals.cats}, other ${animals.other}`;
@@ -48,11 +49,13 @@ function AnimalsDetails() {
       <button
         onClick={handleSubmit}
         disabled={
-          animals.dogs === 0 && animals.cats === 0 && animals.other === 0
+          (animals.dogs === 0 && animals.cats === 0 && animals.other === 0) ||
+          isLoading
         }
-        className="my-2 self-center rounded-lg bg-secondary px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"
+        className="my-4 self-center rounded-lg bg-secondary px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"
       >
-        Book appointment
+        {isLoading && <Loader />}
+        {isLoading ? " Loading..." : "Book appointment"}
       </button>
     </>
   );

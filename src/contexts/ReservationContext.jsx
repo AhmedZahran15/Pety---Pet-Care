@@ -8,6 +8,7 @@ export const ReservationProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const handleReservation = async (petyID, date, time, animals) => {
     const token = localStorage.getItem("token");
+    setIsLoading(true);
     const response = await fetch(`${API_URL}/api/pety/appointment`, {
       method: "POST",
       headers: {
@@ -22,6 +23,7 @@ export const ReservationProvider = ({ children }) => {
       }),
     });
     const data = await response.json();
+    setIsLoading(false);
     return data;
   };
   return (
