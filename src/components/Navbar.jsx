@@ -32,7 +32,7 @@ const Navbar = () => {
               <Link to="contact">Contact</Link>
             </li>
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black ">
-              <Link to="#">About</Link>
+            <Link to="aboutus">About</Link>
             </li>
           </ul>
           {user ? (
