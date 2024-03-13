@@ -13,25 +13,25 @@ function AnimalsDetails() {
   const { handleReservation, appointment, isLoading } =
     useContext(ReservationContext);
   const navigate = useNavigate();
+
   async function handleSubmit() {
     const animalsString = `dogs ${animals.dogs}, cats ${animals.cats}, other ${animals.other}`;
     const data = await handleReservation(
       appointment.data._id,
-      appointment.time,
       appointment.date,
+      appointment.time,
       animalsString,
     );
-    console.log(data);
     if (data.status === "success") {
       toast.success(
         `You have booked successfully for ${appointment.date} at ${appointment.time}.`,
       );
-      navigate("/");
       setAnimals({
         dogs: 0,
         cats: 0,
         other: 0,
       });
+      navigate("/");
     } else {
       toast.error(data?.message || "An error occurred while booking.");
     }
@@ -54,8 +54,14 @@ function AnimalsDetails() {
         }
         className="my-4 self-center rounded-lg bg-secondary px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"
       >
-        {isLoading && <Loader />}
-        {isLoading ? " Loading..." : "Book appointment"}
+        {isLoading ? (
+          <>
+            <Loader />
+            <span>Loading...</span>
+          </>
+        ) : (
+          "Book appointment"
+        )}
       </button>
     </>
   );
