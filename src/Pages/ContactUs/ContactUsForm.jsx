@@ -112,7 +112,7 @@ function ContactUsForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full flex-col items-start gap-y-[26px] rounded-2xl border-[1px] border-neutral-300 bg-white p-8 text-gray-500 shadow-lg shadow-neutral-200 md:w-3/4  lg:w-7/12"
+      className="flex w-full flex-col items-start gap-y-[26px] self-center rounded-2xl border-[1px] border-neutral-300 bg-white p-8 text-gray-500 shadow-lg shadow-neutral-200 sm:w-2/3 md:w-full lg:w-full xl:w-7/12"
     >
       <div className="flex flex-col">
         <p className="font-fredoka text-4xl font-semibold text-neutral-800">
@@ -122,7 +122,7 @@ function ContactUsForm() {
           You can reach us anytime.
         </p>
       </div>
-      <div className="flex w-full flex-row gap-3">
+      <div className="flex w-full flex-col gap-[26px] lg:flex-row">
         <NormalInput
           value={state.firstName}
           onChange={handleFirstNameChange}
