@@ -15,7 +15,8 @@ UserInfo.propTypes = {
   text: PropTypes.string.isRequired,
 };
 function WorkerInfo({ data }) {
-  const { petyName, averageRate, description, price, animals, _id } = data;
+  const { petyName, averageRate, description, price, animals, _id, address } =
+    data;
   return (
     <div className="flex items-center justify-center gap-6 self-center px-6 py-2">
       <img
@@ -24,7 +25,7 @@ function WorkerInfo({ data }) {
         className="h-32 w-32 rounded-full shadow-md shadow-gray-400"
       />
       <div className="flex w-full flex-col gap-1">
-        <div className="flex flex-col sm:flex-row w-full items-start sm:items-center justify-between gap-x-4">
+        <div className="flex w-full flex-col items-start justify-between gap-x-4 sm:flex-row sm:items-center">
           <h2 className=" text-2xl font-bold first-letter:capitalize">
             {petyName}
           </h2>
@@ -43,7 +44,7 @@ function WorkerInfo({ data }) {
           <UserInfo
             src="images/filters/markerIcon.png"
             alt="Marker Icon"
-            text="Location PlaceHolder"
+            text={address}
           />
           <UserInfo
             src="images/filters/dollarIcon.png"
