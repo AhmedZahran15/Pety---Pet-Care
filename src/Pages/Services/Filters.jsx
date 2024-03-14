@@ -112,7 +112,7 @@ function Filters() {
               id="cat"
               value="cat"
               defaultChecked={
-                filterParams?.get("animals")?.includes("cat") === "true"
+                filterParams?.get("animals")?.includes("cat") === true
               }
               onClick={handleArrayChange}
             />
@@ -122,7 +122,7 @@ function Filters() {
               value="dog"
               id="dog"
               defaultChecked={
-                filterParams?.get("animals")?.includes("dog") === "true"
+                filterParams?.get("animals")?.includes("dog") === true
               }
               onClick={handleArrayChange}
             />
@@ -138,7 +138,7 @@ function Filters() {
               id="anyDay"
               value="anyDay"
               defaultChecked={
-                filterParams?.get("availability")?.includes("anyDay") === "true"
+                filterParams?.get("availability")?.includes("anyDay") === true
               }
               onClick={handleArrayChange}
             />
@@ -148,7 +148,7 @@ function Filters() {
               id="today"
               value="today"
               defaultChecked={
-                filterParams?.get("availability")?.includes("today") === "true"
+                filterParams?.get("availability")?.includes("today") === true
               }
               onClick={handleArrayChange}
             />
@@ -158,8 +158,7 @@ function Filters() {
               id="tomorrow"
               value="tomorrow"
               defaultChecked={
-                filterParams?.get("availability")?.includes("tomorrow") ===
-                "true"
+                filterParams?.get("availability")?.includes("tomorrow") === true
               }
               onClick={handleArrayChange}
             />
@@ -178,7 +177,7 @@ function Filters() {
               label="Has Offers"
               id="hasOffers"
               value="hasOffers"
-              defaultChecked={filterParams?.get("offer") === "true"}
+              defaultChecked={filterParams?.get("offer") === true}
               onClick={handleHasOffersChange}
             />
           </Filter>
