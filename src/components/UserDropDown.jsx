@@ -29,7 +29,7 @@ function UserDropDown() {
         >
           <div className="flex items-center gap-x-1">
             <img
-              src="images/vetImg.jpg"
+              src="images/defaultWorkerImage.png"
               alt="avatar"
               className="h-8 w-8 rounded-full"
             />
