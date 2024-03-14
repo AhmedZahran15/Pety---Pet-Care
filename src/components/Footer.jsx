@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
-
+import { SocialLink } from "./SocialLink";
 const FooterLink = ({ href, text }) => {
   return (
     <a
       href={href}
-      className="font-['Product Sans Light'] text-2xl font-normal text-gray-600 transition-all duration-100 hover:font-medium
-      hover:text-primary"
+      className="text-2xl font-normal text-neutral-500 transition-all duration-100 hover:font-medium hover:text-primary"
     >
       {text}
     </a>
@@ -15,18 +14,14 @@ FooterLink.propTypes = {
   href: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
-const SocialLink = ({ href, src, alt }) => {
-  return (
-    <a className="transition-all duration-200 hover:scale-150" href={href}>
-      <img src={src} alt={alt} />
-    </a>
-  );
-};
-SocialLink.propTypes = {
-  href: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-};
+
+const links = [
+  ["#", "images/Facebook.svg", "facebook"],
+  ["#", "images/Instagram.svg", "instagram"],
+  ["#", "images/Twitter.svg", "twitter"],
+  ["#", "images/linkedIn.svg", "linkedin"],
+  ["#", "images/Youtube.svg", "youtube"],
+];
 const Footer = () => {
   return (
     <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-10 py-16 sm:justify-around">
@@ -59,41 +54,14 @@ const Footer = () => {
         <div className='font-["Product Sans"] flex w-48 flex-wrap text-3xl font-bold'>
           Stay in Touch
           <div className="my-5 flex flex-row  gap-2">
-            <SocialLink
-              href="#"
-              src="/images/homepage/footer/Facebook.svg"
-              alt="facebook"
-            />
-            <SocialLink
-              href="#"
-              src="/images/homepage/footer/Twitter.svg"
-              alt="Twitter"
-            />
-            <SocialLink
-              href="#"
-              src="/images/homepage/footer/Instagram.svg"
-              alt="Instagram"
-            />
-            <SocialLink
-              href="#"
-              src="/images/homepage/footer/LinkedIn.svg"
-              alt="LinkedIn"
-            />
-            <SocialLink
-              href="#"
-              src="/images/homepage/footer/Group.svg"
-              alt="youtube"
-            />
-            <SocialLink
-              href="#"
-              src="/images/homepage/footer/Discord.svg"
-              alt="discord"
-            />
-            <SocialLink
-              href="#"
-              src="/images/homepage/footer/whatsapp.svg"
-              alt="whatsapp"
-            />
+            {links.map((link, index) => (
+              <SocialLink
+                key={index}
+                href={link[0]}
+                src={link[1]}
+                alt={link[2]}
+              />
+            ))}
           </div>
         </div>
       </div>

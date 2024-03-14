@@ -17,6 +17,7 @@ import BecomeAPety from "../Pages/BecomeAPety";
 import Reservation from "../Pages/Reservation";
 import ProtectedRoute from "../components/ProtectedRoute";
 import ContactUs from "../Pages/ContactUs";
+import AboutUs from "../Pages/AboutUS";
 
 const AppLayout = () => {
   return (
@@ -39,6 +40,7 @@ function MainRouter() {
             <Route path="Reservation" element={<Reservation />} />
           </Route>
           <Route path="contact" element={<ContactUs />} />
+          <Route path="about" element={<AboutUs />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
