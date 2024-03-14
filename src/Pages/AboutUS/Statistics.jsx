@@ -22,7 +22,7 @@ export default function Statistics() {
       <StatisticItem number="10K" label="Happy Clients" />
       <StatisticItem number="100K" label="Downloads" />
       <StatisticItem number="500+" label="Doctors" />
-      <StatisticItem number="10+" label="Team Members" />
+      <StatisticItem number="10" label="Team Members" />
     </div>
   );
 }
