@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Star from "./Star";
 import { animalsToString } from "../utils/helpers";
+import infoMarkers from "../assets/InfoMarkers";
 function UserInfo({ src, alt, text }) {
   return (
     <div className="flex items-center gap-1 text-sm font-normal text-gray-500 md:text-base">
@@ -14,54 +15,56 @@ UserInfo.propTypes = {
   alt: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
+
 function WorkerInfo({ data }) {
-  const { petyName, averageRate, description, price, animals, _id, address } =
-    data;
+  const {
+    petyName,
+    averageRate,
+    description,
+    price,
+    animals,
+    _id,
+    address,
+    photo,
+  } = data;
   return (
-    <div className="flex items-center justify-center gap-6 self-center px-6 py-2">
-      <img
-        src="images/vetImg.jpg"
-        alt="pet worker"
-        className="h-32 w-32 rounded-full shadow-md shadow-gray-400"
-      />
-      <div className="flex w-full flex-col gap-1">
-        <div className="flex w-full flex-col items-start justify-between gap-x-4 sm:flex-row sm:items-center">
-          <h2 className=" text-2xl font-bold first-letter:capitalize">
-            {petyName}
-          </h2>
-          <div className="flex flex-grow justify-end">
-            {Array.from({ length: 5 }, (_, i) => (
-              <Star key={i + _id} full={i + 1 <= averageRate} />
-            ))}
-          </div>
+    <div className="flex w-full items-center justify-center gap-6 self-center py-2">
+      <picture className="w-1/2 min-w-[100px] max-w-[160px] overflow-hidden rounded-full border-[1px] border-neutral-400 shadow-md shadow-gray-400">
+        <img
+          src={photo ? photo.url : "images/3.png"}
+          alt="pet worker"
+          className="scale-[1.3]"
+        />
+      </picture>
+      <div className="flex  flex-col gap-1">
+        <h2 className="text-2xl font-bold first-letter:capitalize">
+          {petyName}
+        </h2>
+        <div className="flex">
+          {Array.from({ length: 5 }, (_, i) => (
+            <Star key={i + _id} full={i + 1 <= averageRate} />
+          ))}
         </div>
-        <div className="flex flex-col">
-          <UserInfo
-            src="images/filters/filterArrow.png"
-            alt="Description Icon"
-            text={description}
-          />
-          <UserInfo
-            src="images/filters/markerIcon.png"
-            alt="Marker Icon"
-            text={address}
-          />
-          <UserInfo
-            src="images/filters/dollarIcon.png"
-            alt="Dollar Icon"
-            text={`Fees: ${price} LE`}
-          />
-          <UserInfo
-            src="images/filters/Clock.png"
-            alt="Clock Icon"
-            text="Waiting Time placeHolder"
-          />
-          <UserInfo
-            src="images/filters/animalsIcon.png"
-            alt="Animals Icon"
-            text={animalsToString(animals)}
-          />
-        </div>
+        {infoMarkers.map((marker, index) => {
+          return (
+            <UserInfo
+              key={index}
+              src={marker.src}
+              alt={marker.alt}
+              text={
+                index === 0
+                  ? description
+                  : index === 1
+                    ? address
+                    : index === 2
+                      ? `${price}`
+                      : index === 3
+                        ? "Waiting time placeHolder"
+                        : animalsToString(animals)
+              }
+            />
+          );
+        })}
       </div>
     </div>
   );
