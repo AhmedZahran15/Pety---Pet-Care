@@ -37,12 +37,10 @@ function MainRouter() {
           <Route path="services" element={<Services />} />
           <Route element={<ProtectedRoute />}>
             <Route path="becomeAPety" element={<BecomeAPety />} />
-
             <Route path="Reservation" element={<Reservation />} />
           </Route>
           <Route path="contact" element={<ContactUs />} />
-          <Route path="aboutus" element={<AboutUs/>} />
-
+          <Route path="about" element={<AboutUs />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
