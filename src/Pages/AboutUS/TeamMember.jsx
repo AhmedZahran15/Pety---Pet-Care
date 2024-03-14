@@ -4,7 +4,11 @@ export default function TeamMember({ name, role, photo, links }) {
   return (
     <div className="flex flex-col items-center divide-y-2 overflow-hidden rounded-md bg-white">
       <div className="flex flex-col text-center text-sm sm:text-base lg:text-lg">
-        <img alt={name} className="h-40 sm:h-48 lg:h-56 xl:h-72" src={photo} />
+        <img
+          alt={name}
+          className="h-72 min-w-[210px] max-w-[210px]"
+          src={photo}
+        />
         <h2 className="font-bold text-neutral-800">{name}</h2>
         <h3 className="text-neutral-500">{role}</h3>
       </div>
