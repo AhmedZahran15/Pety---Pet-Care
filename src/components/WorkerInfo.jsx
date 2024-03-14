@@ -31,7 +31,7 @@ function WorkerInfo({ data }) {
     <div className="flex w-full items-center justify-center gap-6 self-center py-2">
       <picture className="w-1/2 min-w-[100px] max-w-[160px] overflow-hidden rounded-full border-[1px] border-neutral-400 shadow-md shadow-gray-400">
         <img
-          src={photo ? photo.url : "images/3.png"}
+          src={photo ? photo.url : "images/defaultWorkerImage.png"}
           alt="pet worker"
           className="scale-[1.3]"
         />
