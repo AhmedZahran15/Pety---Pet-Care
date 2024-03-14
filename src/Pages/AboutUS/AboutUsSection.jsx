@@ -13,10 +13,14 @@ export default function AboutUsSection() {
         a comprehensive website designed to make booking veterinary services,
         pet sitters, and pet groomers a breeze.
       </p>
-      <div
-        className="h-60 w-full rounded-xl bg-[url('images/AboutUs/2.jpg')] bg-cover shadow-xl shadow-neutral-300 sm:h-72 sm:bg-[url('images/AboutUs/1.jpg')]"
-        alt="Team photo"
-      ></div>
+      <picture>
+        <source srcSet="images/AboutUs/1.jpg" media="(min-width: 768px)" />
+        <img
+          className="h-60 w-full rounded-xl bg-cover shadow-xl shadow-neutral-300 sm:h-72"
+          src="images/AboutUs/2.jpg"
+          alt="Team photo"
+        />
+      </picture>
       <p>
         At our core, we are committed to connecting pet owners with reliable and
         professional service providers. We know how important it is to find
