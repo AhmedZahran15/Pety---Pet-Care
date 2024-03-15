@@ -77,7 +77,7 @@ export const teamData = [
     photo: "images/AboutUs/teamPictures/malePlaceHolder.jpg",
     links: [
       ["https://github.com/unlckyzeta", "images/Github.svg", "Github"],
-      ["#", "images/linkedIn.svg", "linkedIn"],
+      ["https://www.linkedin.com/in/karim-ali-b79105229/", "images/linkedIn.svg", "linkedIn"],
       ["#", "images/Facebook.svg", "Facebook"],
     ],
   },
