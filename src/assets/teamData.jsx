@@ -137,7 +137,7 @@ export const teamData = [
     ],
   },
   {
-    name: "Abdelmohymn ElBashier",
+    name: "Abdelmohymn Elbashier",
     role: "Flutter Developer",
     photo: "images/AboutUs/teamPictures/Abdelmohymn.jpeg",
     links: [
