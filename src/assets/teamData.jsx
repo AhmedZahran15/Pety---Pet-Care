@@ -20,7 +20,7 @@ export const teamData = [
   {
     name: "Ahmed Metwally",
     role: "Data scientist",
-    photo: "images/AboutUs/teamPictures/malePlaceHolder.jpg",
+    photo: "images/AboutUs/teamPictures/AhmedMetwally.jpeg",
     links: [
       ["https://github.com/meto2001", "images/Github.svg", "Github"],
       [
