@@ -57,7 +57,7 @@ function WorkerInfo({ data }) {
                   : index === 1
                     ? address
                     : index === 2
-                      ? `${price}`
+                      ? `${price} EGP`
                       : index === 3
                         ? "Waiting time placeHolder"
                         : animalsToString(animals)
