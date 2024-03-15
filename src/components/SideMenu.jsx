@@ -8,7 +8,7 @@ export const SideMenu = () => {
   return (
     <menu
       className={
-        "ease-cubic z-39 fixed top-0  flex h-screen flex-col justify-start gap-16 bg-secondary pl-4 pr-16 transition-all duration-200 lg:hidden " +
+        "ease-cubic fixed top-0 z-[99] flex h-screen flex-col justify-start gap-16 bg-secondary pl-4 pr-16 transition-all duration-200 lg:hidden " +
         (showSideMenu ? "right-0" : "-right-80")
       }
     >
@@ -29,20 +29,20 @@ export const SideMenu = () => {
           onClick={handleShowSideMenu}
           className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700"
         >
-          <Link to="becomeAPety/stepOne">Become A Pety</Link>
+          <Link to="/becomeAPety">Become A Pety</Link>
         </li>
 
         <li
           onClick={handleShowSideMenu}
           className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700"
         >
-          <Link to="#">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
         <li
           onClick={handleShowSideMenu}
           className=" Medium text-3xl font-medium text-black transition-all  duration-300  hover:text-teal-700 "
         >
-          <Link to="#">About</Link>
+          <Link to="/about">About</Link>
         </li>
       </ul>
       <Link
