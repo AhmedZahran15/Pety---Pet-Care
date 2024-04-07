@@ -41,16 +41,14 @@ function PetWorkers() {
     };
   }, [filterParams]);
   return (
-    <div className="flex w-full flex-col items-center justify-start gap-y-4">
+    <div className="flex w-full flex-col items-center justify-start gap-y-4 md:mt-10">
       {isLoading ? (
         <>
-          <div className="mt-6">
-            <Loader width="100px" height="100px" />
-          </div>
+          <Loader width="100px" height="100px" />
           <LoaderQuote />
         </>
       ) : data.length === 0 && !isLoading ? (
-        <h1 className="mt-40 text-2xl font-semibold">
+        <h1 className="text-center font-fredoka text-xl font-medium text-neutral-500 sm:text-2xl">
           No&nbsp;
           <span className=" first-letter:capitalize">
             {filterParams.get("role")}s&nbsp;
