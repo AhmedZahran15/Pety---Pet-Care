@@ -68,7 +68,7 @@ function Carousel({ children }) {
       </button>
       <div
         ref={carousel}
-        className="relative z-0 mx-auto box-border flex min-h-[270px] max-w-[201px] touch-pan-x snap-x  snap-mandatory gap-2 overflow-hidden scroll-smooth  sm:max-w-[305px]"
+        className="relative z-0 mx-auto box-border flex min-h-[270px] max-w-[201px] snap-x  snap-mandatory gap-2 overflow-hidden scroll-smooth  sm:max-w-[305px]"
       >
         {children}
       </div>
