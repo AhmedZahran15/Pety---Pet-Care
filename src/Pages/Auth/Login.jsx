@@ -108,7 +108,7 @@ function Login() {
       </div>
       <Link
         to={"/auth/forgot-password"}
-        className="mb-[-14px] ml-1 mt-[-8px] cursor-pointer text-left font-bold text-primary"
+        className="mb-[-14px] ml-1 mt-[-8px] w-fit cursor-pointer text-left font-bold text-primary"
       >
         Forgot Password?
       </Link>
