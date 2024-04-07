@@ -4,7 +4,7 @@ const FooterLink = ({ href, text }) => {
   return (
     <a
       href={href}
-      className="text-2xl font-normal text-neutral-500 transition-all duration-100 hover:font-medium hover:text-primary"
+      className="text-xl font-normal text-neutral-500 transition-all duration-100 hover:font-medium hover:text-primary sm:text-2xl"
     >
       {text}
     </a>
@@ -24,13 +24,15 @@ const socialLinks = [
 ];
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-10 pt-16 sm:justify-around">
+    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-10 pb-4 pt-16 sm:justify-around">
       <div className="w-48">
-        <div className="mb-2 text-3xl font-bold">PETY</div>
+        <div className="mb-2 text-2xl font-bold sm:text-3xl">PETY</div>
         <FooterLink href="#" text="Terms of Service" />
       </div>
       <div className="flex w-40 flex-col gap-3">
-        <div className="font-['Product Sans'] text-3xl font-bold">Features</div>
+        <div className="font-['Product Sans'] text-2xl font-bold sm:text-3xl">
+          Features
+        </div>
         <FooterLink
           href="/services?role=vet&limit=6&page=1"
           text="Vet Booking"
@@ -46,12 +48,12 @@ const Footer = () => {
       </div>
       <div className="flex flex-row items-start justify-start gap-6 sm:flex-col ">
         <div>
-          <div className="font-['Product Sans'] text-3xl font-bold">
+          <div className="font-['Product Sans'] text-2xl font-bold sm:text-3xl">
             Contact US
           </div>
           <FooterLink href="#" text="Support Center" />
         </div>
-        <div className='font-["Product Sans"] flex w-48 flex-wrap text-3xl font-bold'>
+        <div className='font-["Product Sans"] flex w-48 flex-wrap text-2xl font-bold sm:text-3xl'>
           Stay in Touch
           <div className="my-5 flex flex-row  gap-2">
             {socialLinks.map((link, index) => (
