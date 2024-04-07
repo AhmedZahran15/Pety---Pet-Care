@@ -6,7 +6,9 @@ function SortDropDown() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative flex w-auto items-center gap-2">
-      <h1 className=" text-xl font-normal text-black">Sort by :</h1>
+      <h1 className=" text-md font-normal text-black sm:text-lg md:text-xl">
+        Sort by :
+      </h1>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex items-center gap-4 rounded-lg border-[0.5px] border-[#b8b8b8] bg-white px-3 py-2.5 text-center text-sm font-medium text-black shadow-lg shadow-neutral-300 hover:bg-neutral-50"
