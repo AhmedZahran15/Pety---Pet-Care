@@ -15,7 +15,7 @@ FooterLink.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-const links = [
+const socialLinks = [
   ["#", "images/Facebook.svg", "facebook"],
   ["#", "images/Instagram.svg", "instagram"],
   ["#", "images/Twitter.svg", "twitter"],
@@ -24,7 +24,7 @@ const links = [
 ];
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-10 py-16 sm:justify-around">
+    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-10 pt-16 sm:justify-around">
       <div className="w-48">
         <div className="mb-2 text-3xl font-bold">PETY</div>
         <FooterLink href="#" text="Terms of Service" />
@@ -54,7 +54,7 @@ const Footer = () => {
         <div className='font-["Product Sans"] flex w-48 flex-wrap text-3xl font-bold'>
           Stay in Touch
           <div className="my-5 flex flex-row  gap-2">
-            {links.map((link, index) => (
+            {socialLinks.map((link, index) => (
               <SocialLink
                 key={index}
                 href={link[0]}
