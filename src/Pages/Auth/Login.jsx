@@ -78,15 +78,15 @@ function Login() {
     if (res) navigate(from, { replace: true });
   };
   return (
-    <form className="z-10 flex w-full flex-col gap-3 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF] bg-[#FFFFFF]  px-12 py-6 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar md:w-8/12 lg:p-16 lg:pr-36 xl:pr-64">
+    <form className="z-10 flex w-full flex-col gap-3 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF] bg-[#FFFFFF]  px-6 py-6 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar sm:px-10 md:w-8/12 lg:p-16 lg:pr-36 xl:pr-64">
       <Link to="/">
         <img src="/Logo Placeholder.png" alt="Logo" />
       </Link>
       <div>
-        <p className="px-2 text-left font-fredoka text-6xl font-semibold lg:text-7xl">
+        <p className="text-left font-fredoka text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
           Welcome Back
         </p>
-        <p className="px-4 text-left text-2xl font-normal">
+        <p className="text-left text-lg font-normal sm:px-4 sm:text-xl md:text-2xl">
           Sign in to your account
         </p>
       </div>
