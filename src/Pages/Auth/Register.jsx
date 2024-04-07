@@ -152,16 +152,16 @@ function Register() {
     if (res) navigate(from, { replace: true });
   }
   return (
-    <form className="z-10 flex w-full flex-col gap-4 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF]  bg-[#FFFFFF] px-12 py-2 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar md:w-8/12 lg:pr-36 xl:px-16 xl:pr-64">
+    <form className="z-10 flex w-full flex-col gap-4 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF]  bg-[#FFFFFF] px-6 py-2 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar sm:px-10 md:w-8/12 lg:pr-36 xl:px-16 xl:pr-64">
       <Link to="/">
         <img src="/Logo Placeholder.png" alt="Logo" />
       </Link>
       <div>
-        <p className="px-2 text-left font-fredoka text-5xl font-semibold lg:text-6xl">
+        <p className="px-2 text-left font-fredoka text-4xl font-semibold sm:text-5xl md:text-6xl">
           Welcome
         </p>
       </div>
-      <div className="flex w-full flex-row gap-4">
+      <div className="flex w-full flex-col gap-4 sm:flex-row">
         <Input
           value={state.firstName}
           onChange={handleFirstNameChange}
