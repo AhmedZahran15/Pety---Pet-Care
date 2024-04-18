@@ -19,11 +19,11 @@ function PetWorkers() {
           ? filterParams.get("governorate")
           : "";
         const address = `${city}, ${governorate}, Egypt`;
-        const latlng = await getCoordinates(address);
+        const lnglat = await getCoordinates(address);
         const paramsWithoutAddress = new URLSearchParams(filterParams);
         paramsWithoutAddress.delete("city");
         paramsWithoutAddress.delete("governorate");
-        paramsWithoutAddress.set("latlng", latlng);
+        paramsWithoutAddress.set("latlng", lnglat);
         const res = await fetch(
           `https://petcare-znql.onrender.com/api/pety?limit=6&${paramsWithoutAddress.toString()}`,
           {

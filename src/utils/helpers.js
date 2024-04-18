@@ -21,6 +21,6 @@ export async function getCoordinates(address) {
   const response = await fromAddress(address);
   const { lat, lng } = response.results[0].geometry.location;
   localStorage.setItem("address", address);
-  localStorage.setItem("coordinates", [lat, lng]);
-  return [lat, lng];
+  localStorage.setItem("coordinates", [lng, lat]);
+  return [lng, lat];
 }
