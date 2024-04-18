@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cities, governorates } from "../assets/governoratesData";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchDropdown from "./SearchDropdown";
@@ -7,28 +7,32 @@ import useUpdateEffect from "../Hooks/useUpdateEffect";
 const Search = () => {
   const [filterParams] = useSearchParams();
   const [role, setRole] = useState("Veterinarian");
-  const [governorate, setGovernorate] = useState({
-    id:
-      governorates[
-        governorates.findIndex(
-          (governorate) =>
-            governorate.governorate_name_en === filterParams.get("governorate"),
-        )
-      ]?.id || 0,
-    name: filterParams.get("governorate") || "",
-  });
-  const [city, setCity] = useState({
-    id:
-      cities[
-        cities.findIndex(
-          (city) => city.city_name_en === filterParams.get("city"),
-        )
-      ]?.id || 0,
-    name: filterParams.get("city") || "",
-  });
+  const [governorate, setGovernorate] = useState({ id: 0, name: "" });
+  const [city, setCity] = useState({ id: 0, name: "" });
   const areas = cities.filter((city) => city.governorate_id === governorate.id);
   const navigate = useNavigate();
-
+  useEffect(() => {
+    setGovernorate({
+      id:
+        governorates[
+          governorates.findIndex(
+            (governorate) =>
+              governorate.governorate_name_en ===
+              filterParams.get("governorate"),
+          )
+        ]?.id || 0,
+      name: filterParams.get("governorate") || "",
+    });
+    setCity({
+      id:
+        cities[
+          cities.findIndex(
+            (city) => city.city_name_en === filterParams.get("city"),
+          )
+        ]?.id || 0,
+      name: filterParams.get("city") || "",
+    });
+  }, [filterParams]);
   useUpdateEffect(() => {
     setCity({ id: 0, name: "" });
   }, [governorate]);
