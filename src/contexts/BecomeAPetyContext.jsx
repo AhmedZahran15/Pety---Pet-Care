@@ -6,6 +6,7 @@ import {
   validatePhone,
   validateString,
 } from "../utils/validationFunctions";
+import { getCoordinates } from "../utils/helpers";
 const initialState = {
   step: 1,
   petyName: "",
@@ -179,6 +180,7 @@ export const BecomeAPetyProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const registerPety = async () => {
     const token = localStorage.getItem("token");
+    const lnglat = await getCoordinates(state.address);
     const response = await fetch(`${API_URL}/api/pety`, {
       method: "POST",
       headers: {
@@ -189,6 +191,10 @@ export const BecomeAPetyProvider = ({ children }) => {
         petyName: state.petyName,
         clinicalName: state.clinicalName,
         address: state.address,
+        location: {
+          type: "Point",
+          coordinates: lnglat,
+        },
         price: state.price,
         phoneNumber: state.phoneNumber,
         animals: state.animals,
