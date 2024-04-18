@@ -19,18 +19,18 @@ const Search = () => {
           ? "groomer"
           : "petSitter";
     if (!city.id && !governorate.id) {
-      navigate(`services?role=${roleValue}`);
+      navigate(`/services?role=${roleValue}`);
     }
     if (city.id && !governorate.id) {
-      navigate(`services?role=${roleValue}&city=${city.name}`);
+      navigate(`/services?role=${roleValue}&city=${city.name}`);
     }
     if (city.id && governorate.id) {
       navigate(
-        `services?role=${roleValue}&city=${city.name}&governorate=${governorate.name}`,
+        `/services?role=${roleValue}&city=${city.name}&governorate=${governorate.name}`,
       );
     }
     if (!city.id && governorate.id) {
-      navigate(`services?role=${roleValue}&governorate=${governorate.name}`);
+      navigate(`/services?role=${roleValue}&governorate=${governorate.name}`);
     }
   };
   return (
