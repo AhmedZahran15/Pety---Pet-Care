@@ -70,7 +70,7 @@ function SearchDropdown({
             newRef.current.scrollIntoView({
               top: 0,
               behavior: "smooth",
-              block: "start",
+              block: "center",
             });
         }}
         className={`relative ${
