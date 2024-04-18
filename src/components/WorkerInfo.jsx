@@ -28,7 +28,7 @@ function WorkerInfo({ data }) {
     photo,
   } = data;
   return (
-    <div className="flex w-full items-center justify-center gap-x-2 self-center py-2 md:w-[450px] md:max-w-[450px]">
+    <div className="flex w-full items-center justify-center gap-x-4 self-center py-2 md:w-[450px] md:max-w-[450px]">
       <picture className="min-w-[140px] max-w-[140px] justify-self-start overflow-hidden rounded-full border-[1px] border-neutral-400 shadow-md shadow-gray-400">
         <img
           src={photo ? photo.url : "images/defaultWorkerImage.png"}
