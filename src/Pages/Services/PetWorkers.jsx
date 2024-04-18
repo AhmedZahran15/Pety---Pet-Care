@@ -14,16 +14,16 @@ function PetWorkers() {
     async function fetchServices() {
       try {
         setIsLoading((prev) => !prev);
-        const city = filterParams.get("city") ? filterParams.get("city") : "";
-        const governorate = filterParams.get("governorate")
-          ? filterParams.get("governorate")
-          : "";
-        const address = `${city}, ${governorate}, Egypt`;
-        const lnglat = await getCoordinates(address);
+        const city = filterParams.get("city") ?? "";
+        const governorate = filterParams.get("governorate") ?? "";
         const paramsWithoutAddress = new URLSearchParams(filterParams);
         paramsWithoutAddress.delete("city");
         paramsWithoutAddress.delete("governorate");
-        paramsWithoutAddress.set("latlng", lnglat);
+        if (city && governorate) {
+          const address = `${city}, ${governorate}, Egypt`;
+          const lnglat = await getCoordinates(address);
+          paramsWithoutAddress.set("lnglat", lnglat);
+        }
         const res = await fetch(
           `https://petcare-znql.onrender.com/api/pety?limit=6&${paramsWithoutAddress.toString()}`,
           {
