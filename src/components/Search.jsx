@@ -1,17 +1,39 @@
-/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { cities, governorates } from "../assets/governoratesData";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchDropdown from "./SearchDropdown";
+import useUpdateEffect from "../Hooks/useUpdateEffect";
 
 const Search = () => {
+  const [filterParams] = useSearchParams();
   const [role, setRole] = useState("Veterinarian");
-  const [governorate, setGovernorate] = useState({ id: 0, name: "" });
-  const [city, setCity] = useState({ id: 0, name: "" });
+  const [governorate, setGovernorate] = useState({
+    id:
+      governorates[
+        governorates.findIndex(
+          (governorate) =>
+            governorate.governorate_name_en === filterParams.get("governorate"),
+        )
+      ]?.id || 0,
+    name: filterParams.get("governorate") || "",
+  });
+  const [city, setCity] = useState({
+    id:
+      cities[
+        cities.findIndex(
+          (city) => city.city_name_en === filterParams.get("city"),
+        )
+      ]?.id || 0,
+    name: filterParams.get("city") || "",
+  });
   const areas = cities.filter((city) => city.governorate_id === governorate.id);
   const navigate = useNavigate();
 
-  const handleSearch = () => {
+  useUpdateEffect(() => {
+    setCity({ id: 0, name: "" });
+  }, [governorate]);
+
+  const handleSearch = async () => {
     const roleValue =
       role === "Veterinarian"
         ? "vet"
