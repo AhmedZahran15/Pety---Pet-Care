@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { cities, governorates } from "../assets/governoratesData";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchDropdown from "./SearchDropdown";
-import useUpdateEffect from "../Hooks/useUpdateEffect";
 
 const Search = () => {
   const [filterParams] = useSearchParams();
@@ -12,6 +11,13 @@ const Search = () => {
   const areas = cities.filter((city) => city.governorate_id === governorate.id);
   const navigate = useNavigate();
   useEffect(() => {
+    setRole(
+      filterParams.get("role") === "vet"
+        ? "Veterinarian"
+        : filterParams.get("role") === "groomer"
+          ? "Pet groomer"
+          : "Pet Sitter",
+    );
     setGovernorate({
       id:
         governorates[
@@ -33,10 +39,10 @@ const Search = () => {
       name: filterParams.get("city") || "",
     });
   }, [filterParams]);
-  useUpdateEffect(() => {
+  const handleGovernorateChange = (value) => {
+    setGovernorate(value);
     setCity({ id: 0, name: "" });
-  }, [governorate]);
-
+  };
   const handleSearch = async () => {
     const roleValue =
       role === "Veterinarian"
@@ -76,7 +82,7 @@ const Search = () => {
             placeholder="All cities"
             iconSrc="images/filters/markerIcon.png"
             state={governorate}
-            setState={setGovernorate}
+            setState={handleGovernorateChange}
             data={governorates}
           />
           <SearchDropdown
