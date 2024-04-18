@@ -3,6 +3,7 @@ import { Loader, LoaderQuote } from "../../components/Loader";
 import PetWorkerCard from "./PetWorkerCard";
 import { useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { getCoordinates } from "../../utils/helpers";
 function PetWorkers() {
   const [filterParams] = useSearchParams();
   const [data, setData] = useState([]);
@@ -13,8 +14,18 @@ function PetWorkers() {
     async function fetchServices() {
       try {
         setIsLoading((prev) => !prev);
+        const city = filterParams.get("city") ? filterParams.get("city") : "";
+        const governorate = filterParams.get("governorate")
+          ? filterParams.get("governorate")
+          : "";
+        const address = `${city}, ${governorate}, Egypt`;
+        const latlng = await getCoordinates(address);
+        const paramsWithoutAddress = new URLSearchParams(filterParams);
+        paramsWithoutAddress.delete("city");
+        paramsWithoutAddress.delete("governorate");
+        paramsWithoutAddress.set("latlng", latlng);
         const res = await fetch(
-          `https://petcare-znql.onrender.com/api/pety?limit=6&${filterParams.toString()}`,
+          `https://petcare-znql.onrender.com/api/pety?limit=6&${paramsWithoutAddress.toString()}`,
           {
             method: "GET",
             signal: controller.signal,
