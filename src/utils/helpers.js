@@ -11,3 +11,16 @@ export function animalsToString(animals) {
     })
     .join("");
 }
+import { fromAddress, setKey } from "react-geocode";
+
+setKey(import.meta.env.VITE_GOOGLEMAPS_API_KEY);
+export async function getCoordinates(address) {
+  if (localStorage.getItem("address") === address) {
+    return localStorage.getItem("coordinates");
+  }
+  const response = await fromAddress(address);
+  const { lat, lng } = response.results[0].geometry.location;
+  localStorage.setItem("address", address);
+  localStorage.setItem("coordinates", [lat, lng]);
+  return [lat, lng];
+}
