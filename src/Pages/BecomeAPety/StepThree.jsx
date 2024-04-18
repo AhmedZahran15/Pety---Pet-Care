@@ -3,7 +3,6 @@ import NormalInput from "./NormalInput";
 import BecomeAPetyContext from "../../contexts/BecomeAPetyContext";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { set } from "lodash";
 import { Loader } from "../../components/Loader";
 
 function StepThree() {
