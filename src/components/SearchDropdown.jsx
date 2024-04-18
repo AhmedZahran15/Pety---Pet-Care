@@ -64,7 +64,15 @@ function SearchDropdown({
     <div className="relative basis-1/3">
       <div
         ref={newRef}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => {
+          setIsOpen((prev) => !prev);
+          !isOpen &&
+            newRef.current.scrollIntoView({
+              top: 0,
+              behavior: "smooth",
+              block: "start",
+            });
+        }}
         className={`relative ${
           data[0] === "Veterinarian"
             ? "rounded-t-xl md:rounded-l-xl md:rounded-tr-none "
