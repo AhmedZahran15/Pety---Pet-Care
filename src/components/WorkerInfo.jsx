@@ -6,7 +6,7 @@ function UserInfo({ src, alt, text }) {
   return (
     <div className="flex items-center gap-1 text-sm font-normal text-gray-500 md:text-base">
       <img src={src} alt={alt} className="h-4 w-4 md:h-[20px] md:w-[20px]" />
-      <span className="truncate">{text}</span>
+      <span className="max-w-[250px] truncate">{text}</span>
     </div>
   );
 }
@@ -28,7 +28,7 @@ function WorkerInfo({ data }) {
     photo,
   } = data;
   return (
-    <div className="flex w-full items-center justify-center gap-6 self-center py-2">
+    <div className="flex w-[450px] max-w-[450px] items-center justify-between gap-x-2 self-center py-2">
       <picture className="w-1/2 min-w-[100px] max-w-[160px] overflow-hidden rounded-full border-[1px] border-neutral-400 shadow-md shadow-gray-400">
         <img
           src={photo ? photo.url : "images/defaultWorkerImage.png"}
@@ -36,8 +36,8 @@ function WorkerInfo({ data }) {
           className="scale-[1.3]"
         />
       </picture>
-      <div className="flex  flex-col gap-1">
-        <h2 className="text-2xl font-bold first-letter:capitalize">
+      <div className="flex w-[320px]  flex-col gap-1">
+        <h2 className="max-w-[250px] truncate text-2xl font-bold first-letter:capitalize">
           {petyName}
         </h2>
         <div className="flex">
