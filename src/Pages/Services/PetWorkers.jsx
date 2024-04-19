@@ -21,8 +21,8 @@ function PetWorkers() {
         paramsWithoutAddress.delete("governorate");
         if (city && governorate) {
           const address = `${city}, ${governorate}, Egypt`;
-          const lnglat = await getCoordinates(address);
-          paramsWithoutAddress.set("lnglat", lnglat);
+          const latlng = await getCoordinates(address);
+          paramsWithoutAddress.set("latlng", latlng);
         }
         const res = await fetch(
           `https://petcare-znql.onrender.com/api/pety?limit=6&${paramsWithoutAddress.toString()}`,

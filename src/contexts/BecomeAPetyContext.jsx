@@ -180,7 +180,7 @@ export const BecomeAPetyProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const registerPety = async () => {
     const token = localStorage.getItem("token");
-    const lnglat = await getCoordinates(state.address);
+    const latlng = await getCoordinates(state.address);
     const response = await fetch(`${API_URL}/api/pety`, {
       method: "POST",
       headers: {
@@ -193,7 +193,7 @@ export const BecomeAPetyProvider = ({ children }) => {
         address: state.address,
         location: {
           type: "Point",
-          coordinates: lnglat,
+          coordinates: latlng,
         },
         price: state.price,
         phoneNumber: state.phoneNumber,
