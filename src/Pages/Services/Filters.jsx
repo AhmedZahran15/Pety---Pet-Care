@@ -164,11 +164,6 @@ function Filters() {
             />
           </Filter>
           <Filter
-            imgSrc="/images/filters/markerIcon.png"
-            imgAlt="Marker Icon"
-            title="Location"
-          ></Filter>
-          <Filter
             imgSrc="/images/filters/offerIcon.png"
             imgAlt="Offer Icon"
             title="Offers"
