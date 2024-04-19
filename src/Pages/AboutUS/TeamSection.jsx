@@ -1,4 +1,4 @@
-import { teamData } from "../../assets/teamData";
+import { teamData } from "../../data/teamData";
 import TeamMember from "./TeamMember";
 function TeamSection() {
   return (
