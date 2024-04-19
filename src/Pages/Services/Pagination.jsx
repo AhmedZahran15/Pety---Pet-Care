@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react";
 import ArrowSvg from "../../assets/ArrowSvg";
 import { useSearchParams } from "react-router-dom";
+import { getCoordinates } from "../../utils/helpers";
 function Pagination() {
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [filterParams, setFilterParams] = useSearchParams();
   useEffect(() => {
     async function fetchNumberOfPages() {
+      const city = filterParams.get("city") ?? "";
+      const governorate = filterParams.get("governorate") ?? "";
+      const paramsWithoutAddress = new URLSearchParams(filterParams);
+      paramsWithoutAddress.delete("city");
+      paramsWithoutAddress.delete("governorate");
+      if (city && governorate) {
+        const address = `${city}, ${governorate}, Egypt`;
+        const latlng = await getCoordinates(address);
+        paramsWithoutAddress.set("latlng", latlng);
+      }
       const res = await fetch(
-        `https://petcare-znql.onrender.com/api/pety/pages?limit=6&${filterParams.toString()}`,
+        `https://petcare-znql.onrender.com/api/pety/pages?limit=6&${paramsWithoutAddress.toString()}`,
         {
           method: "GET",
           headers: {
