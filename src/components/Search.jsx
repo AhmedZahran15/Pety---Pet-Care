@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { cities, governorates } from "../assets/governoratesData";
+import { cities, governorates } from "../data/governoratesData";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchDropdown from "./SearchDropdown";
 
