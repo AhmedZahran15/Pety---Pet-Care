@@ -63,7 +63,11 @@ function Pagination() {
         onClick={handlePrevious}
         disabled={+filterParams.get("page") === 1 || !filterParams.get("page")}
       >
-        <ArrowSvg direction="left" />
+        <ArrowSvg
+          className={
+            "rotate-90 fill-primary transition-all duration-200 hover:fill-white"
+          }
+        />
       </button>
       {Array.from({ length: numberOfPages }, (_, i) => i + 1).map((page) => (
         <button
@@ -91,7 +95,11 @@ function Pagination() {
           (!filterParams.get("page"), numberOfPages === 1)
         }
       >
-        <ArrowSvg direction="right" />
+        <ArrowSvg
+          className={
+            "-rotate-90 fill-primary transition-all duration-200 hover:fill-white"
+          }
+        />
       </button>
     </div>
   );
