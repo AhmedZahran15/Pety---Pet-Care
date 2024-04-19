@@ -52,12 +52,14 @@ function AccordionItem({ item, index, isOpen, toggle, children }) {
       className={`cursor-pointer border-b-[3px] px-2 py-4 font-['Montserrat'] text-xl`}
       onClick={() => toggle(index)}
     >
-      <div className="flex items-center justify-between ">
+      <div className="group flex items-center justify-between ">
         <span className="font-['Montserrat'] text-xl font-bold text-primary">
           {item.title}
         </span>
         <span className="w-8">
-          {isOpen === index ? <ArrowSvg direction="up" /> : <ArrowSvg />}
+          <ArrowSvg
+            className={`fill-primary transition-all duration-200 ${isOpen === index ? "rotate-180" : ""}`}
+          />
         </span>
       </div>
       {children}
