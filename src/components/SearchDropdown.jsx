@@ -83,7 +83,9 @@ function SearchDropdown({
           {title}
         </span>
         <span className="absolute right-8 top-7">
-          <FullArrowSVG isOpen={isOpen} />
+          <FullArrowSVG
+            className={`m-0 h-4 w-4 fill-neutral-400 p-0 transition-all duration-200 ${isOpen ? " rotate-[270deg]" : "rotate-90"}`}
+          />
         </span>
         <img className="mt-1 h-6 w-6" src={iconSrc} alt="" />
         <span className="mt-3">
