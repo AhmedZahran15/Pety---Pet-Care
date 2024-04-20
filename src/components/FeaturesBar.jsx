@@ -15,7 +15,7 @@ const FeaturesBar = ({ imgSrc }) => {
           className={`group mx-auto flex h-24 w-36 flex-col items-center justify-center rounded-lg px-12 hover:bg-neutral-100 ${role === "vet" ? "bg-neutral-100" : ""}`}
         >
           <VetSvg
-            className={`transition-all duration-200 group-hover:fill-secondary ${role === "vet" ? "fill-secondary" : ""}`}
+            className={`h-16 w-16 transition-all duration-200 group-hover:fill-secondary ${role === "vet" ? "fill-secondary" : ""}`}
           />
           <p
             className={`text-center text-xl transition-all duration-200 group-hover:text-secondary ${role === "vet" ? "text-secondary" : ""}`}
