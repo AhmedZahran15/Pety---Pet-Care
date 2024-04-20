@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Loader } from "../../components/Loader";
 function AnimalsDetails() {
   const [animals, setAnimals] = useState({
-    dogs: 0,
-    cats: 0,
+    dog: 0,
+    cat: 0,
     other: 0,
   });
   const { handleReservation, appointment, isLoading } =
@@ -15,20 +15,24 @@ function AnimalsDetails() {
   const navigate = useNavigate();
 
   async function handleSubmit() {
-    const animalsString = `dogs ${animals.dogs}, cats ${animals.cats}, other ${animals.other}`;
+    const animalsArray = [
+      { pet: "dog", count: animals.dog },
+      { pet: "cat", count: animals.cat },
+      { pet: "other", count: animals.other },
+    ].filter((animal) => animal.count > 0);
     const data = await handleReservation(
       appointment.data._id,
       appointment.date,
       appointment.time,
-      animalsString,
+      animalsArray,
     );
     if (data.status === "success") {
       toast.success(
         `You have booked successfully for ${appointment.date} at ${appointment.time}.`,
       );
       setAnimals({
-        dogs: 0,
-        cats: 0,
+        dog: 0,
+        cat: 0,
         other: 0,
       });
       navigate("/");
@@ -49,7 +53,7 @@ function AnimalsDetails() {
       <button
         onClick={handleSubmit}
         disabled={
-          (animals.dogs === 0 && animals.cats === 0 && animals.other === 0) ||
+          (animals.dog === 0 && animals.cat === 0 && animals.other === 0) ||
           isLoading
         }
         className="my-4 self-center rounded-lg bg-secondary px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"

@@ -3,13 +3,13 @@ function Counter({ animal, animals, setAnimals }) {
   function handleCountMinus() {
     setAnimals((prevState) => ({
       ...prevState,
-      [animal.toLowerCase() + "s"]: prevState[animal.toLowerCase() + "s"] - 1,
+      [animal.toLowerCase()]: prevState[animal.toLowerCase()] - 1,
     }));
   }
   function handleCountPlus() {
     setAnimals((prevState) => ({
       ...prevState,
-      [animal.toLowerCase() + "s"]: prevState[animal.toLowerCase() + "s"] + 1,
+      [animal.toLowerCase()]: prevState[animal.toLowerCase()] + 1,
     }));
   }
   return (
@@ -17,7 +17,7 @@ function Counter({ animal, animals, setAnimals }) {
       <button
         onClick={handleCountMinus}
         className="my-auto box-border min-w-[30px] rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
-        disabled={animals[animal.toLowerCase() + "s"] === 1}
+        disabled={animals[animal.toLowerCase()] === 1}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ function Counter({ animal, animals, setAnimals }) {
         </svg>
       </button>
       <span className="flex h-[30px] w-[30px] items-center justify-center rounded-md border-[1px] border-neutral-200 text-lg font-semibold">
-        {animals[animal.toLowerCase() + "s"]}
+        {animals[animal.toLowerCase()]}
       </span>
       <button
         className="my-auto box-border min-w-[30px] rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white"

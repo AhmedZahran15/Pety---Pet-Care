@@ -7,13 +7,13 @@ function Animal({ animal, animals, setAnimals }) {
     if (checked) {
       setAnimals((prevState) => ({
         ...prevState,
-        [animal.toLowerCase() + "s"]: 0,
+        [animal.toLowerCase()]: 0,
       }));
       setChecked(false);
     } else {
       setAnimals((prevState) => ({
         ...prevState,
-        [animal.toLowerCase() + "s"]: 1,
+        [animal.toLowerCase()]: 1,
       }));
       setChecked(true);
     }
