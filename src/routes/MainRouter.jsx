@@ -18,7 +18,11 @@ import Reservation from "../Pages/Reservation";
 import ProtectedRoute from "../components/ProtectedRoute";
 import ContactUs from "../Pages/ContactUs";
 import AboutUs from "../Pages/AboutUS";
-
+import Dashboard from "../Pages/Dashboard";
+import Reservations from "../Pages/Dashboard/Reservations";
+import TimeSlots from "../Pages/Dashboard/TimeSlots";
+import Settings from "../Pages/Dashboard/Settings";
+import Profile from "../Pages/Dashboard/Profile";
 const AppLayout = () => {
   return (
     <div className="mx-auto max-h-screen w-full max-w-screen-2xl">
@@ -47,6 +51,21 @@ function MainRouter() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route index element={<h1>OverView</h1>} />
+            <Route path="vet/reservations" element={<Reservations />} />
+            <Route path="vet/timeSlots" element={<TimeSlots />} />
+            <Route path="vet/settings" element={<Settings />} />
+            <Route path="sitter/reservations" element={<Reservations />} />
+            <Route path="sitter/timeSlots" element={<TimeSlots />} />
+            <Route path="sitter/settings" element={<Settings />} />
+            <Route path="groomer/reservations" element={<Reservations />} />
+            <Route path="groomer/timeSlots" element={<TimeSlots />} />
+            <Route path="groomer/settings" element={<Settings />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
         </Route>
         <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>
