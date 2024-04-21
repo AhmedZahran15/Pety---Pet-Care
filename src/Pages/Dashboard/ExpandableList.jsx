@@ -21,11 +21,11 @@ function ExpandableList({ text }) {
         className={`relative flex cursor-pointer flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes(role) ? "bg-neutral-200" : ""}`}
       >
         {text === "Veterinarian" ? (
-          <VetSvg className="h-8 w-8 fill-neutral-800 transition-all duration-200" />
+          <VetSvg className="h-8 w-8 fill-neutral-800" />
         ) : text === "Pet Sitter" ? (
-          <PetSitter className="h-8 w-8 stroke-neutral-800 transition-all duration-200" />
+          <PetSitter className="h-8 w-8 stroke-neutral-800" />
         ) : (
-          <PetGroomingSvg className="h-8 w-8 fill-neutral-800 transition-all duration-200" />
+          <PetGroomingSvg className="h-8 w-8 fill-neutral-800" />
         )}
 
         {text}
