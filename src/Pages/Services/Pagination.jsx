@@ -18,7 +18,7 @@ function Pagination() {
         paramsWithoutAddress.set("latlng", latlng);
       }
       const res = await fetch(
-        `https://petcare-znql.onrender.com/api/pety/pages?limit=6&${paramsWithoutAddress.toString()}`,
+        `${import.meta.env.VITE_API_LINK}/api/pety/pages?limit=6&${paramsWithoutAddress.toString()}`,
         {
           method: "GET",
           headers: {

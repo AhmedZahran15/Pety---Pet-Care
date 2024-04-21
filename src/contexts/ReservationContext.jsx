@@ -1,4 +1,3 @@
-const API_URL = "https://petcare-znql.onrender.com";
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 export const ReservationContext = createContext();
@@ -9,19 +8,22 @@ export const ReservationProvider = ({ children }) => {
   const handleReservation = async (petyID, date, time, animals) => {
     const token = localStorage.getItem("token");
     setIsLoading(true);
-    const response = await fetch(`${API_URL}/api/pety/appointment`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${import.meta.env.VITE_API_LINK}/api/pety/appointment`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          petyID,
+          date,
+          time,
+          animals,
+        }),
       },
-      body: JSON.stringify({
-        petyID,
-        date,
-        time,
-        animals,
-      }),
-    });
+    );
     const data = await response.json();
     setIsLoading(false);
     return data;

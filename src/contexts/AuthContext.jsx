@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import PropTypes from "prop-types";
-const API_URL = "https://petcare-znql.onrender.com";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -23,13 +22,16 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (userData) => {
     setIsLoading(true);
-    const res = await fetch(`${API_URL}/api/users/signin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `${import.meta.env.VITE_API_LINK}/api/users/signin`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
       },
-      body: JSON.stringify(userData),
-    });
+    );
 
     const data = await res.json();
     if (data.status === "success") {
@@ -52,13 +54,16 @@ export const AuthProvider = ({ children }) => {
 
   const registerUser = async (newUser) => {
     setIsLoading(true);
-    const res = await fetch(`${API_URL}/api/users/signup`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `${import.meta.env.VITE_API_LINK}/api/users/signup`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
       },
-      body: JSON.stringify(newUser),
-    });
+    );
     const data = await res.json();
     if (data.status === "success") {
       setUser(data.token);

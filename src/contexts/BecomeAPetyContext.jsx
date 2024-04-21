@@ -1,4 +1,3 @@
-const API_URL = "https://petcare-znql.onrender.com";
 import { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
 import {
@@ -181,7 +180,7 @@ export const BecomeAPetyProvider = ({ children }) => {
   const registerPety = async () => {
     const token = localStorage.getItem("token");
     const latlng = await getCoordinates(state.address);
-    const response = await fetch(`${API_URL}/api/pety`, {
+    const response = await fetch(`${import.meta.env.VITE_API_LINK}/api/pety`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
