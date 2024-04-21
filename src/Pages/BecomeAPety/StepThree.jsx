@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import NormalInput from "./NormalInput";
+import NormalInput from "../../components/NormalInput";
 import BecomeAPetyContext from "../../contexts/BecomeAPetyContext";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";

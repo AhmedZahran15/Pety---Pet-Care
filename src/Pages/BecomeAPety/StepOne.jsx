@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import NormalInput from "./NormalInput";
+import NormalInput from "../../components/NormalInput";
 import BecomeAPetyContext from "../../contexts/BecomeAPetyContext";
 
 function StepOne() {
