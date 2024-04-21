@@ -3,16 +3,18 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily:{
-        fredoka: ['Fredoka', 'sans-serif'],
-
+      fontFamily: {
+        fredoka: ["Fredoka", "sans-serif"],
       },
       colors: {
         primary: "#00777B",
         secondary: "#FFA500",
       },
       height: {
-        screen: '100dvh',
+        screen: "100dvh",
+      },
+      transitionTimingFunction: {
+        cubic: "cubic-bezier(0.645,0.045,0.355,1)",
       },
     },
   },
