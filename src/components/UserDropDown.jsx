@@ -36,7 +36,7 @@ function UserDropDown() {
             </span>
           </div>
           <span className="max-h-[48px] max-w-[48px] overflow-clip rounded-full">
-            <img src="userImage.png" alt="avatar" />
+            <img src="/userImage.png" alt="avatar" />
           </span>
         </div>
         <svg
