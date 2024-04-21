@@ -23,7 +23,13 @@ Loader.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
 };
-
+export const BlockLoader = () => {
+  return (
+    <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center backdrop-blur-[3px]">
+      <span className="loader block"></span>
+    </div>
+  );
+};
 export const LoaderQuote = () => {
   return (
     <div className="flex w-full flex-col items-center justify-center text-lg font-semibold text-primary sm:text-xl">
