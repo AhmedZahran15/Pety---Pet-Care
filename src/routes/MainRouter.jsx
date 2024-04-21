@@ -54,7 +54,8 @@ function MainRouter() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="dashboard" element={<Dashboard />}>
-            <Route index element={<h1>OverView</h1>} />
+            <Route index element={<Navigate replace to="profile" />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="vet/reservations" element={<Reservations />} />
             <Route path="vet/timeSlots" element={<TimeSlots />} />
             <Route path="vet/settings" element={<Settings />} />
@@ -64,7 +65,6 @@ function MainRouter() {
             <Route path="groomer/reservations" element={<Reservations />} />
             <Route path="groomer/timeSlots" element={<TimeSlots />} />
             <Route path="groomer/settings" element={<Settings />} />
-            <Route path="profile" element={<Profile />} />
           </Route>
         </Route>
         <Route path="*" element={<h1>Page not found</h1>} />
