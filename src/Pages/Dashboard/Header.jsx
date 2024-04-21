@@ -3,7 +3,7 @@ import UserDropDown from "../../components/UserDropDown";
 function Header({ sidebarOpen, setSidebarOpen }) {
   return (
     <header className="flex w-full border-b-2 border-neutral-400">
-      <div className="flex flex-grow items-center justify-between px-4 py-4 md:px-6 lg:justify-end 2xl:px-11">
+      <div className="flex flex-grow items-center justify-between px-4 py-3 md:px-6 lg:justify-end 2xl:px-11">
         <button
           aria-controls="sidebar"
           onClick={(e) => {
