@@ -1,6 +1,6 @@
 import { useContext, useEffect, useReducer, useState } from "react";
 import AuthContext from "../../contexts/AuthContext";
-import InputXX from "../../components/InputXX";
+import Input from "../../components/InputXX";
 import {
   validateEmail,
   validatePhone,
@@ -134,28 +134,28 @@ function Profile() {
         <div className="flex w-full flex-col px-4">
           <Breadcrumb pageName="Profile" />
           <div className="container mb-auto grid h-4/6 w-full max-w-6xl grid-cols-1 items-start gap-x-16 gap-y-4 py-4  min-[600px]:grid-cols-2">
-            <InputXX
+            <Input
               name="first_Name"
               label="First Name"
               value={state.firstName}
               onChange={handleChange}
               error={state.errors.firstName}
             />
-            <InputXX
+            <Input
               name="last_Name"
               label="Last Name"
               value={state.lastName}
               onChange={handleChange}
               error={state.errors.lastName}
             />
-            <InputXX
+            <Input
               name="email"
               onChange={handleChange}
               label="Email"
               value={state.email}
               error={state.errors.email}
             />
-            <InputXX
+            <Input
               onChange={handleChange}
               name="phone"
               label="Phone Number"
