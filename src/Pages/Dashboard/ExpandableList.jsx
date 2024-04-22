@@ -41,7 +41,7 @@ function ExpandableList({ text }) {
           to={`/dashboard/${role}/reservations`}
         >
           <div
-            className={` h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-neutral-400 group-hover:bg-neutral-950 ${pathname.includes(`${role}/reservations`) ? " border-neutral-400 bg-neutral-950" : "border-neutral-100"}`}
+            className={` h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-emerald-500 group-hover:bg-primary ${pathname.includes(`${role}/reservations`) ? " border-emerald-500 bg-primary" : "border-neutral-100"}`}
           />
           Reservations
         </Link>
@@ -50,7 +50,7 @@ function ExpandableList({ text }) {
           to={`/dashboard/${role}/timeSlots`}
         >
           <div
-            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-neutral-400 group-hover:bg-neutral-950 ${pathname.includes(`${role}/timeSlots`) ? "  border-neutral-400 bg-neutral-950" : "border-neutral-100"}`}
+            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-emerald-500 group-hover:bg-primary ${pathname.includes(`${role}/timeSlots`) ? "  border-emerald-500 bg-primary" : "border-neutral-100"}`}
           />
           Time Slots
         </Link>
@@ -59,7 +59,7 @@ function ExpandableList({ text }) {
           to={`/dashboard/${role}/settings`}
         >
           <div
-            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-neutral-400 group-hover:bg-neutral-950 ${pathname.includes(`${role}/settings`) ? "  border-neutral-400 bg-neutral-950" : "border-neutral-100"}`}
+            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-emerald-500 group-hover:bg-primary ${pathname.includes(`${role}/settings`) ? "  border-emerald-500 bg-primary" : "border-neutral-100"}`}
           />
           Settings
         </Link>
