@@ -4,6 +4,7 @@ import AuthContext from "../contexts/AuthContext";
 
 function UserDropDown() {
   const { userData, logoutUser } = useContext(AuthContext);
+  const { photo } = userData ? userData : {};
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -35,9 +36,13 @@ function UserDropDown() {
               Service Provider
             </span>
           </div>
-          <span className="max-h-[48px] max-w-[48px] overflow-clip rounded-full">
-            <img src="/userImage.png" alt="avatar" />
-          </span>
+          <picture className="h-[44px] max-h-[48px] w-[48px] max-w-[44px] overflow-clip rounded-full">
+            <img
+              src={photo ? photo.url : "/userImage.png"}
+              alt="pet worker"
+              className=" h-full scale-[1.3]"
+            />
+          </picture>
         </div>
         <svg
           className="-mr-1 h-5 w-5 text-neutral-800"
