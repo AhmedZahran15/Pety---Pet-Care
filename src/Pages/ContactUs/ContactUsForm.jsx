@@ -1,10 +1,10 @@
 import { useReducer } from "react";
-import NormalInput from "./NormalInput";
 import {
   validatePhone,
   validateString,
   validateEmail,
 } from "../../utils/validationFunctions";
+import Input from "../../components/InputXX";
 
 const initialState = {
   firstName: "",
@@ -123,28 +123,32 @@ function ContactUsForm() {
         </p>
       </div>
       <div className="flex w-full flex-col gap-[26px] lg:flex-row">
-        <NormalInput
+        <Input
           value={state.firstName}
+          style="noLabel"
           onChange={handleFirstNameChange}
           error={state.errors.firstName}
           placeholder="First Name"
         />
-        <NormalInput
+        <Input
           value={state.lastName}
+          style="noLabel"
           onChange={handleLastNameChange}
           error={state.errors.lastName}
           placeholder="Last Name"
         />
       </div>
-      <NormalInput
+      <Input
         value={state.email}
         onChange={handleEmailChange}
+        style="noLabel"
         error={state.errors.email}
         placeholder="Your email"
       />
-      <NormalInput
+      <Input
         value={state.phoneNumber}
         onChange={handlePhoneChange}
+        style="noLabel"
         error={state.errors.phoneNumber}
         placeholder="Phone Number"
       />
