@@ -132,7 +132,7 @@ function Profile() {
       ) : (
         <div className="flex w-full flex-col px-4">
           <Breadcrumb pageName="Profile" />
-          <div className="container mb-auto grid h-4/6 w-full max-w-6xl grid-cols-1 items-start gap-x-16 gap-y-4 py-4  min-[600px]:grid-cols-2">
+          <div className="mb-auto grid h-4/6 w-full max-w-6xl grid-cols-1 items-start gap-x-16 gap-y-4 py-4  min-[600px]:grid-cols-2">
             <Input
               name="first_Name"
               label="First Name"
