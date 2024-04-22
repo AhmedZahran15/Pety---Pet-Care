@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 function Input({
-  label,
+  label = "",
   value,
   onChange,
   error,
@@ -67,7 +67,7 @@ function Input({
   );
 }
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
