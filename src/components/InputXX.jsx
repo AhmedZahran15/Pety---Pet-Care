@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-function InputXX({
+function Input({
   label,
   value,
   onChange,
@@ -58,7 +58,7 @@ function InputXX({
     </div>
   );
 }
-InputXX.propTypes = {
+Input.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -68,4 +68,4 @@ InputXX.propTypes = {
   style: PropTypes.string,
   type: PropTypes.string,
 };
-export default InputXX;
+export default Input;
