@@ -74,7 +74,7 @@ function Profile() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [imageAsPreview, setImageAsPreview] = useState(null);
-  const { userData } = useContext(AuthContext);
+  const { userData ,setUserData} = useContext(AuthContext);
   useEffect(() => {
     if (userData) {
       dispatch({ type: "SET_FIRST_NAME", payload: userData?.firstName || "" });
@@ -116,8 +116,11 @@ function Profile() {
       );
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("userData", JSON.stringify(data.user));
-        toast.success("Profile updated successfully");
+        if (data.status === "success") {
+          localStorage.setItem("userData", JSON.stringify(data.user));
+          setUserData(data.user);
+          toast.success("Profile updated successfully");
+        }
       }
     } catch (error) {
       console.error(error);
