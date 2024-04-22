@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import NormalInput from "../../components/NormalInput";
 import BecomeAPetyContext from "../../contexts/BecomeAPetyContext";
+import Input from "../../components/InputXX";
 
 function StepOne() {
   const {
@@ -29,14 +29,14 @@ function StepOne() {
     }
   }
   return (
-    <div className="mt-8 w-full space-y-8  rounded-lg border-0 bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 lg:w-3/6">
-      <NormalInput
+    <div className="mt-8 w-full space-y-8 rounded-lg bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 md:pr-32 lg:w-3/6 xl:pr-64">
+      <Input
         label="Enter Your Name."
         value={petyName}
         onChange={handleNameChange}
         error={petyNameError ? petyNameError : ""}
       />
-      <NormalInput
+      <Input
         label="Enter Your Service / Service Name."
         value={clinicalName}
         onChange={handleClinicalNameChange}

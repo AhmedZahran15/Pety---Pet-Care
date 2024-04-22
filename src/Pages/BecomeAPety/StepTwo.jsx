@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import NormalInput from "../../components/NormalInput";
 import BecomeAPetyContext from "../../contexts/BecomeAPetyContext";
 import RadioButton from "../../components/RadioButton";
 import CheckBox from "../../components/CheckBox";
+import Input from "../../components/InputXX";
 
 function StepTwo() {
   const {
@@ -52,7 +52,7 @@ function StepTwo() {
     }
   }
   return (
-    <div className="mt-8 w-full space-y-4  rounded-lg border-0 bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 lg:w-3/6">
+    <div className="mt-8 w-full space-y-4 rounded-lg border-0 bg-white p-8 shadow-lg shadow-neutral-300 md:w-5/6 md:pr-32 lg:w-3/6 xl:pr-64">
       <div className="pl-2 text-base font-medium">
         <div className="-ml-2 mb-1">What is your service ?</div>
         <div className="font-fredoka text-lg font-normal">
@@ -106,25 +106,30 @@ function StepTwo() {
           {animalsError ? animalsError : ""}
         </div>
       </div>
-      <NormalInput
+      <Input
         label="Describe your service / specialty."
         value={description}
         onChange={handleDescriptionChange}
         error={descriptionError ? descriptionError : ""}
       />
       <div className="relative  max-w-md">
-        <NormalInput
+        <Input
           label="How much is your service ?"
           value={price}
           type="number"
           onChange={handlePriceChange}
           error={priceError ? priceError : ""}
+          inputProps={{
+            min: 0,
+            onInput: (e) =>
+              (e.target.value = e.target.value.replace(/[^0-9]/g, "")),
+          }}
         />
-        <div className="absolute right-1 top-8 flex h-10 items-center justify-center border-l-2 px-4 text-xl font-semibold text-neutral-500">
+        <div className="absolute right-2 top-7 flex h-10 items-center justify-center border-l-2 px-4 text-xl font-semibold text-neutral-500">
           LE
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row gap-y-4 items-center justify-start gap-x-6">
+      <div className="flex flex-col items-center justify-start gap-x-6 gap-y-4 sm:flex-row">
         <button
           onClick={handleStepTwo}
           className="min-w-[180px] rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 "
