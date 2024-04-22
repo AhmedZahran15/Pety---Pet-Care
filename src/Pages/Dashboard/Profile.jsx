@@ -116,9 +116,8 @@ function Profile() {
       );
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("userData", JSON.stringify(data.data));
+        localStorage.setItem("userData", JSON.stringify(data.user));
         toast.success("Profile updated successfully");
-        console.log(data);
       }
     } catch (error) {
       console.error(error);
