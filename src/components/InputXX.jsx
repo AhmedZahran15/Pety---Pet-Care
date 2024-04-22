@@ -7,6 +7,7 @@ function Input({
   name = "",
   type = "text",
   style = "basic",
+  placeholder = "",
   inputProps = {},
 }) {
   const styles = {
@@ -14,6 +15,12 @@ function Input({
       input:
         "w-full rounded-md py-3 pl-2 text-neutral-600 shadow-md shadow-gray-100 outline-primary ring-1 ring-gray-300",
       label: "text-base font-medium text-neutral-800",
+      error: "px-1 text-sm font-medium text-primary",
+    },
+    noLabel: {
+      input:
+        "w-full rounded-full py-3 pl-3 font-semibold text-neutral-800 shadow-md shadow-neutral-100 outline-primary ring-1 ring-neutral-300 placeholder:font-semibold placeholder:text-neutral-400",
+      label: "hidden",
       error: "px-1 text-sm font-medium text-primary",
     },
     floatingLabel: {
@@ -49,6 +56,7 @@ function Input({
           type={type}
           value={value}
           onChange={onChange}
+          placeholder={placeholder}
           name={name}
           className={styles[style].input}
           {...inputProps}
@@ -66,6 +74,7 @@ Input.propTypes = {
   name: PropTypes.string,
   inputProps: PropTypes.object,
   style: PropTypes.string,
+  placeholder: PropTypes.string,
   type: PropTypes.string,
 };
 export default Input;
