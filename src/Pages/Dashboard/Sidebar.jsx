@@ -1,10 +1,11 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import ExpandableList from "./ExpandableList";
 import AuthContext from "../../contexts/AuthContext";
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  const [roles, setRoles] = useState([]);
   const { logoutUser } = useContext(AuthContext);
   const { pathname } = useLocation();
   const sidebar = useRef(null);
@@ -23,6 +24,24 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
   });
+
+  useEffect(() => {
+    async function fetchRoles() {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_LINK}/api/dashboard/allRoles`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        },
+      );
+      const data = await response.json();
+      setRoles(data.data);
+    }
+    fetchRoles();
+  }, []);
   return (
     <aside
       ref={sidebar}
@@ -80,9 +99,9 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           </svg>
           Profile
         </Link>
-        <ExpandableList text="Veterinarian" />
-        <ExpandableList text="Pet Groomer" />
-        <ExpandableList text="Pet Sitter" />
+        {roles.includes("vet") && <ExpandableList text="Veterinarian" />}
+        {roles.includes("groomer") && <ExpandableList text="Pet Groomer" />}
+        {roles.includes("petSitter") && <ExpandableList text="Pet Sitter" />}
       </div>
       <button
         onClick={logoutUser}
