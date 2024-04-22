@@ -99,6 +99,7 @@ export const AuthProvider = ({ children }) => {
     loginUser,
     logoutUser,
     registerUser,
+    setUserData,
   };
 
   return (
