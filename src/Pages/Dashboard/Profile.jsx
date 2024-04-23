@@ -74,7 +74,7 @@ function Profile() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [imageAsPreview, setImageAsPreview] = useState(null);
-  const { userData ,setUserData} = useContext(AuthContext);
+  const { userData, setUserData } = useContext(AuthContext);
   useEffect(() => {
     if (userData) {
       dispatch({ type: "SET_FIRST_NAME", payload: userData?.firstName || "" });
@@ -97,6 +97,15 @@ function Profile() {
 
   const handleSubmit = async () => {
     try {
+      if (
+        state.errors.firstName ||
+        state.errors.lastName ||
+        state.errors.email ||
+        state.errors.phone
+      ) {
+        toast.error("Please fill in all fields correctly");
+        return;
+      }
       setIsLoading(true);
       const formData = new FormData();
       formData.append("firstName", state.firstName);
