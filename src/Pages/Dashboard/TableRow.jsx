@@ -10,14 +10,27 @@ function TableRow({ index, reservation, handleStatusChange }) {
   return (
     <>
       <tr
-        className={`${isOpen ? "bg-neutral-50" : ""} table-row cursor-pointer hover:bg-neutral-50`}
+        className={`${isOpen ? "bg-neutral-50" : "border-b-2 border-neutral-100"} table-row cursor-pointer hover:bg-neutral-50`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <td className="table-cell px-2 py-2">{index + 1}</td>
         <td className="table-cell px-2 py-2">
-          {reservation.firstName + " " + reservation.lastName}
+          <picture className="rounded-full">
+            <img
+              src={
+                reservation.owner.photo
+                  ? reservation.owner.photo.url
+                  : "/userImage.png"
+              }
+              alt="pet worker"
+              className="mx-auto aspect-square h-full max-h-[30px] w-full max-w-[30px] scale-[1.3] overflow-clip rounded-full"
+            />
+          </picture>
         </td>
-        <td className="table-cell px-2 py-2">{reservation.phone}</td>
+        <td className="table-cell px-2 py-2">
+          {reservation.owner.firstName + " " + reservation.owner.lastName}
+        </td>
+        <td className="table-cell px-2 py-2">{reservation.owner.phone}</td>
         <td className="table-cell px-2 py-2">{reservation.date}</td>
         <td className="table-cell px-2 py-2">{reservation.time}</td>
         <td className="table-cell h-fit w-fit px-2 py-2 first-letter:capitalize">
@@ -39,17 +52,19 @@ function TableRow({ index, reservation, handleStatusChange }) {
               <>
                 <button
                   className=" rounded-md bg-red-600 px-4 py-1 text-white"
-                  onClick={() =>
-                    handleStatusChange(reservation._id, "rejected")
-                  }
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleStatusChange(reservation._id, "rejected");
+                  }}
                 >
                   Reject
                 </button>
                 <button
                   className="rounded-md bg-primary px-4 py-1 text-white"
-                  onClick={() =>
-                    handleStatusChange(reservation._id, "approved")
-                  }
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleStatusChange(reservation._id, "approved");
+                  }}
                 >
                   Accept
                 </button>
@@ -61,8 +76,10 @@ function TableRow({ index, reservation, handleStatusChange }) {
         </td>
       </tr>
       {isOpen && (
-        <tr className={`${isOpen ? "bg-neutral-50" : ""} table-row`}>
-          <td colSpan={7} className="table-cell gap-x-4 px-4 py-2">
+        <tr
+          className={`${isOpen ? "border-b-2 border-neutral-100 bg-neutral-50" : ""} table-row`}
+        >
+          <td colSpan={8} className="table-cell gap-x-4 px-4 py-2">
             <div className="flex flex-row">
               <span>Animals: </span>
               <div className="flex flex-row divide-x-2 divide-neutral-300">
