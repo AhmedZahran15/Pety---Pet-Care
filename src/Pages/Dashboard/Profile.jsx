@@ -142,7 +142,7 @@ function Profile() {
       {isLoading ? (
         <BlockLoader />
       ) : (
-        <div className="flex w-full flex-col px-4">
+        <div className="flex w-full flex-col">
           <Breadcrumb pageName="Profile" />
           <div className="mb-auto grid h-4/6 w-full max-w-6xl grid-cols-1 items-start gap-x-16 gap-y-4 py-4  min-[600px]:grid-cols-2">
             <Input
