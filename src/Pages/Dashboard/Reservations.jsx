@@ -4,7 +4,16 @@ import { BlockLoader } from "../../components/Loader";
 import Breadcrumb from "./Breadcrumb";
 import TableRow from "./TableRow";
 
-const Table_Head = ["ID", "Name", "Phone", "Date", "Time", "Status", "Actions"];
+const Table_Head = [
+  "ID",
+  "Photo",
+  "Name",
+  "Phone",
+  "Date",
+  "Time",
+  "Status",
+  "Actions",
+];
 function Reservations() {
   const [isLoading, setIsLoading] = useState(true);
   const [reservations, setReservations] = useState([]);
@@ -84,7 +93,7 @@ function Reservations() {
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y-2 divide-neutral-100">
+              <tbody className="">
                 {reservations.map((reservation, index) => (
                   <TableRow
                     key={reservation._id}
