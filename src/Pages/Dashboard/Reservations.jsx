@@ -48,6 +48,7 @@ function Reservations() {
 
   const handleStatusChange = async (id, status) => {
     try {
+      setIsLoading(true);
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/dashboard/changeAppointment`,
         {
@@ -74,6 +75,7 @@ function Reservations() {
     } catch (error) {
       console.error(error);
     }
+    setIsLoading(false);
   };
   return (
     <>
