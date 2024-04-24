@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="flex h-screen overflow-hidden">
+      <div className="flex min-h-screen overflow-hidden lg:ml-72">
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <div className="relative flex min-h-screen max-w-screen-2xl flex-1 flex-col overflow-y-auto overflow-x-hidden">
           <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
