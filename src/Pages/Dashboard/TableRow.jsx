@@ -18,8 +18,8 @@ function TableRow({ index, reservation, handleStatusChange }) {
           <picture className="rounded-full">
             <img
               src={
-                reservation.owner.photo
-                  ? reservation.owner.photo.url
+                reservation.owner[0].photo
+                  ? reservation.owner[0].photo.url
                   : "/userImage.png"
               }
               alt="pet worker"
@@ -28,9 +28,9 @@ function TableRow({ index, reservation, handleStatusChange }) {
           </picture>
         </td>
         <td className="table-cell px-2 py-2">
-          {reservation.owner.firstName + " " + reservation.owner.lastName}
+          {reservation.owner[0].firstName + " " + reservation.owner[0].lastName}
         </td>
-        <td className="table-cell px-2 py-2">{reservation.owner.phone}</td>
+        <td className="table-cell px-2 py-2">{reservation.owner[0].phone}</td>
         <td className="table-cell px-2 py-2">{reservation.date}</td>
         <td className="table-cell px-2 py-2">{reservation.time}</td>
         <td className="table-cell h-fit w-fit px-2 py-2 first-letter:capitalize">
