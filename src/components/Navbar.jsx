@@ -32,7 +32,7 @@ const Navbar = () => {
               <Link to="contact">Contact</Link>
             </li>
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black ">
-            <Link to="about">About</Link>
+              <Link to="about">About</Link>
             </li>
           </ul>
           {user ? (
@@ -46,8 +46,11 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        <div className="flex items-center gap-4 lg:hidden">
-          <UserDropDown />
+        <div className="flex items-center gap-4 sm:hidden">
+          <BurgerMenu />
+        </div>
+        <div className="hidden items-center gap-4 sm:flex lg:hidden">
+          {user ? <UserDropDown /> : null}
           <BurgerMenu />
         </div>
         <BlurPage />
