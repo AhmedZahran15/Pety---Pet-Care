@@ -30,7 +30,7 @@ function UserDropDown() {
         <div className="flex items-center gap-x-4">
           <div className="flex flex-col">
             <span className="text-sm font-medium">
-              {userData?.firstName} {userData.lastName}
+              {userData?.firstName} {userData?.lastName}
             </span>
             <span className="text-xs font-normal text-neutral-400">
               Service Provider
@@ -38,7 +38,7 @@ function UserDropDown() {
           </div>
           <picture className="h-[44px] max-h-[48px] w-[48px] max-w-[44px] overflow-clip rounded-full">
             <img
-              src={photo ? photo.url : "/userImage.png"}
+              src={photo?.url || "/userImage.png"}
               alt="pet worker"
               className=" h-full scale-[1.3]"
             />
