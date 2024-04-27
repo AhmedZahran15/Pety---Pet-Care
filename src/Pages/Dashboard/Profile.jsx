@@ -9,6 +9,7 @@ import {
 import { BlockLoader } from "../../components/Loader";
 import Breadcrumb from "./Breadcrumb";
 import toast from "react-hot-toast";
+import ImageUpload from "./ImageUpload";
 
 const initialState = {
   firstName: "",
@@ -173,22 +174,11 @@ function Profile() {
               value={state.phone}
               error={state.errors.phone}
             />
-            <div className="flex items-center gap-x-4 md:-mt-3">
-              <img
-                src={imageAsPreview || state.photo || "/userImage.png"}
-                alt="profile"
-                className="h-[70px] w-[70px] rounded-full"
-              />
-              <input
-                type="file"
-                onChange={handleImageChange}
-                className="block w-full text-sm file:mr-4
-          file:rounded-md file:border-0 file:bg-emerald-100 file:px-4 file:py-2
-          file:text-sm  file:font-semibold file:text-primary file:shadow-md file:shadow-neutral-300
-           file:hover:bg-emerald-200
-          hover:file:bg-pink-100"
-              />
-            </div>
+            <ImageUpload
+              imageAsPreview={imageAsPreview}
+              handleImageChange={handleImageChange}
+              photo={state.photo}
+            />
             <button
               onClick={handleSubmit}
               className="rounded-md bg-[#34a1a5] px-4 py-3 text-white hover:bg-primary"
