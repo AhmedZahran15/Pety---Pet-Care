@@ -59,9 +59,9 @@ function MainRouter() {
             <Route path="vet/reservations" element={<Reservations />} />
             <Route path="vet/timeSlots" element={<TimeSlots />} />
             <Route path="vet/settings" element={<Settings />} />
-            <Route path="sitter/reservations" element={<Reservations />} />
-            <Route path="sitter/timeSlots" element={<TimeSlots />} />
-            <Route path="sitter/settings" element={<Settings />} />
+            <Route path="petSitter/reservations" element={<Reservations />} />
+            <Route path="petSitter/timeSlots" element={<TimeSlots />} />
+            <Route path="petSitter/settings" element={<Settings />} />
             <Route path="groomer/reservations" element={<Reservations />} />
             <Route path="groomer/timeSlots" element={<TimeSlots />} />
             <Route path="groomer/settings" element={<Settings />} />
