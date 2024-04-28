@@ -156,29 +156,29 @@ function Settings() {
     e.preventDefault();
     try {
       setIsLoading(true);
-      const newSettings = {
-        role,
-        petyName: state.petyName,
-        clinicalName: state.clinicalName,
-        address: state.address,
-        email: state.email,
-        phoneNumber: state.phoneNumber,
-        price: state.price,
-        animals: state.animals,
-        description: state.description,
-        offer: state.offer,
-        coordinates: await getCoordinates(state.address),
-      };
-      state.photo && (newSettings.photo = state.photo);
+      const formData = new FormData();
+      formData.append("petyName", state.petyName);
+      formData.append("role", role);
+      formData.append("clinicalName", state.clinicalName);
+      formData.append("address", state.address);
+      formData.append("email", state.email);
+      formData.append("phoneNumber", state.phoneNumber);
+      formData.append("price", state.price);
+      formData.append("description", state.description);
+      formData.append("offer", state.offer);
+      state.photo && formData.append("photo", state.photo);
+      state.animals.forEach((animal) => {
+        formData.append("animals", animal);
+      });
+      formData.append("coordinates", await getCoordinates(state.address));
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/dashboard/updatePety`,
         {
           method: "PATCH",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "content-type": "application/json",
           },
-          body: JSON.stringify(newSettings),
+          body: formData,
         },
       );
       if (response.ok) {
