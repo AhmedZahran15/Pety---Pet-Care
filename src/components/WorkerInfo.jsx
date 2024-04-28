@@ -31,11 +31,11 @@ function WorkerInfo({ data }) {
   } = data;
   return (
     <div className="flex w-full items-center justify-center gap-x-4 self-center py-2 md:w-[450px] md:max-w-[450px]">
-      <picture className="max-h-[140px] min-w-[140px] max-w-[140px] justify-self-start overflow-hidden rounded-full border-[1px] border-neutral-400 shadow-md shadow-gray-400">
+      <picture className="max-h-[140px] min-h-[140px] min-w-[140px] max-w-[140px] justify-self-start overflow-hidden rounded-full border-[1px] border-neutral-400 shadow-md shadow-gray-400">
         <img
           src={photo ? photo.url : "images/defaultWorkerImage.png"}
           alt="pet worker"
-          className="scale-[1.3]"
+          className="max-h-[140px] min-h-[140px] min-w-[140px] max-w-[140px] object-cover object-center"
         />
       </picture>
       <div className="flex w-fit flex-col  gap-1 xl:w-full">
