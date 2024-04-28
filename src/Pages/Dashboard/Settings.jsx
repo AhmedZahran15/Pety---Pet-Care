@@ -167,9 +167,9 @@ function Settings() {
         animals: state.animals,
         description: state.description,
         offer: state.offer,
-        photo: state.photo,
         coordinates: await getCoordinates(state.address),
       };
+      state.photo && (newSettings.photo = state.photo);
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/dashboard/updatePety`,
         {
