@@ -40,7 +40,7 @@ function ImageUpload({ imageAsPreview, handleImageChange, photo }) {
 }
 ImageUpload.propTypes = {
   imageAsPreview: PropTypes.string,
-  handleImageChange: PropTypes.func,
-  photo: PropTypes.object,
+  handleImageChange: PropTypes.func.isRequired,
+  photo: PropTypes.string,
 };
 export default ImageUpload;
