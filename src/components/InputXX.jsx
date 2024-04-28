@@ -68,7 +68,7 @@ function Input({
 }
 Input.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
   name: PropTypes.string,
