@@ -96,6 +96,13 @@ function Reservations() {
                 </tr>
               </thead>
               <tbody className="">
+                {reservations.length === 0 && (
+                  <tr>
+                    <td colSpan="8" className="py-4">
+                      No Reservations Found
+                    </td>
+                  </tr>
+                )}
                 {reservations.map((reservation, index) => (
                   <TableRow
                     key={reservation._id}
