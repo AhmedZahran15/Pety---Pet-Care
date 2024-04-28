@@ -10,7 +10,7 @@ function ExpandableList({ text }) {
     text === "Veterinarian"
       ? "vet"
       : text === "Pet Sitter"
-        ? "sitter"
+        ? "petSitter"
         : "groomer";
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(pathname.includes(role));
