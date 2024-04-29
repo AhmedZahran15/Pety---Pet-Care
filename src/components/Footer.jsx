@@ -4,7 +4,7 @@ const FooterLink = ({ href, text }) => {
   return (
     <a
       href={href}
-      className="text-xl font-normal text-neutral-500 transition-all duration-100 hover:font-medium hover:text-primary sm:text-2xl"
+      className="text-xl font-normal text-neutral-500 transition-all duration-100 hover:text-neutral-950 sm:text-2xl"
     >
       {text}
     </a>
@@ -24,7 +24,7 @@ const socialLinks = [
 ];
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-8 pb-4 pt-20 sm:justify-around">
+    <footer className="flex flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-8 pb-4 pt-20 sm:justify-around">
       <div className="w-48">
         <div className="mb-2 text-2xl font-bold sm:text-3xl">PETY</div>
         <FooterLink href="#" text="Terms of Service" />
