@@ -22,43 +22,55 @@ export default function FAQ() {
     setIsOpen((prev) => (index === prev ? null : index));
   }
   return (
-    <div className="mx-10 mt-12 md:mx-16 lg:mx-32">
-      <h1 className="mb-6 text-center font-['Fredoka']  text-5xl font-bold uppercase">
+    <div className="mx-8 mt-20 flex flex-col items-center gap-y-10 sm:container sm:mx-auto">
+      <h1 className="font-fredoka text-3xl font-bold text-neutral-900 sm:text-4xl md:text-5xl">
         Frequently Asked Questions
       </h1>
-      {faqs.map((item, index) => (
-        <AccordionItem
-          key={index}
-          isOpen={isOpen}
-          item={item}
-          index={index}
-          toggle={toggle}
-        >
-          <div
-            className={`overflow-hidden transition-all duration-200 ${
-              isOpen === index ? "max-h-48 ease-in-out" : "max-h-0"
-            }`}
+      <div className="flex flex-col gap-y-6">
+        {faqs.map((item, index) => (
+          <AccordionItem
+            key={index}
+            isOpen={isOpen}
+            item={item}
+            index={index}
+            toggle={toggle}
           >
-            <p>{item.text}</p>
-          </div>
-        </AccordionItem>
-      ))}
+            <div
+              className={`overflow-hidden ease-in-out transition-all duration-200 ${
+                isOpen === index ? "h-full" : "h-0"
+              }`}
+            >
+              <p>{item.text}</p>
+            </div>
+          </AccordionItem>
+        ))}
+      </div>
     </div>
   );
 }
 function AccordionItem({ item, index, isOpen, toggle, children }) {
   return (
     <div
-      className={`cursor-pointer border-b-[3px] px-2 py-4 font-['Montserrat'] text-xl`}
+      className={`w-full cursor-pointer border-b-[3px] py-2 font-['Montserrat'] text-xl`}
       onClick={() => toggle(index)}
     >
-      <div className="group flex items-center justify-between ">
-        <span className="font-['Montserrat'] text-xl font-bold text-primary">
+      <div className="flex items-center justify-between ">
+        <span
+          className={`font-['Montserrat'] text-xl font-bold  ${
+            isOpen === index ? "text-primary" : "text-neutral-900"
+          }`}
+        >
           {item.title}
         </span>
         <span className="w-8">
           <ArrowSvg
-            className={`fill-primary transition-all duration-200 ${isOpen === index ? "rotate-180" : ""}`}
+            className={`${
+              isOpen === index
+                ? "fill-primary stroke-primary"
+                : "fill-neutral-900 stroke-neutral-900"
+            } transition-all duration-200 ${
+              isOpen === index ? "rotate-180" : ""
+            }`}
           />
         </span>
       </div>
