@@ -36,8 +36,8 @@ export default function FAQ() {
             toggle={toggle}
           >
             <div
-              className={`overflow-hidden ease-in-out transition-all duration-200 ${
-                isOpen === index ? "h-full" : "h-0"
+              className={`overflow-hidden transition-all duration-200 ease-in-out ${
+                isOpen === index ? "max-h-80" : "max-h-0"
               }`}
             >
               <p>{item.text}</p>
