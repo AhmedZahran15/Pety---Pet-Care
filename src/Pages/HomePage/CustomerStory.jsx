@@ -1,17 +1,19 @@
+import PropTypes from "prop-types";
 function CustomerStory({ text, name, title, image }) {
   return (
-    <section>
-      <div className="md:text-2xl font-['Montserrat'] text-lg">
+    <section className="flex flex-col gap-y-6 rounded-md border-2 border-neutral-300 bg-white p-4">
+      <div className="font-['Montserrat'] text-lg md:text-2xl">
         {text
           ? text
-          : "      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum sequi, distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!"}
+          : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum sequi, distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!"}
       </div>
-
-      <div className="mb-10 mt-6 flex items-center justify-start gap-5">
-        <img className="xl:h-24 h-20 rounded-full" src={image} />
+      <div className="flex items-center justify-start gap-5">
+        <img className="h-20 rounded-full xl:h-24" src={image} />
         <div>
-          <span className="block text-2xl font-semibold xl:text-3xl">{name}</span>
-          <span className="font-['Product Sans Light'] text-gray-600 whitespace-pre text-xl xl:text-2xl">
+          <span className="block text-2xl font-semibold xl:text-3xl">
+            {name}
+          </span>
+          <span className="font-['Product Sans Light'] whitespace-pre text-xl text-neutral-600 xl:text-2xl">
             {title}
           </span>
         </div>
@@ -19,5 +21,10 @@ function CustomerStory({ text, name, title, image }) {
     </section>
   );
 }
-
+CustomerStory.propTypes = {
+  text: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 export default CustomerStory;
