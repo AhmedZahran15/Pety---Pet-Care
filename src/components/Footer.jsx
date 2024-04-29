@@ -24,7 +24,7 @@ const socialLinks = [
 ];
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-10 pb-4 pt-16 sm:justify-around">
+    <footer className="flex w-full flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-8 pb-4 pt-20 sm:justify-around">
       <div className="w-48">
         <div className="mb-2 text-2xl font-bold sm:text-3xl">PETY</div>
         <FooterLink href="#" text="Terms of Service" />
@@ -33,18 +33,9 @@ const Footer = () => {
         <div className="font-['Product Sans'] text-2xl font-bold sm:text-3xl">
           Features
         </div>
-        <FooterLink
-          href="/services?role=vet&limit=6&page=1"
-          text="Vet Booking"
-        />
-        <FooterLink
-          href="/services?role=petSitter&limit=6&page=1"
-          text="Pet Sitting"
-        />
-        <FooterLink
-          href="/services?role=groomer&limit=6&page=1"
-          text="Pet Grooming"
-        />
+        <FooterLink href="/services?role=vet" text="Vet Booking" />
+        <FooterLink href="/services?role=petSitter" text="Pet Sitting" />
+        <FooterLink href="/services?role=groomer" text="Pet Grooming" />
       </div>
       <div className="flex flex-row items-start justify-start gap-6 sm:flex-col ">
         <div>
