@@ -23,12 +23,15 @@ function Animal({ animal, animals, setAnimals }) {
     <div className="flex h-[32px] justify-between">
       <div className="flex items-center gap-x-2">
         <input
-          className="h-6 w-6"
+          className="h-6 w-6 cursor-pointer appearance-none rounded-sm border border-gray-300 checked:border-primary checked:bg-primary checked:ring-primary"
           defaultChecked={checked}
+          id={animal}
           type="checkbox"
           onClick={handleOnClick}
         />
-        <span>{animal}</span>
+        <label htmlFor={animal} className="cursor-pointer">
+          {animal}
+        </label>
       </div>
       {checked && (
         <Counter animal={animal} animals={animals} setAnimals={setAnimals} />
