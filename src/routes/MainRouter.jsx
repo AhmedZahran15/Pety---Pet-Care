@@ -41,7 +41,7 @@ function MainRouter() {
           <Route path="services" element={<Services />} />
           <Route element={<ProtectedRoute />}>
             <Route path="becomeAPety" element={<BecomeAPety />} />
-            <Route path="Reservation" element={<Reservation />} />
+            <Route path="Reservation/:id" element={<Reservation />} />
           </Route>
           <Route path="contact" element={<ContactUs />} />
           <Route path="about" element={<AboutUs />} />
