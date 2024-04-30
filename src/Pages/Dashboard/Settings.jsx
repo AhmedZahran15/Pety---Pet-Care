@@ -308,7 +308,10 @@ function Settings() {
               dispatch={dispatch}
               error={state.errors.animals}
             />
-            <button className="rounded-md bg-[#267d80] px-4 py-3 text-white hover:bg-primary">
+            <button
+              type="submit"
+              className="rounded-md bg-[#267d80] px-4 py-3 text-white hover:bg-primary"
+            >
               Update Settings
             </button>
           </form>

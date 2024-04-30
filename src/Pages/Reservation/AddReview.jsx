@@ -59,7 +59,10 @@ function AddReview() {
         className="w-full rounded-md border border-neutral-400 bg-neutral-50 p-4 shadow-md shadow-neutral-300 focus:outline-none focus:ring-1 focus:ring-neutral-500"
         placeholder="Write your review here..."
       />
-      <button className="flex w-full justify-center gap-x-2 rounded-md bg-secondary py-2 text-white shadow-md shadow-neutral-300 hover:bg-amber-500">
+      <button
+        type="submit"
+        className="flex w-full justify-center gap-x-2 rounded-md bg-secondary py-2 text-white shadow-md shadow-neutral-300 hover:bg-amber-500"
+      >
         {isLoading ? (
           <>
             <Loader />

@@ -183,7 +183,10 @@ function Profile() {
               handleImageChange={handleImageChange}
               photo={state.photo}
             />
-            <button className="rounded-md bg-[#34a1a5] px-4 py-3 text-white hover:bg-primary">
+            <button
+              type="submit"
+              className="rounded-md bg-[#34a1a5] px-4 py-3 text-white hover:bg-primary"
+            >
               Update Profile
             </button>
           </form>
