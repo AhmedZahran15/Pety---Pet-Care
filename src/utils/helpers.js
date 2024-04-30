@@ -3,6 +3,7 @@ export function scrollToTopOfElement(elementRef) {
 }
 
 export function animalsToString(animals) {
+  if (!animals) return "";
   return animals
     .map((item, i) => {
       if (i === animals.length - 1)
