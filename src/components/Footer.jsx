@@ -16,11 +16,11 @@ FooterLink.propTypes = {
 };
 
 const socialLinks = [
-  ["#", "images/Facebook.svg", "facebook"],
-  ["#", "images/Instagram.svg", "instagram"],
-  ["#", "images/Twitter.svg", "twitter"],
-  ["#", "images/linkedIn.svg", "linkedin"],
-  ["#", "images/Youtube.svg", "youtube"],
+  ["#", "/images/Facebook.svg", "facebook"],
+  ["#", "/images/Instagram.svg", "instagram"],
+  ["#", "/images/Twitter.svg", "twitter"],
+  ["#", "/images/linkedIn.svg", "linkedin"],
+  ["#", "/images/Youtube.svg", "youtube"],
 ];
 const Footer = () => {
   return (
