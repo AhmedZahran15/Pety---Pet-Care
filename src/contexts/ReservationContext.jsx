@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export const ReservationContext = createContext();
 
 export const ReservationProvider = ({ children }) => {
-  const [appointment, setAppointment] = useState(null);
+  const [appointment, setAppointment] = useState({ date: "", time: "" });
   const [isLoading, setIsLoading] = useState(false);
   const handleReservation = async (petyID, date, time, animals) => {
     const token = localStorage.getItem("token");
