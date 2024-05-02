@@ -2,9 +2,9 @@ import { teamData } from "../../data/teamData";
 import TeamMember from "./TeamMember";
 function TeamSection() {
   return (
-    <div className="mt-20 flex w-full flex-col text-lg font-medium text-neutral-500 md:px-10">
-      <div className="mb-14 flex flex-col text-center">
-        <h1 className="mb-4 font-fredoka text-5xl font-bold text-neutral-800 ">
+    <div className="mt-20 flex w-full flex-col text-lg font-medium text-neutral-500 sm:container md:px-10">
+      <div className="mb-14 flex flex-col px-8 text-center">
+        <h1 className="mb-4 font-fredoka text-4xl font-bold text-neutral-800 ">
           Our Dream Team
         </h1>
         <p className="self-center lg:w-2/3">
@@ -15,7 +15,7 @@ function TeamSection() {
           meets the diverse needs of our users.
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-x-4 gap-y-12 md:gap-x-8 xl:gap-x-16">
+      <div className="mx-auto grid w-full grid-cols-1 place-items-center gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {teamData.map((member, index) => (
           <TeamMember key={index} {...member} />
         ))}
