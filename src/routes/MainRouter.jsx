@@ -23,6 +23,7 @@ import Reservations from "../Pages/Dashboard/Reservations";
 import TimeSlots from "../Pages/Dashboard/TimeSlots";
 import Settings from "../Pages/Dashboard/Settings";
 import Profile from "../Pages/Dashboard/Profile";
+import ResetPassword from "../Pages/Auth/ResetPassword";
 const AppLayout = () => {
   return (
     <div className="mx-auto max-h-screen w-full max-w-screen-2xl">
@@ -51,6 +52,7 @@ function MainRouter() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="reset-password/:token" element={<ResetPassword />} />
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="dashboard" element={<Dashboard />}>
