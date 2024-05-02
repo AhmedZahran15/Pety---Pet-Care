@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import Animal from "./Animal";
 import { ReservationContext } from "../../contexts/ReservationContext";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../../components/Loader";
 function AnimalsDetails() {
   const [animals, setAnimals] = useState({
@@ -10,6 +10,7 @@ function AnimalsDetails() {
     cat: 0,
     other: 0,
   });
+  const { id } = useParams();
   const { handleReservation, appointment, isLoading } =
     useContext(ReservationContext);
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ function AnimalsDetails() {
       { pet: "other", count: animals.other },
     ].filter((animal) => animal.count > 0);
     const data = await handleReservation(
-      appointment.data._id,
+      id,
       appointment.date,
       appointment.time,
       animalsArray,
@@ -56,7 +57,7 @@ function AnimalsDetails() {
           (animals.dog === 0 && animals.cat === 0 && animals.other === 0) ||
           isLoading
         }
-        className="my-4 self-center rounded-lg bg-secondary px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"
+        className="my-4 flex items-center justify-center gap-x-2 self-center rounded-lg bg-secondary px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"
       >
         {isLoading ? (
           <>
