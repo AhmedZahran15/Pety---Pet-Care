@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Modal from "../../components/Modal";
 const icons = {
   cat: "/images/Dashboard/animals/cat.png",
   dog: "/images/Dashboard/animals/dog.png",
@@ -7,6 +8,17 @@ const icons = {
 };
 function TableRow({ index, reservation, handleStatusChange }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [rejectReason, setRejectReason] = useState("");
+  const dialogRef = useRef(null);
+  function toggleDialog() {
+    if (!dialogRef.current) {
+      return;
+    }
+    setRejectReason("");
+    dialogRef.current.hasAttribute("open")
+      ? dialogRef.current.close()
+      : dialogRef.current.showModal();
+  }
   return (
     <>
       <tr
@@ -46,25 +58,70 @@ function TableRow({ index, reservation, handleStatusChange }) {
             {reservation.status}
           </span>
         </td>
-        <td className="table-cell px-2 py-2">
+        <td
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          className="table-cell cursor-default px-2 py-2"
+        >
+          <Modal ref={dialogRef} toggleDialog={toggleDialog}>
+            <form
+              method="dialog"
+              onClick={(e) => e.stopPropagation()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                toggleDialog();
+                // handleStatusChange(reservation._id, "rejected", rejectReason);
+              }}
+              className="flex cursor-default flex-col gap-y-4 p-4"
+            >
+              <h2 className="text-lg font-semibold text-neutral-900">
+                Are you sure you want to cancel the reservation?
+              </h2>
+              <div className="flex flex-col items-start gap-y-1">
+                <label
+                  htmlFor="reason"
+                  className="font-medium text-neutral-800"
+                >
+                  Please provide reason for cancellation. (Optional)
+                </label>
+                <textarea
+                  id="reason"
+                  value={rejectReason}
+                  onChange={(e) => setRejectReason(e.target.value)}
+                  className="h-24 w-full rounded-md border border-neutral-300 p-2"
+                />
+              </div>
+              <div className="flex min-w-[220px] justify-end gap-x-2 self-end">
+                <button
+                  role="reset"
+                  className="basis-1/2 rounded-md bg-neutral-600 px-4 py-1 text-white"
+                >
+                  Cancel
+                </button>
+                <button
+                  role="submit"
+                  className="basis-1/2 rounded-md bg-red-600 px-4 py-1 text-white"
+                >
+                  Confirm
+                </button>
+              </div>
+            </form>
+          </Modal>
           <div className="flex items-center justify-center gap-x-2">
             {reservation.status === "pending" ? (
               <>
                 <button
                   className=" rounded-md bg-red-600 px-4 py-1 text-white"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleStatusChange(reservation._id, "rejected");
-                  }}
+                  onClick={toggleDialog}
                 >
                   Reject
                 </button>
                 <button
                   className="rounded-md bg-primary px-4 py-1 text-white"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleStatusChange(reservation._id, "approved");
-                  }}
+                  onClick={() =>
+                    handleStatusChange(reservation._id, "approved")
+                  }
                 >
                   Accept
                 </button>
