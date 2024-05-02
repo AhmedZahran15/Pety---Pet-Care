@@ -67,11 +67,9 @@ function TableRow({ index, reservation, handleStatusChange }) {
           <Modal ref={dialogRef} toggleDialog={toggleDialog}>
             <form
               method="dialog"
-              onClick={(e) => e.stopPropagation()}
-              onSubmit={(e) => {
-                e.preventDefault();
+              onSubmit={() => {
                 toggleDialog();
-                // handleStatusChange(reservation._id, "rejected", rejectReason);
+                handleStatusChange(reservation._id, "rejected", rejectReason);
               }}
               className="flex cursor-default flex-col gap-y-4 p-4"
             >
@@ -94,7 +92,8 @@ function TableRow({ index, reservation, handleStatusChange }) {
               </div>
               <div className="flex min-w-[220px] justify-end gap-x-2 self-end">
                 <button
-                  role="reset"
+                  type="button"
+                  onClick={toggleDialog}
                   className="basis-1/2 rounded-md bg-neutral-600 px-4 py-1 text-white"
                 >
                   Cancel
