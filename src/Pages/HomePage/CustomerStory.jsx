@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 function CustomerStory({ text, name, title, image }) {
   return (
     <section className="flex flex-col gap-y-4 rounded-md border-2 border-neutral-300 bg-white p-4">
-      <div className="font-['Montserrat'] text-lg md:text-2xl">
+      <div className="font-['Montserrat'] text-lg">
         {text
           ? text
           : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum sequi, distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!distinctio quae vitae beatae quasi animi sit. Cupiditate laboriosam atque nisi sunt velit! Architecto id nihil dolores asperiores nisi!"}
