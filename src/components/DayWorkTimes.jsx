@@ -36,7 +36,7 @@ function DayWorkTimes({ date, currentTimes, handleShowAll, showAll, data }) {
               key={id + time}
               disabled={!time[1]}
               onClick={() => handleAppointment(time[0])}
-              className={`${time[0] === appointment?.time && date === appointment.date && pathname === "/Reservation" ? "bg-primary text-white" : "text-neutral-700"} w-[70%] cursor-pointer rounded-[4px] py-1 text-center text-xs font-medium  transition-all duration-150 ease-in-out hover:bg-primary hover:text-white disabled:cursor-default disabled:bg-transparent disabled:text-gray-300 disabled:line-through disabled:decoration-primary disabled:decoration-[1.5px]`}
+              className={`${time[0] === appointment?.time && date === appointment.date && pathname.includes("/Reservation") ? "bg-primary text-white" : "text-neutral-700"} w-[70%] cursor-pointer rounded-[4px] py-1 text-center text-xs font-medium  transition-all duration-150 ease-in-out hover:bg-primary hover:text-white disabled:cursor-default disabled:bg-transparent disabled:text-gray-300 disabled:line-through disabled:decoration-primary disabled:decoration-[1.5px]`}
             >
               {time[0]}
             </button>
