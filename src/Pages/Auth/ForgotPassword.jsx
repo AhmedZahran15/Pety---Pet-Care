@@ -72,7 +72,7 @@ function ForgotPassword() {
             folder if you can&apos;t find the email.
           </p>
           <p>
-            you will now be directed to the homepage in 5 seconds. If you are
+            you will now be directed to the homepage in 10 seconds. If you are
             not redirected, click{" "}
             <Link className="text-lg font-bold text-primary" to="/">
               here
