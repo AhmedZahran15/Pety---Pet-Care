@@ -70,11 +70,10 @@ function ResetPassword() {
       </Link>
       <div>
         <h2 className="font-fredoka text-4xl font-semibold">
-          Forgot your password ?
+          Reset your password
         </h2>
         <p className="text-base font-medium text-neutral-500">
-          No worries! Enter your email address and we will send you a link to
-          reset your password.
+          Enter your new password below.
         </p>
       </div>
       <Modal ref={dialogRef} toggleDialog={toggleDialog}>
