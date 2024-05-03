@@ -40,7 +40,7 @@ function UserDropDown() {
             <img
               src={photo?.url || "/userImage.png"}
               alt="pet worker"
-              className=" h-full scale-[1.3]"
+              className="h-full w-full rounded-full object-cover"
             />
           </picture>
         </div>
