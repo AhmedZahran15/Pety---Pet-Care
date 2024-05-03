@@ -24,9 +24,10 @@ import TimeSlots from "../Pages/Dashboard/TimeSlots";
 import Settings from "../Pages/Dashboard/Settings";
 import Profile from "../Pages/Dashboard/Profile";
 import ResetPassword from "../Pages/Auth/ResetPassword";
+import PageNotFound from "../Pages/PageNotFound";
 const AppLayout = () => {
   return (
-    <div className="mx-auto max-h-screen w-full max-w-screen-2xl">
+    <div className="mx-auto min-h-screen w-full max-w-screen-2xl">
       <Navbar />
       <Outlet />
       <Footer />
@@ -46,6 +47,7 @@ function MainRouter() {
           </Route>
           <Route path="contact" element={<ContactUs />} />
           <Route path="about" element={<AboutUs />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
@@ -69,7 +71,6 @@ function MainRouter() {
             <Route path="groomer/settings" element={<Settings />} />
           </Route>
         </Route>
-        <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>
     </Router>
   );
