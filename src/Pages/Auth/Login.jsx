@@ -78,7 +78,10 @@ function Login() {
     if (res) navigate(from, { replace: true });
   };
   return (
-    <form onSubmit={handleLogin} className="z-10 flex w-full flex-col gap-3 overflow-y-auto rounded-3xl border-2 border-[#FFFFFF] bg-[#FFFFFF]  px-6 py-6 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar sm:px-10 md:w-8/12 lg:p-16 lg:pr-36 xl:pr-64">
+    <form
+      onSubmit={handleLogin}
+      className="z-10 flex w-full flex-col gap-3 overflow-y-auto rounded-3xl bg-white px-6 py-6 shadow-md shadow-neutral-400 transition-all duration-300 no-scrollbar sm:px-10 md:w-8/12 lg:p-16 lg:pr-36 xl:pr-64"
+    >
       <Link to="/">
         <img src="/Logo Placeholder.png" alt="Logo" />
       </Link>
@@ -112,7 +115,7 @@ function Login() {
       >
         Forgot Password?
       </Link>
-      <FullButton text="Sign in" enabled={btnEnable}/>
+      <FullButton text="Sign in" enabled={btnEnable} />
       <div className="text-center text-lg">
         Don&apos;t have an account? &nbsp;
         <Link
