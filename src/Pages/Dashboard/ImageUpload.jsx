@@ -8,7 +8,7 @@ function ImageUpload({ imageAsPreview, handleImageChange, photo }) {
       <img
         src={imageAsPreview || photo || "/userImage.png"}
         alt="profile"
-        className="h-[70px] w-[70px] rounded-full"
+        className="h-[75px] w-[75px] rounded-full object-cover"
       />
       <button
         onClick={(e) => {
