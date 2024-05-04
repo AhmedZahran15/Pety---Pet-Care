@@ -4,8 +4,8 @@ import StarRating from "../../components/StarRating";
 import AuthContext from "../../contexts/AuthContext";
 import toast from "react-hot-toast";
 import { Loader } from "../../components/Loader";
-
-function AddReview() {
+import PropTypes from "prop-types";
+function AddReview({ handleAddReview }) {
   const [review, setReview] = useState({ rating: 0, review: "" });
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
@@ -36,6 +36,7 @@ function AddReview() {
       console.log(data);
       if (data.status === "success") {
         setReview({ rating: 0, review: "" });
+        handleAddReview(data.data);
         toast.success("Review submitted successfully");
       } else toast.error("An error occurred while submitting review");
     } catch (error) {
@@ -47,7 +48,7 @@ function AddReview() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center justify-center gap-y-3 p-4"
+      className="flex flex-col items-center justify-center gap-y-3"
     >
       <h1 className="-mb-2 font-fredoka text-2xl font-medium">
         How was your Experience?
@@ -67,7 +68,7 @@ function AddReview() {
         {isLoading ? (
           <>
             <Loader />
-            Loading...{" "}
+            Loading...
           </>
         ) : (
           "Submit Review"
@@ -76,5 +77,7 @@ function AddReview() {
     </form>
   );
 }
-
+AddReview.propTypes = {
+  handleAddReview: PropTypes.func,
+};
 export default AddReview;
