@@ -8,10 +8,12 @@ import AnimalsDetails from "./AnimalsDetails";
 import toast from "react-hot-toast";
 import { BlockLoader } from "../../components/Loader";
 import Reviews from "./Reviews";
-
+import AddReview from "./AddReview";
+import Review from "./Review";
 function Reservation() {
   const { id } = useParams();
   const [workerData, setWorkerData] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { appointment } = useContext(ReservationContext);
 
@@ -32,6 +34,7 @@ function Reservation() {
         if (response.ok) {
           const data = await response.json();
           setWorkerData(data.data);
+          setReviews(data.data.reviews);
         }
       } catch (error) {
         toast.error("An error occurred while fetching worker data.");
@@ -42,6 +45,15 @@ function Reservation() {
     fetchWorkerData();
   }, [id]);
 
+  const handleAddReview = (review) => {
+    setReviews((prev) => [review, ...prev]);
+  };
+  const handleEditReview = (review) => {
+    setReviews((prev) => prev.map((r) => (r._id === review._id ? review : r)));
+  };
+  const handleDeleteReview = (review) => {
+    setReviews((prev) => prev.filter((r) => r._id !== review._id));
+  }
   return (
     <div className="relative min-h-screen bg-neutral-100 px-8 py-10">
       {isLoading || !workerData ? (
@@ -55,9 +67,21 @@ function Reservation() {
                 <ReservationTime appointment={appointment} />
               )}
             </div>
-            <Reviews reviews={workerData.reviews} />
+            <Reviews>
+              <AddReview handleAddReview={handleAddReview} />
+              <div className="flex flex-col gap-y-3">
+                {reviews.map((review) => (
+                  <Review
+                    key={review._id}
+                    review={review}
+                    handleEditReview={handleEditReview}
+                    handleDeleteReview={handleDeleteReview}
+                  />
+                ))}
+              </div>
+            </Reviews>
           </div>
-          <div className="flex basis-full flex-col overflow-hidden rounded-xl bg-white shadow-lg shadow-neutral-300 md:basis-1/2">
+          <div className="sticky top-4 flex h-fit basis-full flex-col overflow-hidden rounded-xl bg-white shadow-lg shadow-neutral-300 md:basis-1/2">
             <div className="border-b-[3px] border-neutral-200">
               <div className="bg-primary py-1 text-center font-sans text-lg font-bold text-white">
                 Appointment details
