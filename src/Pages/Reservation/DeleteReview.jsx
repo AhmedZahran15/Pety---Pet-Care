@@ -20,9 +20,7 @@ function DeleteReview({ toggleDeleteDialog, handleDeleteReview, reviewId }) {
           body: JSON.stringify({ reviewId }),
         },
       );
-      const data = await response.json();
-      console.log(data)
-      if (data.status === "success") {
+      if (response.status === 204) {
         toast.success("Review deleted successfully");
         handleDeleteReview(reviewId);
         toggleDeleteDialog();
