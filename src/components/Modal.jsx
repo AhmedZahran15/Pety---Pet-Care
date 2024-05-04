@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
 
-const Dialog = forwardRef(({ children, toggleDialog }, ref) => {
+const Modal = forwardRef(({ children, toggleDialog }, ref) => {
   return (
     <dialog
+      onReset={(e) => {
+        e.preventDefault();
+        toggleDialog();
+      }}
       className="rounded-lg bg-white backdrop:bg-neutral-900 backdrop:bg-opacity-20"
       ref={ref}
       onClick={(e) => {
@@ -16,9 +20,9 @@ const Dialog = forwardRef(({ children, toggleDialog }, ref) => {
     </dialog>
   );
 });
-Dialog.displayName = "Dialog";
-Dialog.propTypes = {
+Modal.displayName = "Dialog";
+Modal.propTypes = {
   children: PropTypes.node.isRequired,
   toggleDialog: PropTypes.func.isRequired,
 };
-export default Dialog;
+export default Modal;
