@@ -22,17 +22,18 @@ function AddReview() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `${import.meta.env.VITE_API_LINK}/api/pety/${id}/reviews`,
+        `${import.meta.env.VITE_API_LINK}/api/reviews`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${user}`,
           },
-          body: JSON.stringify(review),
+          body: JSON.stringify({ petyId: id, ...review }),
         },
       );
       const data = await response.json();
+      console.log(data);
       if (data.status === "success") {
         setReview({ rating: 0, review: "" });
         toast.success("Review submitted successfully");
