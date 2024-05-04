@@ -12,10 +12,6 @@ const infoMarkers = [
     alt: "Dollar Icon",
   },
   {
-    src: "/images/filters/Clock.png",
-    alt: "Clock Icon",
-  },
-  {
     src: "/images/filters/animalsIcon.png",
     alt: "Animals Icon",
   },
