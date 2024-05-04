@@ -33,7 +33,6 @@ function AddReview({ handleAddReview }) {
         },
       );
       const data = await response.json();
-      console.log(data);
       if (data.status === "success") {
         setReview({ rating: 0, review: "" });
         handleAddReview(data.data);
