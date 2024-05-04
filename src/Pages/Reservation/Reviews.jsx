@@ -1,17 +1,14 @@
 import PropTypes from "prop-types";
-import AddReview from "./AddReview";
 
-
-function Reviews({ reviews }) {
-  console.log(reviews);
+function Reviews({ children }) {
   return (
-    <div className="rounded-xl bg-white py-2 shadow-lg shadow-neutral-300">
-      <AddReview />
+    <div className="flex flex-col gap-y-6 rounded-xl bg-white px-4 py-3 shadow-lg shadow-neutral-300">
+      {children}
     </div>
   );
 }
 
 Reviews.propTypes = {
-  reviews: PropTypes.array,
+  children: PropTypes.node,
 };
 export default Reviews;
