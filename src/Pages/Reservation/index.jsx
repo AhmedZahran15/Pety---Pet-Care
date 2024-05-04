@@ -51,9 +51,9 @@ function Reservation() {
   const handleEditReview = (review) => {
     setReviews((prev) => prev.map((r) => (r._id === review._id ? review : r)));
   };
-  const handleDeleteReview = (review) => {
-    setReviews((prev) => prev.filter((r) => r._id !== review._id));
-  }
+  const handleDeleteReview = (reviewId) => {
+    setReviews((prev) => prev.filter((r) => r._id !== reviewId));
+  };
   return (
     <div className="relative min-h-screen bg-neutral-100 px-8 py-10">
       {isLoading || !workerData ? (
