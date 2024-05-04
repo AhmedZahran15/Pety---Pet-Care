@@ -31,7 +31,6 @@ function Reservation() {
         );
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
           setWorkerData(data.data);
         }
       } catch (error) {
