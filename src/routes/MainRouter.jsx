@@ -25,6 +25,7 @@ import Settings from "../Pages/Dashboard/Settings";
 import Profile from "../Pages/Dashboard/Profile";
 import ResetPassword from "../Pages/Auth/ResetPassword";
 import PageNotFound from "../Pages/PageNotFound";
+import Overview from "../Pages/Dashboard/Overview";
 const AppLayout = () => {
   return (
     <div className="mx-auto min-h-screen w-full max-w-screen-2xl">
@@ -58,7 +59,8 @@ function MainRouter() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="dashboard" element={<Dashboard />}>
-            <Route index element={<Navigate replace to="profile" />} />
+            <Route index element={<Navigate replace to="overview" />} />
+            <Route path="overview" element={<Overview />} />
             <Route path="profile" element={<Profile />} />
             <Route path="vet/reservations" element={<Reservations />} />
             <Route path="vet/timeSlots" element={<TimeSlots />} />
