@@ -78,7 +78,20 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       <div className="mb-2 border-b-2 border-neutral-400 px-3 py-[6px] font-fredoka text-3xl font-semibold text-neutral-800">
         MENU
       </div>
-      <div className="flex flex-col gap-y-4 overflow-scroll no-scrollbar">
+      <div className="flex flex-col gap-y-2 overflow-scroll no-scrollbar">
+        <Link
+          to="/dashboard/overview"
+          className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("overview") ? "bg-neutral-200" : ""}`}
+        >
+          <svg
+            className="h-8 w-8 fill-neutral-800"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9.5 8h-8C.673 8 0 7.327 0 6.5v-5C0 .673.673 0 1.5 0h8c.827 0 1.5.673 1.5 1.5v5c0 .827-.673 1.5-1.5 1.5zm-8-7a.5.5 0 00-.5.5v5a.5.5 0 00.5.5h8a.5.5 0 00.5-.5v-5a.5.5 0 00-.5-.5zM9.5 24h-8C.673 24 0 23.327 0 22.5v-11c0-.827.673-1.5 1.5-1.5h8c.827 0 1.5.673 1.5 1.5v11c0 .827-.673 1.5-1.5 1.5zm-8-13a.5.5 0 00-.5.5v11a.5.5 0 00.5.5h8a.5.5 0 00.5-.5v-11a.5.5 0 00-.5-.5zM22.5 24h-8c-.827 0-1.5-.673-1.5-1.5v-5c0-.827.673-1.5 1.5-1.5h8c.827 0 1.5.673 1.5 1.5v5c0 .827-.673 1.5-1.5 1.5zm-8-7a.5.5 0 00-.5.5v5a.5.5 0 00.5.5h8a.5.5 0 00.5-.5v-5a.5.5 0 00-.5-.5zM22.5 14h-8c-.827 0-1.5-.673-1.5-1.5v-11c0-.827.673-1.5 1.5-1.5h8c.827 0 1.5.673 1.5 1.5v11c0 .827-.673 1.5-1.5 1.5zm-8-13a.5.5 0 00-.5.5v11a.5.5 0 00.5.5h8a.5.5 0 00.5-.5v-11a.5.5 0 00-.5-.5z" />
+          </svg>
+          Overview
+        </Link>
         <Link
           to="/dashboard/profile"
           className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("profile") ? "bg-neutral-200" : ""}`}
