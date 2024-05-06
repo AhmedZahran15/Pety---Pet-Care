@@ -9,17 +9,17 @@ const CustomerStories = () => {
       <div className=" flex flex-col gap-6 lg:flex-row">
         <CustomerStory
           name="Mirage"
-          image="https://i.pravatar.cc/50"
+          image="/userImage.png"
           title="The Pet Clinic"
         />
         <CustomerStory
           name="Kareem"
-          image="https://i.pravatar.cc/48"
+          image="/userImage.png"
           title="The Pet Clinic"
         />
         <CustomerStory
           name="Amr"
-          image="https://i.pravatar.cc/49"
+          image="/userImage.png"
           title="The Pet Clinic"
         />
       </div>
