@@ -46,7 +46,9 @@ function Reservations() {
     fetchData();
   }, [role]);
 
-  const handleStatusChange = async (id, status) => {
+  const handleStatusChange = async (id, status, message) => {
+    const body = { id, role, status };
+    message && (body.message = message);
     try {
       setIsLoading(true);
       const response = await fetch(
@@ -57,7 +59,7 @@ function Reservations() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-          body: JSON.stringify({ id, role, status }),
+          body: JSON.stringify(body),
         },
       );
       if (response.ok) {
