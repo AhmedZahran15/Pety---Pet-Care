@@ -79,11 +79,12 @@ function TableRow({ index, reservation, handleStatusChange }) {
                   htmlFor="reason"
                   className="font-medium text-neutral-800"
                 >
-                  Please provide reason for cancellation. (Optional)
+                  Please provide reason for cancellation.
                 </label>
                 <textarea
                   id="reason"
                   value={rejectReason}
+                  required
                   onChange={(e) => setRejectReason(e.target.value)}
                   className="h-24 w-full rounded-md border border-neutral-300 p-2"
                 />
