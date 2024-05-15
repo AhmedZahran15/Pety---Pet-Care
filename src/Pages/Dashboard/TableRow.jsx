@@ -27,17 +27,15 @@ function TableRow({ index, reservation, handleStatusChange }) {
       >
         <td className="table-cell px-2 py-2">{index + 1}</td>
         <td className="table-cell px-2 py-2">
-          <picture className="rounded-full">
-            <img
-              src={
-                reservation.owner[0].photo
-                  ? reservation.owner[0].photo.url
-                  : "/userImage.png"
-              }
-              alt="pet worker"
-              className="mx-auto aspect-square h-full max-h-[30px] w-full max-w-[30px] scale-[1.3] overflow-clip rounded-full"
-            />
-          </picture>
+          <img
+            src={
+              reservation.owner[0].photo
+                ? reservation.owner[0].photo.url
+                : "/userImage.png"
+            }
+            alt="pet worker"
+            className="mx-auto aspect-square max-h-[40px] max-w-[40px] rounded-full object-cover"
+          />
         </td>
         <td className="table-cell px-2 py-2">
           {reservation.owner[0].firstName + " " + reservation.owner[0].lastName}
