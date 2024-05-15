@@ -60,7 +60,7 @@ function Reservation() {
         <BlockLoader />
       ) : (
         <div className="mx-auto flex flex-col gap-8 transition-all duration-200 sm:container lg:flex-row">
-          <div className="flex basis-full flex-col gap-y-8 md:basis-1/2">
+          <div className="flex flex-shrink basis-full flex-col gap-y-8 md:basis-1/2">
             <div className="flex flex-col justify-center rounded-xl bg-white py-2 shadow-lg shadow-neutral-300">
               <WorkerInfo data={workerData} />
               {appointment.time && (
@@ -81,7 +81,7 @@ function Reservation() {
               </div>
             </Reviews>
           </div>
-          <div className="sticky top-4 flex h-fit basis-full flex-col overflow-hidden rounded-xl bg-white shadow-lg shadow-neutral-300 md:basis-1/2">
+          <div className="flex h-fit basis-full flex-col overflow-hidden rounded-xl bg-white shadow-lg shadow-neutral-300 md:sticky md:top-4 md:basis-1/2">
             <div className="border-b-[3px] border-neutral-200">
               <div className="bg-primary py-1 text-center font-sans text-lg font-bold text-white">
                 Appointment details
