@@ -49,7 +49,7 @@ function Review({ review, handleEditReview, handleDeleteReview }) {
           {moment(review.createdAt).fromNow()}
         </span>
       </div>
-      <p className="w-full max-w-xl self-start break-words text-base font-normal text-neutral-800">
+      <p className="w-full self-start break-words text-base font-normal text-neutral-800 lg:max-w-md xl:max-w-xl">
         {review.review}
       </p>
       <div className="absolute bottom-3 right-2 flex gap-x-2">
