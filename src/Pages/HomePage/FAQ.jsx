@@ -3,16 +3,20 @@ import ArrowSvg from "../../assets/ArrowSvg";
 import PropTypes from "prop-types";
 const faqs = [
   {
-    title: "Where are these chairs assembled?",
-    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, quaerat temporibus quas dolore provident nisi ut aliquid ratione beatae sequi aspernatur veniam repellendus.",
+    title: "How can I create an account on PETY?",
+    text: "To create an account on PETY, simply click on the 'Sign Up' button on the homepage and follow the instructions to provide your details. Once registered, you can log in securely to access all the features of our platform.",
   },
   {
-    title: "How long do I have to return my chair?",
-    text: "Pariatur recusandae dignissimos fuga voluptas unde optio nesciunt commodi beatae, explicabo natus.",
+    title: "How do I book an appointment with a pet service provider?",
+    text: "Booking an appointment with a pet service provider on PETY is easy! Simply browse through the available services, select the one you're interested in, choose a provider, and follow the prompts to schedule your appointment.",
   },
   {
-    title: "Do you ship to countries outside the EU?",
-    text: "Excepturi velit laborum, perspiciatis nemo perferendis reiciendis aliquam possimus dolor sed! Dolore laborum ducimus veritatis facere molestias!",
+    title: "Is my personal information safe and secure on PETY?",
+    text: "Yes, we take the security and privacy of your personal information very seriously. PETY employs industry-standard encryption protocols and security measures to safeguard your data. Your information will only be used for the purpose of providing our services and will not be shared with third parties without your consent.",
+  },
+  {
+    title: "How can I leave a review for a pet service I've used?",
+    text: "After booking and receiving a pet service through PETY, you'll have the option to leave a review and rating for the service provider. Simply log in to your account, navigate to the service you've used, and share your feedback to help other users make informed decisions.",
   },
 ];
 
@@ -36,7 +40,7 @@ export default function FAQ() {
             toggle={toggle}
           >
             <div
-              className={`overflow-hidden transition-all duration-200 ease-in-out ${
+              className={`overflow-hidden font-sans font-normal transition-all duration-200 ease-in-out ${
                 isOpen === index ? "max-h-80" : "max-h-0"
               }`}
             >
@@ -54,7 +58,7 @@ function AccordionItem({ item, index, isOpen, toggle, children }) {
       className={`w-full cursor-pointer border-b-[3px] py-2 font-['Montserrat'] text-xl`}
       onClick={() => toggle(index)}
     >
-      <div className="group flex items-center justify-between ">
+      <div className="group flex items-center justify-between font-medium ">
         <span
           className={`font-['Montserrat'] text-xl font-bold transition-all duration-300 group-hover:text-primary  ${
             isOpen === index ? "text-primary" : "text-neutral-900"
