@@ -8,8 +8,11 @@ const SignUpSection = () => {
           WHO SHOULD USE PETY?
         </span>
         <span className="font-['Montserrat'] text-xl font-normal text-neutral-600 md:text-2xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget
-          placerat dui. Sed condimentum tincidunt diam,
+          PETY is the perfect solution for all pet owners who want to provide
+          the best care and services for their beloved pets. Whether you&apos;re
+          a busy professional, a pet parent with a hectic schedule, or simply
+          looking for convenience and peace of mind, PETY is designed to meet
+          your needs.
         </span>
         <Link
           to="/auth/register"
