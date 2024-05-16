@@ -54,9 +54,9 @@ function AccordionItem({ item, index, isOpen, toggle, children }) {
       className={`w-full cursor-pointer border-b-[3px] py-2 font-['Montserrat'] text-xl`}
       onClick={() => toggle(index)}
     >
-      <div className="flex items-center justify-between ">
+      <div className="group flex items-center justify-between ">
         <span
-          className={`font-['Montserrat'] text-xl font-bold  ${
+          className={`font-['Montserrat'] text-xl font-bold transition-all duration-300 group-hover:text-primary  ${
             isOpen === index ? "text-primary" : "text-neutral-900"
           }`}
         >
@@ -68,7 +68,7 @@ function AccordionItem({ item, index, isOpen, toggle, children }) {
               isOpen === index
                 ? "fill-primary stroke-primary"
                 : "fill-neutral-900 stroke-neutral-900"
-            } transition-all duration-200 ${
+            } transition-all duration-300 group-hover:fill-primary group-hover:stroke-primary ${
               isOpen === index ? "rotate-180" : ""
             }`}
           />
