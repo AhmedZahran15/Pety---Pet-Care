@@ -116,7 +116,7 @@ const ChartThree = () => {
       <div className="-mx-8 flex flex-wrap items-center justify-center gap-y-3 text-neutral-800">
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-[0.75rem] rounded-full bg-primary"></span>
+            <span className="mr-2 block h-3 w-full max-w-[0.75rem] rounded-full bg-[#3C50E0]"></span>
             <p className="flex w-full justify-between text-sm font-medium ">
               <span> Desktop </span>
               <span> 65% </span>
