@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import UserDropDown from "../../components/UserDropDown";
+import Notifications from "../../components/Notifications";
 function Header({ sidebarOpen, setSidebarOpen }) {
   return (
     <header className="flex w-full border-b-2 border-neutral-400">
@@ -31,7 +32,10 @@ function Header({ sidebarOpen, setSidebarOpen }) {
             }
           ></span>
         </button>
-        <UserDropDown />
+        <div className="flex gap-x-2">
+          <Notifications />
+          <UserDropDown />
+        </div>
       </div>
     </header>
   );
