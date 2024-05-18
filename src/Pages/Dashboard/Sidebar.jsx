@@ -115,6 +115,46 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         {roles.includes("vet") && <ExpandableList text="Veterinarian" />}
         {roles.includes("groomer") && <ExpandableList text="Pet Groomer" />}
         {roles.includes("petSitter") && <ExpandableList text="Pet Sitter" />}
+        <Link
+          to="/dashboard/history"
+          className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("history") ? "bg-neutral-200" : ""}`}
+        >
+          <svg
+            className="h-8 w-8 fill-neutral-800"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 682.667 682.667"
+          >
+            <defs>
+              <clipPath id="a" clipPathUnits="userSpaceOnUse">
+                <path d="M0 512h512V0H0z" data-original="#000000" />
+              </clipPath>
+            </defs>
+            <g
+              clipPath="url(#a)"
+              transform="matrix(1.33333 0 0 -1.33333 0 682.667)"
+              fill="none"
+              stroke="#000"
+              strokeWidth={30}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeMiterlimit={10}
+            >
+              <path
+                d="M256 135c0-66.274-53.726-120-120-120S16 68.726 16 135s53.726 120 120 120 120-53.726 120-120z"
+                data-original="#000000"
+              />
+              <path
+                d="M136 15h330c16.568 0 30 13.432 30 30v351.997L396.004 497H166c-16.568 0-30-13.432-30-30V255"
+                data-original="#000000"
+              />
+              <path
+                d="M396 497V397h100zM215.362 225H426M206 315h220M256 135h170M136 135v60m0-60h40"
+                data-original="#000000"
+              />
+            </g>
+          </svg>
+          History
+        </Link>
       </div>
       <button
         onClick={logoutUser}
