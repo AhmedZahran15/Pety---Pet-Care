@@ -26,6 +26,7 @@ import Profile from "../Pages/Dashboard/Profile";
 import ResetPassword from "../Pages/Auth/ResetPassword";
 import PageNotFound from "../Pages/PageNotFound";
 import Overview from "../Pages/Dashboard/Overview";
+import History from "../Pages/Dashboard/History";
 const AppLayout = () => {
   return (
     <div className="mx-auto min-h-screen w-full max-w-screen-2xl">
@@ -71,6 +72,7 @@ function MainRouter() {
             <Route path="groomer/reservations" element={<Reservations />} />
             <Route path="groomer/timeSlots" element={<TimeSlots />} />
             <Route path="groomer/settings" element={<Settings />} />
+            <Route path="history" element={<History />} />
           </Route>
         </Route>
       </Routes>
