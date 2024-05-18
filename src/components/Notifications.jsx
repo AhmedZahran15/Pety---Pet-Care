@@ -74,7 +74,6 @@ function Notifications() {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         if (data.status === "success") {
           setNotifications((notifications) =>
             notifications.map((notification) =>
@@ -101,7 +100,7 @@ function Notifications() {
         className="relative flex h-8 w-8 items-center justify-center dark:text-primary"
       >
         <span
-          className={`z-1 absolute -top-0.5 right-0 h-2 w-2 rounded-full bg-red-500 ${
+          className={`z-1 absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 ${
             notifying === false ? "hidden" : "inline"
           }`}
         >
