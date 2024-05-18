@@ -6,6 +6,7 @@ import BlurPage from "./BlurPage";
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
 import UserDropDown from "./UserDropDown";
+import Notifications from "./Notifications";
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   return (
@@ -36,7 +37,10 @@ const Navbar = () => {
             </li>
           </ul>
           {user ? (
-            <UserDropDown />
+            <>
+              <Notifications />
+              <UserDropDown />
+            </>
           ) : (
             <Link
               className="mr-4 hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
@@ -47,10 +51,16 @@ const Navbar = () => {
           )}
         </div>
         <div className="flex items-center gap-4 sm:hidden">
+          {user ? <Notifications /> : null}
           <BurgerMenu />
         </div>
         <div className="hidden items-center gap-4 sm:flex lg:hidden">
-          {user ? <UserDropDown /> : null}
+          {user ? (
+            <>
+              <Notifications />
+              <UserDropDown />
+            </>
+          ) : null}
           <BurgerMenu />
         </div>
         <BlurPage />
