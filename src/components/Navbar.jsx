@@ -37,10 +37,10 @@ const Navbar = () => {
             </li>
           </ul>
           {user ? (
-            <>
+            <div className="flex items-center gap-x-2">
               <Notifications />
               <UserDropDown />
-            </>
+            </div>
           ) : (
             <Link
               className="mr-4 hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
@@ -56,10 +56,10 @@ const Navbar = () => {
         </div>
         <div className="hidden items-center gap-4 sm:flex lg:hidden">
           {user ? (
-            <>
+            <div className="flex items-center gap-x-2">
               <Notifications />
               <UserDropDown />
-            </>
+            </div>
           ) : null}
           <BurgerMenu />
         </div>
