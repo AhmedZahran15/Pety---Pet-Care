@@ -1,11 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import AuthContext from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 
 function ProtectedRoute() {
   const location = useLocation();
-  const { user } = useContext(AuthContext);
+  const user = localStorage.getItem("token");
   useEffect(() => {
     if (!user) {
       toast.error("You need to be logged in to access this page", {
