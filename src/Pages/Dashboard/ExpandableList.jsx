@@ -5,7 +5,7 @@ import VetSvg from "../../assets/VetSvg";
 import PetGroomingSvg from "../../assets/PetGroomingSvg";
 import PetSitter from "../../assets/PetSitterSVG";
 import ArrowSvg from "../../assets/ArrowSvg";
-function ExpandableList({ text }) {
+function ExpandableList({ text, setSidebarOpen }) {
   const role =
     text === "Veterinarian"
       ? "vet"
@@ -37,6 +37,7 @@ function ExpandableList({ text }) {
         className={`flex overflow-hidden transition-all duration-100 ${isOpen ? "h-full" : "h-0"} flex-col gap-y-2 font-fredoka text-lg font-normal text-neutral-400`}
       >
         <Link
+          onClick={() => setSidebarOpen(false)}
           className={`group flex w-full items-center gap-x-[18px] px-5 transition-all duration-200 hover:text-neutral-950 ${pathname.includes(`${role}/reservations`) ? "text-neutral-950" : ""}`}
           to={`/dashboard/${role}/reservations`}
         >
@@ -46,6 +47,7 @@ function ExpandableList({ text }) {
           Reservations
         </Link>
         <Link
+          onClick={() => setSidebarOpen(false)}
           className={`group flex w-full items-center gap-x-[18px] px-5 transition-all duration-200 hover:text-neutral-950 ${pathname.includes(`${role}/timeSlots`) ? "text-neutral-950" : ""}`}
           to={`/dashboard/${role}/timeSlots`}
         >
@@ -55,6 +57,7 @@ function ExpandableList({ text }) {
           Time Slots
         </Link>
         <Link
+          onClick={() => setSidebarOpen(false)}
           className={`group flex w-full items-center gap-x-[18px] px-5 transition-all duration-200 hover:text-neutral-950 ${pathname.includes(`${role}/settings`) ? "text-neutral-950" : ""}`}
           to={`/dashboard/${role}/settings`}
         >
@@ -69,5 +72,6 @@ function ExpandableList({ text }) {
 }
 ExpandableList.propTypes = {
   text: PropTypes.string,
+  setSidebarOpen: PropTypes.func,
 };
 export default ExpandableList;
