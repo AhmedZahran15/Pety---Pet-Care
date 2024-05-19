@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { cities, governorates } from "../data/governoratesData";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchDropdown from "./SearchDropdown";
+import SearchIcon from "../assets/SearchIcon";
 
 const Search = () => {
   const [filterParams] = useSearchParams();
@@ -98,7 +99,7 @@ const Search = () => {
           className="flex h-20 min-h-[60px] w-full  basis-1/4 items-center justify-center gap-x-4 rounded-b-xl bg-secondary text-3xl font-normal text-white hover:bg-amber-500 md:rounded-r-xl md:rounded-bl-none"
           onClick={handleSearch}
         >
-          <img className="mt-1 h-8 w-8" src="searchIcon.png" alt="" />
+          <SearchIcon className="mt-1 h-8 w-8 fill-white" />
           Search
         </button>
       </div>
