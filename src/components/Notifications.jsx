@@ -5,7 +5,7 @@ function Notifications() {
   const [isLoading, setIsLoading] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
-  const [notifying, setNotifying] = useState(true);
+  const [notifying, setNotifying] = useState(false);
   const trigger = useRef(null);
   const dropdown = useRef(null);
   const userData = JSON.parse(localStorage.getItem("userData"));
@@ -88,6 +88,34 @@ function Notifications() {
       console.error(error);
     }
   };
+
+  const handleDeleteNotification = async (notificationId) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_LINK}/api/notification/`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({ notificationId }),
+        },
+      );
+      if (response.ok) {
+        const data = await response.json();
+        if (data.status === "success") {
+          setNotifications((notifications) =>
+            notifications.filter(
+              (notification) => notification._id !== notificationId,
+            ),
+          );
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="relative z-40 flex items-center justify-center">
       <Link
@@ -100,7 +128,7 @@ function Notifications() {
         className="relative flex h-8 w-8 items-center justify-center dark:text-primary"
       >
         <span
-          className={`z-1 absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500 ${
+          className={`z-1 absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500 ${
             notifying === false ? "hidden" : "inline"
           }`}
         >
@@ -150,7 +178,7 @@ function Notifications() {
               <li
                 key={notification._id}
                 onClick={() => handleReadNotification(notification._id)}
-                className={` ${notification.isRead ? "" : "cursor-pointer"} relative gap-2.5 border-t border-neutral-300 px-4 py-3 hover:bg-neutral-50`}
+                className={` ${notification.isRead ? "" : "cursor-pointer"} relative gap-2.5 border-t border-neutral-300 px-4 py-3 pr-6 hover:bg-neutral-50`}
               >
                 <p className="text-sm">
                   <span
@@ -172,6 +200,26 @@ function Notifications() {
                     } absolute right-1 top-[42%] h-3 w-3 rounded-full bg-primary`}
                   ></span>
                 </span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDeleteNotification(notification._id);
+                  }}
+                  hidden={!notification.isRead}
+                  className="absolute right-2 top-6 h-5 w-5 -translate-y-1/2 transform rounded-full bg-neutral-200"
+                >
+                  <svg
+                    className="fill-current"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.5 5.5L12.5 4.5L9 8L5.5 4.5L4.5 5.5L8 9L4.5 12.5L5.5 13.5L9 10L12.5 13.5L13.5 12.5L10 9L13.5 5.5Z"
+                      fill=""
+                    />
+                  </svg>
+                </button>
               </li>
             ))
           )}
