@@ -16,17 +16,6 @@ function Filters() {
     );
   }
 
-  function handleHasOffersChange(e) {
-    const hasOffers = e.target.checked;
-    setFilterParams(
-      (prev) => {
-        hasOffers ? prev.set("offer", "true") : prev.delete("offer");
-        prev.delete("page");
-        return prev;
-      },
-      { replace: true },
-    );
-  }
   function handleArrayChange(e) {
     const filterName = e.target.name;
     const value = e.target.value;
@@ -48,7 +37,28 @@ function Filters() {
       { replace: true },
     );
   }
-
+  function handleAvailabilityChange(e) {
+    const value = e.target.value;
+    if (value === "anyDay") {
+      setFilterParams(
+        (prev) => {
+          prev.delete("availability");
+          prev.delete("page");
+          return prev;
+        },
+        { replace: true },
+      );
+      return;
+    }
+    setFilterParams(
+      (prev) => {
+        prev.set("availability", value);
+        prev.delete("page");
+        return prev;
+      },
+      { replace: true },
+    );
+  }
   return (
     <div className="box-border min-w-[247px] max-w-[247px] space-y-6 divide-y-[3px] divide-solid divide-[#D9D9D9] self-center lg:sticky lg:top-8 lg:self-start">
       <SearchBar />
@@ -132,48 +142,29 @@ function Filters() {
             imgAlt="Calendar Icon"
             title="Availability"
           >
-            <CheckBox
+            <RadioButton
               name="availability"
               label="Any Day"
               id="anyDay"
               value="anyDay"
-              defaultChecked={
-                filterParams?.get("availability")?.includes("anyDay") === true
-              }
-              onClick={handleArrayChange}
+              checked={filterParams?.get("availability") === "anyDay"}
+              onChange={handleAvailabilityChange}
             />
-            <CheckBox
+            <RadioButton
               name="availability"
               label="Today"
               id="today"
               value="today"
-              defaultChecked={
-                filterParams?.get("availability")?.includes("today") === true
-              }
-              onClick={handleArrayChange}
+              checked={filterParams?.get("availability") === "today"}
+              onChange={handleAvailabilityChange}
             />
-            <CheckBox
+            <RadioButton
               name="availability"
               label="Tomorrow"
               id="tomorrow"
               value="tomorrow"
-              defaultChecked={
-                filterParams?.get("availability")?.includes("tomorrow") === true
-              }
-              onClick={handleArrayChange}
-            />
-          </Filter>
-          <Filter
-            imgSrc="/images/filters/offerIcon.png"
-            imgAlt="Offer Icon"
-            title="Offers"
-          >
-            <CheckBox
-              label="Has Offers"
-              id="hasOffers"
-              value="hasOffers"
-              defaultChecked={filterParams?.get("offer") === true}
-              onClick={handleHasOffersChange}
+              checked={filterParams?.get("availability") === "tomorrow"}
+              onChange={handleAvailabilityChange}
             />
           </Filter>
         </div>
