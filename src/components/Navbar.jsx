@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link to="services?role=vet">Services</Link>
             </li>
             <li className="Medium gap-2.5 text-xl font-normal text-gray-500  transition-all  duration-300  hover:text-black">
-              <Link to="#">Community</Link>
+              <Link to="/community">Community</Link>
             </li>
             <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
               <Link to="contact">Contact</Link>
