@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { BlockLoader } from "./Loader";
 function Notifications() {
   const [isLoading, setIsLoading] = useState(true);
@@ -118,14 +117,13 @@ function Notifications() {
   };
   return (
     <div className="relative z-40 flex items-center justify-center">
-      <Link
+      <div
         ref={trigger}
         onClick={() => {
           setNotifying(false);
           setDropdownOpen(!dropdownOpen);
         }}
-        to="#"
-        className="relative flex h-8 w-8 items-center justify-center dark:text-primary"
+        className="relative flex h-8 w-8 cursor-pointer items-center justify-center dark:text-primary"
       >
         <span
           className={`z-1 absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500 ${
@@ -148,7 +146,7 @@ function Notifications() {
             fill=""
           />
         </svg>
-      </Link>
+      </div>
       <div
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
