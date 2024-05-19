@@ -54,7 +54,7 @@ export const SideMenu = () => {
           onClick={handleShowSideMenu}
           className="Medium gap-2.5 text-3xl font-medium text-black  transition-all  duration-300  hover:text-teal-700"
         >
-          <Link to="#">Community</Link>
+          <Link to="/community">Community</Link>
         </li>
         <li
           onClick={handleShowSideMenu}
