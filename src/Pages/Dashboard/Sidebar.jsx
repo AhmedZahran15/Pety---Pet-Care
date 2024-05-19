@@ -70,6 +70,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       </span>
       <Link
         to="/"
+        onClick={() => setSidebarOpen(false)}
         className="mb-8 flex w-fit items-center justify-center gap-x-2 bg-neutral-100"
       >
         <div className="h-9 w-9 rounded-full bg-black"></div>
@@ -81,6 +82,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       <div className="flex flex-col gap-y-2 overflow-scroll no-scrollbar">
         <Link
           to="/dashboard/overview"
+          onClick={() => setSidebarOpen(false)}
           className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("overview") ? "bg-neutral-200" : ""}`}
         >
           <svg
@@ -94,6 +96,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         </Link>
         <Link
           to="/dashboard/profile"
+          onClick={() => setSidebarOpen(false)}
           className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("profile") ? "bg-neutral-200" : ""}`}
         >
           <svg
@@ -112,11 +115,18 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           </svg>
           Profile
         </Link>
-        {roles.includes("vet") && <ExpandableList text="Veterinarian" />}
-        {roles.includes("groomer") && <ExpandableList text="Pet Groomer" />}
-        {roles.includes("petSitter") && <ExpandableList text="Pet Sitter" />}
+        {roles.includes("vet") && (
+          <ExpandableList text="Veterinarian" setSidebarOpen={setSidebarOpen} />
+        )}
+        {roles.includes("groomer") && (
+          <ExpandableList text="Pet Groomer" setSidebarOpen={setSidebarOpen} />
+        )}
+        {roles.includes("petSitter") && (
+          <ExpandableList text="Pet Sitter" setSidebarOpen={setSidebarOpen} />
+        )}
         <Link
           to="/dashboard/history"
+          onClick={() => setSidebarOpen(false)}
           className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("history") ? "bg-neutral-200" : ""}`}
         >
           <svg
