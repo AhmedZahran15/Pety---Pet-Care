@@ -13,7 +13,7 @@ function RouteModal({ children }) {
         className="fixed inset-0 bg-neutral-900 bg-opacity-30"
         onClick={closeHandler}
       ></div>
-      <dialog open className="fixed bottom-0 top-0 rounded-lg bg-white">
+      <dialog open className="fixed bottom-0 z-[99] top-0 rounded-lg bg-white">
         <div>{children}</div>
       </dialog>
     </>
