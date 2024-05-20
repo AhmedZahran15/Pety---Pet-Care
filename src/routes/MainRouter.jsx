@@ -27,6 +27,12 @@ import ResetPassword from "../Pages/Auth/ResetPassword";
 import PageNotFound from "../Pages/PageNotFound";
 import Overview from "../Pages/Dashboard/Overview";
 import History from "../Pages/Dashboard/History";
+import AppointmentHistory from "../Pages/Dashboard/AppointmentHistory";
+import Community from "../Pages/Community";
+import MyPosts from "../Pages/Community/MyPosts";
+import Bookmarks from "../Pages/Community/Bookmarks";
+import NewPost from "../Pages/Community/NewPost";
+import Home from "../Pages/Community/Home";
 const AppLayout = () => {
   return (
     <div className="mx-auto min-h-screen w-full max-w-screen-2xl">
@@ -47,6 +53,21 @@ function MainRouter() {
             <Route path="becomeAPety" element={<BecomeAPety />} />
             <Route path="Reservation/:id" element={<Reservation />} />
           </Route>
+          <Route path="community" element={<Community />}>
+            <Route index element={<Navigate replace to="home" />} />
+            <Route path="home" element={<Home />}>
+              <Route path="new-post" element={<NewPost />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="my-posts" element={<MyPosts />}>
+                <Route path="new-post" element={<NewPost />} />
+              </Route>
+              <Route path="bookmarks" element={<Bookmarks />} />
+            </Route>
+            {/* <Route path="post/:id" element={<Post />} />
+              <Route path="editPost/:id" element={<EditPost />} />
+              <Route path="deletePost/:id" element={<DeletePost />} /> */}
+          </Route>
           <Route path="contact" element={<ContactUs />} />
           <Route path="about" element={<AboutUs />} />
           <Route path="*" element={<PageNotFound />} />
@@ -64,12 +85,24 @@ function MainRouter() {
             <Route path="overview" element={<Overview />} />
             <Route path="profile" element={<Profile />} />
             <Route path="vet/reservations" element={<Reservations />} />
+            <Route
+              path="vet/reservations/:userId"
+              element={<AppointmentHistory />}
+            />
             <Route path="vet/timeSlots" element={<TimeSlots />} />
             <Route path="vet/settings" element={<Settings />} />
             <Route path="petSitter/reservations" element={<Reservations />} />
+            <Route
+              path="petSitter/reservations/:userId"
+              element={<AppointmentHistory />}
+            />
             <Route path="petSitter/timeSlots" element={<TimeSlots />} />
             <Route path="petSitter/settings" element={<Settings />} />
             <Route path="groomer/reservations" element={<Reservations />} />
+            <Route
+              path="groomer/reservations/:userId"
+              element={<AppointmentHistory />}
+            />
             <Route path="groomer/timeSlots" element={<TimeSlots />} />
             <Route path="groomer/settings" element={<Settings />} />
             <Route path="history" element={<History />} />
