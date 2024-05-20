@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useRef, useState } from "react";
 import Modal from "../../components/Modal";
+import { Link } from "react-router-dom";
 const icons = {
   cat: "/images/Dashboard/animals/cat.png",
   dog: "/images/Dashboard/animals/dog.png",
@@ -135,22 +136,30 @@ function TableRow({ index, reservation, handleStatusChange }) {
           className={`${isOpen ? "border-b-2 border-neutral-100 bg-neutral-50" : ""} table-row`}
         >
           <td colSpan={8} className="table-cell gap-x-4 px-4 py-2">
-            <div className="flex flex-row">
-              <span>Animals: </span>
-              <div className="flex flex-row divide-x-2 divide-neutral-300">
-                {reservation.animals.map((animal) => (
-                  <div key={animal._id} className="flex gap-x-1 px-4">
-                    <img
-                      src={icons[animal.pet]}
-                      alt={animal.pet}
-                      className="h-7 w-7"
-                    />
-                    <span>
-                      {animal.pet}: {animal.count}
-                    </span>
-                  </div>
-                ))}
+            <div className="flex flex-row justify-between">
+              <div className="flex flex-row">
+                <span>Animals: </span>
+                <div className="flex flex-row divide-x-2 divide-neutral-300">
+                  {reservation.animals.map((animal) => (
+                    <div key={animal._id} className="flex gap-x-1 px-4">
+                      <img
+                        src={icons[animal.pet]}
+                        alt={animal.pet}
+                        className="h-7 w-7"
+                      />
+                      <span>
+                        {animal.pet}: {animal.count}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
+              <Link
+                className="mr-8"
+                to={`/dashboard/reservations/${reservation._id}`}
+              >
+                <span className="text-primary underline">View History</span>
+              </Link>
             </div>
           </td>
         </tr>
