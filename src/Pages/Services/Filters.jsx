@@ -1,6 +1,6 @@
 import RadioButton from "../../components/RadioButton";
 import Filter from "./Filter";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "./SearchBar";
 import CheckBox from "../../components/CheckBox";
 import { useSearchParams } from "react-router-dom";
 function Filters() {
