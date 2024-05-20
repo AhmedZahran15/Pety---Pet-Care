@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
 function UserDropDown() {
-  const { userData, logoutUser } = useContext(AuthContext);
+  const { logoutUser } = useContext(AuthContext);
+  const userData = JSON.parse(localStorage.getItem("userData"));
   const { photo } = userData ? userData : {};
   const [isOpen, setIsOpen] = useState(false);
 
