@@ -5,7 +5,7 @@ import Post from "./Post";
 
 function Home() {
   const [searchParams] = useSearchParams();
-  const {pathname } = useLocation();
+  const { pathname } = useLocation();
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const userData = JSON.parse(localStorage.getItem("userData"));
@@ -22,7 +22,6 @@ function Home() {
           },
         );
         const data = await response.json();
-        console.log(data);
         if (!response.ok) throw new Error(data.message);
         setPosts(data.data);
       } catch (error) {
@@ -31,9 +30,9 @@ function Home() {
       setIsLoading(false);
     };
     fetchPosts();
-  }, [searchParams,pathname]);
+  }, [searchParams, pathname]);
   return (
-    <div className="relative basis-full lg:basis-2/3">
+    <div className="basis-full py-4 lg:basis-2/3">
       <div className="mb-4 flex h-20 w-full items-center gap-x-4 rounded-lg border border-neutral-300 bg-white p-4 shadow-md shadow-neutral-200">
         <img
           src={userData?.photo?.url}
@@ -49,15 +48,17 @@ function Home() {
         </Link>
       </div>
       <Outlet />
-      {isLoading ? (
-        <BlockLoader />
-      ) : (
-        <div className="flex flex-col gap-y-4">
-          {posts.map((post) => (
-            <Post key={post._id} post={post} />
-          ))}
-        </div>
-      )}
+      <div className="relative min-h-[150px]">
+        {isLoading ? (
+          <BlockLoader />
+        ) : (
+          <div className="flex flex-col gap-y-4">
+            {posts.map((post) => (
+              <Post key={post._id} post={post} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
