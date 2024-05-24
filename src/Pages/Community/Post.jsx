@@ -1,7 +1,6 @@
 import moment from "moment";
 import PropTypes from "prop-types";
 function Post({ post }) {
-  console.log(post);
   return (
     <div className="flex flex-col items-start justify-center gap-4 rounded-lg bg-white p-4 shadow-md">
       <div className="flex w-full items-center justify-between">
