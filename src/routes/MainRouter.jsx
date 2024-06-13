@@ -27,7 +27,7 @@ import ResetPassword from "../Pages/Auth/ResetPassword";
 import PageNotFound from "../Pages/PageNotFound";
 import Overview from "../Pages/Dashboard/Overview";
 import History from "../Pages/Dashboard/History";
-import AppointmentHistory from "../Pages/Dashboard/AppointmentHistory";
+import CustomerHistory from "../Pages/Dashboard/CustomerHistory";
 import Community from "../Pages/Community";
 import MyPosts from "../Pages/Community/MyPosts";
 import Bookmarks from "../Pages/Community/Bookmarks";
@@ -86,22 +86,22 @@ function MainRouter() {
             <Route path="profile" element={<Profile />} />
             <Route path="vet/reservations" element={<Reservations />} />
             <Route
-              path="vet/reservations/:userId"
-              element={<AppointmentHistory />}
+              path="vet/history/:userId"
+              element={<CustomerHistory />}
             />
             <Route path="vet/timeSlots" element={<TimeSlots />} />
             <Route path="vet/settings" element={<Settings />} />
             <Route path="petSitter/reservations" element={<Reservations />} />
             <Route
-              path="petSitter/reservations/:userId"
-              element={<AppointmentHistory />}
+              path="petSitter/history/:userId"
+              element={<CustomerHistory />}
             />
             <Route path="petSitter/timeSlots" element={<TimeSlots />} />
             <Route path="petSitter/settings" element={<Settings />} />
             <Route path="groomer/reservations" element={<Reservations />} />
             <Route
-              path="groomer/reservations/:userId"
-              element={<AppointmentHistory />}
+              path="groomer/history/:userId"
+              element={<CustomerHistory />}
             />
             <Route path="groomer/timeSlots" element={<TimeSlots />} />
             <Route path="groomer/settings" element={<Settings />} />
