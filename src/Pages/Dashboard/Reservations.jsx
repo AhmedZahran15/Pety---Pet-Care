@@ -8,6 +8,7 @@ const Table_Head = [
   "ID",
   "Photo",
   "Name",
+  "No. Visits",
   "Phone",
   "Date",
   "Time",
