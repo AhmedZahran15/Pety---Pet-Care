@@ -41,6 +41,7 @@ function TableRow({ index, reservation, handleStatusChange }) {
         <td className="table-cell px-2 py-2">
           {reservation.owner[0].firstName + " " + reservation.owner[0].lastName}
         </td>
+        <td className="table-cell px-2 py-2">{reservation.numberOfVisits}</td>
         <td className="table-cell px-2 py-2">{reservation.owner[0].phone}</td>
         <td className="table-cell px-2 py-2">{reservation.date}</td>
         <td className="table-cell px-2 py-2">{reservation.time}</td>
@@ -136,31 +137,45 @@ function TableRow({ index, reservation, handleStatusChange }) {
           className={`${isOpen ? "border-b-2 border-neutral-100 bg-neutral-50" : ""} table-row`}
         >
           <td colSpan={8} className="table-cell gap-x-4 px-4 py-2">
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-row">
-                <span>Animals: </span>
-                <div className="flex flex-row divide-x-2 divide-neutral-300">
-                  {reservation.animals.map((animal) => (
-                    <div key={animal._id} className="flex gap-x-1 px-4">
-                      <img
-                        src={icons[animal.pet]}
-                        alt={animal.pet}
-                        className="h-7 w-7"
-                      />
-                      <span>
-                        {animal.pet}: {animal.count}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="flex flex-row">
+              <span>Animals: </span>
+              <div className="flex flex-row divide-x-2 divide-neutral-300">
+                {reservation.animals.map((animal) => (
+                  <div key={animal._id} className="flex gap-x-1 px-4">
+                    <img
+                      src={icons[animal.pet]}
+                      alt={animal.pet}
+                      className="h-7 w-7"
+                    />
+                    <span>
+                      {animal.pet}: {animal.count}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <Link
-                className="mr-8"
-                to={`/dashboard/reservations/${reservation._id}`}
-              >
-                <span className="text-primary underline">View History</span>
-              </Link>
             </div>
+          </td>
+          <td className="table-cell gap-x-4 px-4 py-2">
+            <Link
+              className="mx-auto flex w-fit items-center gap-2 text-primary"
+              to={`/dashboard/reservations/${reservation._id}`}
+            >
+              <span>
+                <svg
+                  className="h-7 w-7 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g>
+                    <path d="m13.1 1a10.927 10.927 0 0 0 -10.534 8.223l-.732-1.107a1 1 0 1 0 -1.668 1.1l2.2 3.334a1.084 1.084 0 0 0 .634.425 1.024 1.024 0 0 0 .756-.145l3.3-2.223a1 1 0 1 0 -1.115-1.659l-1.501 1.012a8.909 8.909 0 1 1 8.66 11.04 8.892 8.892 0 0 1 -7.281-3.822 1 1 0 1 0 -1.64 1.143 10.881 10.881 0 0 0 19.821-6.321 10.963 10.963 0 0 0 -10.9-11z" />
+                    <path d="m13 5.95a1 1 0 0 0 -1 1v5.05a1.04 1.04 0 0 0 .293.707l3 3.027a1.013 1.013 0 0 0 1.414.007 1 1 0 0 0 .006-1.414l-2.713-2.738v-4.639a1 1 0 0 0 -1-1z" />
+                  </g>
+                </svg>
+              </span>
+              <span className="font-fredoka text-lg font-semibold underline">
+                History
+              </span>
+            </Link>
           </td>
         </tr>
       )}
