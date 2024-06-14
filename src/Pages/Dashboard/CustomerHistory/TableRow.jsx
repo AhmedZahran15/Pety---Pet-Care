@@ -164,7 +164,7 @@ function TableRow({ index, reservation }) {
                   </div>
                 </div>
                 <button
-                  type="reset"
+                  onClick={toggleAnimalModal}
                   className="w-full shrink-0 rounded-lg bg-neutral-100 p-2 text-neutral-700 hover:bg-neutral-300"
                 >
                   Close
