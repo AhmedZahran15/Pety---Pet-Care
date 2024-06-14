@@ -3,15 +3,7 @@ import Breadcrumb from "../Breadcrumb";
 import { BlockLoader } from "../../../components/Loader";
 import TableRow from "./TableRow";
 
-const Table_Head = [
-  "ID",
-  "Photo",
-  "Name",
-  "Role",
-  "Date",
-  "Time",
-  "Status",
-];
+const Table_Head = ["ID", "Photo", "Name", "Role", "Date", "Time", "Status"];
 function History() {
   const [history, setHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +24,6 @@ function History() {
         if (response.ok) {
           const data = await response.json();
           setHistory(data.data);
-          console.log(data.data);
         }
       } catch (error) {
         console.error(error);
