@@ -10,7 +10,7 @@ const Breadcrumb = ({ pageName }) => {
       <nav>
         <ol className="flex items-center gap-2 text-[16px]">
           <li>
-            <Link className="font-medium" to="/dashboard">
+            <Link className="font-medium capitalize" to="/dashboard">
               Dashboard /
             </Link>
           </li>
