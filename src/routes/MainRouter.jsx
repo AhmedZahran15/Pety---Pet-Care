@@ -85,10 +85,7 @@ function MainRouter() {
             <Route path="overview" element={<Overview />} />
             <Route path="profile" element={<Profile />} />
             <Route path="vet/reservations" element={<Reservations />} />
-            <Route
-              path="vet/history/:userId"
-              element={<CustomerHistory />}
-            />
+            <Route path="vet/history/:userId" element={<CustomerHistory />} />
             <Route path="vet/timeSlots" element={<TimeSlots />} />
             <Route path="vet/settings" element={<Settings />} />
             <Route path="petSitter/reservations" element={<Reservations />} />
