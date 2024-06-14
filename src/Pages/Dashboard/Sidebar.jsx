@@ -127,7 +127,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <Link
           to="/dashboard/history"
           onClick={() => setSidebarOpen(false)}
-          className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("history") ? "bg-neutral-200" : ""}`}
+          className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("dashboard/history") ? "bg-neutral-200" : ""}`}
         >
           <svg
             className="h-8 w-8 fill-neutral-800"
