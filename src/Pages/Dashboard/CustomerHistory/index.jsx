@@ -29,7 +29,6 @@ function CustomerHistory() {
           const data = await response.json();
           setHistory(data.data.appointments);
           setUser(data.user.owner);
-          console.log(data);
         }
       } catch (error) {
         console.error(error);
@@ -48,7 +47,7 @@ function CustomerHistory() {
             pageName={`Reservations / ${user.firstName + " " + user.lastName}`}
           />
           <UserDisplay user={user} />
-          <div className="overflow-x-auto mt-4 rounded-lg border border-neutral-200">
+          <div className="mt-4 overflow-x-auto rounded-lg border border-neutral-200">
             <table className=" font- w-full min-w-max table-auto  rounded-lg text-center text-base font-medium text-neutral-700">
               <thead className="bg-neutral-100 text-primary">
                 <tr className="table-row">
@@ -60,7 +59,11 @@ function CustomerHistory() {
               </thead>
               <tbody>
                 {history.map((reservation, index) => (
-                  <TableRow key={reservation._id} index={index} reservation={reservation} />
+                  <TableRow
+                    key={reservation._id}
+                    index={index}
+                    reservation={reservation}
+                  />
                 ))}
               </tbody>
             </table>
