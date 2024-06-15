@@ -301,13 +301,13 @@ function TableRow({ index, reservation }) {
                 <div className="flex w-full gap-x-4">
                   <button
                     type="reset"
-                    className="w-40 shrink-0 rounded-lg bg-neutral-100 p-2 text-neutral-700 hover:bg-neutral-300"
+                    className="w-36 shrink-0 rounded-lg bg-neutral-100 p-2 text-neutral-700 hover:bg-neutral-300"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="w-40 shrink-0 rounded-lg bg-primary p-2 text-white"
+                    className="w-36 shrink-0 rounded-lg bg-primary p-2 text-white"
                   >
                     Add Prescription
                   </button>
