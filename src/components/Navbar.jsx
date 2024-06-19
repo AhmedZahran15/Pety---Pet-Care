@@ -12,27 +12,28 @@ const Navbar = () => {
   return (
     <SideMenuProvider>
       <header
-        className=" flex w-full flex-row items-center justify-between bg-white transition-all duration-300 lg:justify-around
+        className="flex h-14 w-full flex-row items-center justify-between bg-primary transition-all duration-300 lg:justify-around
     "
       >
-        <Link to="/">
-          <img src="/Logo Placeholder.png" alt="Logo" />
+        <Link to="/" className="flex w-fit items-center justify-center gap-x-2">
+          <div className="h-7 w-7 rounded-full bg-white"></div>
+          <span className="text-3xl font-bold text-white">PETY</span>
         </Link>
         <div className="hidden flex-row justify-between gap-8 lg:flex">
           <ul className="flex items-center justify-center gap-8">
-            <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
+            <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="becomeAPety">Become A Pety</Link>
             </li>
-            <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
+            <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="services?role=vet">Services</Link>
             </li>
-            <li className="Medium gap-2.5 text-xl font-normal text-gray-500  transition-all  duration-300  hover:text-black">
+            <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="/community">Community</Link>
             </li>
-            <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black">
+            <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="contact">Contact</Link>
             </li>
-            <li className=" Medium text-xl font-normal text-gray-500 transition-all  duration-300  hover:text-black ">
+            <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="about">About</Link>
             </li>
           </ul>
@@ -43,7 +44,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link
-              className="mr-4 hidden rounded-lg bg-secondary px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
+              className="mr-4 hidden rounded-lg bg-yellowDark px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
               to="auth/login"
             >
               Login
