@@ -4,11 +4,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        fredoka: ["Fredoka", "sans-serif"],
+        Pacifico: ["Pacifico", "cursive"],
       },
       colors: {
-        primary: "#00777B",
-        secondary: "#FFA500",
+        primary: "#0866FF",
+        primaryLight: "#3b86ff",
+        primaryDark: "#0051d4",
+        secondary: "#CEE1FF",
+        yellowDark: "#FFCC00",
       },
       height: {
         screen: "100dvh",
