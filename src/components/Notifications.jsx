@@ -123,18 +123,18 @@ function Notifications() {
           setNotifying(false);
           setDropdownOpen(!dropdownOpen);
         }}
-        className="relative flex h-8 w-8 cursor-pointer items-center justify-center dark:text-primary"
+        className="relative flex h-8 w-8 cursor-pointer items-center justify-center  "
       >
         <span
-          className={`z-1 absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500 ${
+          className={`absolute right-1 top-1 z-10 h-2 w-2 rounded-full bg-red-500 ${
             notifying === false ? "hidden" : "inline"
           }`}
         >
-          <span className="-z-1 absolute inline-flex h-full w-full animate-ping rounded-full bg-red-200 opacity-75"></span>
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-200 opacity-75"></span>
         </span>
 
         <svg
-          className="fill-current duration-300 ease-in-out"
+          className="fill-current text-white opacity-50 transition-all duration-300 ease-in-out  hover:opacity-100"
           width="25"
           height="25"
           viewBox="0 0 18 18"
