@@ -13,6 +13,11 @@
   background-size: 20% 50%;
   animation: l6 1s infinite linear;
 }
+@layer components {
+  .nav-link {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-1 after:w-0 after:rounded-3xl after:bg-primary after:transition-all after:duration-200 after:ease-cubic hover:after:w-full;
+  }
+}
 @keyframes l6 {
   20% {
     background-position:
