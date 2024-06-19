@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
 function UserDropDown() {
   const { logoutUser } = useContext(AuthContext);
   const userData = JSON.parse(localStorage.getItem("userData"));
+  const { pathname } = useLocation();
   const { photo } = userData ? userData : {};
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,14 +27,16 @@ function UserDropDown() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         type="button"
-        className="flex items-center justify-center gap-x-4 border-l-2 border-neutral-300 bg-white px-3 text-neutral-900"
+        className={`group flex items-center justify-center gap-x-4 border-l-2 border-white border-opacity-50 bg-inherit px-3 ${pathname.includes("/dashboard") ? "text-black" : "text-white "}`}
       >
         <div className="flex items-center gap-x-4">
           <div className="flex flex-col">
-            <span className="text-sm font-medium">
+            <span
+              className={`text-sm font-medium transition-all duration-300 ease-in-out group-hover:opacity-100 ${isOpen ? "opacity-100" : "opacity-70"}`}
+            >
               {userData?.firstName} {userData?.lastName}
             </span>
-            <span className="text-xs font-normal text-neutral-400">
+            <span className="text-xs font-normal opacity-70">
               Service Provider
             </span>
           </div>
@@ -46,7 +49,7 @@ function UserDropDown() {
           </picture>
         </div>
         <svg
-          className="-mr-1 h-5 w-5 text-neutral-800"
+          className={`-mr-1 h-5 w-5 text-current group-hover:opacity-100 ${isOpen ? "opacity-100" : "opacity-70"}`}
           viewBox="0 0 20 20"
           fill="currentColor"
           stroke="currentColor"
