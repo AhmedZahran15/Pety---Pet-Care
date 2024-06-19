@@ -6,27 +6,33 @@ const BurgerMenu = () => {
   return (
     <div
       className={
-        "right-0 z-[100] mr-6 flex w-8 cursor-pointer flex-col gap-1 hover:scale-110" +
+        "group right-0 z-[100] mr-6 flex w-8 cursor-pointer flex-col gap-1 hover:scale-110" +
         (showSideMenu ? " fixed scale-[1.2]" : "")
       }
       onClick={handleShowSideMenu}
     >
       <span
         className={
-          "ease-cubic h-[6px] rounded-full bg-primary transition-all duration-200 " +
-          (showSideMenu ? "translate-y-2 rotate-45" : "w-full")
+          "h-[6px] rounded-full transition-all duration-200 ease-cubic group-hover:opacity-100 " +
+          (showSideMenu
+            ? "translate-y-2 rotate-45 bg-primary opacity-100"
+            : "w-full bg-white opacity-50")
         }
       ></span>
       <span
         className={
-          "ease-cubic h-[6px] rounded-full bg-primary transition-all duration-200 " +
-          (showSideMenu ? "w-0" : "w-full")
+          "h-[6px] rounded-full  transition-all duration-200 ease-cubic group-hover:opacity-100 " +
+          (showSideMenu
+            ? "w-0 bg-primary opacity-100"
+            : "w-full bg-white opacity-50")
         }
       ></span>
       <span
         className={
-          "ease-cubic h-[6px] rounded-full bg-primary transition-all duration-200 " +
-          (showSideMenu ? "-translate-y-3 -rotate-45" : "w-full")
+          "h-[6px] rounded-full  transition-all duration-200 ease-cubic group-hover:opacity-100 " +
+          (showSideMenu
+            ? "-translate-y-3 -rotate-45 bg-primary opacity-100"
+            : "w-full bg-white opacity-50")
         }
       ></span>
     </div>
