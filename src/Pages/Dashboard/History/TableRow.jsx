@@ -48,7 +48,7 @@ function TableRow({ appointment, index }) {
               appointment.status === "pending"
                 ? "bg-neutral-200 text-neutral-500"
                 : appointment.status === "approved"
-                  ? "bg-[#e0eded] text-primary"
+                  ? "bg-secondary text-primary"
                   : "bg-red-100 text-red-700"
             } rounded-lg px-2 pb-1 first-letter:capitalize`}
           >
