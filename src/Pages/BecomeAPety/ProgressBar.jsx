@@ -8,13 +8,13 @@ function ProgressBar({ step }) {
         ></div>
       </div>
       <div className="flex">
-        <div className="w-1/3 text-center font-[Montserrat] text-lg  font-normal  text-black ">
+        <div className="font-Montserrat w-1/3 text-center text-lg  font-normal  text-black ">
           Name
         </div>
-        <div className="w-1/3 text-center font-[Montserrat] text-lg  font-normal text-black ">
+        <div className="font-Montserrat w-1/3 text-center text-lg  font-normal text-black ">
           Service
         </div>
-        <div className="w-1/3 text-center font-[Montserrat] text-lg font-normal  text-black ">
+        <div className="font-Montserrat w-1/3 text-center text-lg font-normal  text-black ">
           Contact info
         </div>
       </div>
