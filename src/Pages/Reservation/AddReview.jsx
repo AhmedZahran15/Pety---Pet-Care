@@ -49,7 +49,7 @@ function AddReview({ handleAddReview }) {
       onSubmit={handleSubmit}
       className="flex flex-col items-center justify-center gap-y-3"
     >
-      <h1 className="-mb-2 font-fredoka text-2xl font-medium">
+      <h1 className="font-fredoka -mb-2 text-2xl font-medium">
         How was your Experience?
       </h1>
       <StarRating onSetRating={(rating) => setReview({ ...review, rating })} />
@@ -62,7 +62,7 @@ function AddReview({ handleAddReview }) {
       />
       <button
         type="submit"
-        className="flex w-full justify-center gap-x-2 rounded-md bg-secondary py-2 text-white shadow-md shadow-neutral-300 hover:bg-amber-500"
+        className="flex w-full justify-center gap-x-2 rounded-md bg-yellowDark py-2 text-white shadow-md shadow-neutral-300 hover:bg-amber-400"
       >
         {isLoading ? (
           <>
