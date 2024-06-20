@@ -17,7 +17,7 @@ function ScrollToTop() {
       ref={buttonRef}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       title="Go To Top"
-      className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border-0 bg-primary p-2 text-lg font-semibold text-white shadow-md transition-colors duration-300 hover:bg-[#1a8588]`}
+      className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border-0 bg-primary p-2 text-lg font-semibold text-white shadow-md transition-colors duration-300 hover:bg-primaryDark`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
