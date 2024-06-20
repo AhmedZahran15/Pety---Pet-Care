@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useSearchParams } from "react-router-dom";
+import FullArrowSVG from "../../assets/FullArrowSVG";
 function Filter({ title, imgSrc, imgAlt, children }) {
   const [filterParams] = useSearchParams();
   const [isOpen, setIsOpen] = useState(
@@ -9,17 +10,15 @@ function Filter({ title, imgSrc, imgAlt, children }) {
   return (
     <div className="flex w-full cursor-pointer flex-col items-center justify-between py-2">
       <div
-        className="flex w-full items-center justify-between px-6"
+        className="flex h-8 w-full items-center justify-between px-6"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="flex items-center justify-between gap-2">
-          <img className="h-8 w-8" src={imgSrc} alt={imgAlt} />
-          <span className="font-medium text-primary">{title}</span>
+        <div className="flex items-center justify-between gap-2 text-primary">
+          <img className="w-8" src={imgSrc} alt={imgAlt} />
+          <span className="font-medium">{title}</span>
         </div>
-        <img
-          src="/images/filters/filterArrow.png"
-          alt="Arrow"
-          className={`h-3 w-3 transform transition-all duration-150 ${isOpen ? "rotate-90" : ""}`}
+        <FullArrowSVG
+          className={`h-3 w-3 transform fill-primary transition-all duration-150 ${isOpen ? "rotate-90" : ""}`}
         />
       </div>
       <div
