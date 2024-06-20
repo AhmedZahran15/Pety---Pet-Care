@@ -64,15 +64,7 @@ function SearchDropdown({
     <div className="relative basis-1/3">
       <div
         ref={newRef}
-        onClick={() => {
-          setIsOpen((prev) => !prev);
-          !isOpen &&
-            newRef.current.scrollIntoView({
-              top: 0,
-              behavior: "smooth",
-              block: "center",
-            });
-        }}
+        onClick={() => setIsOpen((prev) => !prev)}
         className={`relative ${
           data[0] === "Veterinarian"
             ? "rounded-t-xl md:rounded-l-xl md:rounded-tr-none "
@@ -104,7 +96,7 @@ function SearchDropdown({
       >
         <button
           hidden={data.length <= 16}
-          className="disabled:text-primaryLight mt-4 box-border  min-w-[35px] self-start rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50"
+          className="mt-4 box-border min-w-[35px]  self-start rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-primaryLight"
           onClick={sliderRef?.slickPrev}
           disabled={currentIndex === 0}
         >
@@ -171,7 +163,7 @@ function SearchDropdown({
         </Slider>
         <button
           hidden={data.length <= 16}
-          className="disabled:text-primaryLight mt-4 box-border min-w-[35px] self-start rounded-md border-[1px] border-neutral-200 bg-white  p-0 text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50"
+          className="mt-4 box-border min-w-[35px] self-start rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-primaryLight"
           onClick={sliderRef?.slickNext}
           disabled={
             currentIndex === sliderRef?.innerSlider.state.slideCount - 1
