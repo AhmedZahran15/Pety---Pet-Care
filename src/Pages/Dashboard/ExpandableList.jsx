@@ -18,7 +18,7 @@ function ExpandableList({ text, setSidebarOpen }) {
     <div className="">
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className={`relative flex cursor-pointer flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes(role) ? "bg-neutral-200" : ""}`}
+        className={`font-fredoka relative flex cursor-pointer flex-row items-center gap-x-2 rounded-md px-3 py-[6px] text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes(role) ? "bg-neutral-200" : ""}`}
       >
         {text === "Veterinarian" ? (
           <VetSvg className="h-8 w-8 fill-neutral-800" />
@@ -34,7 +34,7 @@ function ExpandableList({ text, setSidebarOpen }) {
         />
       </div>
       <div
-        className={`flex overflow-hidden transition-all duration-100 ${isOpen ? "h-full" : "h-0"} flex-col gap-y-2 font-fredoka text-lg font-normal text-neutral-400`}
+        className={`flex overflow-hidden transition-all duration-100 ${isOpen ? "h-full" : "h-0"} font-fredoka flex-col gap-y-2 text-lg font-normal text-neutral-400`}
       >
         <Link
           onClick={() => setSidebarOpen(false)}
@@ -42,7 +42,7 @@ function ExpandableList({ text, setSidebarOpen }) {
           to={`/dashboard/${role}/reservations`}
         >
           <div
-            className={` h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-emerald-500 group-hover:bg-primary ${pathname.includes(`${role}/reservations`) ? " border-emerald-500 bg-primary" : "border-neutral-100"}`}
+            className={` h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-primaryLight group-hover:bg-primary ${pathname.includes(`${role}/reservations`) ? " border-primaryLight bg-primary" : "border-neutral-100"}`}
           />
           Reservations
         </Link>
@@ -52,7 +52,7 @@ function ExpandableList({ text, setSidebarOpen }) {
           to={`/dashboard/${role}/timeSlots`}
         >
           <div
-            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-emerald-500 group-hover:bg-primary ${pathname.includes(`${role}/timeSlots`) ? "  border-emerald-500 bg-primary" : "border-neutral-100"}`}
+            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-primaryLight group-hover:bg-primary ${pathname.includes(`${role}/timeSlots`) ? "  border-primaryLight bg-primary" : "border-neutral-100"}`}
           />
           Time Slots
         </Link>
@@ -62,7 +62,7 @@ function ExpandableList({ text, setSidebarOpen }) {
           to={`/dashboard/${role}/settings`}
         >
           <div
-            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-emerald-500 group-hover:bg-primary ${pathname.includes(`${role}/settings`) ? "  border-emerald-500 bg-primary" : "border-neutral-100"}`}
+            className={`h-[14px] w-[14px] rounded-full border-[3px] bg-neutral-400 transition-all duration-200 group-hover:border-primaryLight group-hover:bg-primary ${pathname.includes(`${role}/settings`) ? "  border-primaryLight bg-primary" : "border-neutral-100"}`}
           />
           Settings
         </Link>
