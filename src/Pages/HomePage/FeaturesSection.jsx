@@ -67,9 +67,9 @@ function FeaturesSection() {
 
 function Feature({ img, alt, title, description, color, link }) {
   return (
-    <Link className="w-32 sm:w-64" to={link}>
+    <Link className="group w-32 sm:w-64" to={link}>
       <div
-        className={`my-4 w-fit rotate-[4deg] rounded-3xl p-6 shadow-xl transition-transform duration-300 ease-in-out hover:rotate-0 hover:scale-105`}
+        className={`my-4 w-fit rotate-[4deg] rounded-3xl p-6 shadow-xl transition-transform duration-300 ease-in-out group-hover:rotate-0 group-hover:scale-105`}
         style={{
           backgroundColor: color,
         }}
