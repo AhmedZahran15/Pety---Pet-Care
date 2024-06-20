@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { BlockLoader } from "./Loader";
+import { useLocation } from "react-router-dom";
 function Notifications() {
   const [isLoading, setIsLoading] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -7,6 +8,7 @@ function Notifications() {
   const [notifying, setNotifying] = useState(false);
   const trigger = useRef(null);
   const dropdown = useRef(null);
+  const { pathname } = useLocation();
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   useEffect(() => {
@@ -134,7 +136,7 @@ function Notifications() {
         </span>
 
         <svg
-          className="fill-current text-white opacity-50 transition-all duration-300 ease-in-out  hover:opacity-100"
+          className={`fill-current ${pathname.includes("dashboard") ? "text-primaryLight opacity-100 hover:text-primaryDark" : "text-white opacity-50"}  transition-all duration-300 ease-in-out  hover:opacity-100`}
           width="25"
           height="25"
           viewBox="0 0 18 18"
