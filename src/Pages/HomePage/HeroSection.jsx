@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
-    <div className=" w-full bg-[url(images/homepage/bgHero.svg)] pt-10 bg-cover bg-bottom ">
+    <div className=" w-full bg-[url('/images/homepage/bgHero.svg')] bg-cover bg-bottom pt-10 ">
       <div className="mx-auto flex flex-col items-center justify-center gap-x-16 overflow-hidden px-8  duration-300 sm:container md:flex-row md:justify-between">
         <div className="flex h-full flex-col gap-y-6 py-8 text-white transition-all duration-300 md:basis-1/2 md:gap-y-10">
           <div className="font-Pacifico text-3xl sm:text-5xl md:text-6xl ">
