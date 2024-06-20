@@ -5,6 +5,8 @@ export default {
     extend: {
       fontFamily: {
         Pacifico: ["Pacifico", "cursive"],
+        Montserrat: ["Montserrat", "sans-serif"],
+        Fredoka: ["Fredoka", "cursive"],
       },
       colors: {
         primary: "#0866FF",
