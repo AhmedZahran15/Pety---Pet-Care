@@ -26,10 +26,17 @@ export default function FAQ() {
     setIsOpen((prev) => (index === prev ? null : index));
   }
   return (
-    <div className="mx-8 mt-20 flex flex-col items-center gap-y-10 sm:container sm:mx-auto">
-      <h1 className="font-fredoka text-3xl font-bold text-neutral-900 sm:text-4xl md:text-5xl">
-        Frequently Asked Questions
-      </h1>
+    <div className="container mx-auto mt-20 flex flex-col items-center px-8">
+      <div className="-mb-8 flex items-center self-start">
+        <h1 className="font-Pacifico text-3xl text-black sm:text-4xl md:text-5xl">
+          FAQ
+        </h1>
+        <img
+          className="w-60"
+          src="/images/homepage/helloCat.png"
+          alt="Cat saying hello."
+        />
+      </div>
       <div className="flex flex-col gap-y-6">
         {faqs.map((item, index) => (
           <AccordionItem
@@ -55,12 +62,12 @@ export default function FAQ() {
 function AccordionItem({ item, index, isOpen, toggle, children }) {
   return (
     <div
-      className={`w-full cursor-pointer border-b-[3px] py-2 font-['Montserrat'] text-xl`}
+      className={`font-Montserrat w-full cursor-pointer border-b-[3px] py-2 text-xl`}
       onClick={() => toggle(index)}
     >
       <div className="group flex items-center justify-between font-medium ">
         <span
-          className={`font-['Montserrat'] text-xl font-bold transition-all duration-300 group-hover:text-primary  ${
+          className={`text-xl font-bold transition-all duration-300 group-hover:text-primary  ${
             isOpen === index ? "text-primary" : "text-neutral-900"
           }`}
         >
