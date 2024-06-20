@@ -173,7 +173,7 @@ function ContactUsForm() {
       <button
         type="submit"
         disabled={!btnEnable(state)}
-        className={`w-full rounded-full bg-[#ffa500] py-3 text-lg font-bold text-white hover:bg-amber-400 disabled:cursor-not-allowed disabled:bg-[#dddddd]`}
+        className={`w-full rounded-full bg-yellowDark py-3 text-lg font-bold text-white hover:bg-amber-400 disabled:cursor-not-allowed disabled:bg-[#dddddd]`}
       >
         Submit
       </button>
