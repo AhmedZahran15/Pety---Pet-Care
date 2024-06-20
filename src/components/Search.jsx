@@ -67,41 +67,46 @@ const Search = () => {
     }
   };
   return (
-    <div className="mx-8 mt-6 rounded-xl  border-[1px] border-neutral-300 shadow-xl shadow-neutral-300  sm:container sm:mx-auto">
-      <div className=" flex flex-col items-center rounded-xl  md:flex-row">
-        <div className="flex w-full basis-3/4 flex-col divide-y-2 divide-neutral-200 rounded-l-xl md:flex-row md:divide-x-2 md:divide-y-0">
-          <SearchDropdown
-            title="Select a specialty"
-            placeholder="Veterinarian"
-            iconSrc="stethoscope.png"
-            state={role}
-            setState={setRole}
-            data={["Veterinarian", "Pet groomer", "Pet Sitter"]}
-          />
-          <SearchDropdown
-            title="In this city"
-            placeholder="All cities"
-            iconSrc="images/filters/markerIcon.png"
-            state={governorate}
-            setState={handleGovernorateChange}
-            data={governorates}
-          />
-          <SearchDropdown
-            title="In this area"
-            placeholder="All areas"
-            iconSrc="images/filters/markerIcon.png"
-            state={city}
-            setState={setCity}
-            data={areas}
-          />
+    <div className="container mx-auto mt-20 flex flex-col items-center justify-center gap-y-12 px-8">
+      <h1 className="font-Pacifico w-fit text-3xl sm:text-5xl md:text-6xl">
+        Search For a Service Near You
+      </h1>
+      <div className="w-full rounded-xl border-[1px] border-neutral-300  shadow-xl shadow-neutral-300">
+        <div className=" flex flex-col items-center rounded-xl  md:flex-row">
+          <div className="flex w-full basis-3/4 flex-col divide-y-2 divide-neutral-200 rounded-l-xl md:flex-row md:divide-x-2 md:divide-y-0">
+            <SearchDropdown
+              title="Select a specialty"
+              placeholder="Veterinarian"
+              iconSrc="/images/homepage/pawPrint.png"
+              state={role}
+              setState={setRole}
+              data={["Veterinarian", "Pet groomer", "Pet Sitter"]}
+            />
+            <SearchDropdown
+              title="In this city"
+              placeholder="All cities"
+              iconSrc="/images/homepage/marker.png"
+              state={governorate}
+              setState={handleGovernorateChange}
+              data={governorates}
+            />
+            <SearchDropdown
+              title="In this area"
+              placeholder="All areas"
+              iconSrc="images/homepage/marker.png"
+              state={city}
+              setState={setCity}
+              data={areas}
+            />
+          </div>
+          <button
+            className="hover:bg-primaryDark font-Fredoka flex h-20 min-h-[60px] w-full basis-1/4 items-center justify-center gap-x-4 rounded-b-xl bg-primary text-3xl font-normal text-white md:rounded-r-xl md:rounded-bl-none"
+            onClick={handleSearch}
+          >
+            <SearchIcon className="mt-1 h-8 w-8 fill-white" />
+            Search
+          </button>
         </div>
-        <button
-          className="flex h-20 min-h-[60px] w-full  basis-1/4 items-center justify-center gap-x-4 rounded-b-xl bg-secondary text-3xl font-normal text-white hover:bg-amber-500 md:rounded-r-xl md:rounded-bl-none"
-          onClick={handleSearch}
-        >
-          <SearchIcon className="mt-1 h-8 w-8 fill-white" />
-          Search
-        </button>
       </div>
     </div>
   );
