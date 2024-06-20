@@ -156,8 +156,9 @@ function Register() {
       onSubmit={handleRegister}
       className="z-10 flex w-full flex-col gap-4 overflow-y-auto rounded-3xl bg-[#FFFFFF] px-6 py-2 shadow-md shadow-gray-400 transition-all duration-300 no-scrollbar sm:px-10 md:w-8/12 lg:pr-36 xl:px-16 xl:pr-64"
     >
-      <Link to="/">
-        <img src="/Logo Placeholder.png" alt="Logo" />
+      <Link to="/" className="flex w-fit py-2 px-4 items-center justify-center gap-x-2">
+        <div className="h-7 w-7 rounded-full bg-black"></div>
+        <span className="text-3xl font-bold text-black">PETY</span>
       </Link>
       <div>
         <p className="px-2 text-left font-fredoka text-4xl font-semibold sm:text-5xl md:text-6xl">
@@ -213,7 +214,7 @@ function Register() {
         Already have an account? &nbsp;
         <Link
           to={"/auth/login"}
-          className=" cursor-pointer font-bold text-primary hover:text-[#1a8588]"
+          className=" hover:text-primaryDark cursor-pointer font-bold text-primary"
           state={{ from: location?.state?.from }}
         >
           Sign in
