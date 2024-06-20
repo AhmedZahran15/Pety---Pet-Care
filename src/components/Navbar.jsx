@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <SideMenuProvider>
       <header
-        className="flex h-14 w-full flex-row items-center justify-between bg-primary transition-all duration-300 lg:justify-around
+        className="flex h-14 w-full px-4 flex-row items-center justify-between bg-primary transition-all duration-300 lg:justify-around
     "
       >
         <Link to="/" className="flex w-fit items-center justify-center gap-x-2">
@@ -44,7 +44,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link
-              className="mr-4 hidden rounded-lg bg-yellowDark px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
+              className="hidden rounded-lg bg-yellowDark px-6 py-2 text-justify text-xl font-bold text-white transition-all duration-300 hover:bg-amber-400 lg:block "
               to="auth/login"
             >
               Login
