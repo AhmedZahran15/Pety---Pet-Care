@@ -16,7 +16,7 @@ function Counter({ animal, animals, setAnimals }) {
     <div className="flex items-center gap-1">
       <button
         onClick={handleCountMinus}
-        className="my-auto box-border min-w-[30px] rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
+        className="my-auto box-border min-w-[30px] rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-secondary"
         disabled={animals[animal.toLowerCase()] === 1}
       >
         <svg
