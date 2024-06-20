@@ -26,27 +26,23 @@ const Footer = () => {
   return (
     <footer className="flex flex-wrap items-start justify-start gap-y-4 bg-neutral-100 px-8 pb-4 pt-20 sm:justify-around">
       <div className="w-48">
-        <div className="mb-2 text-2xl font-bold sm:text-3xl">PETY</div>
+        <div className="mb-2 text-2xl font-bold">PETY</div>
         <FooterLink href="#" text="Terms of Service" />
       </div>
       <div className="flex w-40 flex-col gap-3">
-        <div className="font-['Product Sans'] text-2xl font-bold sm:text-3xl">
-          Features
-        </div>
+        <div className=" font-Montserrat text-2xl font-bold">Features</div>
         <FooterLink href="/services?role=vet" text="Vet Booking" />
         <FooterLink href="/services?role=petSitter" text="Pet Sitting" />
         <FooterLink href="/services?role=groomer" text="Pet Grooming" />
       </div>
       <div className="flex flex-row items-start justify-start gap-6 sm:flex-col ">
         <div>
-          <div className="font-['Product Sans'] text-2xl font-bold sm:text-3xl">
-            Contact US
-          </div>
+          <div className=" font-Montserrat text-2xl font-bold">Contact US</div>
           <FooterLink href="#" text="Support Center" />
         </div>
-        <div className='font-["Product Sans"] flex w-48 flex-wrap text-2xl font-bold sm:text-3xl'>
+        <div className="font-Montserrat flex w-48 flex-wrap text-2xl font-bold">
           Stay in Touch
-          <div className="my-5 flex flex-row  gap-2">
+          <div className="my-5 flex flex-row gap-2">
             {socialLinks.map((link, index) => (
               <SocialLink
                 key={index}
