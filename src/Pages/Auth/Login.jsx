@@ -82,8 +82,12 @@ function Login() {
       onSubmit={handleLogin}
       className="z-10 flex w-full flex-col gap-3 overflow-y-auto rounded-3xl bg-white px-6 py-6 shadow-md shadow-neutral-400 transition-all duration-300 no-scrollbar sm:px-10 md:w-8/12 lg:p-16 lg:pr-36 xl:pr-64"
     >
-      <Link to="/">
-        <img src="/Logo Placeholder.png" alt="Logo" />
+      <Link
+        to="/"
+        className="flex w-fit items-center justify-center gap-x-2 px-4 py-2"
+      >
+        <div className="h-7 w-7 rounded-full bg-black"></div>
+        <span className="text-3xl font-bold text-black">PETY</span>
       </Link>
       <div>
         <p className="text-left font-fredoka text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
@@ -111,7 +115,7 @@ function Login() {
       </div>
       <Link
         to={"/auth/forgot-password"}
-        className="mb-[-14px] ml-1 mt-[-8px] w-fit cursor-pointer text-left font-bold text-primary"
+        className="hover:text-primaryDark mb-[-14px] ml-1 mt-[-8px] w-fit cursor-pointer text-left font-bold text-primary"
       >
         Forgot Password?
       </Link>
@@ -120,7 +124,7 @@ function Login() {
         Don&apos;t have an account? &nbsp;
         <Link
           to={"/auth/register"}
-          className=" cursor-pointer font-bold text-primary"
+          className=" hover:text-primaryDark cursor-pointer font-bold text-primary"
           state={{ from: location?.state?.from }}
         >
           Sign up
