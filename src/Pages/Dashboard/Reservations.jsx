@@ -89,7 +89,7 @@ function Reservations() {
           <Breadcrumb pageName={"Reservations"} />
           <div className="overflow-x-auto rounded-lg border border-neutral-200">
             <table className=" font- w-full min-w-max table-auto  rounded-lg text-center text-base font-medium text-neutral-700">
-              <thead className="bg-neutral-100 text-primary">
+              <thead className="bg-secondary text-primary">
                 <tr>
                   {Table_Head.map((head, index) => (
                     <th key={index} className="px-2 py-3">
