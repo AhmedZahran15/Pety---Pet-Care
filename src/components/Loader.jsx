@@ -40,7 +40,8 @@ export const LoaderQuote = () => {
         Just kidding, that shouldn&apos;t take longer
       </div>
       <div className="m-auto text-center">
-        than a few seconds. <span className="text-secondary">Now loading.</span>
+        than a few seconds.{" "}
+        <span className="text-primaryDark">Now loading.</span>
       </div>
     </div>
   );
