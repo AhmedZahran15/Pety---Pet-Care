@@ -52,7 +52,7 @@ function PetWorkers() {
     };
   }, [filterParams]);
   return (
-    <div className="flex w-full flex-col items-center justify-start gap-y-4 md:mt-10">
+    <div className="flex w-full flex-col items-center justify-start gap-y-4">
       {isLoading ? (
         <>
           <Loader width="100px" height="100px" />
