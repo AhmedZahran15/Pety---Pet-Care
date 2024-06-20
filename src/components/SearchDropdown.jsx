@@ -84,7 +84,7 @@ function SearchDropdown({
         </span>
         <span className="absolute right-8 top-7">
           <FullArrowSVG
-            className={`m-0 h-4 w-4 fill-neutral-400 p-0 transition-all duration-200 ${isOpen ? " rotate-[270deg]" : "rotate-90"}`}
+            className={`m-0 h-4 w-4 fill-primary p-0 transition-all duration-200 ${isOpen ? " rotate-[270deg]" : "rotate-90"}`}
           />
         </span>
         <img className="mt-1 h-6 w-6" src={iconSrc} alt="" />
@@ -104,7 +104,7 @@ function SearchDropdown({
       >
         <button
           hidden={data.length <= 16}
-          className="mt-4 box-border min-w-[35px]  self-start rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
+          className="disabled:text-primaryLight mt-4 box-border  min-w-[35px] self-start rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50"
           onClick={sliderRef?.slickPrev}
           disabled={currentIndex === 0}
         >
@@ -171,7 +171,7 @@ function SearchDropdown({
         </Slider>
         <button
           hidden={data.length <= 16}
-          className="mt-4 box-border min-w-[35px] self-start rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-[#7fcbce]"
+          className="disabled:text-primaryLight mt-4 box-border min-w-[35px] self-start rounded-md border-[1px] border-neutral-200 bg-white  p-0 text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50"
           onClick={sliderRef?.slickNext}
           disabled={
             currentIndex === sliderRef?.innerSlider.state.slideCount - 1
