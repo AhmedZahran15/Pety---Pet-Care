@@ -43,7 +43,7 @@ function AnimalsDetails() {
   }
   return (
     <>
-      <p className="pt-2 text-center text-lg font-semibold text-neutral-800">
+      <p className="pt-2 text-center font-Montserrat text-lg font-bold text-neutral-800">
         Pets information
       </p>
       <div className="flex flex-col gap-2 px-8 py-2 text-base font-medium">
@@ -57,7 +57,7 @@ function AnimalsDetails() {
           (animals.dog === 0 && animals.cat === 0 && animals.other === 0) ||
           isLoading
         }
-        className="my-4 flex items-center justify-center gap-x-2 self-center rounded-lg bg-secondary px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"
+        className="my-4 flex items-center justify-center gap-x-2 self-center rounded-lg bg-yellowDark px-6 py-3 text-lg font-semibold text-white hover:bg-amber-400 disabled:bg-neutral-300"
       >
         {isLoading ? (
           <>
