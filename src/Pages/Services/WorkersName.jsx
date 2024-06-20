@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 function WorkersName() {
   const [filterParams] = useSearchParams();
   return (
-    <h1 className="flex items-center font-fredoka text-2xl font-semibold sm:text-3xl md:text-5xl">
+    <h1 className="flex items-center font-Pacifico text-2xl sm:text-3xl md:text-5xl">
       {filterParams.get("role") === "vet"
         ? "Veterinarians"
         : filterParams.get("role") === "petSitter"
