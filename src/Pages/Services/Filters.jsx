@@ -60,11 +60,13 @@ function Filters() {
     );
   }
   return (
-    <div className="box-border min-w-[247px] max-w-[247px] space-y-6 divide-y-[3px] divide-solid divide-[#D9D9D9] self-center lg:sticky lg:top-8 lg:self-start">
+    <div className="box-border w-[247px] self-center lg:sticky lg:top-8 lg:self-start">
       <SearchBar name="petyName" />
-      <div className="flex flex-col gap-0 space-y-2">
-        <h2 className="mt-4 text-2xl font-normal">Filter By</h2>
-        <div className="divide-y-2 divide-[#D9D9D9] rounded-[4px]  border-[0.1rem] border-[#999999] bg-white shadow-lg shadow-neutral-300">
+      <div className="mt-8 flex w-full flex-col items-center gap-0 space-y-2 rounded-[4px] border border-neutral-300 bg-white shadow-sm shadow-neutral-200">
+        <h2 className="mt-4 font-Montserrat text-2xl font-semibold">
+          Filter by
+        </h2>
+        <div className="min-w-[247px] divide-y-2 divide-[#D9D9D9]    ">
           <Filter
             imgSrc="/images/filters/dollarIcon.png"
             imgAlt="Dollar Icon"
