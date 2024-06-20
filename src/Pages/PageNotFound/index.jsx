@@ -26,7 +26,7 @@ function PageNotFound() {
               title="Homepage"
               role="button"
               to="/"
-              className="basis-2/5 rounded-lg bg-primary p-3 text-center font-semibold text-white transition-all duration-300 hover:bg-[#015d61] focus:outline-none focus:ring-2 focus:ring-primary md:basis-1/2 xl:basis-1/3"
+              className="basis-2/5 rounded-lg bg-primary p-3 text-center font-semibold text-white transition-all duration-300 hover:bg-primaryDark focus:outline-none focus:ring-2 focus:ring-primary md:basis-1/2 xl:basis-1/3"
             >
               Homepage
             </Link>
