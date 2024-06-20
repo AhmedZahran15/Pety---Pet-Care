@@ -45,7 +45,7 @@ function DeleteReview({ toggleDeleteDialog, handleDeleteReview, reviewId }) {
         </button>
         <button
           onClick={deleteReview}
-          className="flex w-32 items-center justify-center gap-x-2 rounded-md bg-primary text-white shadow-md shadow-neutral-300 transition-all duration-300 hover:bg-[#015d61] focus:outline-none focus:ring-2 focus:ring-primary"
+          className="flex w-32 items-center justify-center gap-x-2 rounded-md bg-primary text-white shadow-md shadow-neutral-300 transition-all duration-300 hover:bg-primaryDark focus:outline-none focus:ring-2 focus:ring-primary"
         >
           {isLoading ? (
             <>
