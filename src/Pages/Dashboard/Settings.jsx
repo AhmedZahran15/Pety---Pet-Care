@@ -310,7 +310,7 @@ function Settings() {
             />
             <button
               type="submit"
-              className="rounded-md bg-[#267d80] px-4 py-3 text-white hover:bg-primary"
+              className="rounded-md bg-primary px-4 py-3 text-white transition-all duration-200 hover:bg-primaryDark"
             >
               Update Settings
             </button>
