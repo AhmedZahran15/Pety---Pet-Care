@@ -32,7 +32,7 @@ function Home() {
     fetchPosts();
   }, [searchParams, pathname]);
   return (
-    <div className="basis-full py-4 lg:basis-2/3">
+    <div className="basis-full pb-4 lg:basis-2/3">
       <div className="mb-4 flex h-20 w-full items-center gap-x-4 rounded-lg border border-neutral-300 bg-white p-4 shadow-md shadow-neutral-200">
         <img
           src={userData?.photo?.url}
