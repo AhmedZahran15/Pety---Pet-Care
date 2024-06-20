@@ -84,9 +84,9 @@ function Reservation() {
           <div className="flex h-fit basis-full flex-col overflow-hidden rounded-xl bg-white shadow-lg shadow-neutral-300 md:sticky md:top-4 md:basis-1/2">
             <div className="border-b-[3px] border-neutral-200">
               <div className="bg-primary py-1 text-center font-sans text-lg font-bold text-white">
-                Appointment details
+                Booking Information
               </div>
-              <p className="-mb-2 pt-2 text-center text-lg font-semibold text-neutral-800">
+              <p className="-mb-2 pt-2 text-center font-Montserrat text-lg font-bold text-neutral-800">
                 Choose your appointment
               </p>
               <TimeTable data={workerData} />
