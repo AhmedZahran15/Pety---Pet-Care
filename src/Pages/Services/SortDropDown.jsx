@@ -6,7 +6,7 @@ function SortDropDown() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative flex w-auto items-center gap-2">
-      <h1 className=" text-md font-normal text-black sm:text-lg md:text-xl">
+      <h1 className=" text-md font-Montserrat font-medium text-black sm:text-lg md:text-xl">
         Sort by :
       </h1>
       <button
