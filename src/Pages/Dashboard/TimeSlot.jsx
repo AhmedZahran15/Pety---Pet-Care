@@ -88,7 +88,7 @@ function TimeSlot({
         </div>
         <div className="flex flex-col items-start justify-between gap-2 xl:flex-row">
           <div className="flex basis-1/2 flex-row items-center gap-x-2">
-            <label className="block flex-shrink-0 font-fredoka font-normal">
+            <label className="font-fredoka block flex-shrink-0 font-normal">
               Session Duration
             </label>
             <input
@@ -106,7 +106,7 @@ function TimeSlot({
             <span className="font-fredoka font-normal">Minutes</span>
           </div>
           <button
-            className="flex items-center justify-center self-end rounded-md bg-primary  px-4 py-2 text-white"
+            className="flex items-center justify-center self-end rounded-md bg-primary px-4 py-2 text-white  transition-all duration-200 hover:bg-primaryDark"
             onClick={handleCopyToAll}
           >
             <span className="font-fredoka text-sm font-normal">
