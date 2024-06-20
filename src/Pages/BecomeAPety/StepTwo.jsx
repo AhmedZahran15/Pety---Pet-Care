@@ -132,7 +132,7 @@ function StepTwo() {
       <div className="flex flex-col items-center justify-start gap-x-6 gap-y-4 sm:flex-row">
         <button
           onClick={handleStepTwo}
-          className="min-w-[180px] rounded-md bg-[#ffa500] px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 "
+          className="min-w-[180px] rounded-md bg-yellowDark px-14 py-3 text-lg font-semibold text-white hover:bg-amber-400 "
         >
           Next
         </button>
