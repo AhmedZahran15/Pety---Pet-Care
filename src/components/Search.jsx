@@ -68,7 +68,7 @@ const Search = () => {
   };
   return (
     <div className="container mx-auto mt-20 flex flex-col items-center justify-center gap-y-12 px-8">
-      <h1 className="font-Pacifico w-fit text-3xl sm:text-5xl md:text-6xl">
+      <h1 className="w-fit font-Pacifico text-3xl sm:text-5xl md:text-6xl">
         Search For a Service Near You
       </h1>
       <div className="w-full rounded-xl border-[1px] border-neutral-300  shadow-xl shadow-neutral-300">
@@ -100,7 +100,7 @@ const Search = () => {
             />
           </div>
           <button
-            className="hover:bg-primaryDark font-Fredoka flex h-20 min-h-[60px] w-full basis-1/4 items-center justify-center gap-x-4 rounded-b-xl bg-primary text-3xl font-normal text-white md:rounded-r-xl md:rounded-bl-none"
+            className="flex h-20 min-h-[60px] w-full basis-1/4 items-center justify-center gap-x-4 rounded-b-xl bg-primary font-Fredoka text-3xl font-normal text-white hover:bg-primaryDark md:rounded-r-xl md:rounded-bl-none"
             onClick={handleSearch}
           >
             <SearchIcon className="mt-1 h-8 w-8 fill-white" />
