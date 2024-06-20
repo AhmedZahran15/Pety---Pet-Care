@@ -55,7 +55,7 @@ function DayWorkTimes({ date, currentTimes, handleShowAll, showAll, data }) {
         <button
           onClick={handleShowAll}
           disabled={!currentTimes}
-          className="text-md bg-secondary py-2 text-center text-white transition-all duration-100 hover:bg-amber-500 disabled:cursor-not-allowed disabled:bg-[#cccccc]"
+          className="text-md bg-yellowDark py-2 text-center text-white transition-all duration-100 hover:bg-amber-400 disabled:cursor-not-allowed disabled:bg-[#cccccc]"
         >
           Book
         </button>
