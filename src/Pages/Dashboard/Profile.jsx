@@ -185,7 +185,7 @@ function Profile() {
             />
             <button
               type="submit"
-              className="rounded-md bg-[#34a1a5] px-4 py-3 text-white hover:bg-primary"
+              className="rounded-md bg-primary px-4 py-3 text-white hover:bg-primaryDark"
             >
               Update Profile
             </button>
