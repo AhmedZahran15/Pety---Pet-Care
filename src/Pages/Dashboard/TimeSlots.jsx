@@ -213,7 +213,7 @@ function TimeSlots() {
             </LocalizationProvider>
             <button
               onClick={handleSubmit}
-              className="rounded bg-[#268385] px-4 py-2 text-xl font-medium text-neutral-50 hover:bg-primary"
+              className="rounded bg-primary px-4 py-2 text-xl font-medium text-neutral-50 transition-all duration-200 hover:bg-primaryDark"
             >
               Save changes to time slots
             </button>
