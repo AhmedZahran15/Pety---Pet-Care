@@ -52,7 +52,7 @@ function TableRow({ index, reservation, handleStatusChange }) {
               reservation.status === "pending"
                 ? "bg-neutral-200 text-neutral-500"
                 : reservation.status === "approved"
-                  ? "bg-[#e0eded] text-primary"
+                  ? "bg-secondary text-primary"
                   : "bg-red-100 text-red-700"
             } rounded-lg px-2 pb-1 first-letter:capitalize`}
           >
@@ -113,13 +113,13 @@ function TableRow({ index, reservation, handleStatusChange }) {
             {reservation.status === "pending" ? (
               <>
                 <button
-                  className=" rounded-md bg-red-600 px-4 py-1 text-white"
+                  className=" rounded-md bg-red-600 px-4 py-1 text-white transition-all duration-200 hover:bg-red-500"
                   onClick={toggleDialog}
                 >
                   Reject
                 </button>
                 <button
-                  className="rounded-md bg-primary px-4 py-1 text-white"
+                  className="rounded-md bg-primary px-4 py-1 text-white transition-all duration-200 hover:bg-primaryDark"
                   onClick={() =>
                     handleStatusChange(reservation._id, "approved")
                   }
@@ -159,7 +159,7 @@ function TableRow({ index, reservation, handleStatusChange }) {
           <td className="table-cell gap-x-4 px-4 py-2">
             {reservation.numberOfVisits > 1 && (
               <Link
-                className="mx-auto flex w-fit items-center gap-2 text-primary"
+                className="mx-auto flex w-fit items-center gap-2 text-primary transition-all duration-200 hover:text-primaryDark"
                 to={`/dashboard/${role}/history/${reservation.owner[0]._id}`}
               >
                 <span>
