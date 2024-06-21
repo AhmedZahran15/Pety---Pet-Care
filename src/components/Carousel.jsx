@@ -1,59 +1,46 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import PropTypes from "prop-types";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 function Carousel({ children }) {
-  const maxScrollWidth = useRef(0);
+  const [sliderRef, setSliderRef] = useState(null);
+  const carouselRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const carousel = useRef(null);
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 350,
 
-  const movePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevState) => prevState - 1);
-    }
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    swipeToSlide: true,
+    draggable: false,
+    arrows: false,
+    adaptiveHeight: false,
+    beforeChange: (oldIndex, newIndex) => {
+      setCurrentIndex(newIndex);
+    },
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
-
-  const moveNext = () => {
-    if (
-      carousel.current !== null &&
-      carousel.current.offsetWidth * currentIndex <= maxScrollWidth.current
-    ) {
-      setCurrentIndex((prevState) => prevState + 1);
-    }
-  };
-
-  const isDisabled = (direction) => {
-    if (direction === "prev") {
-      return currentIndex <= 0;
-    }
-
-    if (direction === "next" && carousel.current !== null) {
-      return (
-        carousel.current.offsetWidth * currentIndex > maxScrollWidth.current
-      );
-    }
-
-    return false;
-  };
-
-  useEffect(() => {
-    if (carousel !== null && carousel.current !== null) {
-      carousel.current.scrollLeft =
-        carousel.current.offsetWidth * currentIndex + currentIndex * 7;
-    }
-  }, [currentIndex]);
-
-  useEffect(() => {
-    maxScrollWidth.current = carousel.current
-      ? carousel.current.scrollWidth - carousel.current.offsetWidth
-      : 0;
-  }, []);
 
   return (
-    <div className="flex min-h-[300px] max-w-fit items-center justify-center gap-x-2 self-center px-2 py-4 transition-all duration-200">
+    <div
+      ref={carouselRef}
+      className="flex items-center justify-center gap-x-2 self-center transition-all duration-200"
+    >
       <button
-        onClick={movePrev}
+        onClick={sliderRef?.slickPrev}
+        disabled={currentIndex === 0}
         className="my-auto box-border min-w-[40px] rounded-md border-[1px] border-neutral-200 bg-white p-0 text-primary  transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-secondary"
-        disabled={isDisabled("prev")}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -66,16 +53,15 @@ function Carousel({ children }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
-      <div
-        ref={carousel}
-        className="relative z-0 mx-auto box-border flex min-h-[270px] max-w-[201px] snap-x  snap-mandatory gap-2 overflow-hidden scroll-smooth  sm:max-w-[305px]"
-      >
-        {children}
+      <div className="carousel:w-[305px] w-56">
+        <Slider ref={setSliderRef} {...settings}>
+          {children}
+        </Slider>
       </div>
       <button
         className="my-auto box-border min-w-[40px] rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-secondary"
-        onClick={moveNext}
-        disabled={isDisabled("next")}
+        onClick={sliderRef?.slickNext}
+        disabled={currentIndex === 4}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
