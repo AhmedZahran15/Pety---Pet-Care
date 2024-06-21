@@ -22,14 +22,14 @@ const stories = [
 const CustomerStories = () => {
   return (
     <div className="container mx-auto mt-20 flex flex-col items-center justify-center gap-y-20 px-8">
-      <h1 className="font-Pacifico self-end text-3xl sm:text-5xl md:text-6xl">
+      <h1 className="self-end font-Pacifico text-3xl sm:text-5xl md:text-6xl">
         Customer Reviews
       </h1>
-      <div className="flex flex-col gap-6 gap-y-16 px-8 sm:px-0 lg:flex-row">
+      <div className="flex flex-col gap-6 gap-y-16 sm:px-0 lg:flex-row">
         <article className="relative flex basis-1/3 flex-col gap-y-4 rounded-2xl bg-white p-4 shadow-md shadow-neutral-300">
           <img
             src="/images/homepage/redHeart.png"
-            className="absolute -left-16 -top-24 h-44 w-44"
+            className="absolute -left-10 -top-24 h-44 w-44 sm:-left-16"
             alt="Heart"
           />
           <div className="-mt-16 h-36 w-36 self-center overflow-clip rounded-full border">
@@ -38,10 +38,10 @@ const CustomerStories = () => {
               src={stories[0].image}
             />
           </div>
-          <div className="font-Montserrat line-clamp-[12] text-center text-lg italic opacity-70">
+          <div className="line-clamp-[12] text-center font-Montserrat text-lg italic opacity-70">
             &quot;{stories[0].text}&quot;
           </div>
-          <div className="font-Montserrat flex flex-col items-center gap-0 self-center">
+          <div className="flex flex-col items-center gap-0 self-center font-Montserrat">
             <span className="text-lg font-semibold">{stories[0].name}</span>
             <span className="whitespace-pre text-base opacity-70">
               {stories[0].title}
@@ -51,16 +51,16 @@ const CustomerStories = () => {
         <article className="relative flex basis-1/3 flex-col gap-y-4 rounded-2xl bg-white p-4 shadow-md shadow-neutral-300">
           <img
             src="/images/homepage/yellowHearts.png"
-            className="absolute -right-32 -top-12 w-60"
+            className="absolute -right-40 -top-12 w-60 sm:-right-32"
             alt="Heart"
           />
           <div className="-mt-16 h-36 w-36 self-center overflow-clip rounded-full border">
             <img className="rounded-full" src={stories[1].image} />
           </div>
-          <div className="font-Montserrat line-clamp-[12] text-center text-lg italic opacity-70">
+          <div className="line-clamp-[12] text-center font-Montserrat text-lg italic opacity-70">
             &quot;{stories[1].text}&quot;
           </div>
-          <div className="font-Montserrat flex flex-col items-center gap-0 self-center">
+          <div className="flex flex-col items-center gap-0 self-center font-Montserrat">
             <span className="text-lg font-semibold">{stories[1].name}</span>
             <span className="whitespace-pre text-base opacity-70">
               {stories[1].title}
@@ -74,10 +74,10 @@ const CustomerStories = () => {
               src={stories[2].image}
             />
           </div>
-          <div className="font-Montserrat line-clamp-[12] text-center text-lg italic opacity-70">
+          <div className="line-clamp-[12] text-center font-Montserrat text-lg italic opacity-70">
             &quot;{stories[2].text}&quot;
           </div>
-          <div className="font-Montserrat flex flex-col items-center gap-0 self-center">
+          <div className="flex flex-col items-center gap-0 self-center font-Montserrat">
             <span className="text-lg font-semibold">{stories[2].name}</span>
             <span className="whitespace-pre text-base opacity-70">
               {stories[2].title}
