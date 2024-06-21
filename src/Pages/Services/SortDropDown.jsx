@@ -5,7 +5,7 @@ function SortDropDown() {
   const [filterParams, setFilterParams] = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="relative flex w-auto items-center gap-2">
+    <div className="relative flex h-[50px] w-auto items-center gap-2">
       <h1 className=" text-md font-Montserrat font-medium text-black sm:text-lg md:text-xl">
         Sort by :
       </h1>
