@@ -6,12 +6,12 @@ import "slick-carousel/slick/slick-theme.css";
 function Carousel({ children }) {
   const [sliderRef, setSliderRef] = useState(null);
   const carouselRef = useRef(null);
+  const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const settings = {
     dots: false,
     infinite: false,
     speed: 350,
-
     slidesToShow: 3,
     slidesToScroll: 3,
     swipeToSlide: true,
@@ -53,15 +53,21 @@ function Carousel({ children }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
-      <div className="carousel:w-[305px] w-56">
+      <div ref={containerRef} className="carousel:w-[305px] w-56">
         <Slider ref={setSliderRef} {...settings}>
           {children}
         </Slider>
       </div>
       <button
         className="my-auto box-border min-w-[40px] rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-secondary"
-        onClick={sliderRef?.slickNext}
-        disabled={currentIndex === 4}
+        onClick={() => {
+          sliderRef?.slickNext();
+        }}
+        disabled={
+          containerRef?.current?.offsetWidth === 224
+            ? currentIndex === 5
+            : currentIndex === 4
+        }
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
