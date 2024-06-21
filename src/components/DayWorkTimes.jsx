@@ -17,7 +17,7 @@ function DayWorkTimes({ date, currentTimes, handleShowAll, showAll, data }) {
     navigate(`/Reservation/${id}`);
   }
   return (
-    <div className="flex min-w-[96px] flex-col overflow-hidden rounded-lg border-[1px] border-neutral-200">
+    <div className="mx-1 flex min-h-[275px] flex-col overflow-hidden rounded-lg border border-neutral-200">
       <div className="text-md bg-primary py-2 text-center text-white">
         {date === todayDate
           ? "Today"
