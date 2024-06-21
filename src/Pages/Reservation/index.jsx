@@ -55,14 +55,14 @@ function Reservation() {
     setReviews((prev) => prev.filter((r) => r._id !== reviewId));
   };
   return (
-    <div className="relative min-h-screen bg-neutral-100 px-8 py-10">
+    <div className="relative min-h-screen bg-neutral-100 px-6 py-10">
       {isLoading || !workerData ? (
         <BlockLoader />
       ) : (
         <div className="mx-auto flex flex-col gap-8 transition-all duration-200 sm:container lg:flex-row">
           <div className="flex flex-shrink basis-full flex-col gap-y-8 md:basis-1/2">
             <div className="flex flex-col justify-center rounded-xl bg-white py-2 shadow-lg shadow-neutral-300">
-              <div className="flex justify-center">
+              <div className="flex justify-center px-2">
                 <div className="w-fit">
                   <WorkerInfo data={workerData} />
                 </div>
