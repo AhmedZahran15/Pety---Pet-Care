@@ -66,8 +66,8 @@ const Search = () => {
     }
   };
   return (
-    <div className="container mx-auto mt-20 flex flex-col items-center justify-center gap-y-12 px-8">
-      <h1 className="w-fit font-Pacifico text-2xl sm:text-4xl md:text-5xl">
+    <div className="container mx-auto mt-20 flex flex-col items-center justify-center gap-y-8 px-8">
+      <h1 className="font-Pacifico text-xl min-[400px]:text-2xl sm:text-3xl md:text-4xl">
         Search For a Service Near You
       </h1>
       <div className="w-full rounded-xl border-[1px] border-neutral-300  shadow-xl shadow-neutral-300">
