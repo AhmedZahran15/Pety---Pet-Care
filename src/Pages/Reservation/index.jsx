@@ -62,7 +62,11 @@ function Reservation() {
         <div className="mx-auto flex flex-col gap-8 transition-all duration-200 sm:container lg:flex-row">
           <div className="flex flex-shrink basis-full flex-col gap-y-8 md:basis-1/2">
             <div className="flex flex-col justify-center rounded-xl bg-white py-2 shadow-lg shadow-neutral-300">
-              <WorkerInfo data={workerData} />
+              <div className="flex justify-center">
+                <div className="w-fit">
+                  <WorkerInfo data={workerData} />
+                </div>
+              </div>
               {appointment.time && (
                 <ReservationTime appointment={appointment} />
               )}
@@ -82,11 +86,11 @@ function Reservation() {
             </Reviews>
           </div>
           <div className="flex h-fit basis-full flex-col overflow-hidden rounded-xl bg-white shadow-lg shadow-neutral-300 md:sticky md:top-4 md:basis-1/2">
-            <div className="border-b-[3px] border-neutral-200">
-              <div className="bg-primary py-1 text-center font-sans text-lg font-bold text-white">
+            <div className="flex flex-col border-b-[3px] border-neutral-200 pb-3">
+              <div className="bg-primary text-center font-sans text-lg font-bold text-white">
                 Booking Information
               </div>
-              <p className="-mb-2 pt-2 text-center font-Montserrat text-lg font-bold text-neutral-800">
+              <p className="my-1.5 text-center font-Montserrat text-lg font-bold text-neutral-800">
                 Choose your appointment
               </p>
               <TimeTable data={workerData} />
