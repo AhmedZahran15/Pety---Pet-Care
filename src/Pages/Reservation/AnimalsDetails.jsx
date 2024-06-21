@@ -43,7 +43,7 @@ function AnimalsDetails() {
   }
   return (
     <>
-      <p className="pt-2 text-center font-Montserrat text-lg font-bold text-neutral-800">
+      <p className="mt-2 text-center font-Montserrat text-lg font-bold text-neutral-800">
         Pets information
       </p>
       <div className="flex flex-col gap-2 px-8 py-2 text-base font-medium">
