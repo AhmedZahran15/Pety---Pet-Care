@@ -60,9 +60,7 @@ function Carousel({ children }) {
       </div>
       <button
         className="my-auto box-border min-w-[40px] rounded-md border-[1px] border-neutral-200 bg-white p-0  text-primary transition-all duration-200 hover:bg-primary hover:text-white disabled:bg-neutral-50 disabled:text-secondary"
-        onClick={() => {
-          sliderRef?.slickNext();
-        }}
+        onClick={sliderRef?.slickNext}
         disabled={
           containerRef?.current?.offsetWidth === 224
             ? currentIndex === 5
