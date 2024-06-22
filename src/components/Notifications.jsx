@@ -136,7 +136,7 @@ function Notifications() {
         </span>
 
         <svg
-          className={`fill-current ${pathname.includes("dashboard") ? "text-primaryLight opacity-100 hover:text-primaryDark" : "text-white opacity-50"}  transition-all duration-300 ease-in-out  hover:opacity-100`}
+          className={`fill-current ${pathname.includes("dashboard") || pathname.includes("chatbot") ? "text-primaryLight opacity-100 hover:text-primaryDark" : "text-white opacity-50"}  transition-all duration-300 ease-in-out  hover:opacity-100`}
           width="25"
           height="25"
           viewBox="0 0 18 18"
