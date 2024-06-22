@@ -27,7 +27,7 @@ function UserDropDown() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         type="button"
-        className={`group flex items-center justify-center gap-x-4 border-l-2 border-white border-opacity-50 bg-inherit px-3 ${pathname.includes("/dashboard") ? "text-black" : "text-white "}`}
+        className={`group flex items-center justify-center gap-x-4 border-l-2 border-white border-opacity-50 bg-inherit px-3 ${pathname.includes("/dashboard") || pathname.includes("/chatbot") ? "text-black" : "text-white "}`}
       >
         <div className="flex items-center gap-x-4">
           <div className="flex flex-col">
