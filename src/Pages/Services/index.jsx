@@ -13,9 +13,9 @@ function Services() {
     <div className=" flex flex-col bg-neutral-100">
       <HeroSection />
       <Search />
-      <div className="my-20 flex w-full flex-col items-center justify-around gap-y-16 lg:flex-row lg:items-start">
+      <div className="container mx-auto my-20 flex w-full flex-col items-center justify-between gap-x-8 gap-y-16 px-8 lg:flex-row lg:items-start">
         <Filters />
-        <div className="flex w-11/12 max-w-[900px] flex-col items-center justify-start gap-8 lg:w-7/12">
+        <div className="flex w-full max-w-[900px] flex-col items-center justify-start gap-8">
           <FeaturesBar />
           <PetWorkersHeader>
             <WorkersName />
