@@ -11,7 +11,7 @@ const HeroSection = () => {
   const role = searchParams.get("role") || "vet";
   return (
     <div className=" mb-16 w-full bg-primary">
-      <div className="mx-auto flex flex-col items-center justify-center px-8  duration-300 sm:container md:flex-row">
+      <div className="container mx-auto flex flex-col items-center justify-center px-4 duration-300 sm:px-8 md:flex-row">
         <div className="flex h-full flex-col gap-y-6 py-8 text-white transition-all duration-300">
           <div className="font-Pacifico text-3xl sm:text-5xl md:text-6xl ">
             Book a Service
