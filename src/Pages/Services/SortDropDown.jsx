@@ -6,12 +6,12 @@ function SortDropDown() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative flex w-auto items-center gap-2">
-      <h1 className=" text-md font-Montserrat font-medium text-black sm:text-lg md:text-xl">
+      <h1 className=" font-Montserrat text-xs font-medium text-black sm:text-lg md:text-xl">
         Sort by :
       </h1>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center gap-4 rounded-lg border-[0.5px] border-[#b8b8b8] bg-white px-3 py-2.5 text-center text-sm font-medium text-black shadow-lg shadow-neutral-300 hover:bg-neutral-50"
+        className="flex h-12 items-center gap-2 rounded-lg border-[0.5px] border-[#b8b8b8] bg-white px-2 py-2 text-center text-xs font-medium text-black shadow-lg shadow-neutral-300 hover:bg-neutral-50 sm:text-base"
         type="button"
       >
         {filterParams.get("sort")
@@ -22,7 +22,7 @@ function SortDropDown() {
               : "Top rated"
           : "Default"}
         <svg
-          className="ms-3 h-2.5 w-2.5"
+          className="h-2.5 w-2.5"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
