@@ -11,7 +11,10 @@ function PetWorkersHeader({ children }) {
     });
   }, [filterParams]);
   return (
-    <div ref={elementRef} className="flex w-full items-center justify-between">
+    <div
+      ref={elementRef}
+      className="flex w-full items-center justify-between gap-2"
+    >
       {children}
     </div>
   );
