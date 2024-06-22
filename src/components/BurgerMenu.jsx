@@ -6,8 +6,9 @@ const BurgerMenu = () => {
   return (
     <div
       className={
-        "group right-0 z-[100] flex w-8 cursor-pointer flex-col gap-1 hover:scale-110" +
-        (showSideMenu ? " fixed scale-[1.2]" : "")
+        "group z-[100] flex w-8 cursor-pointer flex-col gap-1 hover:scale-110" +
+        (showSideMenu ? " fixed scale-[1.2]" : "") +
+        (showSideMenu ? "mr-2" : "")
       }
       onClick={handleShowSideMenu}
     >
