@@ -49,10 +49,10 @@ function ChatInput() {
   };
 
   return (
-    <div className="flex h-screen w-full flex-col gap-y-4 border border-green-500 px-6 py-6">
+    <div className="flex w-full flex-col gap-y-4">
       <div className="flex h-full w-full flex-col justify-end gap-y-2 ">
         {!startMessageIsLoading && (
-          <div className="flex w-5/6 flex-col items-start gap-2 text-start shadow-md shadow-neutral-200">
+          <div className="flex w-5/6 flex-col items-start gap-2 text-start">
             <div className="flex flex-row items-center gap-x-2">
               <span className="rounded-full bg-neutral-200 p-1">
                 <img
@@ -65,7 +65,7 @@ function ChatInput() {
                 Medbot
               </span>
             </div>
-            <p className="rounded-xl bg-blue-50 p-2 px-3 font-Montserrat text-base font-medium">
+            <p className="rounded-xl bg-blue-50 p-2 px-3 font-Montserrat text-base font-medium shadow-md shadow-neutral-200">
               {startMessage}
             </p>
           </div>
