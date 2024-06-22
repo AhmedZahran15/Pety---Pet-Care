@@ -7,13 +7,13 @@ const FeaturesBar = () => {
     <div className="flex w-full flex-col items-center gap-x-4 gap-y-4 sm:h-[54px] sm:flex-row">
       <Link
         to="/services?role=vet"
-        className={`flex w-full items-center justify-center gap-x-2 rounded-md border border-neutral-300 py-1 sm:basis-1/3  ${role === "vet" ? "bg-[#9BE7FF]" : "bg-[#E9E9E9] hover:bg-neutral-300"}`}
+        className={`flex w-full items-center justify-center gap-x-2 rounded-md border border-neutral-300 p-1 sm:basis-1/3  ${role === "vet" ? "bg-[#9BE7FF]" : "bg-[#E9E9E9] hover:bg-neutral-300"}`}
       >
         <VetSvg
           className={`h-[45px] w-[45px] fill-black transition-all duration-200`}
         />
         <span
-          className={`text-center font-Montserrat text-lg font-semibold transition-all duration-200`}
+          className={`text-center font-Montserrat text-lg font-semibold transition-all duration-200 sm:text-sm md:text-lg`}
         >
           Veterinarian
         </span>
@@ -28,7 +28,7 @@ const FeaturesBar = () => {
           alt="Groomer image"
         />
         <span
-          className={`text-center font-Montserrat text-lg font-semibold transition-all duration-200 `}
+          className={`text-center font-Montserrat text-lg font-semibold transition-all duration-200 sm:text-sm md:text-lg `}
         >
           Pet Groomers
         </span>
@@ -43,7 +43,7 @@ const FeaturesBar = () => {
           alt="Groomer image"
         />
         <span
-          className={`text-center font-Montserrat text-lg font-semibold transition-all duration-200 `}
+          className={`text-center font-Montserrat text-lg font-semibold transition-all duration-200 sm:text-sm md:text-lg `}
         >
           Pet Sitters
         </span>
