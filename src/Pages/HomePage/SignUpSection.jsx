@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const SignUpSection = () => {
   return (
-    <div className="mt-24 flex items-center justify-center gap-x-16 overflow-hidden duration-300 md:justify-between">
+    <div className="mt-20 flex items-center justify-center gap-x-16 overflow-hidden duration-300 md:justify-between">
       <div className="hidden bg-[url(/images/homepage/signUpBg.png)] bg-contain bg-no-repeat p-10 pl-20 transition-all duration-300 md:block md:basis-1/2">
         <img src="/images/homepage/signUpImage.png" alt="Dog" />
       </div>
