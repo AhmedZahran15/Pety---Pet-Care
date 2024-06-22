@@ -33,6 +33,7 @@ import MyPosts from "../Pages/Community/MyPosts";
 import Bookmarks from "../Pages/Community/Bookmarks";
 import NewPost from "../Pages/Community/NewPost";
 import Home from "../Pages/Community/Home";
+import ChatBot from "../Pages/ChatBot";
 const AppLayout = () => {
   return (
     <div className="mx-auto min-h-screen w-full max-w-screen-2xl">
@@ -53,24 +54,24 @@ function MainRouter() {
             <Route path="becomeAPety" element={<BecomeAPety />} />
             <Route path="Reservation/:id" element={<Reservation />} />
           </Route>
-          <Route path="community" element={<Community />}>
-            <Route index element={<Navigate replace to="home" />} />
-            <Route path="home" element={<Home />}>
-              <Route path="new-post" element={<NewPost />} />
-            </Route>
-            <Route element={<ProtectedRoute />}>
-              <Route path="my-posts" element={<MyPosts />}>
-                <Route path="new-post" element={<NewPost />} />
-              </Route>
-              <Route path="bookmarks" element={<Bookmarks />} />
-            </Route>
-            {/* <Route path="post/:id" element={<Post />} />
-              <Route path="editPost/:id" element={<EditPost />} />
-              <Route path="deletePost/:id" element={<DeletePost />} /> */}
-          </Route>
           <Route path="contact" element={<ContactUs />} />
           <Route path="about" element={<AboutUs />} />
           <Route path="*" element={<PageNotFound />} />
+        </Route>
+        <Route path="community" element={<Community />}>
+          <Route index element={<Navigate replace to="home" />} />
+          <Route path="home" element={<Home />}>
+            <Route path="new-post" element={<NewPost />} />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="my-posts" element={<MyPosts />}>
+              <Route path="new-post" element={<NewPost />} />
+            </Route>
+            <Route path="bookmarks" element={<Bookmarks />} />
+          </Route>
+          {/* <Route path="post/:id" element={<Post />} />
+              <Route path="editPost/:id" element={<EditPost />} />
+              <Route path="deletePost/:id" element={<DeletePost />} /> */}
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
@@ -80,6 +81,7 @@ function MainRouter() {
           <Route path="reset-password/:token" element={<ResetPassword />} />
         </Route>
         <Route element={<ProtectedRoute />}>
+          <Route path="chatbot" element={<ChatBot />} />
           <Route path="dashboard" element={<Dashboard />}>
             <Route index element={<Navigate replace to="overview" />} />
             <Route path="overview" element={<Overview />} />
