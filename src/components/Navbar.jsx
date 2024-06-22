@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <SideMenuProvider>
       <header
-        className="flex h-14 w-full px-4 flex-row items-center justify-between bg-primary transition-all duration-300 lg:justify-around
+        className="flex h-14 w-full flex-row items-center justify-between bg-primary px-4 transition-all duration-300 lg:justify-around
     "
       >
         <Link to="/" className="flex w-fit items-center justify-center gap-x-2">
@@ -22,19 +22,22 @@ const Navbar = () => {
         <div className="hidden flex-row justify-between gap-8 lg:flex">
           <ul className="flex items-center justify-center gap-8">
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
-              <Link to="becomeAPety">Become A Pety</Link>
+              <Link to="/becomeAPety">Become A Pety</Link>
             </li>
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
-              <Link to="services?role=vet">Services</Link>
+              <Link to="/services?role=vet">Services</Link>
             </li>
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="/community">Community</Link>
             </li>
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
-              <Link to="contact">Contact</Link>
+              <Link to="/chatbot">Medbot</Link>
             </li>
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
-              <Link to="about">About</Link>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
+              <Link to="/about">About</Link>
             </li>
           </ul>
           {user ? (
