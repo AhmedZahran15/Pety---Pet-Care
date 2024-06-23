@@ -29,7 +29,7 @@ function ChatInput() {
       setIsLoading(true);
       setChatHistory([...chatHistory, message]);
       setValue("");
-      const response = await fetch("http://ghazy.pythonanywhere.com/predict", {
+      const response = await fetch(`${import.meta.env.VITE_CHATAPI_LINK}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
