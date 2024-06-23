@@ -53,7 +53,7 @@ function Carousel({ children }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
-      <div ref={containerRef} className="carousel:w-[305px] w-56">
+      <div ref={containerRef} className="w-56 min-[900px]:w-[305px]">
         <Slider ref={setSliderRef} {...settings}>
           {children}
         </Slider>
