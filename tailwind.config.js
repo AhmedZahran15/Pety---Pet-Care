@@ -3,9 +3,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      screens: {
-        carousel: "900px",
-      },
       fontFamily: {
         Pacifico: ["Pacifico", "cursive"],
         Montserrat: ["Montserrat", "sans-serif"],
