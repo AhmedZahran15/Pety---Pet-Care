@@ -103,15 +103,12 @@ function Notifications() {
           body: JSON.stringify({ notificationId }),
         },
       );
-      if (response.ok) {
-        const data = await response.json();
-        if (data.status === "success") {
-          setNotifications((notifications) =>
-            notifications.filter(
-              (notification) => notification._id !== notificationId,
-            ),
-          );
-        }
+      if (response.ok && response.status === 204) {
+        setNotifications((notifications) =>
+          notifications.filter(
+            (notification) => notification._id !== notificationId,
+          ),
+        );
       }
     } catch (error) {
       console.error(error);
