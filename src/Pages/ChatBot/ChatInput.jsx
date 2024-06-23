@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ThreeDots from "./ThreeDots";
 import toast from "react-hot-toast";
 
@@ -8,6 +8,7 @@ function ChatInput() {
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
+  const messagesEndRef = useRef(null);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setStartMessage(
@@ -17,7 +18,9 @@ function ChatInput() {
     }, 1000);
     return () => clearTimeout(timeoutId);
   }, []);
-
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "instant" });
+  }, [chatHistory]);
   const getResponse = async () => {
     try {
       const message = value.trim();
@@ -27,7 +30,7 @@ function ChatInput() {
         return;
       }
       setIsLoading(true);
-      setChatHistory([...chatHistory, message]);
+      setChatHistory((prev) => [...prev, message]);
       setValue("");
       const response = await fetch(`${import.meta.env.VITE_CHATAPI_LINK}`, {
         method: "POST",
@@ -38,9 +41,8 @@ function ChatInput() {
           messages: [...chatHistory, message],
         }),
       });
-      setValue("");
       const data = await response.json();
-      setChatHistory([...chatHistory, message, data.response]);
+      setChatHistory((prev) => [...prev, data.response]);
     } catch (error) {
       toast.error("There was an error fetching the data.");
     } finally {
@@ -49,8 +51,8 @@ function ChatInput() {
   };
 
   return (
-    <div className="flex w-full flex-col gap-y-4">
-      <div className="flex h-full w-full flex-col justify-end gap-y-2 ">
+    <div className="flex  min-h-[calc(100vh-70px)] w-full flex-1 flex-col gap-y-4 p-4 md:p-6 2xl:p-10">
+      <div className="flex w-full flex-1 flex-col justify-end gap-y-2 overflow-y-auto ">
         {!startMessageIsLoading && (
           <div className="flex w-5/6 flex-col items-start gap-2 text-start">
             <div className="flex flex-row items-center gap-x-2">
@@ -98,7 +100,8 @@ function ChatInput() {
               </span>
             </div>
             <p
-              className={`${_index % 2 === 0 ? " bg-blue-200" : "bg-blue-50"} rounded-xl p-2 px-3 font-Montserrat text-base font-medium shadow-md shadow-neutral-200`}
+              ref={_index === chatHistory.length - 1 ? messagesEndRef : null}
+              className={`${_index % 2 === 0 ? " bg-primary text-white" : "bg-blue-50"} rounded-xl p-2 px-3 font-Montserrat text-base font-medium shadow-md shadow-neutral-200`}
             >
               {chatItem}
             </p>
@@ -108,22 +111,29 @@ function ChatInput() {
       </div>
       <div className="relative mt-auto">
         <textarea
-          value={isLoading ? "" : value}
+          value={value}
           onKeyDown={(e) => {
-            if (e.key === "Enter" && value.trim() !== "" && !e.shiftKey) {
+            if (
+              e.key === "Enter" &&
+              value.trim() !== "" &&
+              !e.shiftKey &&
+              !isLoading
+            ) {
               getResponse(e);
             }
           }}
           rows={3}
           className="max-h-[25dvh] w-full rounded-lg border border-neutral-400 px-4 py-3 font-Montserrat font-medium shadow-md shadow-neutral-300 outline-none no-scrollbar placeholder:font-medium placeholder:text-neutral-400 focus:border-primary focus:ring-1 focus:ring-primary"
           onChange={(e) => {
+            if (isLoading) return;
             setValue(e.target.value);
           }}
           placeholder="Type your message here..."
         />
         <button
-          className="absolute right-4 top-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary font-Montserrat font-medium text-white shadow-md shadow-neutral-300"
+          className="absolute right-4 top-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary font-Montserrat font-medium text-white shadow-md shadow-neutral-300 disabled:bg-secondary"
           onClick={getResponse}
+          disabled={isLoading}
         >
           <svg
             x="0px"
