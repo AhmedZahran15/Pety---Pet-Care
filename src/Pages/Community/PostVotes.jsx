@@ -77,7 +77,7 @@ function PostVotes({ post, setPosts }) {
   };
   return (
     <div
-      className={`flex flex-row items-center gap-2 rounded-full border border-neutral-300 ${upVotes.includes(userId) ? "bg-primary" : downVotes.includes(userId) ? "bg-red-500" : "bg-neutral-50"}`}
+      className={`flex flex-row items-center gap-2 rounded-full border border-neutral-300 ${upVotes.includes(userId) ? "bg-primary" : downVotes.includes(userId) ? "bg-red-500" : "bg-neutral-100"}`}
     >
       <button
         onClick={upVotes.includes(userId) ? handleRemoveVote : handleUpVote}
