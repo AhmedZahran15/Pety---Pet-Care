@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
 import AuthContext from "../../contexts/AuthContext";
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const { logoutUser } = useContext(AuthContext);
@@ -53,8 +52,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         onClick={() => setSidebarOpen(false)}
         className="mb-8 flex w-fit items-center justify-center gap-x-2 bg-neutral-100"
       >
-        <div className="h-9 w-9 rounded-full bg-black"></div>
-        <span className="text-4xl font-bold">PETY</span>
+        <img src="/logoAlt.png" alt="Pety Logo" className="h-[50] w-[98px]" />
       </Link>
       <div className="font-fredoka mb-2 border-b-2 border-neutral-400 px-3 py-[6px] text-3xl font-semibold text-neutral-800">
         MENU
