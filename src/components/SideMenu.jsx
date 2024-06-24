@@ -9,7 +9,7 @@ export const SideMenu = () => {
   return (
     <menu
       className={
-        "fixed top-0 z-[99] flex h-screen w-72 flex-col justify-start gap-8 border bg-secondary px-4 pt-16 transition-all duration-200 ease-cubic lg:hidden " +
+        "fixed top-0 z-[99] flex h-screen w-72 flex-col justify-start gap-8 border bg-secondary px-4 pt-16 transition-all duration-200 ease-cubic min-[1120px]:hidden " +
         (showSideMenu ? "right-0" : "-right-80")
       }
     >
