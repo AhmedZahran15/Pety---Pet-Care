@@ -1,24 +1,11 @@
-import { Link, useSearchParams } from "react-router-dom";
-import { debounce } from "lodash";
-import SearchIcon from "../../assets/SearchIcon";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Sidebar() {
   const userData = JSON.parse(localStorage.getItem("userData"));
   const [searchParams, setSearchParams] = useSearchParams();
   const [tags, setTags] = useState([]);
-  const handleSearchChange = debounce((e) => {
-    const search = e.target.value.trim();
-    setSearchParams(
-      (prev) => {
-        prev.set("name", search);
-        if (search === "") prev.delete("name");
-        return prev;
-      },
-      { replace: true },
-    );
-  }, 300);
-
+  const { pathname } = useLocation();
   useEffect(() => {
     const fetchTags = async () => {
       try {
@@ -74,26 +61,10 @@ function Sidebar() {
           </span>
         </div>
       </div>
-      <div className="relative w-full">
-        <input
-          className="h-12 w-full rounded-[4px] border-y border-neutral-200 px-2 pr-14 font-fredoka text-base font-normal focus:outline-none"
-          type="search"
-          name="search"
-          placeholder="Search"
-          defaultValue={searchParams.get("name") || ""}
-          onChange={(e) => handleSearchChange(e)}
-        />
-        <button
-          type="button"
-          className=" absolute right-1 top-2 flex cursor-default items-center justify-center border-l-2"
-        >
-          <SearchIcon className="mx-1 h-8 w-8 fill-[#0866FF] py-1" />
-        </button>
-      </div>
       <div className="flex flex-col gap-2">
         <Link
           to="/community"
-          className="mx-4 flex items-center gap-x-2 rounded-lg px-4 py-2 font-fredoka text-lg font-normal text-neutral-900 hover:bg-neutral-100"
+          className={`font-fredoka mx-4 flex items-center gap-x-2 rounded-lg px-4 py-2 text-lg font-normal text-black ${pathname.includes("home") ? "bg-neutral-100" : "hover:bg-neutral-100"}`}
         >
           <span className="h-8 w-8">
             <img src="/images/community/homeIcon.svg" />
@@ -102,7 +73,7 @@ function Sidebar() {
         </Link>
         <Link
           to="/community/my-posts"
-          className="mx-4 flex items-center gap-x-2 rounded-lg px-4 py-2 font-fredoka text-lg font-normal text-neutral-900 hover:bg-neutral-100"
+          className={`font-fredoka mx-4 flex items-center gap-x-2 rounded-lg px-4 py-2 text-lg font-normal text-black  ${pathname.includes("my-posts") ? "bg-neutral-100" : "hover:bg-neutral-100"}`}
         >
           <span className="h-8 w-8">
             <img src="/images/community/myPostsIcon.svg" />
@@ -111,7 +82,7 @@ function Sidebar() {
         </Link>
         <Link
           to="/community/bookmarks"
-          className="mx-4 flex items-center gap-x-2 rounded-lg px-4 py-2 font-fredoka text-lg font-normal text-neutral-900 hover:bg-neutral-100"
+          className={`font-fredoka mx-4 flex items-center gap-x-2 rounded-lg px-4 py-2 text-lg font-normal text-black ${pathname.includes("bookmarks") ? "bg-neutral-100" : "hover:bg-neutral-100"}`}
         >
           <span className="h-8 w-8">
             <img src="/images/community/bookmarksIcon.svg" />
@@ -119,7 +90,7 @@ function Sidebar() {
           <span>Bookmarks</span>
         </Link>
         <div className="mx-4 flex flex-col gap-y-4 px-4 py-2">
-          <div className="flex items-center gap-x-2 rounded-lg font-fredoka text-lg font-normal text-neutral-900 ">
+          <div className="font-fredoka flex items-center gap-x-2 rounded-lg text-lg font-normal text-black ">
             <span className="h-8 w-8">
               <img src="/images/community/tagsIcon.svg" />
             </span>
@@ -130,7 +101,7 @@ function Sidebar() {
               <button
                 key={tag._id}
                 onClick={() => handleTagChange(tag.name)}
-                className={`${searchParams?.get("tag") === tag.name ? "bg-[#0866FF] text-white transition-all duration-200" : "border-neutral-400 text-neutral-900 hover:bg-neutral-100"} flex items-center gap-x-2 rounded-md border  px-4 py-1 text-lg font-normal capitalize `}
+                className={`${searchParams?.get("tag") === tag.name ? "bg-[#0866FF] text-white transition-all duration-200" : "border-neutral-400 text-black hover:bg-neutral-100"} flex items-center gap-x-2 rounded-md border  px-4 py-1 text-lg font-normal capitalize `}
               >
                 {tag.name}
               </button>
