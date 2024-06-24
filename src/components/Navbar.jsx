@@ -12,14 +12,14 @@ const Navbar = () => {
   return (
     <SideMenuProvider>
       <header
-        className="flex h-14 w-full flex-row items-center justify-between bg-primary px-4 transition-all duration-300 lg:justify-around
+        className="flex h-14 w-full flex-row items-center justify-between bg-primary px-4 transition-all duration-300 min-[1120px]:justify-around
     "
       >
         <Link to="/" className="flex w-fit items-center justify-center gap-x-2">
           <div className="h-7 w-7 rounded-full bg-white"></div>
           <span className="text-3xl font-bold text-white">PETY</span>
         </Link>
-        <div className="hidden flex-row justify-between gap-8 lg:flex">
+        <div className="hidden flex-row justify-between gap-8 min-[1120px]:flex">
           <ul className="flex items-center justify-center gap-8">
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="/becomeAPety">Become A Pety</Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
           {user ? <Notifications /> : null}
           <BurgerMenu />
         </div>
-        <div className="hidden items-center gap-4 sm:flex lg:hidden">
+        <div className="hidden items-center gap-4 sm:flex min-[1120px]:hidden">
           {user ? (
             <div className="flex items-center gap-x-2">
               <Notifications />
