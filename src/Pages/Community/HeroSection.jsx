@@ -1,17 +1,17 @@
 function HeroSection() {
   return (
-    <div className="flex h-44 items-center justify-center gap-4 bg-[#0866FF]">
-      <img
-        src="/images/community/communityHome.png"
-        alt="Community"
-        className="h-36"
-      />
-      <div className="flex flex-col items-center justify-center gap-2 text-white">
-        <h1 className="font-fredoka text-5xl font-bold ">Pety Community</h1>
-        <p className="w-[370px] text-center  text-lg">
-          Join the community of pet lovers and share your experiences with other
-          pet owners.
-        </p>
+    <div className="mb-10 w-full bg-[url('/images/community/heroBg.svg')] bg-cover bg-bottom">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-x-8 overflow-hidden px-8 md:flex-row lg:gap-0">
+        <div className="flex h-full w-fit flex-col gap-y-6 py-8 text-white transition-all duration-300 md:basis-1/3">
+          <h1 className="font-Pacifico text-3xl sm:text-5xl">Pety Community</h1>
+          <p className="font-Montserrat text-xl font-normal">
+            Join the community of pet lovers and share your experiences with
+            other pet owners.
+          </p>
+        </div>
+        <div className="-mb-6 w-72 transition-all duration-300">
+          <img src="/images/community/heroImg.png" alt="Community Image" />
+        </div>
       </div>
     </div>
   );
