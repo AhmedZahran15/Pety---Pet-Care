@@ -34,6 +34,7 @@ import Bookmarks from "../Pages/Community/Bookmarks";
 import NewPost from "../Pages/Community/NewPost";
 import Home from "../Pages/Community/Home";
 import ChatBot from "../Pages/ChatBot";
+import FullPost from "../Pages/Community/FullPost";
 const AppLayout = () => {
   return (
     <div className="mx-auto min-h-screen w-full max-w-screen-2xl">
@@ -69,9 +70,7 @@ function MainRouter() {
             </Route>
             <Route path="bookmarks" element={<Bookmarks />} />
           </Route>
-          {/* <Route path="post/:id" element={<Post />} />
-              <Route path="editPost/:id" element={<EditPost />} />
-              <Route path="deletePost/:id" element={<DeletePost />} /> */}
+          <Route path="post/:id" element={<FullPost />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
