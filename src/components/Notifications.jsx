@@ -25,6 +25,7 @@ function Notifications() {
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
   }, [dropdownOpen]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,8 +39,8 @@ function Notifications() {
             },
           },
         );
-        if (response.ok) {
-          const data = await response.json();
+        const data = await response.json();
+        if (response.ok && data.status === "success") {
           setNotifications(data.data.notification);
           setNotifying(
             data.data.notification.some(
