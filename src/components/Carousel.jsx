@@ -23,7 +23,7 @@ function Carousel({ children }) {
     },
     responsive: [
       {
-        breakpoint: 900,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -53,7 +53,7 @@ function Carousel({ children }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
-      <div ref={containerRef} className="w-56 min-[900px]:w-[305px]">
+      <div ref={containerRef} className="w-56 min-[1024px]:w-[305px]">
         <Slider ref={setSliderRef} {...settings}>
           {children}
         </Slider>
