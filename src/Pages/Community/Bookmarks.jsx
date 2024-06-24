@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import { BlockLoader } from "../../components/Loader";
 import Post from "./Post";
 
@@ -7,7 +7,7 @@ function Bookmarks() {
   const [searchParams] = useSearchParams();
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { pathname } = useLocation();
+  const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
   useEffect(() => {
     const fetchPosts = async () => {
@@ -25,13 +25,14 @@ function Bookmarks() {
         const data = await response.json();
         if (!response.ok) throw new Error(data.message);
         setPosts(data.data);
+        navigate("/community/home");
       } catch (error) {
         console.error(error);
       }
       setIsLoading(false);
     };
     fetchPosts();
-  }, [searchParams]);
+  }, [searchParams, navigate]);
   return (
     <div className="basis-full pb-4 lg:basis-2/3">
       <div className="mb-4 flex h-20 w-full items-center gap-x-4 rounded-lg border border-neutral-300 bg-white p-4 shadow-md shadow-neutral-200">
