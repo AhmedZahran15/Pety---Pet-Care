@@ -86,11 +86,10 @@ function Login() {
         to="/"
         className="flex w-fit items-center justify-center gap-x-2 px-4 py-2"
       >
-        <div className="h-7 w-7 rounded-full bg-black"></div>
-        <span className="text-3xl font-bold text-black">PETY</span>
+        <img src="/logoAlt.png" alt="Pety Logo" className="h-[50] w-[98px]" />
       </Link>
       <div>
-        <p className="text-left font-fredoka text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
+        <p className="font-fredoka text-left text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
           Welcome Back
         </p>
         <p className="text-left text-lg font-normal sm:px-4 sm:text-xl md:text-2xl">
@@ -115,7 +114,7 @@ function Login() {
       </div>
       <Link
         to={"/auth/forgot-password"}
-        className="hover:text-primaryDark mb-[-14px] ml-1 mt-[-8px] w-fit cursor-pointer text-left font-bold text-primary"
+        className="mb-[-14px] ml-1 mt-[-8px] w-fit cursor-pointer text-left font-bold text-primary hover:text-primaryDark"
       >
         Forgot Password?
       </Link>
@@ -124,7 +123,7 @@ function Login() {
         Don&apos;t have an account? &nbsp;
         <Link
           to={"/auth/register"}
-          className=" hover:text-primaryDark cursor-pointer font-bold text-primary"
+          className=" cursor-pointer font-bold text-primary hover:text-primaryDark"
           state={{ from: location?.state?.from }}
         >
           Sign up
