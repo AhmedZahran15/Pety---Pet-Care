@@ -51,8 +51,7 @@ function ForgotPassword() {
         to="/"
         className="flex w-fit items-center justify-center gap-x-2 px-4 py-2"
       >
-        <div className="h-7 w-7 rounded-full bg-black"></div>
-        <span className="text-3xl font-bold text-black">PETY</span>
+        <img src="/logoAlt.png" alt="Pety Logo" className="h-[50] w-[98px]" />
       </Link>
       <div>
         <h2 className="font-fredoka text-4xl font-semibold">
@@ -103,7 +102,7 @@ function ForgotPassword() {
           </Link>
           <button
             type="submit"
-            className="hover:bg-primaryDark basis-full rounded-lg bg-primary p-3 font-semibold text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary sm:basis-1/3 xl:basis-1/4"
+            className="basis-full rounded-lg bg-primary p-3 font-semibold text-white transition-all duration-300 hover:bg-primaryDark focus:outline-none focus:ring-2 focus:ring-primary sm:basis-1/3 xl:basis-1/4"
           >
             {isLoading ? (
               <div className="flex items-center justify-center gap-x-2">
