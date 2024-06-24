@@ -5,7 +5,6 @@ import PostVotes from "./PostVotes";
 import { Link } from "react-router-dom";
 function Post({ post, setPosts }) {
   const userId = JSON.parse(localStorage.getItem("userData"))._id;
-  console.log(post);
   return (
     <div className="flex flex-col items-start justify-center gap-2 rounded-lg bg-white p-4 font-Montserrat shadow-md">
       <div className="flex w-full items-center justify-between ">
