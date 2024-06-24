@@ -54,7 +54,7 @@ function Post({ post, setPosts }) {
         <PostVotes post={post} setPosts={setPosts} />
         <Link
           to={`/community/post/${post._id}`}
-          className="flex h-[33.6px] items-center gap-x-2 rounded-full bg-neutral-100 px-2 font-medium hover:bg-neutral-200"
+          className="flex h-8 items-center gap-x-2 rounded-full bg-neutral-100 px-2 font-medium hover:bg-neutral-200"
         >
           <svg
             className="h-6 w-6 cursor-pointer"
