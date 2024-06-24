@@ -73,17 +73,16 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         onClick={() => setSidebarOpen(false)}
         className="mb-8 flex w-fit items-center justify-center gap-x-2 bg-neutral-100"
       >
-        <div className="h-9 w-9 rounded-full bg-black"></div>
-        <span className="text-4xl font-bold">PETY</span>
+        <img src="/logoAlt.png" alt="Pety Logo" className="h-[50] w-[98px]" />
       </Link>
-      <div className="mb-2 border-b-2 border-neutral-400 px-3 py-[6px] font-fredoka text-3xl font-semibold text-neutral-800">
+      <div className="font-fredoka mb-2 border-b-2 border-neutral-400 px-3 py-[6px] text-3xl font-semibold text-neutral-800">
         MENU
       </div>
       <div className="flex flex-col gap-y-2 overflow-scroll no-scrollbar">
         <Link
           to="/dashboard/overview"
           onClick={() => setSidebarOpen(false)}
-          className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("overview") ? "bg-neutral-200" : ""}`}
+          className={`font-fredoka flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("overview") ? "bg-neutral-200" : ""}`}
         >
           <svg
             className="h-8 w-8 fill-neutral-800"
@@ -97,7 +96,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <Link
           to="/dashboard/profile"
           onClick={() => setSidebarOpen(false)}
-          className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("profile") ? "bg-neutral-200" : ""}`}
+          className={`font-fredoka flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("profile") ? "bg-neutral-200" : ""}`}
         >
           <svg
             className="h-8 w-8 fill-neutral-800"
@@ -127,7 +126,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <Link
           to="/dashboard/history"
           onClick={() => setSidebarOpen(false)}
-          className={`flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] font-fredoka text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("dashboard/history") ? "bg-neutral-200" : ""}`}
+          className={`font-fredoka flex flex-row items-center gap-x-2 rounded-md px-3 py-[6px] text-xl  font-medium text-neutral-950 transition-all duration-200 hover:bg-neutral-200  ${pathname.includes("dashboard/history") ? "bg-neutral-200" : ""}`}
         >
           <svg
             className="h-8 w-8 fill-neutral-800"
@@ -168,7 +167,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       </div>
       <button
         onClick={logoutUser}
-        className="mt-auto justify-self-end rounded-lg px-4 py-2 font-fredoka text-xl font-medium hover:bg-neutral-200"
+        className="font-fredoka mt-auto justify-self-end rounded-lg px-4 py-2 text-xl font-medium hover:bg-neutral-200"
       >
         Log Out
       </button>
