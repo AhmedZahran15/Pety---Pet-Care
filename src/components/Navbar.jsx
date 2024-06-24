@@ -7,6 +7,7 @@ import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
 import UserDropDown from "./UserDropDown";
 import Notifications from "./Notifications";
+
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   return (
@@ -16,8 +17,11 @@ const Navbar = () => {
     "
       >
         <Link to="/" className="flex w-fit items-center justify-center gap-x-2">
-          <div className="h-7 w-7 rounded-full bg-white"></div>
-          <span className="text-3xl font-bold text-white">PETY</span>
+          <img
+            src="/logoPrimary.png"
+            alt="Pety Logo"
+            className="h-[50] w-[98px]"
+          />
         </Link>
         <div className="hidden flex-row justify-between gap-8 min-[1120px]:flex">
           <ul className="flex items-center justify-center gap-8">
