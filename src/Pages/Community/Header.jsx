@@ -13,8 +13,11 @@ const Header = () => {
     <header className="flex h-14 w-full flex-row items-center justify-between bg-primary px-4 transition-all duration-300 lg:justify-around">
       {!showSearch && (
         <Link to="/" className="flex w-fit items-center justify-center gap-x-2">
-          <div className="h-7 w-7 rounded-full bg-white"></div>
-          <span className="text-3xl font-bold text-white">PETY</span>
+          <img
+            src="/logoPrimary.png"
+            alt="Pety Logo"
+            className="h-[50] w-[98px]"
+          />
         </Link>
       )}
       <div className="hidden md:block">
