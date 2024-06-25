@@ -15,7 +15,6 @@ function Bookmark({ bookmarked, setCurrentPost, postId }) {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         if (data.status === "success") {
           setCurrentPost(data.data);
         }
