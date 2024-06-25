@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-function Bookmark({ bookmarked, setPosts, postId }) {
+function Bookmark({ bookmarked, setCurrentPost, postId }) {
   const handleBookmark = async () => {
     try {
       const response = await fetch(
@@ -17,11 +17,7 @@ function Bookmark({ bookmarked, setPosts, postId }) {
         const data = await response.json();
         console.log(data);
         if (data.status === "success") {
-          setPosts((posts) =>
-            posts.map((post) =>
-              post._id === data.data._id ? data.data : post,
-            ),
-          );
+          setCurrentPost(data.data);
         }
       }
     } catch (error) {
@@ -45,11 +41,7 @@ function Bookmark({ bookmarked, setPosts, postId }) {
         const data = await response.json();
         console.log(data);
         if (data.status === "success") {
-          setPosts((posts) =>
-            posts.map((post) =>
-              post._id === data.data._id ? data.data : post,
-            ),
-          );
+          setCurrentPost(data.data);
         }
       }
     } catch (error) {
@@ -87,7 +79,7 @@ function Bookmark({ bookmarked, setPosts, postId }) {
 }
 Bookmark.propTypes = {
   bookmarked: PropTypes.bool.isRequired,
-  setPosts: PropTypes.func.isRequired,
+  setCurrentPost: PropTypes.func.isRequired,
   postId: PropTypes.string.isRequired,
 };
 export default Bookmark;
