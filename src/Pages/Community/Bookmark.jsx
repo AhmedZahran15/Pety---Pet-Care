@@ -1,7 +1,16 @@
 import PropTypes from "prop-types";
-function Bookmark({ bookmarked, setCurrentPost, postId }) {
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+function Bookmark({ bookmarks, setCurrentPost, postId }) {
+  const bookmarked = bookmarks?.includes(postId);
+  const navigate = useNavigate();
   const handleBookmark = async () => {
     try {
+      if (!localStorage.getItem("token")) {
+        navigate("/auth/login");
+        toast.error("Please login to bookmark");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/posts/bookmarks`,
         {
@@ -25,6 +34,10 @@ function Bookmark({ bookmarked, setCurrentPost, postId }) {
   };
   const handleDeleteBookmark = async () => {
     try {
+      if (!localStorage.getItem("token")) {
+        navigate("/auth/login");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/posts/bookmarks/`,
         {
@@ -80,8 +93,8 @@ function Bookmark({ bookmarked, setCurrentPost, postId }) {
   );
 }
 Bookmark.propTypes = {
-  bookmarked: PropTypes.bool.isRequired,
   setCurrentPost: PropTypes.func.isRequired,
+  bookmarks: PropTypes.array.isRequired,
   postId: PropTypes.string.isRequired,
 };
 export default Bookmark;
