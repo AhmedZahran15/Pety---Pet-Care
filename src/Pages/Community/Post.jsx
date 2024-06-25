@@ -12,11 +12,11 @@ function Post({ post }) {
   return (
     <div
       onClick={
-        pathname.includes("post")
+        pathname.includes("/community/post/")
           ? null
           : () => navigate(`/community/post/${post._id}`)
       }
-      className={`${pathname.includes("post") ? "" : "cursor-pointer"} flex flex-col items-start justify-center gap-2 rounded-lg bg-white p-4 font-Montserrat shadow-md hover:bg-neutral-50`}
+      className={`${pathname.includes("/community/post/") ? "" : "cursor-pointer"} flex flex-col items-start justify-center gap-2 rounded-lg bg-white p-4 font-Montserrat shadow-md hover:bg-neutral-50`}
     >
       <div className="flex w-full items-center justify-between ">
         <div className="flex w-full shrink-0 items-center gap-x-2">
