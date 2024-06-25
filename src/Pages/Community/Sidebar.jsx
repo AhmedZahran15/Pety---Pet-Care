@@ -2,7 +2,7 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Sidebar() {
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userData = JSON.parse(localStorage.getItem("userData")) ?? null;
   const [searchParams, setSearchParams] = useSearchParams();
   const [tags, setTags] = useState([]);
   const { pathname } = useLocation();
@@ -46,21 +46,23 @@ function Sidebar() {
   };
   return (
     <div className="box-border flex w-full flex-col gap-y-6 self-center rounded-lg border border-neutral-300 bg-white py-4 lg:sticky lg:top-8 lg:basis-1/4 lg:self-start">
-      <div className="flex items-center gap-x-4 px-8 ">
-        <img
-          src={userData?.photo?.url || "/userImage.png"}
-          alt="pet worker"
-          className="h-16 w-16 rounded-full object-cover"
-        />
-        <div className="flex flex-col items-center">
-          <span className="text-sm font-medium">
-            {userData?.firstName} {userData?.lastName}
-          </span>
-          <span className="text-xs font-normal text-neutral-400">
-            Service Provider
-          </span>
+      {userData && (
+        <div className="flex items-center gap-x-4 px-8 ">
+          <img
+            src={userData?.photo?.url || "/userImage.png"}
+            alt="pet worker"
+            className="h-16 w-16 rounded-full object-cover"
+          />
+          <div className="flex flex-col items-center">
+            <span className="text-sm font-medium">
+              {userData?.firstName} {userData?.lastName}
+            </span>
+            <span className="text-xs font-normal text-neutral-400">
+              Service Provider
+            </span>
+          </div>
         </div>
-      </div>
+      )}
       <div className="flex flex-col gap-2">
         <Link
           to="/community"
