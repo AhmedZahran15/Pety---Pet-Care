@@ -2,13 +2,22 @@ import moment from "moment";
 import PropTypes from "prop-types";
 import Bookmark from "./Bookmark";
 import PostVotes from "./PostVotes";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 function Post({ post }) {
   const [currentPost, setCurrentPost] = useState(post);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const userId = JSON.parse(localStorage.getItem("userData"))._id;
   return (
-    <div className="flex flex-col items-start justify-center gap-2 rounded-lg bg-white p-4 font-Montserrat shadow-md">
+    <div
+      onClick={
+        pathname.includes("post")
+          ? null
+          : () => navigate(`/community/post/${post._id}`)
+      }
+      className={`${pathname.includes("post") ? "" : "cursor-pointer"} flex flex-col items-start justify-center gap-2 rounded-lg bg-white p-4 font-Montserrat shadow-md hover:bg-neutral-50`}
+    >
       <div className="flex w-full items-center justify-between ">
         <div className="flex w-full shrink-0 items-center gap-x-2">
           <img
@@ -55,6 +64,7 @@ function Post({ post }) {
       <div className="flex items-center gap-x-4">
         <PostVotes post={currentPost} setCurrentPost={setCurrentPost} />
         <Link
+          onClick={(e) => e.stopPropagation()}
           to={`/community/post/${currentPost?._id}`}
           className="flex h-8 items-center gap-x-2 rounded-full bg-neutral-100 px-2 font-medium hover:bg-neutral-200"
         >
