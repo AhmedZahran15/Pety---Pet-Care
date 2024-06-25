@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 function Bookmark({ bookmarks, setCurrentPost, postId }) {
-  const userId = JSON.parse(localStorage.getItem("userData"))._id;
+  const userId = JSON.parse(localStorage.getItem("userData"))?._id;
   const bookmarked = bookmarks?.includes(userId);
   const navigate = useNavigate();
   const handleBookmark = async () => {
