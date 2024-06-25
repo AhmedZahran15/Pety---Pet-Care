@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-function PostVotes({ post, setPosts }) {
+function PostVotes({ post, setCurrentPost }) {
   const userId = JSON.parse(localStorage.getItem("userData"))._id;
   const token = localStorage.getItem("token");
   const { downvotes: downVotes, upvotes: upVotes, votes } = post;
@@ -18,11 +18,7 @@ function PostVotes({ post, setPosts }) {
       );
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
-      setPosts((prevPosts) =>
-        prevPosts.map((prevPost) =>
-          prevPost._id === post._id ? { ...prevPost, ...data.data } : prevPost,
-        ),
-      );
+      setCurrentPost((prevPost) => ({ ...prevPost, ...data.data }));
     } catch (error) {
       console.error(error);
     }
@@ -42,11 +38,7 @@ function PostVotes({ post, setPosts }) {
       );
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
-      setPosts((prevPosts) =>
-        prevPosts.map((prevPost) =>
-          prevPost._id === post._id ? { ...prevPost, ...data.data } : prevPost,
-        ),
-      );
+      setCurrentPost((prevPost) => ({ ...prevPost, ...data.data }));
     } catch (error) {
       console.error(error);
     }
@@ -66,11 +58,7 @@ function PostVotes({ post, setPosts }) {
       );
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
-      setPosts((prevPosts) =>
-        prevPosts.map((prevPost) =>
-          prevPost._id === post._id ? { ...prevPost, ...data.data } : prevPost,
-        ),
-      );
+      setCurrentPost((prevPost) => ({ ...prevPost, ...data.data }));
     } catch (error) {
       console.error(error);
     }
@@ -121,6 +109,6 @@ function PostVotes({ post, setPosts }) {
 }
 PostVotes.propTypes = {
   post: PropTypes.object.isRequired,
-  setPosts: PropTypes.func.isRequired,
+  setCurrentPost: PropTypes.func.isRequired,
 };
 export default PostVotes;
