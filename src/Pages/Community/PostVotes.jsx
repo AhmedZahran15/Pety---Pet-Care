@@ -65,6 +65,7 @@ function PostVotes({ post, setCurrentPost }) {
   };
   return (
     <div
+      onClick={(e) => e.stopPropagation()}
       className={`flex flex-row items-center gap-2 rounded-full ${upVotes.includes(userId) ? "bg-primary" : downVotes.includes(userId) ? "bg-red-500" : "bg-neutral-100"}`}
     >
       <button
