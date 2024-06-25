@@ -62,7 +62,9 @@ function MainRouter() {
         <Route path="community" element={<Community />}>
           <Route index element={<Navigate replace to="home" />} />
           <Route path="home" element={<Home />}>
-            <Route path="new-post" element={<NewPost />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="new-post" element={<NewPost />} />
+            </Route>
           </Route>
           <Route element={<ProtectedRoute />}>
             <Route path="my-posts" element={<MyPosts />}>
