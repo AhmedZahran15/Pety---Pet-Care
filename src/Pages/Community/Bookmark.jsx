@@ -38,7 +38,6 @@ function Bookmark({ bookmarked, setCurrentPost, postId }) {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         if (data.status === "success") {
           setCurrentPost(data.data);
         }
@@ -49,7 +48,11 @@ function Bookmark({ bookmarked, setCurrentPost, postId }) {
   };
   return (
     <button
-      onClick={bookmarked ? handleDeleteBookmark : handleBookmark}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (bookmarked) handleDeleteBookmark();
+        else handleBookmark();
+      }}
       className="ml-auto"
     >
       {bookmarked ? (
