@@ -70,7 +70,7 @@ function MainRouter() {
             </Route>
             <Route path="bookmarks" element={<Bookmarks />} />
           </Route>
-          <Route path="post/:id" element={<FullPost />} />
+          <Route path="post/:postId" element={<FullPost />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route index element={<Navigate replace to="login" />} />
