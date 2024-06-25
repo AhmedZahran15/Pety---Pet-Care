@@ -72,7 +72,7 @@ function FullPost() {
       </div>
       <button
         onClick={() => navigate(-1)}
-        className="absolute -left-10 top-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300"
+        className="absolute -left-10 top-4 hidden h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 lg:flex"
       >
         <svg
           className="fill-current"
