@@ -1,12 +1,19 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function AddComment({ postId, setComments }) {
   const [commenting, setCommenting] = useState(false);
   const [comment, setComment] = useState("");
+  const navigate = useNavigate();
   const addComment = async () => {
     try {
+      if (!localStorage.getItem("token")) {
+        navigate("/auth/login");
+        toast.error("Please login to comment");
+        return;
+      }
       if (!comment) {
         toast.error("Comment cannot be empty");
         return;
