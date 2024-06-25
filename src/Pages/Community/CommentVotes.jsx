@@ -1,10 +1,16 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 function CommentVotes({ comment, setCurrentComment }) {
-  const userId = JSON.parse(localStorage.getItem("userData"))._id;
-  const token = localStorage.getItem("token");
+  const userId = JSON.parse(localStorage.getItem("userData"))?._id;
+  const token = localStorage.getItem("token") ?? "";
+  const navigate = useNavigate();
   const { downvotes: downVotes, upvotes: upVotes, votes } = comment;
   const handleUpVote = async () => {
     try {
+      if (!token) {
+        navigate("/auth/login");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/comments/upvote`,
         {
@@ -25,6 +31,10 @@ function CommentVotes({ comment, setCurrentComment }) {
   };
   const handleDownVote = async () => {
     try {
+      if (!token) {
+        navigate("/auth/login");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/comments/downvote`,
         {
@@ -45,6 +55,10 @@ function CommentVotes({ comment, setCurrentComment }) {
   };
   const handleRemoveVote = async () => {
     try {
+      if (!token) {
+        navigate("/auth/login");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/comments/resetvote`,
         {
