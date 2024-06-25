@@ -8,7 +8,6 @@ function Post({ post }) {
   const [currentPost, setCurrentPost] = useState(post);
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const userId = JSON.parse(localStorage.getItem("userData"))._id;
   return (
     <div
       onClick={
@@ -32,9 +31,9 @@ function Post({ post }) {
             {moment(currentPost?.createdAt).fromNow()}
           </span>
           <Bookmark
+            bookmarks={currentPost?.bookmarks}
             postId={currentPost?._id}
             setCurrentPost={setCurrentPost}
-            bookmarked={currentPost?.bookmarks.includes(userId)}
           />
         </div>
       </div>
