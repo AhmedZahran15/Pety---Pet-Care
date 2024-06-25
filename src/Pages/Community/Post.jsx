@@ -3,34 +3,36 @@ import PropTypes from "prop-types";
 import Bookmark from "./Bookmark";
 import PostVotes from "./PostVotes";
 import { Link } from "react-router-dom";
-function Post({ post, setPosts }) {
+import { useState } from "react";
+function Post({ post }) {
+  const [currentPost, setCurrentPost] = useState(post);
   const userId = JSON.parse(localStorage.getItem("userData"))._id;
   return (
     <div className="flex flex-col items-start justify-center gap-2 rounded-lg bg-white p-4 font-Montserrat shadow-md">
       <div className="flex w-full items-center justify-between ">
         <div className="flex w-full shrink-0 items-center gap-x-2">
           <img
-            src={post?.user?.photo?.url ?? "/userImage.png"}
-            alt={post.user?.firstName}
+            src={currentPost?.user?.photo?.url ?? "/userImage.png"}
+            alt={currentPost?.user?.firstName}
             className="h-8 w-8 rounded-full object-cover"
           />
           <span className="text-sm font-semibold">
-            {post.user?.firstName} {post.user?.lastName}
+            {currentPost?.user?.firstName} {currentPost?.user?.lastName}
           </span>
           <span className="text-sm text-neutral-400">
-            {moment(post.createdAt).fromNow()}
+            {moment(currentPost?.createdAt).fromNow()}
           </span>
           <Bookmark
-            postId={post._id}
-            setPosts={setPosts}
-            bookmarked={post.bookmarks.includes(userId)}
+            postId={currentPost?._id}
+            setCurrentPost={setCurrentPost}
+            bookmarked={currentPost?.bookmarks.includes(userId)}
           />
         </div>
       </div>
       <div className="flex flex-col gap-y-1">
-        <span className="text-lg font-medium">{post.title}</span>
+        <span className="text-lg font-medium">{currentPost?.title}</span>
         <div className="flex flex-row gap-x-2">
-          {post.tags.map((tag) => (
+          {currentPost?.tags.map((tag) => (
             <span
               key={tag}
               className="h-6 w-fit rounded-[4px] border border-neutral-400 p-1 text-xs font-medium text-black"
@@ -40,20 +42,20 @@ function Post({ post, setPosts }) {
           ))}
         </div>
       </div>
-      <p>{post.context}</p>
+      <p>{currentPost?.context}</p>
       <div className="w-full">
-        {post.photo && (
+        {currentPost?.photo && (
           <img
-            src={post.photo?.url}
-            alt={post.title}
+            src={currentPost?.photo?.url}
+            alt={currentPost?.title}
             className="mt-4 w-full rounded-lg object-cover"
           />
         )}
       </div>
       <div className="flex items-center gap-x-4">
-        <PostVotes post={post} setPosts={setPosts} />
+        <PostVotes post={currentPost} setCurrentPost={setCurrentPost} />
         <Link
-          to={`/community/post/${post._id}`}
+          to={`/community/post/${currentPost?._id}`}
           className="flex h-8 items-center gap-x-2 rounded-full bg-neutral-100 px-2 font-medium hover:bg-neutral-200"
         >
           <svg
@@ -86,6 +88,5 @@ function Post({ post, setPosts }) {
 }
 Post.propTypes = {
   post: PropTypes.object.isRequired,
-  setPosts: PropTypes.func.isRequired,
 };
 export default Post;
