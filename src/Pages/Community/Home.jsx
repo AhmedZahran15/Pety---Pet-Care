@@ -45,8 +45,11 @@ function Home() {
           to="new-post"
           className="w-full rounded-full bg-neutral-100 p-4 transition-all duration-100 hover:bg-neutral-200"
         >
-          What&apos;s on your mind,&nbsp;
-          {userData?.firstName[0] + userData?.firstName.slice(1)}?
+          What&apos;s on your mind
+          {userData
+            ? ",&nbsp;" + userData?.firstName[0] + userData?.firstName.slice(1)
+            : ""}
+          ?
         </Link>
       </div>
       <Outlet />
