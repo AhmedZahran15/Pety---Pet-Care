@@ -8,7 +8,7 @@ function Community() {
     <div className="relative flex flex-col bg-neutral-100">
       <Header />
       <HeroSection />
-      <div className="container mx-auto mt-4 flex flex-col justify-between px-4 lg:mt-0 lg:flex-row">
+      <div className="container mx-auto flex flex-col justify-between gap-4 px-4 lg:flex-row">
         <Sidebar />
         <Outlet />
       </div>
