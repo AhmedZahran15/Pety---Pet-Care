@@ -49,7 +49,7 @@ const features = [
 
 function FeaturesSection() {
   return (
-    <div className="mt-20 flex flex-wrap items-start justify-evenly gap-x-8 gap-y-8 px-8 lg:px-16 xl:gap-x-32">
+    <div className="container mx-auto mt-20 flex flex-wrap items-start justify-evenly gap-x-8 gap-y-8 px-8 xl:gap-x-32">
       {features.map((feature) => (
         <Feature
           key={feature.title}
