@@ -1,10 +1,18 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 function PostVotes({ post, setCurrentPost }) {
-  const userId = JSON.parse(localStorage.getItem("userData"))._id;
+  const userId = JSON.parse(localStorage.getItem("userData"))?._id;
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   const { downvotes: downVotes, upvotes: upVotes, votes } = post;
   const handleUpVote = async () => {
     try {
+      if (!token || !userId) {
+        navigate("/auth/login");
+        toast.error("Please login to upvote");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/posts/upvote`,
         {
@@ -25,6 +33,11 @@ function PostVotes({ post, setCurrentPost }) {
   };
   const handleDownVote = async () => {
     try {
+      if (!token || !userId) {
+        navigate("/auth/login");
+        toast.error("Please login to downvote");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/posts/downvote`,
         {
@@ -45,6 +58,10 @@ function PostVotes({ post, setCurrentPost }) {
   };
   const handleRemoveVote = async () => {
     try {
+      if (!token || !userId) {
+        navigate("/auth/login");
+        return;
+      }
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/posts/resetvote`,
         {
