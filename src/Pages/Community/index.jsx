@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import HeroSection from "./HeroSection";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-
+import Footer from "../../components/Footer";
 function Community() {
   return (
     <div className="relative flex flex-col bg-neutral-100">
@@ -12,6 +12,7 @@ function Community() {
         <Sidebar />
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 }
