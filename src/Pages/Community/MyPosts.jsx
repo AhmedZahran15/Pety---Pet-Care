@@ -47,9 +47,9 @@ function MyPosts() {
           className="w-full rounded-full bg-neutral-100 p-4 transition-all duration-100 hover:bg-neutral-200"
         >
           What&apos;s on your mind
-          {userData
-            ? ",&nbsp;" + userData?.firstName[0] + userData?.firstName.slice(1)
-            : ""}
+          <span className="capitalize">
+            {userData ? ", " + userData?.firstName : ""}
+          </span>
           ?
         </Link>
       </div>
