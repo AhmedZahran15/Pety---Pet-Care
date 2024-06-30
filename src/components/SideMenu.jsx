@@ -60,7 +60,7 @@ export const SideMenu = () => {
           onClick={handleShowSideMenu}
           className="nav-link w-fit text-3xl font-medium  opacity-70 transition-all duration-300 hover:opacity-100"
         >
-          <Link to="/chatbot">Medbot</Link>
+          <Link to="/chatbot">PetBot</Link>
         </li>
         <li
           onClick={handleShowSideMenu}

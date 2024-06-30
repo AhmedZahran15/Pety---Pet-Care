@@ -12,7 +12,7 @@ function ChatInput() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setStartMessage(
-        "Hi there! I'm MedBot, and I'm happy to answer any questions you have about your furry friend.",
+        "Hi there! I'm PetBot, and I'm happy to answer any questions you have about your furry friend.",
       );
       setStartMessageIsLoading(false);
     }, 1000);
@@ -60,11 +60,11 @@ function ChatInput() {
                 <img
                   className="box-border h-9 w-9 rounded-full"
                   src="/images/homepage/chatBot.png"
-                  alt="Medbot"
+                  alt="PetBot"
                 />
               </span>
               <span className="font-Montserrat text-base font-semibold">
-                Medbot
+                PetBot
               </span>
             </div>
             <p className="rounded-xl bg-blue-50 p-2 px-3 font-Montserrat text-base font-medium shadow-md shadow-neutral-200">
@@ -92,11 +92,11 @@ function ChatInput() {
                       ? "/userImage.png"
                       : "/images/homepage/chatBot.png"
                   }
-                  alt={_index % 2 === 0 ? "user" : "Medbot"}
+                  alt={_index % 2 === 0 ? "user" : "PetBot"}
                 />
               </span>
               <span className="font-Montserrat text-base font-semibold">
-                {_index % 2 === 0 ? `You` : `Medbot`}
+                {_index % 2 === 0 ? `You` : `PetBot`}
               </span>
             </div>
             <p

@@ -39,7 +39,7 @@ const features = [
   {
     img: "/images/homepage/chatBot.png",
     alt: "Chatbot image",
-    title: "Medbot",
+    title: "PetBot",
     description:
       "Chat with our Ai Chatbot. It will help you with any questions you have.",
     color: "#BC88FF",

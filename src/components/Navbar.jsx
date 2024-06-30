@@ -35,7 +35,7 @@ const Navbar = () => {
               <Link to="/community">Community</Link>
             </li>
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
-              <Link to="/chatbot">Medbot</Link>
+              <Link to="/chatbot">PetBot</Link>
             </li>
             <li className="Medium text-xl font-normal text-white opacity-50 transition-all duration-300 hover:opacity-100">
               <Link to="/contact">Contact</Link>

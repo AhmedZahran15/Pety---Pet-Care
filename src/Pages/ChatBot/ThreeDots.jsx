@@ -5,7 +5,7 @@ function ThreeDots() {
         <img
           src="/images/homepage/chatBot.png"
           className="h-6 w-6"
-          alt="MedBot"
+          alt="PetBot"
         />
       </div>
       <div className="flex h-fit items-center justify-center space-x-2 rounded-full border border-neutral-400 bg-neutral-100 px-2 py-1.5">
