@@ -158,7 +158,7 @@ function Register() {
     >
       <Link
         to="/"
-        className="flex w-fit items-center justify-center gap-x-2 px-4 py-2"
+        className="flex w-fit items-center justify-center gap-x-2 px-4"
       >
         <img src="/logoAlt.png" alt="Pety Logo" className="h-[50] w-[98px]" />
       </Link>
