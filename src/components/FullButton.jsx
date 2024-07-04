@@ -10,7 +10,7 @@ export const FullButton = ({ text, enabled }) => {
       type="submit"
       disabled={!enabled}
       className={
-        "hover:bg-primaryDark mt-6 w-1/2 self-center rounded-xl px-4 py-2 text-lg  text-white disabled:bg-gray-300 " +
+        "mt-6 flex w-1/2 items-center justify-center gap-x-2 self-center rounded-xl px-4 py-2 text-lg text-white  hover:bg-primaryDark disabled:bg-gray-300 " +
         (enabled ? "cursor-pointer bg-primary" : "bg-gray-400") +
         (isLoading ? " cursor-not-allowed" : "")
       }
