@@ -42,7 +42,13 @@ function UserDropDown() {
           </div>
           <picture className="h-[44px] max-h-[48px] w-[48px] max-w-[44px] overflow-clip rounded-full">
             <img
-              src={photo?.url || "/userImage.png"}
+              src={
+                photo?.url ||
+                (pathname.includes("/dashboard") ||
+                pathname.includes("/chatbot")
+                  ? "/userImage.png"
+                  : "/userImageAlt.png")
+              }
               alt="pet worker"
               className="h-full w-full rounded-full object-cover"
             />
