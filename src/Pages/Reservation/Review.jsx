@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
 import Star from "../../components/Star";
 import moment from "moment";
-import { useContext, useRef } from "react";
-import AuthContext from "../../contexts/AuthContext";
+import { useRef } from "react";
 import Modal from "../../components/Modal";
 import EditReview from "./EditReview";
 import DeleteReview from "./DeleteReview";
 function Review({ review, handleEditReview, handleDeleteReview }) {
-  const { userData } = useContext(AuthContext);
-  const userId = userData?._id;
+  const userId = JSON.parse(localStorage.getItem("userData"))?._id;
   const dialogRef = useRef(null);
   const deleteDialogRef = useRef(null);
   function toggleDialog() {
@@ -52,10 +50,11 @@ function Review({ review, handleEditReview, handleDeleteReview }) {
       <p className="w-full self-start break-words text-base font-normal text-neutral-800 lg:max-w-md xl:max-w-xl">
         {review.review}
       </p>
-      <div className="absolute bottom-3 right-2 flex gap-x-2">
+      <div
+        className={`absolute bottom-3 right-2 flex gap-x-2 ${userId !== review.user._id ? "hidden" : "block"}`}
+      >
         <button
           className="flex items-center gap-x-1 text-sm font-normal text-neutral-600"
-          hidden={userId === review.user._id}
           onClick={toggleDialog}
         >
           <svg
@@ -73,7 +72,6 @@ function Review({ review, handleEditReview, handleDeleteReview }) {
         </button>
         <button
           className="flex items-center gap-x-1 text-sm font-normal text-neutral-600"
-          hidden={userId !== review.user._id}
           onClick={toggleDeleteDialog}
         >
           <svg
