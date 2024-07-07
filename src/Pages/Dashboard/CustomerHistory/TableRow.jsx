@@ -64,6 +64,7 @@ function TableRow({ index, reservation }) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const response = await fetch(
         `${import.meta.env.VITE_API_LINK}/api/history`,
         {
@@ -88,6 +89,7 @@ function TableRow({ index, reservation }) {
     } catch (error) {
       console.error(error);
     }
+    setIsLoading(false);
     setAnimal({
       animalName: "",
       animalType: "",
@@ -307,6 +309,7 @@ function TableRow({ index, reservation }) {
                   </button>
                   <button
                     type="submit"
+                    disabled={isLoading}
                     className="w-36 shrink-0 rounded-lg bg-primary p-2 text-white"
                   >
                     Add Prescription
