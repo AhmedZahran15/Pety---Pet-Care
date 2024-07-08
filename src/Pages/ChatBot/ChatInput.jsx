@@ -8,6 +8,7 @@ function ChatInput() {
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
+  const userData = JSON.parse(localStorage.getItem("userData"));
   const messagesEndRef = useRef(null);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -89,7 +90,7 @@ function ChatInput() {
                   className="box-border h-9 w-9 rounded-full"
                   src={
                     _index % 2 === 0
-                      ? "/userImage.png"
+                      ? userData?.photo?.url || "/userImage.png"
                       : "/images/homepage/chatBot.png"
                   }
                   alt={_index % 2 === 0 ? "user" : "PetBot"}
